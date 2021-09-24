@@ -1,0 +1,45 @@
+\RequirePackage{amsmath}% fixes warning
+\documentclass[runningheads]{llncs}
+
+\input{settings}
+%makeindex thesis.nlo -s nomencl.ist -o thesis.nls
+
+\begin{document}
+% \pagenumbering{gobble}
+
+\input{chapters/0_cover.tex}
+\input{chapters/0_abstract.tex}
+\input{chapters/0_resumo.tex}
+\input{chapters/0_acknowledgements.tex}
+
+\bfseries
+\tableofcontents
+\normalfont
+
+\listoffigures
+\listoftables
+
+
+%% Fix for the nomenclature spacing
+\newlength{\nomitemorigsep}
+\setlength{\nomitemorigsep}{\nomitemsep}
+\setlength{\nomitemsep}{-\parsep}
+
+\hypertarget{abbr}{\printnomenclature{}}
+\clearpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%\linenumbers
+\input{chapters/1_introduction}
+\input{chapters/2_related_work}
+\input{chapters/3_methodology}
+\input{chapters/4_results}
+\input{chapters/5_discussion}
+
+%\nolinenumbers
+
+% ---- Bibliography ----
+\bibliographystyle{plain}
+\bibliography{mybibliography.bib}
+\end{document}

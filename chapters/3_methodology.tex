@@ -1,0 +1,209 @@
+\section{Methodology}
+
+% \section{Proposed Solution}
+This section provides a hardware and software solution outline, describing the development and implementation of a low-cost, multipurpose Inertial Navigation System with experimental tests. Resultant findings are analyzed and validated to assess the implemented system's positioning and orientation (AHRS) effectiveness and precision. Several fusion algorithms will be benchmarked by performance and accuracy.
+This development was achieved mainly in three phases, system design, hardware application, and software implementation.
+
+\subsection{Evaluation Methodology}
+%Estimation pipeline
+% Field tests are in methodology. 
+% -Indoor field test, discover issues with electromagnetic interference, surface washad friction causing slow downs. (garage and tecno)
+%-Outdoor field test, praça do povo tests, avoind macrovibrations from dragging, and less magnetic field
+\subsubsection{Obtaining AHRS from sensor fusion}
+
+The first experiment involved obtaining orientation (AHRS) from the fusion of the three sensor outputs. The accelerometer provided the system's proper acceleration; the gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux. In this first experiment, we first utilized the Madgwick algorithm to sensor fusion for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. A simple test was performed using a box containing the inertial navigation system and rotating around its three inertial axes, pitch, roll, and yaw, with a sampling frequency of 20 Hz. The raw output measurements from the sensors are visualized in figure \ref{fig:sensoroutput} and are subsequently taken as input by the sensor fusion algorithm.
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/raw.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:sensoroutput}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/quaternion.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+The fusion output is shown in figure \ref{fig:madgwickAHRS}. About sample \#140 there was a shift in pitch to -40º and later jumping to 40º. Around sample \#350 there is a change in roll to 60º and then -40º, and around sample \#540 there is a variation in yaw value. This output is analogous to the movement made on the board.
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/euler.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+\subsubsection{Estimating position}
+Accelerometer readings can measure proper acceleration forces, which can be employed to determine a body's velocity and position relative to a starting point. Integrating the resultant of acceleration will yield velocity, and double integrating will provide the body's accumulative position.
+
+Once the measured inertial-frame acceleration is attained, it can be integrated to obtain inertial frame velocity $v_i$  and position $x_i$ can be calculated:
+\begin{equation}
+    v_i = v_0 +  \int^t a_i~dt
+\end{equation}
+
+\begin{equation}
+    x_i = x_0 + \iint^t a_i~dt
+\end{equation}
+
+In practice, data is acquired at discrete time periods ($\Delta t$) so the approximate velocity and position are estimated by:
+
+\begin{equation}
+    v_i[k+1]= v_i[k]+a_i[k]\Delta t
+\end{equation}
+
+\begin{equation}
+    x_i[k+1]= x_i[k]+v_i[k]\Delta t
+\end{equation}
+
+However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:sensoroutput} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:compensation}). Resulting in a linear acceleration that corresponds to the physical acceleration of the device. This linear acceleration can be numerically integrated returning velocity and double integrating delivering the position of the device (figure \ref{fig:position}).
+
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/gravity.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/orientation_position.pdf}
+    \caption{Overview of the position estimation method.}
+    \label{fig:position}
+\end{figure}
+
+The next step consisted of experimentally testing the inertial system seeking to achieve position estimation merely by integrating the accelerometer measurements with the gravity compensation filter. Numerous experiments were performed in several settings. The tests involved walking on a straight line carrying a box containing the inertial system (with the inertial X-axis parallel to the path) for around 30 meters, evaluating the computed acceleration, velocity, and accumulative position estimation. Specific tests were executed at walking pace, others at running pace, and some with a combination of both.
+
+% \begin{figure}[!h]
+%     \input{plots/acc}
+%     \input{plots/vel}
+%     \input{plots/pos}
+%     \caption{Experiment conducted with X-axis only accelerometer measurement with gravity compensation. Carrying the INS torso height through 30 meters straight and briefly stopping halfway. }
+%     \label{fig:1dimension}
+% \end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/integration.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:sensoroutput}
+\end{figure}
+
+First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:1dimension}, where the final observed accumulative position was 25 meters.
+
+\begin{figure}
+    \input{plots/2Dorientation}
+    \caption{Experiment combined X-axis and Y-axis accelerometer measurement with orientation estimation. Conducted test involved walking counterclockwise on a circular shape of around 8 meters in diameter. }
+    \label{fig:2dimension}
+\end{figure}
+
+In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:2dimension} shows an experiment performed with two-dimensional positioning.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/experiment2.jpg}
+    \caption{ 5 meter side ground square used for baseline of accuracy of inertial system. }
+    \label{fig:full}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/experiment3.jpg}
+    \caption{ Experiment made with skateboard to assess localization accuracy. }
+    \label{fig:full}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/experiment.jpg}
+    \caption{ Manually pulling the skateboard on each side of the ground square. }
+    \label{fig:full}
+\end{figure}
+
+Finally, only the three-dimensional experiment was left combining the output readings from the Z-axis accelerometer. The same previous procedure was employed in this experimentation; the output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes. A similar movement to the two-dimensional test was performed, but this time wobbling the inertial unit vertically to better visualize the position variation on the Z-axis. An example of an experimental test conducted in three dimensions in visible is figure \ref{fig:3dimensions}.
+
+\begin{figure}[!h]
+    \input{plots/3Dorientation}
+    \caption{Same experiment conducted in figure \ref{fig:2dimension}  with Z-axis altitude estimation. }
+    \label{fig:3dimensions}
+\end{figure}
+
+\begin{figure}[!h]
+    \input{plots/square}
+    \caption{Same experiment conducted in figure \ref{fig:2dimension}  with Z-axis altitude estimation. }
+    \label{fig:3dimensions}
+\end{figure}
+
+\begin{figure}[!h]
+    \input{plots/circle}
+    \caption{Same experiment conducted in figure \ref{fig:2dimension}  with Z-axis altitude estimation. }
+    \label{fig:3dimensions}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \input{plots/triangle}
+    \caption{Same experiment conducted in figure \ref{fig:2dimension}  with Z-axis altitude estimation. }
+    \label{fig:3dimensions}
+\end{figure}
+
+
+% \subsubsection{Providing motion in 3d space with pressure for Z axis}
+
+% \subsubsection{Using GPS as a baseline against RSSI/distance}
+
+
+\subsection{System Architecture}
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:hardware}.a) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:hardware}.b) IMU (3x3x1mm) with nine degrees of freedom comprising three accelerometers, three orthogonal gyros, three magnetometers as well as temperature and pressure sensors. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
+
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. Moreover, the navigation system is equipped with a LoRa antenna enabling the system to transmit at 868MHz/915MHz LoRa bands in real-time at a long distance the position and orientation information to an external gateway (figure \ref{fig:overview}). A visualization of the entire hardware solution is provided at image \ref{fig:full}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.25\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/INS.jpg}
+        \caption{INS Hardware}
+        \label{fig:sub1}
+    \end{subfigure}%
+    \begin{subfigure}{0.25\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/mpu9150.jpg}
+        \caption{MPU-9250 Breakout}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:hardware}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/overview.pdf}
+    \caption{System overview - Raw measurements from IMU are fused together and numerically integrated to obtain position and orientation. This INS data is transmitted in real-time to a remote node gateway. }
+    \label{fig:overview}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/fullINS.jpg}
+    \caption{Complete hardware solution - Box containing the full inertial navigation system, at the left the antenna  suitable for use in the 868MHz/915MHz LoRa bands. }
+    \label{fig:full}
+\end{figure}
+% \onecolumn
+% \subsection{Planing (gantt-chart)}
+% \subsection{Experiment 1. AHRS on IoT Devices}
+% Pitch, Roll, Yaw, 
+
+% \subsection{Experiment 2. Distance Estimation Techniques}
+% Position in Euclidean space.
+% GPS, Altitude (z), acc -> velocity, velocity -> displacement, with magnetic north
+
+% \subsection{Experiment 3. Comparisons on divers flying units} % balloon, UAV, parasailing
+
+
+% \subsection{System Architecture}
+% \subsection{Software / Algorithms}
+% \subsection{Hardware}

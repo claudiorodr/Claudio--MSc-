@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: plain.bst
+Database file #1: mybibliography.bib
+Warning--there's a number but no volume in higgins1975comparison
+Warning--can't use both volume and number fields in stirling2003innovative
+Warning--empty journal in zeitlhofler2019nominal
+You've used 45 entries,
+            2118 wiz_defined-function locations,
+            772 strings with 13508 characters,
+and the built_in function-call counts, 17951 in all, are:
+= -- 1847
+> -- 814
+< -- 17
++ -- 331
+- -- 274
+* -- 1305
+:= -- 2841
+add.period$ -- 147
+call.type$ -- 45
+change.case$ -- 271
+chr.to.int$ -- 0
+cite$ -- 48
+duplicate$ -- 669
+empty$ -- 1379
+format.name$ -- 274
+if$ -- 3820
+int.to.chr$ -- 0
+int.to.str$ -- 45
+missing$ -- 44
+newline$ -- 227
+num.names$ -- 90
+pop$ -- 266
+preamble$ -- 1
+purify$ -- 226
+quote$ -- 0
+skip$ -- 496
+stack$ -- 0
+substring$ -- 1338
+swap$ -- 197
+text.length$ -- 17
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 180
+warning$ -- 3
+while$ -- 185
+width$ -- 47
+write$ -- 507
+(There were 3 warnings)
