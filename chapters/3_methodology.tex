@@ -94,10 +94,17 @@ The next step consisted of experimentally testing the inertial system seeking to
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:1dimension}, where the final observed accumulative position was 25 meters.
 
+% \begin{figure}
+%     \input{plots/2Dorientation}
+%     \caption{Experiment combined X-axis and Y-axis accelerometer measurement with orientation estimation. Conducted test involved walking counterclockwise on a circular shape of around 8 meters in diameter. }
+%     \label{fig:2dimension}
+% \end{figure}
+
 \begin{figure}
-    \input{plots/2Dorientation}
-    \caption{Experiment combined X-axis and Y-axis accelerometer measurement with orientation estimation. Conducted test involved walking counterclockwise on a circular shape of around 8 meters in diameter. }
-    \label{fig:2dimension}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
 \end{figure}
 
 In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:2dimension} shows an experiment performed with two-dimensional positioning.
@@ -129,6 +136,13 @@ Finally, only the three-dimensional experiment was left combining the output rea
     \input{plots/3Dorientation}
     \caption{Same experiment conducted in figure \ref{fig:2dimension}  with Z-axis altitude estimation. }
     \label{fig:3dimensions}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square3D.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
 \end{figure}
 
 \begin{figure}[!h]
