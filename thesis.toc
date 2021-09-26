@@ -10,7 +10,7 @@
 \contentsline {paragraph}{\numberline {1.1.0.3}C. Gravity acceleration greatly impacts sensor readings}{3}{paragraph.0.1.1.0.3}%
 \contentsline {subsection}{\numberline {1.2}Research Questions}{4}{subsection.0.1.2}%
 \contentsline {section}{\numberline {2}Background}{5}{section.0.2}%
-\contentsline {subsection}{\numberline {2.1}Definition of frames}{6}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {2.1}Frames}{6}{subsection.0.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}ECEF and ENU frame}{6}{subsubsection.0.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Body frame}{6}{subsubsection.0.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Orientation}{7}{subsection.0.2.2}%
