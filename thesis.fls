@@ -1474,6 +1474,11 @@ INPUT chapters/2_background.tex
 INPUT ./chapters/2_background.tex
 INPUT ./chapters/2_background.tex
 INPUT chapters/2_background.tex
+INPUT ./figures/ECEF.jpg
+INPUT ./figures/ECEF.jpg
+INPUT figures/ECEF.jpg
+INPUT ./figures/ECEF.jpg
+INPUT ./figures/ECEF.jpg
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
