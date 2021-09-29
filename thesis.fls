@@ -1479,6 +1479,8 @@ INPUT ./figures/ECEF.jpg
 INPUT figures/ECEF.jpg
 INPUT ./figures/ECEF.jpg
 INPUT ./figures/ECEF.jpg
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
