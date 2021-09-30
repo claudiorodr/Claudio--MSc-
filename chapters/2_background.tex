@@ -44,27 +44,21 @@ Considering a point of reference in the ECEF frame, it is required to discover t
             Second eccentricity squared & $e'^{2}$ & 6.739 496 742 28x10-3 \\
             \hline
         \end{tabular}
-        \caption{WGS 84 Defining Parameters.}
+        \caption{WGS 84 needed parameters to convert ECEF coordinates into ENU. }
         \label{tab:WGS}
     \end{center}
 \end{table}
 
-Using set of equations (2.1) to estimate the latitude and longitude for the reference coordinate point. The final transformation results in applying (2.2) to ECEF physical quantities
+Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities.
 
 \begin{equation}
-    p = \sqrt{(X_r)^2 + (Y_r)^2}
-\end{equation}
-
-\begin{equation}
-    \theta = \arctan(Z_r\frac{a}{pb} )
-\end{equation}
-
-\begin{equation}
-    \lambda_r = \arctan(Y_r,X_r)
-\end{equation}
-
-\begin{equation}
-    \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )} )
+    \begin{aligned}
+         & p = \sqrt{(X_r)^2 + (Y_r)^2}                                                      \\
+         & \theta = \arctan(Z_r\frac{a}{pb} )                                                \\
+         & \lambda_r = \arctan(Y_r,X_r)                                                      \\
+         & \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )} ) \\
+    \end{aligned}
+    \label{eq:transformation}
 \end{equation}
 
 \begin{equation}
@@ -72,7 +66,7 @@ Using set of equations (2.1) to estimate the latitude and longitude for the refe
         x \\
         y \\
         z
-    \end{bmatrix}
+    \end{bmatrix}_{ENU}
     =
     \begin{bmatrix}
         -\sin(\lambda_r)             & \cos( \phi_r)                  & 0            \\
@@ -83,19 +77,13 @@ Using set of equations (2.1) to estimate the latitude and longitude for the refe
         X_p - X_r \\
         Y_p - Y_r \\
         Z_p - Z_r
-    \end{bmatrix}
+    \end{bmatrix}_{ECEF}
+    \label{eq:transformation_results}
 \end{equation}
 
 \subsubsection{Body frame}
 
-Each sensor present in the razor board is aligned to match the sensor axes printed in the board as
-seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the
-bisector segment between the two wheel axes in such a away that YY axis as marked in the figure 3.1
-is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is
-pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world
-frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin.
-Rotation angles are considered positive following the right hand rule in each axis. The origin of body
-frame is equal to intersection of rear wheel axis with the bisector defined above.
+Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two wheel axes in such a away that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
 
 \subsection{Orientation}
 
@@ -103,6 +91,26 @@ The attitude orientation of a UAV is a critical aspect in autonomous flight. In 
 AHRS, accuracy and low complexity are important in calculating the attitude of the UAV.
 There are various ways to represent attitude including: Euler angles, quaternions, direct
 cosine matrix, and rotational matrix.
+
+\subsubsection{Rotation Matrix}
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix.tex}}
+    \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix3D.tex}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+\begin{equation}
+    \textrm{$_{b}^{a}R$}
+    =
+    \begin{bmatrix}
+        \textrm{$^{a}r_{xx}$} & \textrm{$^{a}r_{yx}$} & \textrm{$^{a}r_{zx}$} \\
+        \textrm{$^{a}r_{xy}$} & \textrm{$^{a}r_{yy}$} & \textrm{$^{a}r_{zy}$} \\
+        \textrm{$^{a}r_{xz}$} & \textrm{$^{a}r_{yz}$} & \textrm{$^{a}r_{zz}$} \\
+    \end{bmatrix}
+\end{equation}
 
 \subsubsection{Euler angles}
 
@@ -121,16 +129,6 @@ Euler angles have one disadvantage, which is known as Gimbal lock. Euler angles 
 as a gimballed system, where the three axes can be thought of as three separate gimbals
 connected together. Gimbal lock occurs when two axis are aligned, such as when the plane
 is pitched straight up, the pitch an the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both effected the same, therefore losing orientation. The singularity problem can be fixed by adding another gimbal, or using an ad hoc approach to hard code values or use limits in the algorithm. The approach used in this thesis is to use a different representation adding another gimbal, known as quaternions. It is necessary to use an attitude representation with the least amount of elements because of the low-cost system requirements of low complexity. Whenever propagating attitude estimation through the Kalman filter, matrix multiplication increases in comlexity with more elements, especically in finding the inverse of a matrix.
-
-\begin{equation}
-    \textrm{$_{b}^{a}R$}
-    =
-    \begin{bmatrix}
-        \textrm{$^{a}r_{xx}$} & \textrm{$^{a}r_{yx}$} & \textrm{$^{a}r_{zx}$} \\
-        \textrm{$^{a}r_{xy}$} & \textrm{$^{a}r_{yy}$} & \textrm{$^{a}r_{zy}$} \\
-        \textrm{$^{a}r_{xz}$} & \textrm{$^{a}r_{yz}$} & \textrm{$^{a}r_{zz}$} \\
-    \end{bmatrix}
-\end{equation}
 
 \subsubsection{Quaternions}
 
