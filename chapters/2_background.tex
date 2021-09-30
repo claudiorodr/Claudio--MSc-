@@ -89,18 +89,28 @@ Each sensor present in the razor board is aligned to match the sensor axes print
 
 The attitude orientation of a UAV is a critical aspect in autonomous flight. In a low-cost
 AHRS, accuracy and low complexity are important in calculating the attitude of the UAV.
-There are various ways to represent attitude including: Euler angles, quaternions, direct
-cosine matrix, and rotational matrix.
+There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
 
 \subsubsection{Rotation Matrix}
+
+The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
+
+\begin{equation}
+    R = X(\alpha)Y(\beta)Z(\gamma)
+    \label{eq:rotation_matrices}
+\end{equation}
+
+In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order). The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
+
 
 \begin{figure}[!h]
     \centering
     \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix.tex}}
     \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix3D.tex}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
+    \label{fig:axes_frames}
 \end{figure}
+
 
 \begin{equation}
     \textrm{$_{b}^{a}R$}
@@ -110,14 +120,36 @@ cosine matrix, and rotational matrix.
         \textrm{$^{a}r_{xy}$} & \textrm{$^{a}r_{yy}$} & \textrm{$^{a}r_{zy}$} \\
         \textrm{$^{a}r_{xz}$} & \textrm{$^{a}r_{yz}$} & \textrm{$^{a}r_{zz}$} \\
     \end{bmatrix}
+    \label{eq:axes_frames}
 \end{equation}
+
+Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR−1 . Also a bRT is equal to b aR [36][37].
 
 \subsubsection{Euler angles}
 
-Euler angles are the easiest to intuitively understand. Euler angles are comprised of three angles, roll, pitch and yaw. The roll angle $\varphi$  is the axis pointed out the nose and rotates the plane, along the x-axis. The pitch angle $\varphi$ is the axis pointing out the right wing, and
-% represents the inclination and declination of the UAV. Lastly is the yaw angle $\varpsi$ is the axis
-pointing out the bottom of the plane, it is used in the calculation of the heading of the UAV.
-This representation of Euler angles are shown in figure 2.1.
+Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$. These angles represent three consecutive rotations about the axes of the coordinate frame, for example z-x-z 0: First rotate $\phi$ radians about the z-axis, then rotate $\theta$ radians about the x-axis and finally rotate $\psi$ radians about the new z-axis. According to differential equations of Euler angles givens (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be solved based on angular rate measurements. Only three differential equations need solving before the attitude gets clearly estimated. However, there exists a serious shortcoming with this solution. As cos $\theta$ approaches zero, the differential equations degrade fast and the solution becomes badly inaccurate, which means that these equations cannot give effective attitude solution at some singular points of the attitude space:
+
+
+\begin{equation}
+    \begin{bmatrix}
+        \dot{\psi}   \\
+        \dot{\theta} \\
+        \dot{\phi}   \\
+    \end{bmatrix}
+    =
+    \frac{1}{\cos(\phi)}
+    \begin{bmatrix}
+        \sin(\phi)             & 0 & -\cos(\phi)            \\
+        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \omega{^b_{nbx}} \\
+        \omega{^b_{nby}} \\
+        \omega{^b_{nbz}} \\
+    \end{bmatrix}
+    \label{eq:euler_equation}
+\end{equation}
 
 The order of which the angles are represented in a vector is not important, however the
 order of rotation is. The order of rotation used in the implemented Kalman filter algorithm is: roll, pitch, and yaw. The reason for using this ordering is due to how the attitude is perceived. A UAV in autonomous flight typically does not incline or decline at a high rate, however it may roll at a high rate. To accurately understand the orientation of the UAV with respect to the Euler angles, it must be read from the roll first, then pitch, then yaw.

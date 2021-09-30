@@ -1,0 +1,48 @@
+\babel@toc {english}{}\relax 
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{7}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{10}{chapter*.6}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Problem Statement}{2}{subsection.0.1.1}%
+\contentsline {paragraph}{\numberline {1.1.0.1}A. GNSS only positioning is prone to signal jamming and impacts battery autonomy}{2}{paragraph.0.1.1.0.1}%
+\contentsline {paragraph}{\numberline {1.1.0.2}B. Dead reckoning is susceptible to cumulative errors and suffers from gimbal lock}{2}{paragraph.0.1.1.0.2}%
+\contentsline {paragraph}{\numberline {1.1.0.3}C. Gravity acceleration greatly impacts sensor readings}{3}{paragraph.0.1.1.0.3}%
+\contentsline {subsection}{\numberline {1.2}Research Questions}{4}{subsection.0.1.2}%
+\contentsline {section}{\numberline {2}Background}{5}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Frames of coordinates}{6}{subsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}ECEF and ENU frame}{6}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Body frame}{8}{subsubsection.0.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Orientation}{8}{subsection.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Rotation Matrix}{8}{subsubsection.0.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Euler angles}{10}{subsubsection.0.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Quaternions}{11}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Accelerometer}{13}{subsubsection.0.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Gyroscope}{13}{subsubsection.0.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Magnetometer}{13}{subsubsection.0.2.2.6}%
+\contentsline {subsection}{\numberline {2.3}Sensor Fusion}{13}{subsection.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Sensor Fusion Algoritms}{13}{subsubsection.0.2.3.1}%
+\contentsline {paragraph}{\numberline {2.3.1.1}Kalman Filter}{13}{paragraph.0.2.3.1.1}%
+\contentsline {paragraph}{\numberline {2.3.1.2}Complementary Filter}{13}{paragraph.0.2.3.1.2}%
+\contentsline {paragraph}{\numberline {2.3.1.3}Optimization Filters}{15}{paragraph.0.2.3.1.3}%
+\contentsline {paragraph}{\numberline {2.3.1.4}Other Filters}{15}{paragraph.0.2.3.1.4}%
+\contentsline {subsection}{\numberline {2.4}Low-Cost Inertial Measurement Units}{15}{subsection.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}MPU-9150 Evaluation Board 9DOF}{15}{subsubsection.0.2.4.1}%
+\contentsline {section}{\numberline {3}Related Work}{15}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Position estimation using inertial sensor systems}{16}{subsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Pedestrian Dead Reckoning}{16}{subsubsection.0.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Strapdown Inertial Integration}{17}{subsubsection.0.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Sensor fusion in position and orientation estimation }{18}{subsection.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Kalman filter}{18}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Complementary filter}{20}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Optimization filters}{22}{subsubsection.0.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Sensor fusion algorithms comparison}{22}{subsubsection.0.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Thesis Contribution}{23}{subsection.0.3.3}%
+\contentsline {section}{\numberline {4}Methodology}{23}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Evaluation Methodology}{24}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Obtaining AHRS from sensor fusion}{24}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Estimating position}{24}{subsubsection.0.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}System Architecture}{32}{subsection.0.4.2}%
+\contentsline {section}{\numberline {5}Discussion}{36}{section.0.5}%
+\contentsline {section}{\numberline {6}Results}{36}{section.0.6}%
+\contentsline {chapter}{References}{38}{chapter*.33}%
