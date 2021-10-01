@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  30 SEP 2021 18:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  1 OCT 2021 22:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1032,26 +1032,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout6 = `thesis.toc'.
 
  [6] (./thesis.lof
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6910) has occurred while \output is active []
 
  [7
 
 ]
-
-LaTeX Warning: Reference `fig:2dimension' on page 8 undefined on input line 21.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 
-LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 23.
+LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 22.
 
 
 LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 24.
 
 
 LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 25.
+
+
+LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 26.
 
 )
 \tf@lof=\write7
@@ -1085,7 +1084,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
                    \relax 
 l.17 
       [2]
-<figures/gimbal lock.png, id=473, 853.1875pt x 330.23375pt>
+<figures/gimbal lock.png, id=483, 853.1875pt x 330.23375pt>
 File: figures/gimbal lock.png Graphic file (type png)
 <use figures/gimbal lock.png>
 Package pdftex.def Info: figures/gimbal lock.png  used on input line 25.
@@ -1109,27 +1108,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has b
 <to be read again> 
                    \relax 
 l.9 
-     [5]
-<figures/ECEF.jpg, id=500, 180.35522pt x 189.30902pt>
-File: figures/ECEF.jpg Graphic file (type jpg)
-<use figures/ECEF.jpg>
-Package pdftex.def Info: figures/ECEF.jpg  used on input line 25.
-(pdftex.def)             Requested size: 173.56177pt x 182.1881pt.
-
+     [5] (./figures/ECEF.tex)
 Underfull \vbox (badness 5681) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.29 
-      [6]
-Underfull \vbox (badness 2065) has occurred while \output is active []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
+      [6]pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.62 \end{equation}
-                    [7 <./figures/ECEF.jpg>]pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
+                    [7]pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.97 
@@ -1137,40 +1127,37 @@ l.97
 <to be read again> 
                    \relax 
 l.128 \subsubsection
-                    {Euler angles} [9]
-Underfull \vbox (badness 1337) has occurred while \output is active []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
+                    {Euler angles} [9]pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.164 
-       [10] [11]
-Underfull \vbox (badness 2326) has occurred while \output is active []
-
- [12]
-<figures/kalman1.pdf, id=561, 499.8675pt x 133.45859pt>
+l.172 
+       [10]
+File: figures/gimbal lock.png Graphic file (type png)
+<use figures/gimbal lock.png>
+Package pdftex.def Info: figures/gimbal lock.png  used on input line 176.
+(pdftex.def)             Requested size: 242.98541pt x 94.04704pt.
+ [11] [12]
+<figures/kalman1.pdf, id=574, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
-Package pdftex.def Info: figures/kalman1.pdf  used on input line 251.
+Package pdftex.def Info: figures/kalman1.pdf  used on input line 267.
 (pdftex.def)             Requested size: 156.20453pt x 41.70366pt.
-<figures/kalman2.pdf, id=562, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=575, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
-Package pdftex.def Info: figures/kalman2.pdf  used on input line 256.
+Package pdftex.def Info: figures/kalman2.pdf  used on input line 272.
 (pdftex.def)             Requested size: 156.20453pt x 37.90372pt.
  [13]
-<figures/complementary.pdf, id=573, 325.215pt x 136.5903pt>
+<figures/complementary.pdf, id=588, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
-Package pdftex.def Info: figures/complementary.pdf  used on input line 271.
+Package pdftex.def Info: figures/complementary.pdf  used on input line 287.
 (pdftex.def)             Requested size: 242.98541pt x 102.05688pt.
 
-Underfull \vbox (badness 2790) has occurred while \output is active []
 
- [14 <./figures/kalman1.pdf> <./figures/kalman2.pdf> <./figures/complementary.pdf>]) (./chapters/3_related_work.tex
-Underfull \vbox (badness 2469) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [15] [16] [17] [18]
+[14 <./figures/kalman1.pdf> <./figures/kalman2.pdf>]) (./chapters/3_related_work.tex [15 <./figures/complementary.pdf>] [16] [17] [18]
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package pdftex.def Info: figures/kalman1.pdf  used on input line 40.
@@ -1203,7 +1190,7 @@ LaTeX Warning: Reference `fig:madgwickAHRS' on page 24 undefined on input line 3
 LaTeX Warning: Reference `fig:compensation' on page 25 undefined on input line 61.
 
 [25] (./plots/gravity.pgf)
-<figures/orientation_position.pdf, id=718, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=732, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1223,18 +1210,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Warning: Reference `fig:2dimension' on page 30 undefined on input line 110.
 
-<figures/experiment2.jpg, id=741, 3276.24pt x 2457.18pt>
+<figures/experiment2.jpg, id=755, 3276.24pt x 2457.18pt>
 File: figures/experiment2.jpg Graphic file (type jpg)
 <use figures/experiment2.jpg>
 Package pdftex.def Info: figures/experiment2.jpg  used on input line 114.
 (pdftex.def)             Requested size: 164.88579pt x 123.65355pt.
 [30]
-<figures/experiment3.jpg, id=746, 3276.24pt x 2457.18pt>
+<figures/experiment3.jpg, id=760, 3276.24pt x 2457.18pt>
 File: figures/experiment3.jpg Graphic file (type jpg)
 <use figures/experiment3.jpg>
 Package pdftex.def Info: figures/experiment3.jpg  used on input line 121.
 (pdftex.def)             Requested size: 164.88579pt x 123.65355pt.
-<figures/experiment.jpg, id=747, 3276.24pt x 2457.18pt>
+<figures/experiment.jpg, id=761, 3276.24pt x 2457.18pt>
 File: figures/experiment.jpg Graphic file (type jpg)
 <use figures/experiment.jpg>
 Package pdftex.def Info: figures/experiment.jpg  used on input line 128.
@@ -1291,17 +1278,17 @@ Underfull \vbox (badness 1817) has occurred while \output is active []
 LaTeX Warning: Text page 34 contains only floats.
 
 [34] [35]
-<figures/INS.jpg, id=774, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=788, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package pdftex.def Info: figures/INS.jpg  used on input line 182.
 (pdftex.def)             Requested size: 86.78088pt x 86.79482pt.
-<figures/mpu9150.jpg, id=775, 81.906pt x 85.0377pt>
+<figures/mpu9150.jpg, id=789, 81.906pt x 85.0377pt>
 File: figures/mpu9150.jpg Graphic file (type jpg)
 <use figures/mpu9150.jpg>
 Package pdftex.def Info: figures/mpu9150.jpg  used on input line 188.
 (pdftex.def)             Requested size: 86.78088pt x 90.10577pt.
-<figures/overview.pdf, id=776, 421.575pt x 169.5936pt>
+<figures/overview.pdf, id=790, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
 Package pdftex.def Info: figures/overview.pdf  used on input line 198.
@@ -1310,7 +1297,7 @@ Package pdftex.def Info: figures/overview.pdf  used on input line 198.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/fullINS.jpg, id=777, 3569.335pt x 2569.6pt>
+<figures/fullINS.jpg, id=791, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
 Package pdftex.def Info: figures/fullINS.jpg  used on input line 205.
@@ -1331,21 +1318,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7B1877E690E8999798304714047E1159;8266.
+(rerunfilecheck)             Checksum: 1BF197EE3253392916D0E1260E42116C;8266.
  ) 
 Here is how much of TeX's memory you used:
- 50764 strings out of 478599
- 1150831 string characters out of 5858101
- 2908375 words of memory out of 5000000
- 67671 multiletter control sequences out of 15000+600000
+ 51044 strings out of 478599
+ 1156226 string characters out of 5858101
+ 2910664 words of memory out of 5000000
+ 67947 multiletter control sequences out of 15000+600000
  417331 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,19n,134p,2642b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on thesis.pdf (52 pages, 3368840 bytes).
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
+Output written on thesis.pdf (52 pages, 3355629 bytes).
 PDF statistics:
- 941 PDF objects out of 1000 (max. 8388607)
- 816 compressed objects within 9 object streams
- 185 named destinations out of 1000 (max. 500000)
- 443 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 960 PDF objects out of 1000 (max. 8388607)
+ 833 compressed objects within 9 object streams
+ 187 named destinations out of 1000 (max. 500000)
+ 438 words of extra memory for PDF output out of 10000 (max. 10000000)
 

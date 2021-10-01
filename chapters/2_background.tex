@@ -22,7 +22,7 @@ The East North Up (ENU) system is a geographic coordinate structure where the or
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/ECEF.jpg}
+    \resizebox{0.70\linewidth}{!}{\input{figures/ECEF}}
     \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\phi$ and $\lambda$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
     \label{fig:ECEF}
 \end{figure}
@@ -69,9 +69,9 @@ Applying the set of equations (\ref{eq:transformation}) to approximate latitude 
     \end{bmatrix}_{ENU}
     =
     \begin{bmatrix}
-        -\sin(\lambda_r)             & \cos( \phi_r)                  & 0            \\
-        -\sin(\phi_r)\cos(\lambda_r) & -\sin( \phi_r)\sin(\lambda_r)  & \cos(\phi_r) \\
-        \cos(\phi_r)\cos(\lambda_r)  & \cos( \phi_r)  \sin(\lambda_r) & \sin(\phi_r)
+        -\sin(\lambda_r)             & \cos( \phi_r)                 & 0            \\
+        -\sin(\phi_r)\cos(\lambda_r) & -\sin( \phi_r)\sin(\lambda_r) & \cos(\phi_r) \\
+        \cos(\phi_r)\cos(\lambda_r)  & \cos(\phi_r) \sin(\lambda_r)  & \sin(\phi_r)
     \end{bmatrix}
     \begin{bmatrix}
         X_p - X_r \\
@@ -127,8 +127,13 @@ Rotation matrices belong to the orthonormal group and one important property is 
 
 \subsubsection{Euler angles}
 
-Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$. These angles represent three consecutive rotations about the axes of the coordinate frame, for example z-x-z 0: First rotate $\phi$ radians about the z-axis, then rotate $\theta$ radians about the x-axis and finally rotate $\psi$ radians about the new z-axis. According to differential equations of Euler angles givens (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be solved based on angular rate measurements. Only three differential equations need solving before the attitude gets clearly estimated. However, there exists a serious shortcoming with this solution. As cos $\theta$ approaches zero, the differential equations degrade fast and the solution becomes badly inaccurate, which means that these equations cannot give effective attitude solution at some singular points of the attitude space:
-
+Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements. Merely three differential equations require solving prior to the attitude gets distinctly approximated.
+% \begin{figure}[!h]
+%     \centering
+%     \resizebox{0.70\linewidth}{!}{\input{figures/euler}}
+%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+%     \label{fig:axes_frames}
+% \end{figure}
 
 \begin{equation}
     \begin{bmatrix}
@@ -137,7 +142,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
         \dot{\phi}   \\
     \end{bmatrix}
     =
-    \frac{1}{\cos(\phi)}
+    \frac{1}{\cos(\theta)}
     \begin{bmatrix}
         \sin(\phi)             & 0 & -\cos(\phi)            \\
         \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
@@ -151,16 +156,27 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
     \label{eq:euler_equation}
 \end{equation}
 
-The order of which the angles are represented in a vector is not important, however the
-order of rotation is. The order of rotation used in the implemented Kalman filter algorithm is: roll, pitch, and yaw. The reason for using this ordering is due to how the attitude is perceived. A UAV in autonomous flight typically does not incline or decline at a high rate, however it may roll at a high rate. To accurately understand the orientation of the UAV with respect to the Euler angles, it must be read from the roll first, then pitch, then yaw.
-The roll will have the range of ±180, this allows the pitch to have the range of ±90◦. The
-yaw is represented using the range of ±180◦. The convention is used to keep the accurate
-orientation of the plane.
+\begin{equation}
+    {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
+    =
+    \begin{bmatrix}
+        \sin(\phi)             & 0 & -\cos(\phi)            \\
+        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+    \end{bmatrix}
+    \label{eq:euler_equations}
+\end{equation}
 
-Euler angles have one disadvantage, which is known as Gimbal lock. Euler angles act
-as a gimballed system, where the three axes can be thought of as three separate gimbals
-connected together. Gimbal lock occurs when two axis are aligned, such as when the plane
-is pitched straight up, the pitch an the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both effected the same, therefore losing orientation. The singularity problem can be fixed by adding another gimbal, or using an ad hoc approach to hard code values or use limits in the algorithm. The approach used in this thesis is to use a different representation adding another gimbal, known as quaternions. It is necessary to use an attitude representation with the least amount of elements because of the low-cost system requirements of low complexity. Whenever propagating attitude estimation through the Kalman filter, matrix multiplication increases in comlexity with more elements, especically in finding the inverse of a matrix.
+Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}).
+Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance. In this dissertation, a different kind of orientation representation will be used quaternions.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/gimbal lock.png}
+    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+    \label{fig:gimbal_lock}
+\end{figure}
 
 \subsubsection{Quaternions}
 
@@ -182,12 +198,12 @@ terms, the sequence can be thought of the same way as a rotating a vector laying
 x-axis, then rotating a vector on the y-axis, and finally rotating a vector on the z-axis.
 
 \begin{equation}
-    q = q_1 + q_2 i + q_3 j + q_4 k
+    q = q_0 + q_1 i + q_2 j + q_3 k
 \end{equation}
 
 \begin{equation}
     q =     \begin{bmatrix}
-        q_1 &  & q_2 &  & q_3 &  & q_4 \\
+        q_0 &  & q_1 &  & q_2 &  & q_3 \\
     \end{bmatrix}
 \end{equation}
 
