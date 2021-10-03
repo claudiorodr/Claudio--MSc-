@@ -52,12 +52,12 @@ Considering a point of reference in the ECEF frame, it is required to discover t
 Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities.
 
 \begin{equation}
-    \begin{aligned}
-         & p = \sqrt{(X_r)^2 + (Y_r)^2}                                                      \\
-         & \theta = \arctan(Z_r\frac{a}{pb} )                                                \\
-         & \lambda_r = \arctan(Y_r,X_r)                                                      \\
-         & \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )} ) \\
-    \end{aligned}
+    \begin{gathered}
+        p = \sqrt{(X_r)^2 + (Y_r)^2} \\
+        \theta = \arctan(Z_r\frac{a}{pb} ) \\
+        \lambda_r = \arctan(Y_r,X_r) \\
+        \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )}  \\
+    \end{gathered}
     \label{eq:transformation}
 \end{equation}
 
@@ -170,18 +170,127 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}).
 Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance. In this dissertation, a different kind of orientation representation will be used quaternions.
 
-
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/gimbal lock.png}
+    \includegraphics[width=0.7\textwidth]{figures/gimbal_lock.png}
     \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
     \label{fig:gimbal_lock}
 \end{figure}
 
 \subsubsection{Quaternions}
 
-As stated previously, to eliminate the singularities at ±90◦ on the pitch and roll axes, and
-to keep the computational efficiency optimal, quaternions are used for state attitude representation. To understand quaternions, one must first understand the complex number
+Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}). A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors. Equation (2.1) shows this relation with the complex number x having a real part a and imaginary part b; and the quaternion q containing a real scalar part s and an imaginary vector component ~v.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/complex_rotation.pdf}
+    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+    \label{fig:complex_rotation}
+\end{figure}
+
+\begin{equation}
+    q = q_0 + q_1 i + q_2 j + q_3 k
+    \label{eq:quaternion_representation}
+\end{equation}
+
+\begin{equation}
+    q =     \begin{bmatrix}
+        q_0 & q_1 & q_2 & q_3 \\
+    \end{bmatrix}
+    \label{eq:quaternion_vector}
+\end{equation}
+
+Specifically, when used for attitude description the quaternions should have a norm equal to 1:
+
+\begin{equation}
+    \left\lVert q\right\rVert =\sqrt{q^2_0 + q^2_1 + q^2_2 + q^2_3} =1
+\end{equation}
+
+Normalizing a quaternion is identical to normalizing a vector. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is denoted with a circumflex accent ($\hat{q}$):
+
+\begin{equation}
+    \hat{q} = \frac{q}{\left\lVert q \right\rVert }
+\end{equation}
+
+
+A quaternion's conjugate ($q^{\ast} $) is expressed by:
+
+\begin{equation}
+    q^{\ast}  =\begin{bmatrix}
+        q_0 & -q_1 & -q_2 & -q_3 \\
+    \end{bmatrix}
+\end{equation}
+
+The inverse of a quaternion (${q^{-1}}$) is therefore given by:
+
+\begin{equation}
+    q^{-1} = \frac{q^{\ast} }{\left\lVert q \right\rVert }
+\end{equation}
+
+Applying the notation as declared previously, ${^w_b}q$ constitutes the orientation of body frame with respect to world frame. From equation \ref{eq:quaternion_representation}, the subsequent list of properties/operations is derived:
+
+Every quaternion operation ought to follow the succeeding list of properties:
+
+\begin{equation}
+    \begin{gathered}
+        i^2=j^2=k^2=ijk=-1 \\
+        ij = -ji = k       \\
+        jk = -kj = i       \\
+        ki = -ik = j       \\
+    \end{gathered}
+\end{equation}
+
+The quaternions multiplication, denoted by , is defined by the Hamilton
+product as in equation 2.8
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[t]{l|cccc}
+            \hline
+                & $1$ & $i$  & $j$  & $k$  \\
+            \hline
+            $1$ & $1$ & $i$  & $j$  & $k$  \\
+            $i$ & $i$ & $-1$ & $k$  & $-j$ \\
+            $j$ & $j$ & $-k$ & $-1$ & $i$  \\
+            $k$ & $k$ & $j$  & $-i$ & $-1$ \\
+            \hline
+        \end{tabular}
+        \caption{Quaternion multiplication table. }
+        \label{tab:quaternion_multiplication}
+    \end{center}
+\end{table}
+
+\begin{equation}
+    a \otimes b = \left[a_1 a_2 a_3 a_4\right] \otimes \left[b_1 b_2 b_3 b_4\right]     =
+    \begin{bmatrix}
+        a_1 b_1 - a_2 b_1 - a_3 b_3 - a_4 b_4 \\
+        a_1 b_2 + a_2 b_2 + a_3 b_4 - a_4 b_3 \\
+        a_1 b_3 - a_2 b_3 + a_3 b_1 + a_4 b_4 \\
+        a_1 b_4 + a_2 b_4 - a_3 b_2 + a_4 b_1 \\
+    \end{bmatrix}
+\end{equation}
+
+The quaternion conjugate describes the inverse rotation and is defined as equation 2.9.
+
+\begin{equation}
+    \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
+\end{equation}
+
+Let’s define the following quaternion representation of the same vector but in each referential by using is pure quaternion as wv = [0 wx wy wz] and bv = [0 bx by b z]. The rotation of vector v from one frame to other, using a quaternion, is performed by equation 2.10.
+
+\begin{equation}
+    \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
+\end{equation}
+
+The composition of rotations can be described in quaternions as the product
+between quaternions. For example the sequence a b qˆ → b c qˆ is equal to a c qˆ and is defined as equation 2.11.
+
+
+\begin{equation}
+    \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
+\end{equation}
+
+As stated previously, to eliminate the singularities at ±90◦ on the pitch and roll axes, and to keep the computational efficiency optimal, quaternions are used for state attitude representation. To understand quaternions, one must first understand the complex number
 relationship. A complex number can represent a rotation in 2 dimensional coordinate frame
 with a real x-axis and imaginary axis y-axis or vise versa.
 A quaternion is the same concept, except instead of one imaginary axis, there are three
@@ -196,58 +305,6 @@ figure 2.2. The rotation is not simultaneous, each rotation must happen sequenti
 axis at a time. In navigation terms, the plane must roll, then pitch, then yaw. In quaternion
 terms, the sequence can be thought of the same way as a rotating a vector laying on the
 x-axis, then rotating a vector on the y-axis, and finally rotating a vector on the z-axis.
-
-\begin{equation}
-    q = q_0 + q_1 i + q_2 j + q_3 k
-\end{equation}
-
-\begin{equation}
-    q =     \begin{bmatrix}
-        q_0 &  & q_1 &  & q_2 &  & q_3 \\
-    \end{bmatrix}
-\end{equation}
-
-\begin{equation}
-    \hat{q} \Longrightarrow \left\lVert q\right\rVert =1
-\end{equation}
-
-\begin{equation}
-    i^2=j^2=k^2=ijk=-1
-\end{equation}
-
-\begin{equation}
-    ij = -j1 = k
-\end{equation}
-
-\begin{equation}
-    ki = -ik = j
-\end{equation}
-
-\begin{equation}
-    ki = -ik = j
-\end{equation}
-
-\begin{equation}
-    a \otimes b = \left[a_1 a_2 a_3 a_4\right] \otimes \left[b_1 b_2 b_3 b_4\right]     =
-    \begin{bmatrix}
-        a_1 b_1 - a_2 b_1 - a_3 b_3 - a_4 b_4 \\
-        a_1 b_2 + a_2 b_2 + a_3 b_4 - a_4 b_3 \\
-        a_1 b_3 - a_2 b_3 + a_3 b_1 + a_4 b_4 \\
-        a_1 b_4 + a_2 b_4 - a_3 b_2 + a_4 b_1 \\
-    \end{bmatrix}
-\end{equation}
-
-\begin{equation}
-    \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
-\end{equation}
-
-\begin{equation}
-    \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
-\end{equation}
-
-\begin{equation}
-    \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
-\end{equation}
 
 \subsubsection{Accelerometer}
 \subsubsection{Gyroscope}

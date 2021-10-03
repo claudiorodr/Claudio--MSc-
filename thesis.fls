@@ -1462,11 +1462,11 @@ INPUT chapters/1_introduction.tex
 INPUT ./chapters/1_introduction.tex
 INPUT ./chapters/1_introduction.tex
 INPUT chapters/1_introduction.tex
-INPUT ./figures/gimbal lock.png
-INPUT ./figures/gimbal lock.png
-INPUT figures/gimbal lock.png
-INPUT ./figures/gimbal lock.png
-INPUT ./figures/gimbal lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT figures/gimbal_lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT ./figures/gimbal_lock.png
 INPUT ./chapters/2_background.tex
 INPUT ./chapters/2_background.tex
 INPUT ./chapters/2_background.tex
@@ -1491,10 +1491,15 @@ INPUT ./plots/rotation_matrix3D.tex
 INPUT plots/rotation_matrix3D.tex
 INPUT ./plots/rotation_matrix3D.tex
 INPUT plots/rotation_matrix3D.tex
-INPUT ./figures/gimbal lock.png
-INPUT ./figures/gimbal lock.png
-INPUT figures/gimbal lock.png
-INPUT ./figures/gimbal lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT figures/gimbal_lock.png
+INPUT ./figures/gimbal_lock.png
+INPUT ./figures/complex_rotation.pdf
+INPUT ./figures/complex_rotation.pdf
+INPUT figures/complex_rotation.pdf
+INPUT ./figures/complex_rotation.pdf
+INPUT ./figures/complex_rotation.pdf
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
