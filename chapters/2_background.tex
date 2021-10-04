@@ -227,9 +227,10 @@ The inverse of a quaternion (${q^{-1}}$) is therefore given by:
     q^{-1} = \frac{q^{\ast} }{\left\lVert q \right\rVert }
 \end{equation}
 
-Applying the notation as declared previously, ${^w_b}q$ constitutes the orientation of body frame with respect to world frame. From equation \ref{eq:quaternion_representation}, the subsequent list of properties/operations is derived:
+Applying the notation as declared previously, ${^w_b}q$ constitutes the orientation of body frame ($b$) with respect to world frame ($w$). From equation \ref{eq:quaternion_representation}, the subsequent list of properties/operations is derived:
 
-Every quaternion operation ought to follow the succeeding list of properties:
+\item \textbf{Multiplication of basis elements} Every quaternion multiplication of basis elements $\boldsymbol{i}$, $\boldsymbol{j}$ and $\boldsymbol{k}$ ought to follow the succeeding list of properties (also visible in table \ref{tab:quaternion_multiplication} containing multiplication of basis elements):
+
 
 \begin{equation}
     \begin{gathered}
@@ -238,52 +239,70 @@ Every quaternion operation ought to follow the succeeding list of properties:
         jk = -kj = i       \\
         ki = -ik = j       \\
     \end{gathered}
+    \label{eq:quaternion_rules}
 \end{equation}
-
-The quaternions multiplication, denoted by , is defined by the Hamilton
-product as in equation 2.8
 
 \begin{table}[H]
     \begin{center}
         \begin{tabular}[t]{l|cccc}
             \hline
-                & $1$ & $i$  & $j$  & $k$  \\
+            $\times$ & $1$ & $i$  & $j$  & $k$  \\
             \hline
-            $1$ & $1$ & $i$  & $j$  & $k$  \\
-            $i$ & $i$ & $-1$ & $k$  & $-j$ \\
-            $j$ & $j$ & $-k$ & $-1$ & $i$  \\
-            $k$ & $k$ & $j$  & $-i$ & $-1$ \\
+            $1$      & $1$ & $i$  & $j$  & $k$  \\
+            $i$      & $i$ & $-1$ & $k$  & $-j$ \\
+            $j$      & $j$ & $-k$ & $-1$ & $i$  \\
+            $k$      & $k$ & $j$  & $-i$ & $-1$ \\
             \hline
         \end{tabular}
-        \caption{Quaternion multiplication table. }
+        \caption{Quaternion multiplication of basis elements. }
         \label{tab:quaternion_multiplication}
     \end{center}
 \end{table}
 
+\item \textbf{Multiplication of quaternions} The product of two quaternions, $a$ and $b$, is denoted by $\otimes$ and it is defined by the Hamilton product. It can be calculated by the product of the basis elements and the distributive law. The product can then be expanded by the distributive law into a a sum of products of basis elements. Returning the next expression:
+
 \begin{equation}
-    a \otimes b = \left[a_1 a_2 a_3 a_4\right] \otimes \left[b_1 b_2 b_3 b_4\right]     =
+    a \otimes b = \left[a_0 a_1 a_2 a_3\right] \otimes \left[b_0 b_1 b_2 b_3\right]     =
     \begin{bmatrix}
-        a_1 b_1 - a_2 b_1 - a_3 b_3 - a_4 b_4 \\
-        a_1 b_2 + a_2 b_2 + a_3 b_4 - a_4 b_3 \\
-        a_1 b_3 - a_2 b_3 + a_3 b_1 + a_4 b_4 \\
-        a_1 b_4 + a_2 b_4 - a_3 b_2 + a_4 b_1 \\
+        a_0 b_0 + a_1 b_0\boldsymbol{i} + a_2 b_0\boldsymbol{j} + a_3 b_0\boldsymbol{k}                   \\
+        a_0 b_1\boldsymbol{i} + a_1 b_1\boldsymbol{i^2} + a_2 b_1\boldsymbol{ij} + a_3 b_1\boldsymbol{ik} \\
+        a_0 b_2\boldsymbol{j}+ a_1 b_2\boldsymbol{ji} + a_2 b_2\boldsymbol{j^2} + a_3 b_2\boldsymbol{jk}  \\
+        a_0 b_3\boldsymbol{k} + a_1 b_3\boldsymbol{ki} + a_2 b_3\boldsymbol{kj} + a_3 b_3\boldsymbol{k^2} \\
     \end{bmatrix}
 \end{equation}
 
-The quaternion conjugate describes the inverse rotation and is defined as equation 2.9.
+As a result, the rules defined in equation \ref{eq:quaternion_rules} and table \ref{tab:quaternion_multiplication} can be applied at this step producing:
+
+\begin{equation}
+    a \otimes b =
+    \begin{bmatrix}
+        a_0 b_0 - a_1 b_1 - a_2 b_2 - a_3 b_3                 \\
+        (a_0 b_1 + a_1 b_0 + a_2 b_3 - a_3 b_2)\boldsymbol{i} \\
+        (a_0 b_2 - a_1 b_3 + a_2 b_0 + a_3 b_1)\boldsymbol{j} \\
+        (a_0 b_3 + a_1 b_2 - a_2 b_1 + a_3 b_0)\boldsymbol{k} \\
+    \end{bmatrix}
+\end{equation}
+
+\item \textbf{Quaternion conjugate} The quaternion conjugate describes the inverse rotation and is defined as equation.
 
 \begin{equation}
     \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
 \end{equation}
 
-Let’s define the following quaternion representation of the same vector but in each referential by using is pure quaternion as wv = [0 wx wy wz] and bv = [0 bx by b z]. The rotation of vector v from one frame to other, using a quaternion, is performed by equation 2.10.
+\item \textbf{Vector rotation} Let’s define the following quaternion representation of the same vector but in each referential by using is pure quaternion as
+$ ^wv = \begin{bmatrix}
+        0 & ^wx & ^wy & ^wz
+    \end{bmatrix} $
+and
+$^bv = \begin{bmatrix}
+        0 & ^bx & ^by & ^bz
+    \end{bmatrix} $. The rotation of vector $v$ from one frame to other, using a quaternion, is performed by equation 2.10.
 
 \begin{equation}
     \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
 \end{equation}
 
-The composition of rotations can be described in quaternions as the product
-between quaternions. For example the sequence a b qˆ → b c qˆ is equal to a c qˆ and is defined as equation 2.11.
+\item \textbf{Composed rotations} The composition of rotations can be described in quaternions as the product between quaternions. For example the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is defined as equation 2.11.
 
 
 \begin{equation}
@@ -313,7 +332,7 @@ x-axis, then rotating a vector on the y-axis, and finally rotating a vector on t
 \subsubsection{Sensor Fusion Algoritms}
 \paragraph{Kalman Filter}
 
-The Kalman filter algorithm is a set of mathematical equations that provides a computationally efficient approach to estimate some unknown variables by the detected measurements\cite{welch1995introduction}. Kalman filters operate recursive functions to predict the present state of a linear problem by monitoring the current input data, the previous input data, and the previous state prediction.  Two generally assigned methods for Kalman filter-based sensor fusion are state-vector fusion and measurement fusion. The state-vector fusion method (figure \ref{fig:statekalman}) applies a group of Kalman filters to acquire individual sensor-based state estimates, which are subsequently fused to obtain an enhanced combined state estimate. Measurement fusion (figure \ref{fig:mesearurmentkalman}) approach directly combines the sensor data to achieve a joint measurement and later uses a single Kalman filter to get hold of the final state estimate centered on the fused measurement \cite{mosallaei2007process}.
+The Kalman filter algorithm is a set of mathematical equations that provides a computationally efficient approach to estimate some unknown variables by the detected measurements\cite{welch1995introduction}. Kalman filters operate recursive functions to predict the present state of a linear problem by monitoring the current input data, the previous input data, and the previous state prediction.  Two generally assigned methods for Kalman filter-based sensor fusion are state-vector fusion and measurement fusion. The state-vector fusion method (figure \ref{fig:state_kalman}) applies a group of Kalman filters to acquire individual sensor-based state estimates, which are subsequently fused to obtain an enhanced combined state estimate. Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly combines the sensor data to achieve a joint measurement and later uses a single Kalman filter to get hold of the final state estimate centered on the fused measurement \cite{mosallaei2007process}.
 When applied appropriately, Kalman filters offer highly precise orientation, even with the existence of substantial noise. Nevertheless, Kalman filters are computationally expensive rising hardware cost and latency. They are also of complex implementation, which, shared with computational overhead, can make the algorithm unfeasible for computationally restricted applications. They are regularly useful in a wide-ranging variety of applications and have become a standard method in sensor fusion. Several studies examine the possibility of using Kalman filters to predict a body’s orientation and position by combining multiple sensors. The Kalman filter is founded on recursive Bayesian filtering.
 Consequently, the system’s noise is assumed to be Gaussian. Therefore, the Kalman filter is generally suggested for linear systems. For this reason, an extension of the classic Kalman Filter designed for non-linear systems has emerged, recognized as Extended Kalman filter \cite{wilson2019formulation}.
 
@@ -323,12 +342,12 @@ Consequently, the system’s noise is assumed to be Gaussian. Therefore, the Kal
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=1\linewidth]{figures/kalman1.pdf}
         \caption{}
-        \label{fig:statekalman}
+        \label{fig:state_kalman}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=1\linewidth]{figures/kalman2.pdf}
         \caption{}
-        \label{fig:mesearurmentkalman}
+        \label{fig:mesearurment_kalman}
     \end{subfigure}
 
     \caption{ Kalman-filter-based multi-sensor data fusion.
