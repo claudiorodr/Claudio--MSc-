@@ -206,7 +206,7 @@ Specifically, when used for attitude description the quaternions should have a n
     \left\lVert q\right\rVert =\sqrt{q^2_0 + q^2_1 + q^2_2 + q^2_3} =1
 \end{equation}
 
-Normalizing a quaternion is identical to normalizing a vector. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is denoted with a circumflex accent ($\hat{q}$):
+Normalizing a quaternion is identical to normalizing a vector. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is known as unit quaternion (also mentioned as versor of $q$) and denoted with a circumflex accent ($\hat{q}$):
 
 \begin{equation}
     \hat{q} = \frac{q}{\left\lVert q \right\rVert }
@@ -283,13 +283,14 @@ As a result, the rules defined in equation \ref{eq:quaternion_rules} and table \
     \end{bmatrix}
 \end{equation}
 
-\item \textbf{Quaternion conjugate} The quaternion conjugate describes the inverse rotation and is defined as equation.
+\item \textbf{Quaternion conjugate} Conjugation is an involution (a function that is its own inverse), conjugating an element twice yields the original constituent. The conjugate of a quaternion relates to an inverse rotation, in this case constitutes the orientation of world frame with respect to body frame:
 
 \begin{equation}
     \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
 \end{equation}
 
 \item \textbf{Vector rotation} Let’s define the following quaternion representation of the same vector but in each referential by using is pure quaternion as
+
 $ ^wv = \begin{bmatrix}
         0 & ^wx & ^wy & ^wz
     \end{bmatrix} $
@@ -309,25 +310,102 @@ $^bv = \begin{bmatrix}
     \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
 \end{equation}
 
-As stated previously, to eliminate the singularities at ±90◦ on the pitch and roll axes, and to keep the computational efficiency optimal, quaternions are used for state attitude representation. To understand quaternions, one must first understand the complex number
-relationship. A complex number can represent a rotation in 2 dimensional coordinate frame
-with a real x-axis and imaginary axis y-axis or vise versa.
-A quaternion is the same concept, except instead of one imaginary axis, there are three
-imaginary axes; in a sense its like combining three complex numbers into one. To go from a
-2D interpretation to a 3D, four components are required; one real component qs and three
-imaginary qx qy qz which can also be represented as a vector ˜v. Equation (2.1) shows this
-relation with the complex number x having a real part a and imaginary part b; and the
-quaternion q containing a real scalar part s and an imaginary vector component ~v.
-To visualize a quaternion operation, think of Euler angles in the sense that there are
-three orthogonal angles each on a separate mutually exclusive axis, x,y and z as shown in
-figure 2.2. The rotation is not simultaneous, each rotation must happen sequentially, one
-axis at a time. In navigation terms, the plane must roll, then pitch, then yaw. In quaternion
-terms, the sequence can be thought of the same way as a rotating a vector laying on the
-x-axis, then rotating a vector on the y-axis, and finally rotating a vector on the z-axis.
+\subsection{Sensors}
+IMUs provide information about the acceleration, angular velocity and magnetic field density which will further translate into orientation of the car in ENU reference frame.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/mpu9250.jpg}
+    \caption{MPU-9250 Breakout}
+    \label{fig:hardware}
+\end{figure}
+
+MPU-9250 inertial measurement unit (IMU). This IMU is used to measure motion by detecting rotational rates, the acceleration vector, and the local magnetic field direction. It features the ever-popular 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprised of the MPU-6500 -- a 3-axis gyroscope and 3-axis accelerometer combo -- and the AK8963 3-axis magnetometer.
 
 \subsubsection{Accelerometer}
+There are many different types of MEMS based accelerometers available, the typical low
+cost sensors are piezoresistive, capacitive sensing, and piezoelectric. More expensive MEMS sensors are laser and optical based. To understand how an accelerometer works, the sensor can be thought of as a ball in a box[20]. If the accelerometer is still and there are no forces present, such as in space where no gravitational force exists, the sensor will measure 0g on all three axes; it is as if the ball is suspended in air, as shown in figure 2.4.
+
+In a scenario where there is no external forces present the accelerometer would measure
+only the acceleration of the opposite direction of movement, however, on earth there is the
+external force of gravity pulling on the sensor. If the sensor is positioned on a flat surface
+with z-axis aligned as up and down, x-axis left and right, and y-axis forward and back,
+gravity will always be in the negative z direction, this is shown in figure 2.6. Gravity will
+always pull on the sensor providing a downward acceleration, unless the sensor is in a free
+fall or in a moving vehicle, such as a UAV in a coordinated turn with the external centrifugal
+forces being exerted. In a free fall scenario, an accelerometer experiences zero gravity, where
+the sensor is falling at 9.8m/s2
+, cancelling out the effect of gravity since the forces are the
+same in opposing directions.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[t]{lcccc}
+            \hline
+            Parameter                & Min. & Typ.      & Max.   & Units   \\
+            \hline
+            Full-Scale range         &      & $\pm 16$  &        & $g$     \\
+            Sensitivity Scale Factor &      & 2,048     &        & $LSB/g$ \\
+            Nonlinearity             &      & $\pm 0.1$ &        & $\%$    \\
+            Operating Current        &      & 3.2       &        & $mA$    \\
+            Startup Time             &      & 20        &        & $ms$    \\
+            Output Data Rate         & $4$  &           & $4000$ & $Hz$    \\
+            \hline
+        \end{tabular}
+        \caption{Accelerometer Specifications. }
+        \label{tab:accelerometer_specification}
+    \end{center}
+\end{table}
 \subsubsection{Gyroscope}
+Gyroscopes have been used for many years in navigation. The typical function of a gyroscope
+involves a spinning object that is tilted perpendicular to the spin, where the angle of the
+reference surface can be measured. A more precise gyroscope involving a laser ring gyro
+contains two lasers being sent in a circular path and if a spin is observed, a phase shift can
+be detected since the speed of light is always constant. With the introduction of MEMS
+technology, gyroscopes can be produced in small, cheap packages. There are different types
+of gyroscope sensors including: piezoelectric which uses the Coriolis effect coupled with
+vibrations, tuning fork which measures the displacement of two objects, and wine glasswhich measures the resonance of points on a hemisphere. Gyroscopes are not influenced by
+factors such as gravitation or magnetic fields. They can be used to orient technology to an
+absolute position in physical space, and can be used to detect acceleration, shock, and tilt.
+Most MEMS gyroscopes are based on a tuning fork structure. The tuning fork uses the
+Coriolis effect to measure the angular rate. This is accomplished by two masses oscillating
+in opposite directions. When a rotation is applied, the masses are affected by the Coriolis
+force and the displacement is measured by a change in capacitance.
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[t]{lcccc}
+            \hline
+            Parameter                & Min. & Typ.       & Max.   & Units              \\
+            \hline
+            Full-Scale range         &      & $\pm 2000$ &        & $^{\circ}/s$       \\
+            Sensitivity Scale Factor &      & 131        &        & $LSB/(^{\circ}/s)$ \\
+            Nonlinearity             &      & $\pm 0.5$  &        & $\%$               \\
+            Operating Current        &      & 450        &        & $\mu A$            \\
+            Startup Time             &      & 35         &        & $ms$               \\
+            Output Data Rate         & $4$  &            & $8000$ & $Hz$               \\
+            \hline
+        \end{tabular}
+        \caption{Gyroscope Specifications. }
+        \label{tab:gyroscope_specification}
+    \end{center}
+\end{table}
 \subsubsection{Magnetometer}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[t]{lcccc}
+            \hline
+            Parameter                     & Min. & Typ.       & Max. & Units        \\
+            \hline
+            Full-Scale range              &      & $\pm 4800$ &      & $\mu T$      \\
+            Sensitivity Scale Factor      &      & 0.6        &      & $\mu T/ LSB$ \\
+            Operating Current             &      & 280        &      & $\mu A$      \\
+            Initial Calibration Tolerance &      & $\pm 500$  &      & $LSB$        \\
+            \hline
+        \end{tabular}
+        \caption{Magnetometer specification. }
+        \label{tab:magnetometer_multiplication}
+    \end{center}
+\end{table}
 \subsection{Sensor Fusion}
 \subsubsection{Sensor Fusion Algoritms}
 \paragraph{Kalman Filter}
