@@ -1509,6 +1509,11 @@ INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT ./figures/accelerometer.pdf
+INPUT ./figures/accelerometer.pdf
+INPUT figures/accelerometer.pdf
+INPUT ./figures/accelerometer.pdf
+INPUT ./figures/accelerometer.pdf
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
