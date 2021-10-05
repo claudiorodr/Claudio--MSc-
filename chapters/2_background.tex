@@ -125,6 +125,8 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
 
 Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR−1 . Also a bRT is equal to b aR [36][37].
 
+\subsubsection{Direct Cosine Matrix}
+
 \subsubsection{Euler angles}
 
 Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements. Merely three differential equations require solving prior to the attitude gets distinctly approximated.
@@ -310,45 +312,45 @@ $^bv = \begin{bmatrix}
     \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
 \end{equation}
 
-\subsection{Sensors}
-IMUs provide information about the acceleration, angular velocity and magnetic field density which will further translate into orientation of the car in ENU reference frame.
+\subsection{Inertial Measurement Units}
+An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts, satellites, and unmanned aerial vehicles (UAVs), to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/mpu9250.jpg}
-    \caption{MPU-9250 Breakout}
-    \label{fig:hardware}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{figures/mpu9250.jpg}
+%     \caption{MPU-9250 Breakout}
+%     \label{fig:hardware}
+% \end{figure}
 
-MPU-9250 inertial measurement unit (IMU). This IMU is used to measure motion by detecting rotational rates, the acceleration vector, and the local magnetic field direction. It features the ever-popular 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprised of the MPU-6500 -- a 3-axis gyroscope and 3-axis accelerometer combo -- and the AK8963 3-axis magnetometer.
+% MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6500 (3-axis gyroscope and 3-axis accelerometer fusion) and an AK8963 3-axis magnetometer.
 
 \subsubsection{Accelerometer}
-There are many different types of MEMS based accelerometers available, the typical low
-cost sensors are piezoresistive, capacitive sensing, and piezoelectric. More expensive MEMS sensors are laser and optical based. To understand how an accelerometer works, the sensor can be thought of as a ball in a box[20]. If the accelerometer is still and there are no forces present, such as in space where no gravitational force exists, the sensor will measure 0g on all three axes; it is as if the ball is suspended in air, as shown in figure 2.4.
+An accelerometer is a device capable of measuring proper acceleration. Proper acceleration is the physical acceleration experienced by an object. It is thus acceleration relative to an inertial observer who is momentarily at rest relative to the object being measured. As an example, if an accelerometer would be placed at rest on the surface of the Earth, it will measure an upwards acceleration due to Earth's gravity of g $\simeq$ 9.81 $m/s^2$. This is due to the Earth's surface exerting a normal force upwards relative to the local inertial frame. On the other hand, a free-falling accelerometer (moving in the center of the Earth’s direction at around 9.81 $m/s^2$) would quantify no acceleration. Acceleration is quantified in the SI unit meters per second ($m/s^2$), or standard gravity, denoted by $g_n$, being the nominal gravitational acceleration of an object in a vacuum near the surface of the Earth. It is defined by standard as 9.80665 $m/s^2$.
 
-In a scenario where there is no external forces present the accelerometer would measure
-only the acceleration of the opposite direction of movement, however, on earth there is the
-external force of gravity pulling on the sensor. If the sensor is positioned on a flat surface
-with z-axis aligned as up and down, x-axis left and right, and y-axis forward and back,
-gravity will always be in the negative z direction, this is shown in figure 2.6. Gravity will
-always pull on the sensor providing a downward acceleration, unless the sensor is in a free
-fall or in a moving vehicle, such as a UAV in a coordinated turn with the external centrifugal
-forces being exerted. In a free fall scenario, an accelerometer experiences zero gravity, where
-the sensor is falling at 9.8m/s2
-, cancelling out the effect of gravity since the forces are the
-same in opposing directions.
+The principle of working of an accelerometer can be explained by a simple mass (m) attached to a spring of stiffness (k) that
+in turn is attached to a casing, as illustrated in Figure 5. The mass used in accelerometers is often called the seismic-mass or
+proof-mass. In most cases the system also includes a dashpot to provide a desirable damping effect. The dashpot with damping
+coefficient (c) is normally attached to the mass in parallel with the spring. When the spring mass system is subjected to linear
+acceleration, a force equal to mass times acceleration acts on the proof-mass, causing it to deflect. This deflection is sensed by a
+suitable means and converted into an equivalent electrical signal. Some form of damping is required, otherwise the system would
+not stabilize quickly under applied acceleration. To derive the motion equation of the system Newton’s second law is used,
+where all real forces acting on the proof-mass are equal to the inertia force on the proof-mass. Accordingly a dynamic problem
+can be treated as a problem of static equilibrium and the equation of motion can be obtained by direct formulation of the
+equations of equilibrium. This damped mass-spring system with applied force constitutes a classical second order mechanical
+system. From the stationary observer’s point of view, the sum of all forces in the z direction
 \begin{table}[H]
     \begin{center}
         \begin{tabular}[t]{lcccc}
             \hline
-            Parameter                & Min. & Typ.      & Max.   & Units   \\
+            Parameter                   & Min. & Typ.      & Max.   & Units             \\
             \hline
-            Full-Scale range         &      & $\pm 16$  &        & $g$     \\
-            Sensitivity Scale Factor &      & 2,048     &        & $LSB/g$ \\
-            Nonlinearity             &      & $\pm 0.1$ &        & $\%$    \\
-            Operating Current        &      & 3.2       &        & $mA$    \\
-            Startup Time             &      & 20        &        & $ms$    \\
-            Output Data Rate         & $4$  &           & $4000$ & $Hz$    \\
+            Full-Scale range            &      & $\pm 16$  &        & $g$               \\
+            Sensitivity Scale Factor    &      & 2,048     &        & $LSB/g$           \\
+            Nonlinearity                &      & $\pm 0.1$ &        & $\%$              \\
+            Rate Noise Spectral Density &      & 300       &        & $\mu g/\sqrt{Hz}$ \\
+            Operating Current           &      & 3.2       &        & $mA$              \\
+            Startup Time                &      & 20        &        & $ms$              \\
+            Output Data Rate            & $4$  &           & $4000$ & $Hz$              \\
             \hline
         \end{tabular}
         \caption{Accelerometer Specifications. }
@@ -375,14 +377,15 @@ force and the displacement is measured by a change in capacitance.
     \begin{center}
         \begin{tabular}[t]{lcccc}
             \hline
-            Parameter                & Min. & Typ.       & Max.   & Units              \\
+            Parameter                   & Min. & Typ.       & Max.   & Units                  \\
             \hline
-            Full-Scale range         &      & $\pm 2000$ &        & $^{\circ}/s$       \\
-            Sensitivity Scale Factor &      & 131        &        & $LSB/(^{\circ}/s)$ \\
-            Nonlinearity             &      & $\pm 0.5$  &        & $\%$               \\
-            Operating Current        &      & 450        &        & $\mu A$            \\
-            Startup Time             &      & 35         &        & $ms$               \\
-            Output Data Rate         & $4$  &            & $8000$ & $Hz$               \\
+            Full-Scale range            &      & $\pm 2000$ &        & $^{\circ}/s$           \\
+            Sensitivity Scale Factor    &      & 131        &        & $LSB/(^{\circ}/s)$     \\
+            Nonlinearity                &      & $\pm 0.5$  &        & $\%$                   \\
+            Rate Noise Spectral Density &      & 300        &        & $^{\circ}/s/\sqrt{Hz}$ \\
+            Operating Current           &      & 450        &        & $\mu A$                \\
+            Startup Time                &      & 35         &        & $ms$                   \\
+            Output Data Rate            & $4$  &            & $8000$ & $Hz$                   \\
             \hline
         \end{tabular}
         \caption{Gyroscope Specifications. }
@@ -450,5 +453,5 @@ Both methods make use of a quaternion representation, which is a four-dimensiona
 Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as ‘Madgwick Algorithm.’ This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick’s approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
 
 \paragraph{Other Filters}
-\subsection{Low-Cost Inertial Measurement Units}
-\subsubsection{MPU-9150 Evaluation Board 9DOF}
+% \subsection{Low-Cost Inertial Measurement Units}
+% \subsubsection{MPU-9150 Evaluation Board 9DOF}
