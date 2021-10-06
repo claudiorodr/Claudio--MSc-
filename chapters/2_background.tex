@@ -363,20 +363,37 @@ Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness con
 \end{table}
 
 \subsubsection{Gyroscope}
-Gyroscopes have been used for many years in navigation. The typical function of a gyroscope
-involves a spinning object that is tilted perpendicular to the spin, where the angle of the
-reference surface can be measured. A more precise gyroscope involving a laser ring gyro
-contains two lasers being sent in a circular path and if a spin is observed, a phase shift can
-be detected since the speed of light is always constant. With the introduction of MEMS
-technology, gyroscopes can be produced in small, cheap packages. There are different types
-of gyroscope sensors including: piezoelectric which uses the Coriolis effect coupled with
-vibrations, tuning fork which measures the displacement of two objects, and wine glasswhich measures the resonance of points on a hemisphere. Gyroscopes are not influenced by
-factors such as gravitation or magnetic fields. They can be used to orient technology to an
-absolute position in physical space, and can be used to detect acceleration, shock, and tilt.
-Most MEMS gyroscopes are based on a tuning fork structure. The tuning fork uses the
-Coriolis effect to measure the angular rate. This is accomplished by two masses oscillating
+A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/gyroscope.pdf}
+    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal}  }
+    \label{fig:gyroscope}
+\end{figure}
+
+A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS  sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity $\omega$, a mass m moving with velocity v experiences a force (figure \ref{fig:coriolis}):
+
+\begin{equation}
+    L = I\omega
+\end{equation}
+
+where $I$ is the inertia (dependent on the object’s mass) and $\omega$ is the angular velocity. To find the direction of the angular momentum, one must use the Right-Hand rule.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/coriolis.pdf}
+    \caption{ System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.}
+    \label{fig:coriolis}
+\end{figure}
+
+This is accomplished by two masses oscillating
 in opposite directions. When a rotation is applied, the masses are affected by the Coriolis
 force and the displacement is measured by a change in capacitance.
+
+Gyroscopes have been used for many years in navigation. The typical function of a gyroscope involves a spinning object that is tilted perpendicular to the spin, where the angle of the reference surface can be measured. A more precise gyroscope involving a laser ring gyro contains two lasers being sent in a circular path and if a spin is observed, a phase shift can be detected since the speed of light is always constant. With the introduction of MEMS technology, gyroscopes can be produced in small, cheap packages. There are different types of gyroscope sensors including: piezoelectric which uses the Coriolis effect coupled with vibrations, tuning fork which measures the displacement of two objects, and wine glass which measures the resonance of points on a hemisphere. Gyroscopes are not influenced by factors such as gravitation or magnetic fields. They can be used to orient technology to an absolute position in physical space, and can be used to detect acceleration, shock, and tilt.
+
+Most MEMS gyroscopes are based on a tuning fork structure. The tuning fork uses the Coriolis effect to measure the angular rate. This is accomplished by two masses oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.
 
 \begin{equation}
     \omega(x) = \frac{dx}{dt}
@@ -384,6 +401,15 @@ force and the displacement is measured by a change in capacitance.
 
 \begin{equation}
     \theta = \int_{t}^{0} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
+\end{equation}
+
+\begin{equation}
+    \Omega = \begin{bmatrix}
+        0 & -p & -q & -r \\
+        p & 0  & r  & -q \\
+        q & -r & 0  & p  \\
+        r & q  & -p & 0  \\
+    \end{bmatrix}
 \end{equation}
 
 \begin{table}[H]

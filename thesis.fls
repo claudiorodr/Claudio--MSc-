@@ -1514,6 +1514,16 @@ INPUT ./figures/accelerometer.pdf
 INPUT figures/accelerometer.pdf
 INPUT ./figures/accelerometer.pdf
 INPUT ./figures/accelerometer.pdf
+INPUT ./figures/gyroscope.pdf
+INPUT ./figures/gyroscope.pdf
+INPUT figures/gyroscope.pdf
+INPUT ./figures/gyroscope.pdf
+INPUT ./figures/gyroscope.pdf
+INPUT ./figures/coriolis.pdf
+INPUT ./figures/coriolis.pdf
+INPUT figures/coriolis.pdf
+INPUT ./figures/coriolis.pdf
+INPUT ./figures/coriolis.pdf
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
