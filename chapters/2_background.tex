@@ -283,6 +283,7 @@ As a result, the rules defined in equation \ref{eq:quaternion_rules} and table \
         (a_0 b_2 - a_1 b_3 + a_2 b_0 + a_3 b_1)\boldsymbol{j} \\
         (a_0 b_3 + a_1 b_2 - a_2 b_1 + a_3 b_0)\boldsymbol{k} \\
     \end{bmatrix}
+    \label{eq:quaternion_matrix}
 \end{equation}
 
 \item \textbf{Quaternion conjugate} Conjugation is an involution (a function that is its own inverse), conjugating an element twice yields the original constituent. The conjugate of a quaternion relates to an inverse rotation, in this case constitutes the orientation of world frame with respect to body frame:
@@ -372,13 +373,13 @@ A gyroscope is a device utilized to quantify angular velocity and orientation ba
     \label{fig:gyroscope}
 \end{figure}
 
-A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS  sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity $\omega$, a mass m moving with velocity v experiences a force (figure \ref{fig:coriolis}):
+A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}):
 
 \begin{equation}
-    L = I\omega
+    \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
 \end{equation}
 
-where $I$ is the inertia (dependent on the object’s mass) and $\omega$ is the angular velocity. To find the direction of the angular momentum, one must use the Right-Hand rule.
+Above, the cross product between angular velocity ($\omega$) and linear velocity ($v$) multiplies solely by orthogonal vector components. The outcome of the cross product is orthogonal to both $v$ and $\omega$. Its direction can be ascertained by the right-hand rule.
 
 \begin{figure}[!h]
     \centering
@@ -387,29 +388,38 @@ where $I$ is the inertia (dependent on the object’s mass) and $\omega$ is the 
     \label{fig:coriolis}
 \end{figure}
 
-This is accomplished by two masses oscillating
-in opposite directions. When a rotation is applied, the masses are affected by the Coriolis
-force and the displacement is measured by a change in capacitance.
-
-Gyroscopes have been used for many years in navigation. The typical function of a gyroscope involves a spinning object that is tilted perpendicular to the spin, where the angle of the reference surface can be measured. A more precise gyroscope involving a laser ring gyro contains two lasers being sent in a circular path and if a spin is observed, a phase shift can be detected since the speed of light is always constant. With the introduction of MEMS technology, gyroscopes can be produced in small, cheap packages. There are different types of gyroscope sensors including: piezoelectric which uses the Coriolis effect coupled with vibrations, tuning fork which measures the displacement of two objects, and wine glass which measures the resonance of points on a hemisphere. Gyroscopes are not influenced by factors such as gravitation or magnetic fields. They can be used to orient technology to an absolute position in physical space, and can be used to detect acceleration, shock, and tilt.
-
-Most MEMS gyroscopes are based on a tuning fork structure. The tuning fork uses the Coriolis effect to measure the angular rate. This is accomplished by two masses oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.
+The gyroscope sensor measurements supply a body’s angular rate, a measurement of the change in angle over time which is represented by $\omega(x)$:
 
 \begin{equation}
     \omega(x) = \frac{dx}{dt}
 \end{equation}
 
+The angular rate supplied by the gyroscope sensor can be integrated over an interval of time ($t$) and a sampling period ($T_s$). The sum of every measurement will return an absolute angle $\theta$. The integration of the angular rate is shown in equation $\ref{eq:angular_integration}$:
+
 \begin{equation}
-    \theta = \int_{t}^{0} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
+    \theta = \int_{0}^{t} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
+    \label{eq:angular_integration}
 \end{equation}
+
+Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equation \ref{eq:quaternion_matrix} it is possible to convert the set into a matrix of quaternion rates ($\Omega$):
 
 \begin{equation}
     \Omega = \begin{bmatrix}
-        0 & -p & -q & -r \\
-        p & 0  & r  & -q \\
-        q & -r & 0  & p  \\
-        r & q  & -p & 0  \\
+        0   & -w_x & -w_y & -w_z \\
+        w_x & 0    & w_z  & -w_y \\
+        w_y & -w_z & 0    & w_x  \\
+        w_z & w_y  & -w_x & 0    \\
     \end{bmatrix}
+\end{equation}
+
+From a quaternion rate at instant $t$ given current angular speed it is possible to estimate the quaternion at instant $t$. Once the Omega matrix is constructed, the quaternion rates can be used to calculate the attitude quaternion as shown in equation (2.7). In order to obtain a quaternion qk rotated
+by the gyroscope, the previous attitude quaternion $q_{k−1}$ is multiplied by the Omega matrix
+, then half of the period $Ts$.
+
+From a quaternion rate at instant $t$ given current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{k−1}$ is multiplied by the Omega, then half of the period $Ts$.
+
+\begin{equation}
+    q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
 \end{equation}
 
 \begin{table}[H]

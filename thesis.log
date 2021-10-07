@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  6 OCT 2021 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  7 OCT 2021 10:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1153,7 +1153,7 @@ Underfull \vbox (badness 2556) has occurred while \output is active []
 <figures/accelerometer.pdf, id=637, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
-Package pdftex.def Info: figures/accelerometer.pdf  used on input line 340.
+Package pdftex.def Info: figures/accelerometer.pdf  used on input line 341.
 (pdftex.def)             Requested size: 173.56177pt x 155.60881pt.
 
 
@@ -1166,7 +1166,7 @@ Underfull \vbox (badness 2326) has occurred while \output is active []
 <figures/gyroscope.pdf, id=646, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
-Package pdftex.def Info: figures/gyroscope.pdf  used on input line 370.
+Package pdftex.def Info: figures/gyroscope.pdf  used on input line 371.
 (pdftex.def)             Requested size: 242.98541pt x 98.08615pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1175,30 +1175,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figures/coriolis.pdf, id=663, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
-Package pdftex.def Info: figures/coriolis.pdf  used on input line 385.
+Package pdftex.def Info: figures/coriolis.pdf  used on input line 386.
 (pdftex.def)             Requested size: 242.98541pt x 192.29282pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18 <./figures/coriolis.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19] [20]
-<figures/kalman1.pdf, id=702, 499.8675pt x 133.45859pt>
+ [18 <./figures/coriolis.pdf>] [19] [20]
+<figures/kalman1.pdf, id=705, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
-Package pdftex.def Info: figures/kalman1.pdf  used on input line 466.
+Package pdftex.def Info: figures/kalman1.pdf  used on input line 476.
 (pdftex.def)             Requested size: 156.20453pt x 41.70366pt.
-<figures/kalman2.pdf, id=703, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=706, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
-Package pdftex.def Info: figures/kalman2.pdf  used on input line 471.
+Package pdftex.def Info: figures/kalman2.pdf  used on input line 481.
 (pdftex.def)             Requested size: 156.20453pt x 37.90372pt.
  [21 <./figures/kalman1.pdf> <./figures/kalman2.pdf>]
-<figures/complementary.pdf, id=724, 325.215pt x 136.5903pt>
+<figures/complementary.pdf, id=727, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
-Package pdftex.def Info: figures/complementary.pdf  used on input line 486.
+Package pdftex.def Info: figures/complementary.pdf  used on input line 496.
 (pdftex.def)             Requested size: 242.98541pt x 102.05688pt.
  [22 <./figures/complementary.pdf>]) (./chapters/3_related_work.tex [23] [24]
 Underfull \vbox (badness 7722) has occurred while \output is active []
@@ -1236,7 +1233,7 @@ LaTeX Warning: Reference `fig:madgwickAHRS' on page 31 undefined on input line 3
 LaTeX Warning: Reference `fig:compensation' on page 33 undefined on input line 61.
 
 [33] [34] (./plots/gravity.pgf)
-<figures/orientation_position.pdf, id=861, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=864, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1256,7 +1253,7 @@ LaTeX Warning: Reference `fig:1dimension' on page 36 undefined on input line 95.
 
 LaTeX Warning: Reference `fig:2dimension' on page 36 undefined on input line 110.
 
-<figures/experiment2.jpg, id=866, 3276.24pt x 2457.18pt>
+<figures/experiment2.jpg, id=869, 3276.24pt x 2457.18pt>
 File: figures/experiment2.jpg Graphic file (type jpg)
 <use figures/experiment2.jpg>
 Package pdftex.def Info: figures/experiment2.jpg  used on input line 114.
@@ -1264,7 +1261,7 @@ Package pdftex.def Info: figures/experiment2.jpg  used on input line 114.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/experiment3.jpg, id=867, 3276.24pt x 2457.18pt>
+<figures/experiment3.jpg, id=870, 3276.24pt x 2457.18pt>
 File: figures/experiment3.jpg Graphic file (type jpg)
 <use figures/experiment3.jpg>
 Package pdftex.def Info: figures/experiment3.jpg  used on input line 121.
@@ -1272,7 +1269,7 @@ Package pdftex.def Info: figures/experiment3.jpg  used on input line 121.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/experiment.jpg, id=868, 3276.24pt x 2457.18pt>
+<figures/experiment.jpg, id=871, 3276.24pt x 2457.18pt>
 File: figures/experiment.jpg Graphic file (type jpg)
 <use figures/experiment.jpg>
 Package pdftex.def Info: figures/experiment.jpg  used on input line 128.
@@ -1328,12 +1325,12 @@ Underfull \vbox (badness 1117) has occurred while \output is active []
 LaTeX Warning: Text page 42 contains only floats.
 
 [42]
-<figures/INS.jpg, id=908, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=911, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package pdftex.def Info: figures/INS.jpg  used on input line 182.
 (pdftex.def)             Requested size: 86.78088pt x 86.79482pt.
-<figures/mpu9250.jpg, id=909, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=912, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package pdftex.def Info: figures/mpu9250.jpg  used on input line 188.
@@ -1342,7 +1339,7 @@ Package pdftex.def Info: figures/mpu9250.jpg  used on input line 188.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/overview.pdf, id=910, 421.575pt x 169.5936pt>
+<figures/overview.pdf, id=913, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
 Package pdftex.def Info: figures/overview.pdf  used on input line 198.
@@ -1350,7 +1347,7 @@ Package pdftex.def Info: figures/overview.pdf  used on input line 198.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/fullINS.jpg, id=911, 3569.335pt x 2569.6pt>
+<figures/fullINS.jpg, id=914, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
 Package pdftex.def Info: figures/fullINS.jpg  used on input line 205.
@@ -1374,18 +1371,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: A42AB6C7CA96B11DA2CFDF73DB7C84B9;8165.
  ) 
 Here is how much of TeX's memory you used:
- 51124 strings out of 478599
- 1157871 string characters out of 5858101
- 3245817 words of memory out of 5000000
- 67993 multiletter control sequences out of 15000+600000
+ 51127 strings out of 478599
+ 1157932 string characters out of 5858101
+ 3247899 words of memory out of 5000000
+ 67995 multiletter control sequences out of 15000+600000
  420088 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,19n,134p,2642b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on thesis.pdf (60 pages, 3529843 bytes).
+Output written on thesis.pdf (60 pages, 3530825 bytes).
 PDF statistics:
- 1091 PDF objects out of 1200 (max. 8388607)
- 941 compressed objects within 10 object streams
- 208 named destinations out of 1000 (max. 500000)
+ 1094 PDF objects out of 1200 (max. 8388607)
+ 944 compressed objects within 10 object streams
+ 209 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
 
