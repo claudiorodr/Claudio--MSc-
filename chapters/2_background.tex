@@ -412,11 +412,7 @@ Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equ
     \end{bmatrix}
 \end{equation}
 
-From a quaternion rate at instant $t$ given current angular speed it is possible to estimate the quaternion at instant $t$. Once the Omega matrix is constructed, the quaternion rates can be used to calculate the attitude quaternion as shown in equation (2.7). In order to obtain a quaternion qk rotated
-by the gyroscope, the previous attitude quaternion $q_{k−1}$ is multiplied by the Omega matrix
-, then half of the period $Ts$.
-
-From a quaternion rate at instant $t$ given current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{k−1}$ is multiplied by the Omega, then half of the period $Ts$.
+From a quaternion rate at instant $t-1$, given a current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{k−1}$ is multiplied by $\Omega$, then half of the period $Ts$.
 
 \begin{equation}
     q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
