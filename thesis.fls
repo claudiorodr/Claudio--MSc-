@@ -1524,6 +1524,11 @@ INPUT ./figures/coriolis.pdf
 INPUT figures/coriolis.pdf
 INPUT ./figures/coriolis.pdf
 INPUT ./figures/coriolis.pdf
+INPUT ./figures/magnetometer_distortion.pdf
+INPUT ./figures/magnetometer_distortion.pdf
+INPUT figures/magnetometer_distortion.pdf
+INPUT ./figures/magnetometer_distortion.pdf
+INPUT ./figures/magnetometer_distortion.pdf
 INPUT ./figures/kalman1.pdf
 INPUT ./figures/kalman1.pdf
 INPUT figures/kalman1.pdf
