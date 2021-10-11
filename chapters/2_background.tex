@@ -487,6 +487,7 @@ The major axis is the axis that runs along the x axes. This will be used to find
 \end{table}
 
 \subsection{Sensor Fusion}
+Sensor fusion defines the blending of sensory information from two or more sources in a way that generates a more consistent and dependable understanding of the system. One that would otherwise not be possible when these sources were used individually. Ideally, a gyroscope could deduce a body’s attitude singly, notwithstanding with less cost comes lower accuracy and precision. This originates from a drift build up, where error accumulates exponentially on the integrated output. Hence, the sensor needs a correction term obtained from another MEMS sensor known as the accelerometer. The accelerometer can be used to estimate the attitude directly from the sensors using measurements of linear accelerations. The accelerometer can be beneficial in an ideal setting, however it is common for a UAV to have a lot of vibrations and external forces which have an influence on the accelerometer. This leads to a need for a sensor fusion algorithm to choose the optimal amount of each sensor to use in combination to estimate the attitude of the platform. The current commercial INS platforms available can range from hundreds to thousands of dollars to obtain an accurate attitude solution. These expensive platforms typically use more expensive MEMS based sensors or use Kalman filters algorithms that are very complex.
 \subsubsection{Sensor Fusion Algoritms}
 \paragraph{Kalman Filter}
 
