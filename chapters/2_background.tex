@@ -111,6 +111,13 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
     \label{fig:axes_frames}
 \end{figure}
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
+    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+    \label{fig:gimbal_lock}
+\end{figure}
+
 
 \begin{equation}
     \textrm{$_{b}^{a}R$}
@@ -322,6 +329,12 @@ An inertial measurement unit (IMU) is an electronic tool that quantifies and des
 %     \caption{MPU-9250 Breakout}
 %     \label{fig:hardware}
 % \end{figure}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/noise.pdf}
+    \caption{MPU-9250 Breakout}
+    \label{fig:hardware}
+\end{figure}
 
 % MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6500 (3-axis gyroscope and 3-axis accelerometer fusion) and an AK8963 3-axis magnetometer.
 
@@ -514,27 +527,7 @@ Consequently, the system’s noise is assumed to be Gaussian. Therefore, the Kal
 
 \subsubsection{Complementary Filter}
 
-The complementary filter is considered a simpler approach relatively to the Kalman filter since it is a computationally lightweight solution and straightforward to implement \cite{higgins1975comparison}. This filter takes as input two noisy sensor measurements and assumes one input is mainly formed by high-frequency signals whereas the other is mostly by low-frequency signals. Through a low pass filter, the high-frequency noise of the first input is filtered out. An identical procedure occurs with the second signal, but this time with a high pass filter to remove low-frequency noises, as illustrated in figure \ref{fig:complementary}. The accelerometer is especially vulnerable to vibrations and centripetal forces, these can be filtered by a low pass filter behaving as a moving average filter. The gyroscope is precise and exact in the short term, but quickly loses precision in integration due to drift. For that reason, a high pass filter that allows the short-term gyroscope data is desirable, thus, removing the long-term drift.
-At any given moment the complete
-\begin{equation}
-    y_t = (1-\alpha)yx_{t} + \alpha (x_{t-1})
-\end{equation}
-
-
-\begin{equation}
-    y_t = (1-\alpha)y_{t-1} + (1-\alpha) (x_t - x_{t-1})
-\end{equation}
-
-Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
-\begin{equation}
-    \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
-\end{equation}
-
-A mathematical model of the complementary filter can be represented as equation, where $\theta_t$ represents current orientation, $\alpha$ is the filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
-
-\begin{equation}
-    \theta_t = (1 - \lambda) (\theta_{t-1} + \omega \Delta t) + \lambda a
-\end{equation}
+The complementary filter is considered a simpler approach relatively to the Kalman filter since it is a computationally lightweight solution and straightforward to implement \cite{higgins1975comparison}. This filter takes as input two noisy sensor measurements and assumes one input is mainly formed by high-frequency signals whereas the other is mostly by low-frequency signals. Through a low pass filter, the high-frequency noise of the first input is filtered out. An identical procedure occurs with the second signal, but this time with a high pass filter to remove low-frequency noises, as illustrated in figure \ref{fig:complementary}.
 
 \begin{figure}[!h]
     \centering
@@ -542,6 +535,42 @@ A mathematical model of the complementary filter can be represented as equation,
     \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
     \label{fig:complementary}
 \end{figure}
+
+The accelerometer is especially vulnerable to vibrations and centripetal forces, these can be filtered by a low pass filter behaving as a moving average filter. The gyroscope is precise and exact in the short term, but quickly loses precision in integration due to drift. For that reason, a high pass filter that allows the short-term gyroscope data is desirable, thus, removing the long-term drift.
+At any given moment the complete the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}):
+
+\begin{equation}
+    y_t = (1-\alpha)x_{t} + \alpha y_{t-1}
+    \label{eq:low_pass_filter}
+\end{equation}
+
+\begin{equation}
+    y_t = (1-\alpha)y_{t-1} + (1-\alpha) (x_t - x_{t-1})
+    \label{eq:high_pass_filter}
+\end{equation}
+
+$\alpha$ is related to time-constant. it defines the boundary where the accelerometer readings stop and the gyroscope readings take over and vice-versa. It controls how much you want the output to depend on the current value or a new value that arrives. Both the alpha’s have to be the same. alpha is usually > 0.5 using the definitions above.
+
+
+\begin{equation}
+    \alpha = \frac{\tau}{\tau + \Delta t}
+\end{equation}
+
+Where the filter coefficient $\alpha$ is determined by:
+
+\begin{equation}
+    \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
+\end{equation}
+
+A mathematical model of the complementary filter can be represented as equation \ref{eq:complementary_model}, where $\theta_t$ represents current orientation, $\alpha$ is the filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
+
+\begin{equation}
+    \theta_t = (1 - \alpha) (\theta_{t-1} + \omega \Delta t) + \alpha a
+    \label{eq:complementary_model}
+\end{equation}
+
+Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
+
 
 \subsubsection{Optimization Filters}
 

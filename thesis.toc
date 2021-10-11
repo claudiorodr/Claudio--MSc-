@@ -19,29 +19,29 @@
 \contentsline {subsubsection}{\numberline {2.2.3}Euler angles}{10}{subsubsection.0.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Quaternions}{11}{subsubsection.0.2.2.4}%
 \contentsline {subsection}{\numberline {2.3}Inertial Measurement Units}{15}{subsection.0.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Accelerometer}{15}{subsubsection.0.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Gyroscope}{17}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.1}Accelerometer}{16}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Gyroscope}{18}{subsubsection.0.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Magnetometer}{20}{subsubsection.0.2.3.3}%
 \contentsline {subsection}{\numberline {2.4}Sensor Fusion}{22}{subsection.0.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Kalman Filter}{22}{subsubsection.0.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Complementary Filter}{23}{subsubsection.0.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Optimization Filters}{24}{subsubsection.0.2.4.3}%
-\contentsline {paragraph}{\numberline {2.4.3.1}Other Filters}{25}{paragraph.0.2.4.3.1}%
-\contentsline {section}{\numberline {3}Related Work}{25}{section.0.3}%
-\contentsline {subsection}{\numberline {3.1}Position estimation using inertial sensor systems}{26}{subsection.0.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Pedestrian Dead Reckoning}{26}{subsubsection.0.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Strapdown Inertial Integration}{27}{subsubsection.0.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Sensor fusion in position and orientation estimation }{28}{subsection.0.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Kalman filter}{28}{subsubsection.0.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Complementary filter}{30}{subsubsection.0.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Optimization filters}{32}{subsubsection.0.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Sensor fusion algorithms comparison}{32}{subsubsection.0.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}Thesis Contribution}{33}{subsection.0.3.3}%
-\contentsline {section}{\numberline {4}Methodology}{33}{section.0.4}%
-\contentsline {subsection}{\numberline {4.1}Evaluation Methodology}{34}{subsection.0.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Obtaining AHRS from sensor fusion}{34}{subsubsection.0.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Estimating position}{34}{subsubsection.0.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}System Architecture}{42}{subsection.0.4.2}%
-\contentsline {section}{\numberline {5}Discussion}{46}{section.0.5}%
-\contentsline {section}{\numberline {6}Results}{46}{section.0.6}%
-\contentsline {chapter}{References}{48}{chapter*.43}%
+\contentsline {subsubsection}{\numberline {2.4.1}Kalman Filter}{23}{subsubsection.0.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Complementary Filter}{24}{subsubsection.0.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Optimization Filters}{26}{subsubsection.0.2.4.3}%
+\contentsline {paragraph}{\numberline {2.4.3.1}Other Filters}{26}{paragraph.0.2.4.3.1}%
+\contentsline {section}{\numberline {3}Related Work}{26}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Position estimation using inertial sensor systems}{27}{subsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Pedestrian Dead Reckoning}{27}{subsubsection.0.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Strapdown Inertial Integration}{28}{subsubsection.0.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Sensor fusion in position and orientation estimation }{29}{subsection.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Kalman filter}{29}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Complementary filter}{31}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Optimization filters}{33}{subsubsection.0.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Sensor fusion algorithms comparison}{33}{subsubsection.0.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Thesis Contribution}{34}{subsection.0.3.3}%
+\contentsline {section}{\numberline {4}Methodology}{34}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Evaluation Methodology}{35}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Obtaining AHRS from sensor fusion}{35}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Estimating position}{35}{subsubsection.0.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}System Architecture}{43}{subsection.0.4.2}%
+\contentsline {section}{\numberline {5}Discussion}{47}{section.0.5}%
+\contentsline {section}{\numberline {6}Results}{47}{section.0.6}%
+\contentsline {chapter}{References}{49}{chapter*.45}%

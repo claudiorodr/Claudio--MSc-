@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  11 OCT 2021 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  12 OCT 2021 00:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -895,6 +895,9 @@ File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 Package nomencl Info: Writing nomenclature file thesis.nlo on input line 67.
 ) (./thesis.aux
 
+LaTeX Warning: Label `fig:gimbal_lock' multiply defined.
+
+
 LaTeX Warning: Label `fig:gyroscope' multiply defined.
 
 
@@ -917,6 +920,9 @@ LaTeX Warning: Label `fig:3dimensions' multiply defined.
 
 
 LaTeX Warning: Label `fig:3dimensions' multiply defined.
+
+
+LaTeX Warning: Label `fig:hardware' multiply defined.
 
 
 LaTeX Warning: Label `fig:full' multiply defined.
@@ -1031,10 +1037,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-
-LaTeX Warning: Reference `fig:2dimension' on page 9 undefined on input line 27.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
@@ -1042,10 +1044,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: Reference `fig:2dimension' on page 10 undefined on input line 29.
 
 
-LaTeX Warning: Reference `fig:2dimension' on page 10 undefined on input line 30.
-
-
 LaTeX Warning: Reference `fig:2dimension' on page 10 undefined on input line 31.
+
+
+LaTeX Warning: Reference `fig:2dimension' on page 10 undefined on input line 32.
+
+
+LaTeX Warning: Reference `fig:2dimension' on page 10 undefined on input line 33.
 
 )
 \tf@lof=\write7
@@ -1079,7 +1084,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
                    \relax 
 l.17 
       [2]
-<figures/gimbal_lock.png, id=517, 853.1875pt x 330.23375pt>
+<figures/gimbal_lock.png, id=529, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package pdftex.def Info: figures/gimbal_lock.png  used on input line 25.
@@ -1118,105 +1123,107 @@ l.62 \end{equation}
 <to be read again> 
                    \relax 
 l.97 
-      [8] (./plots/rotation_matrix.tex) (./plots/rotation_matrix3D.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
+      [8] (./plots/rotation_matrix.tex) (./plots/rotation_matrix3D.tex)
+<figures/rotation.pdf, id=582, 187.66109pt x 207.65579pt>
+File: figures/rotation.pdf Graphic file (type pdf)
+<use figures/rotation.pdf>
+Package pdftex.def Info: figures/rotation.pdf  used on input line 116.
+(pdftex.def)             Requested size: 242.98541pt x 268.87834pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 \subsubsection
+l.135 \subsubsection
                     {Direct Cosine Matrix} [9]pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.174 
-       [10]
+l.146 
+       [10 <./figures/rotation.pdf>]
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
-Package pdftex.def Info: figures/gimbal_lock.png  used on input line 177.
+Package pdftex.def Info: figures/gimbal_lock.png  used on input line 184.
 (pdftex.def)             Requested size: 242.98541pt x 94.04704pt.
-<figures/complex_rotation.pdf, id=587, 630.26666pt x 623.72224pt>
-File: figures/complex_rotation.pdf Graphic file (type pdf)
-<use figures/complex_rotation.pdf>
-Package pdftex.def Info: figures/complex_rotation.pdf  used on input line 188.
-(pdftex.def)             Requested size: 242.98541pt x 240.46214pt.
 
-Underfull \vbox (badness 1460) has occurred while \output is active []
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.191 \end{figure}
-                   [11]
-Underfull \vbox (badness 3907) has occurred while \output is active []
+l.192 
+       [11]
+<figures/complex_rotation.pdf, id=612, 630.26666pt x 623.72224pt>
+File: figures/complex_rotation.pdf Graphic file (type pdf)
+<use figures/complex_rotation.pdf>
+Package pdftex.def Info: figures/complex_rotation.pdf  used on input line 195.
+(pdftex.def)             Requested size: 242.98541pt x 240.46214pt.
 
- [12 <./figures/complex_rotation.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
-Underfull \vbox (badness 2556) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [14] [15]
-<figures/accelerometer.pdf, id=634, 263.06279pt x 235.8411pt>
+[12] [13 <./figures/complex_rotation.pdf>] [14] [15]
+<figures/noise.pdf, id=654, 337.26pt x 81.4242pt>
+File: figures/noise.pdf Graphic file (type pdf)
+<use figures/noise.pdf>
+Package pdftex.def Info: figures/noise.pdf  used on input line 334.
+(pdftex.def)             Requested size: 347.12354pt x 83.80698pt.
+ [16 <./figures/noise.pdf>]
+<figures/accelerometer.pdf, id=664, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
-Package pdftex.def Info: figures/accelerometer.pdf  used on input line 341.
+Package pdftex.def Info: figures/accelerometer.pdf  used on input line 354.
 (pdftex.def)             Requested size: 173.56177pt x 155.60881pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 2326) has occurred while \output is active []
-
- [16]
-<figures/gyroscope.pdf, id=643, 472.64577pt x 190.7928pt>
+ [17 <./figures/accelerometer.pdf>]
+<figures/gyroscope.pdf, id=678, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
-Package pdftex.def Info: figures/gyroscope.pdf  used on input line 371.
+Package pdftex.def Info: figures/gyroscope.pdf  used on input line 384.
 (pdftex.def)             Requested size: 242.98541pt x 98.08615pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17 <./figures/accelerometer.pdf> <./figures/gyroscope.pdf>]
-<figures/coriolis.pdf, id=660, 346.4142pt x 274.1442pt>
+ [18 <./figures/gyroscope.pdf>]
+<figures/coriolis.pdf, id=690, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
-Package pdftex.def Info: figures/coriolis.pdf  used on input line 386.
+Package pdftex.def Info: figures/coriolis.pdf  used on input line 399.
 (pdftex.def)             Requested size: 242.98541pt x 192.29282pt.
+ [19 <./figures/coriolis.pdf>] [20]
+Underfull \vbox (badness 1762) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18 <./figures/coriolis.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19] [20]
-<figures/magnetometer_distortion.pdf, id=696, 820.02356pt x 205.72859pt>
+ [21]
+<figures/magnetometer_distortion.pdf, id=727, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
-Package pdftex.def Info: figures/magnetometer_distortion.pdf  used on input line 467.
+Package pdftex.def Info: figures/magnetometer_distortion.pdf  used on input line 480.
 (pdftex.def)             Requested size: 347.12354pt x 87.08661pt.
- [21 <./figures/magnetometer_distortion.pdf>] [22]
-<figures/kalman1.pdf, id=726, 499.8675pt x 133.45859pt>
+ [22 <./figures/magnetometer_distortion.pdf>]
+<figures/kalman1.pdf, id=751, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
-Package pdftex.def Info: figures/kalman1.pdf  used on input line 501.
+Package pdftex.def Info: figures/kalman1.pdf  used on input line 514.
 (pdftex.def)             Requested size: 156.20453pt x 41.70366pt.
-<figures/kalman2.pdf, id=727, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=752, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
-Package pdftex.def Info: figures/kalman2.pdf  used on input line 506.
+Package pdftex.def Info: figures/kalman2.pdf  used on input line 519.
 (pdftex.def)             Requested size: 156.20453pt x 37.90372pt.
- [23 <./figures/kalman1.pdf> <./figures/kalman2.pdf>]
-<figures/complementary.pdf, id=748, 325.215pt x 136.5903pt>
+ [23]
+<figures/complementary.pdf, id=762, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
-Package pdftex.def Info: figures/complementary.pdf  used on input line 541.
+Package pdftex.def Info: figures/complementary.pdf  used on input line 534.
 (pdftex.def)             Requested size: 242.98541pt x 102.05688pt.
 
+Underfull \vbox (badness 1354) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ [24 <./figures/kalman1.pdf> <./figures/kalman2.pdf> <./figures/complementary.pdf>] [25]) (./chapters/3_related_work.tex
+Underfull \vbox (badness 1708) has occurred while \output is active []
 
-[24]) (./chapters/3_related_work.tex
-Underfull \vbox (badness 5893) has occurred while \output is active []
-
- [25 <./figures/complementary.pdf>] [26] [27] [28]
+ [26] [27] [28] [29]
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package pdftex.def Info: figures/kalman1.pdf  used on input line 40.
@@ -1228,12 +1235,12 @@ Package pdftex.def Info: figures/kalman2.pdf  used on input line 45.
 
 Underfull \vbox (badness 2027) has occurred while \output is active []
 
- [29] [30]
+ [30] [31]
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package pdftex.def Info: figures/complementary.pdf  used on input line 65.
 (pdftex.def)             Requested size: 242.98541pt x 102.05688pt.
- [31] [32]) (./chapters/4_methodology.tex [33] (./plots/raw.pgf)
+ [32] [33]) (./chapters/4_methodology.tex [34] (./plots/raw.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1242,14 +1249,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:madgwickAHRS' on page 34 undefined on input line 30.
+LaTeX Warning: Reference `fig:madgwickAHRS' on page 35 undefined on input line 30.
 
-(./plots/euler.pgf) [34]
+(./plots/euler.pgf) [35]
 
-LaTeX Warning: Reference `fig:compensation' on page 35 undefined on input line 61.
+LaTeX Warning: Reference `fig:compensation' on page 36 undefined on input line 61.
 
-[35] (./plots/gravity.pgf)
-<figures/orientation_position.pdf, id=885, 458.67358pt x 126.4725pt>
+[36] (./plots/gravity.pgf)
+<figures/orientation_position.pdf, id=919, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1258,29 +1265,29 @@ Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./plots/integration.pgf) [36] [37] [38]
+(./plots/integration.pgf) [37] [38] [39]
 
-LaTeX Warning: Reference `fig:1dimension' on page 39 undefined on input line 95.
+LaTeX Warning: Reference `fig:1dimension' on page 40 undefined on input line 95.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39 <./figures/orientation_position.pdf>] (./plots/square.pgf)
+ [40 <./figures/orientation_position.pdf>] (./plots/square.pgf)
 
-LaTeX Warning: Reference `fig:2dimension' on page 40 undefined on input line 110.
+LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 110.
 
-<figures/experiment2.jpg, id=908, 3276.24pt x 2457.18pt>
+<figures/experiment2.jpg, id=943, 3276.24pt x 2457.18pt>
 File: figures/experiment2.jpg Graphic file (type jpg)
 <use figures/experiment2.jpg>
 Package pdftex.def Info: figures/experiment2.jpg  used on input line 114.
 (pdftex.def)             Requested size: 164.88579pt x 123.65355pt.
-[40]
-<figures/experiment3.jpg, id=913, 3276.24pt x 2457.18pt>
+[41]
+<figures/experiment3.jpg, id=948, 3276.24pt x 2457.18pt>
 File: figures/experiment3.jpg Graphic file (type jpg)
 <use figures/experiment3.jpg>
 Package pdftex.def Info: figures/experiment3.jpg  used on input line 121.
 (pdftex.def)             Requested size: 164.88579pt x 123.65355pt.
-<figures/experiment.jpg, id=914, 3276.24pt x 2457.18pt>
+<figures/experiment.jpg, id=949, 3276.24pt x 2457.18pt>
 File: figures/experiment.jpg Graphic file (type jpg)
 <use figures/experiment.jpg>
 Package pdftex.def Info: figures/experiment.jpg  used on input line 128.
@@ -1291,40 +1298,40 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./plots/3Dorientation.tex)
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 137.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 137.
 
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 137.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 137.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./plots/square3D.pgf) (./plots/square.tex)
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 150.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 150.
 
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 150.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 150.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./plots/circle.tex)
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 156.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 156.
 
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 156.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 156.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./plots/triangle.tex)
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 163.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 163.
 
 
-LaTeX Warning: Reference `fig:2dimension' on page 41 undefined on input line 163.
+LaTeX Warning: Reference `fig:2dimension' on page 42 undefined on input line 163.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1332,22 +1339,22 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 1817) has occurred while \output is active []
 
- [41 <./figures/experiment2.jpg> <./figures/experiment3.jpg>] [42 <./figures/experiment.jpg>] [43]
+ [42 <./figures/experiment2.jpg> <./figures/experiment3.jpg>] [43 <./figures/experiment.jpg>] [44]
 
-LaTeX Warning: Text page 44 contains only floats.
+LaTeX Warning: Text page 45 contains only floats.
 
-[44] [45]
-<figures/INS.jpg, id=942, 2000.47375pt x 2001.4775pt>
+[45] [46]
+<figures/INS.jpg, id=976, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package pdftex.def Info: figures/INS.jpg  used on input line 182.
 (pdftex.def)             Requested size: 86.78088pt x 86.79482pt.
-<figures/mpu9250.jpg, id=943, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=977, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package pdftex.def Info: figures/mpu9250.jpg  used on input line 188.
 (pdftex.def)             Requested size: 86.78088pt x 90.10577pt.
-<figures/overview.pdf, id=944, 421.575pt x 169.5936pt>
+<figures/overview.pdf, id=978, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
 Package pdftex.def Info: figures/overview.pdf  used on input line 198.
@@ -1356,7 +1363,7 @@ Package pdftex.def Info: figures/overview.pdf  used on input line 198.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/fullINS.jpg, id=945, 3569.335pt x 2569.6pt>
+<figures/fullINS.jpg, id=979, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
 Package pdftex.def Info: figures/fullINS.jpg  used on input line 205.
@@ -1364,12 +1371,12 @@ Package pdftex.def Info: figures/fullINS.jpg  used on input line 205.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./chapters/5_discussion.tex) (./chapters/6_results.tex) (./thesis.bbl [46 <./figures/INS.jpg> <./figures/mpu9250.jpg>] [47 <./figures/overview.pdf> <./figures/fullINS.jpg>] [48
+) (./chapters/5_discussion.tex) (./chapters/6_results.tex) (./thesis.bbl [47 <./figures/INS.jpg> <./figures/mpu9250.jpg>] [48 <./figures/overview.pdf> <./figures/fullINS.jpg>] [49
 
-] [49]
+] [50]
 Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [50] [51]) [52] (./thesis.aux)
+ [51] [52]) [53] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1377,21 +1384,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DEFD7E84C6C9EB4E880D9F423C7D83D3;7963.
+(rerunfilecheck)             Checksum: 71A9C3A933E38EE229A1661D41B9D05B;7963.
  ) 
 Here is how much of TeX's memory you used:
- 51143 strings out of 478599
- 1158335 string characters out of 5858101
- 2916589 words of memory out of 5000000
- 68000 multiletter control sequences out of 15000+600000
+ 51164 strings out of 478599
+ 1158809 string characters out of 5858101
+ 2917308 words of memory out of 5000000
+ 68015 multiletter control sequences out of 15000+600000
  420088 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,19n,134p,2642b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on thesis.pdf (63 pages, 3595267 bytes).
+Output written on thesis.pdf (64 pages, 3620425 bytes).
 PDF statistics:
- 1129 PDF objects out of 1200 (max. 8388607)
- 970 compressed objects within 10 object streams
- 219 named destinations out of 1000 (max. 500000)
- 455 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1165 PDF objects out of 1200 (max. 8388607)
+ 1001 compressed objects within 11 object streams
+ 223 named destinations out of 1000 (max. 500000)
+ 465 words of extra memory for PDF output out of 10000 (max. 10000000)
 
