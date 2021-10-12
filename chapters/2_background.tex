@@ -537,7 +537,7 @@ The complementary filter is considered a simpler approach relatively to the Kalm
 \end{figure}
 
 The accelerometer is especially vulnerable to vibrations and centripetal forces, these can be filtered by a low pass filter behaving as a moving average filter. The gyroscope is precise and exact in the short term, but quickly loses precision in integration due to drift. For that reason, a high pass filter that allows the short-term gyroscope data is desirable, thus, removing the long-term drift.
-At any given moment the complete the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}):
+At any given moment, the complete the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}), where $\theta_t$ represents current orientation, $\alpha$ is a filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
 
 \begin{equation}
     y_t = (1-\alpha)x_{t} + \alpha y_{t-1}
@@ -549,14 +549,13 @@ At any given moment the complete the signal is subject to a low pass filter (equ
     \label{eq:high_pass_filter}
 \end{equation}
 
-$\alpha$ is related to time-constant. it defines the boundary where the accelerometer readings stop and the gyroscope readings take over and vice-versa. It controls how much you want the output to depend on the current value or a new value that arrives. Both the alpha’s have to be the same. alpha is usually > 0.5 using the definitions above.
-
+$\alpha$ filter coefficient describes the borderline where the gyroscope measurements end, and the accelerometer readings begin and vice versa. It rules how much the output relies on the current reading or a new value that arrives. $\alpha$ is typically above 0.5 by the definition above. Where the filter coefficient $\alpha$ is determined by:
 
 \begin{equation}
     \alpha = \frac{\tau}{\tau + \Delta t}
 \end{equation}
 
-Where the filter coefficient $\alpha$ is determined by:
+Where $\tau$ is the wanted time constant (time interval for the readings to respond) and $\Delta t$ is the sampling period.
 
 \begin{equation}
     \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
