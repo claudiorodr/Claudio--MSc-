@@ -60,12 +60,12 @@ Sharma et al. \cite{sharma2014sensor} present an experiment of Kalman filter-bas
 \subsubsection{Complementary filter}
 The complementary filter is considered a simpler approach relatively to the Kalman filter since it is a computationally lightweight solution and straightforward to implement \cite{higgins1975comparison}. This filter takes as input two noisy sensor measurements and assumes one input is mainly formed by high-frequency signals whereas the other is mostly by low-frequency signals. Through a low pass filter, the high-frequency noise of the first input is filtered out. An identical procedure occurs with the second signal, but this time with a high pass filter to remove low-frequency noises, as illustrated in figure \ref{fig:complementary}. Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
 
-\begin{figure}[!h]
-   \centering
-   \includegraphics[width=0.7\textwidth]{figures/complementary.pdf}
-   \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
-   \label{fig:complementary}
-\end{figure}
+% \begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=0.7\textwidth]{figures/complementary.pdf}
+%    \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
+%    \label{fig:complementary}
+% \end{figure}
 
 Madgwick et al. \cite{madgwick2020extended} outlined the formulation of an extended complementary filter algorithm and exhibited its applicability as a human motion monitoring wearable. Their design fused magnetic, angular rate, and gravity sensor data to remotely estimate limb orientation in stroke patients performing rehabilitation exercises. They analyzed performance under a range of circumstances and benchmarked alongside other frequently utilized sensor fusion algorithms. They claim an improved computational efficiency of over 30\% when compared with standard alternative algorithms.
 

@@ -115,7 +115,7 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
     \centering
     \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
     \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
-    \label{fig:gimbal_lock}
+    \label{fig:rotation}
 \end{figure}
 
 
@@ -323,17 +323,11 @@ $^bv = \begin{bmatrix}
 \subsection{Inertial Measurement Units}
 An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts, satellites, and unmanned aerial vehicles (UAVs), to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
 
-% \begin{figure}[!h]
-%     \centering
-%     \includegraphics[width=0.5\textwidth]{figures/mpu9250.jpg}
-%     \caption{MPU-9250 Breakout}
-%     \label{fig:hardware}
-% \end{figure}
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{figures/noise.pdf}
     \caption{MPU-9250 Breakout}
-    \label{fig:hardware}
+    \label{fig:noise}
 \end{figure}
 
 % MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6500 (3-axis gyroscope and 3-axis accelerometer fusion) and an AK8963 3-axis magnetometer.
@@ -355,26 +349,6 @@ Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness con
     \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
     \label{fig:accelerometer_schematic}
 \end{figure}
-
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}[t]{lcccc}
-            \hline
-            Parameter                   & Min. & Typ.      & Max.   & Units             \\
-            \hline
-            Full-Scale range            &      & $\pm 16$  &        & $g$               \\
-            Sensitivity Scale Factor    &      & 2,048     &        & $LSB/g$           \\
-            Nonlinearity                &      & $\pm 0.1$ &        & $\%$              \\
-            Rate Noise Spectral Density &      & 300       &        & $\mu g/\sqrt{Hz}$ \\
-            Operating Current           &      & 3.2       &        & $mA$              \\
-            Startup Time                &      & 20        &        & $ms$              \\
-            Output Data Rate            & $4$  &           & $4000$ & $Hz$              \\
-            \hline
-        \end{tabular}
-        \caption{Accelerometer Specifications. }
-        \label{tab:accelerometer_specification}
-    \end{center}
-\end{table}
 
 \subsubsection{Gyroscope}
 A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change.
@@ -431,26 +405,6 @@ From a quaternion rate at instant $t-1$, given a current angular speed it is pos
     q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
 \end{equation}
 
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}[t]{lcccc}
-            \hline
-            Parameter                   & Min. & Typ.       & Max.   & Units                  \\
-            \hline
-            Full-Scale range            &      & $\pm 2000$ &        & $^{\circ}/s$           \\
-            Sensitivity Scale Factor    &      & 131        &        & $LSB/(^{\circ}/s)$     \\
-            Nonlinearity                &      & $\pm 0.5$  &        & $\%$                   \\
-            Rate Noise Spectral Density &      & 300        &        & $^{\circ}/s/\sqrt{Hz}$ \\
-            Operating Current           &      & 450        &        & $\mu A$                \\
-            Startup Time                &      & 35         &        & $ms$                   \\
-            Output Data Rate            & $4$  &            & $8000$ & $Hz$                   \\
-            \hline
-        \end{tabular}
-        \caption{Gyroscope Specifications. }
-        \label{tab:gyroscope_specification}
-    \end{center}
-\end{table}
-
 \subsubsection{Magnetometer}
 A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field’s intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor. There are two categories of magnetic distortions: Hard iron and soft iron. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard-iron disturbances by discerning the maximum and minimum x and y offsets. The x axis and y axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis:
 
@@ -479,51 +433,52 @@ The major axis is the axis that runs along the x axes. This will be used to find
     \centering
     \includegraphics[width=1\textwidth]{figures/magnetometer_distortion.pdf}
     \caption{Representation of the Gimbal Lock problematic}
-    \label{fig:gyroscope}
+    \label{fig:magnetometer_distortion}
 \end{figure}
 
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}[t]{lcccc}
-            \hline
-            Parameter                     & Min. & Typ.       & Max. & Units        \\
-            \hline
-            Full-Scale range              &      & $\pm 4800$ &      & $\mu T$      \\
-            Sensitivity Scale Factor      &      & 0.6        &      & $\mu T/ LSB$ \\
-            Operating Current             &      & 280        &      & $\mu A$      \\
-            Initial Calibration Tolerance &      & $\pm 500$  &      & $LSB$        \\
-            \hline
-        \end{tabular}
-        \caption{Magnetometer specification. }
-        \label{tab:magnetometer_multiplication}
-    \end{center}
-\end{table}
+
 
 \subsection{Sensor Fusion}
 Sensor fusion defines the blending of sensory information from two or more sources in a way that generates a more consistent and dependable understanding of the system. One that would otherwise not be possible when these sources were used individually. Ideally, a gyroscope could deduce a body’s attitude independently. As mentioned previously, integrating the gyroscope’s readings can ascertain the attitude solution of a body. Notwithstanding, with less cost comes lower accuracy and precision. This originates from a drift build up on the gyro’s readings, where error accumulates exponentially on the integrated output. The accelerometer and magnetometer can work together to evaluate attitude straight from measurements of acceleration and present magnetic fields. This combination is often corrupted by disturbances such as vibrations and local magnetic interferences. Hence, both solutions have their respective benefits and require a rectifying term from an additional sensor. This conducts to a demand for a sensor fusion algorithm that combines both solutions in a way that emphasizes their strengths and minimizes their weaknesses. A sensor fusion algorithm will decide on the optimal trust combination of each sensor to assess attitude. A diversity of suitable algorithms exist that can fuse the output of different sensors to create a more reliable and consistent signal. This chapter will highlight some of the most prominent sensor fusion algorithms in existence:
 \subsubsection{Kalman Filter}
 
-The Kalman filter algorithm is a set of mathematical equations that provides a computationally efficient approach to estimate some unknown variables by the detected measurements\cite{welch1995introduction}. Kalman filters operate recursive functions to predict the present state of a linear problem by monitoring the current input data, the previous input data, and the previous state prediction. Two generally assigned methods for Kalman filter-based sensor fusion are state-vector fusion and measurement fusion. The state-vector fusion method (figure \ref{fig:state_kalman}) applies a group of Kalman filters to acquire individual sensor-based state estimates, which are subsequently fused to obtain an enhanced combined state estimate. Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly combines the sensor data to achieve a joint measurement and later uses a single Kalman filter to get hold of the final state estimate centered on the fused measurement \cite{mosallaei2007process}.
+The Kalman filter algorithm is a set of mathematical equations that provides a computationally efficient approach to estimate some unknown variables by the detected measurements\cite{welch1995introduction}. Kalman filters operate recursive functions to predict the present state of a linear problem by monitoring the current input data, the previous input data, and the previous state prediction. Two generally assigned methods for Kalman filter-based sensor fusion are state-vector fusion and measurement fusion. The state-vector fusion method (figure \ref{fig:state_kalman}) applies a group of Kalman filters to acquire individual sensor-based state estimates, which are subsequently fused to obtain an enhanced combined state estimate.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/kalman1.pdf}
+    \caption{Kalman-filter-based multi-sensor state-vector fusion. \cite{mosallaei2007process}}
+    \label{fig:state_kalman}
+\end{figure}
+
+Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly combines the sensor data to achieve a joint measurement and later uses a single Kalman filter to get hold of the final state estimate centered on the fused measurement \cite{mosallaei2007process}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/kalman2.pdf}
+    \caption{Kalman-filter-based multi-sensor easurement fusion. \cite{mosallaei2007process}}
+    \label{fig:mesearurment_kalman}
+\end{figure}
+
 When applied appropriately, Kalman filters offer highly precise orientation, even with the existence of substantial noise. Nevertheless, Kalman filters are computationally expensive rising hardware cost and latency. They are also of complex implementation, which, shared with computational overhead, can make the algorithm unfeasible for computationally restricted applications. They are regularly useful in a wide-ranging variety of applications and have become a standard method in sensor fusion. Several studies examine the possibility of using Kalman filters to predict a body’s orientation and position by combining multiple sensors. The Kalman filter is founded on recursive Bayesian filtering.
 Consequently, the system’s noise is assumed to be Gaussian. Therefore, the Kalman filter is generally suggested for linear systems. For this reason, an extension of the classic Kalman Filter designed for non-linear systems has emerged, recognized as Extended Kalman filter \cite{wilson2019formulation}.
 
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=1\linewidth]{figures/kalman1.pdf}
+%         \caption{}
+%         \label{fig:state_kalman}
+%     \end{subfigure}
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=1\linewidth]{figures/kalman2.pdf}
+%         \caption{}
+%         \label{fig:mesearurment_kalman}
+%     \end{subfigure}
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=1\linewidth]{figures/kalman1.pdf}
-        \caption{}
-        \label{fig:state_kalman}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=1\linewidth]{figures/kalman2.pdf}
-        \caption{}
-        \label{fig:mesearurment_kalman}
-    \end{subfigure}
-
-    \caption{ Kalman-filter-based multi-sensor data fusion.
-        (a) State-vector fusion. (b) Measurement fusion. \cite{mosallaei2007process} }
-\end{figure}
+%     \caption{ Kalman-filter-based multi-sensor data fusion.
+%         (a) State-vector fusion. (b) Measurement fusion. \cite{mosallaei2007process} }
+% \end{figure}
 
 \subsubsection{Complementary Filter}
 
