@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  12 OCT 2021 14:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  12 OCT 2021 17:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -613,9 +613,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count335
 \@lastruleclass=\count336
 \@thisrulewidth=\dimen266
-) (c:/texlive/2021/texmf-dist/tex/latex/pgfgantt/pgfgantt.sty
-Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
- (c:/texlive/2021/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+) (c:/texlive/2021/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks36
 \pgfutil@tempdima=\dimen267
 \pgfutil@tempdimb=\dimen268
@@ -754,7 +752,9 @@ Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@nodesepend=\dimen305
 ) (c:/texlive/2021/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
-)) (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2021/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+)) (c:/texlive/2021/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (c:/texlive/2021/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2021/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
  (c:/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen306
@@ -793,100 +793,52 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@expandcount=\count357
  (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen317
-)) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@layerbox@background=\box120
-\pgf@layerboxsaved@background=\box121
-) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
-File: tikzlibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
-File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (c:/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.tex
-File: pgfcalendar.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (c:/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
-\pgfcalendarcurrentjulian=\count358
-\pgf@cal@easter@Y=\count359
-\pgf@cal@easter@G=\count360
-\pgf@cal@easter@C=\count361
-\pgf@cal@easter@X=\count362
-\pgf@cal@easter@Z=\count363
-\pgf@cal@easter@D=\count364
-\pgf@cal@easter@E=\count365
-\pgf@cal@easter@N=\count366
-\pgf@cal@easter@M=\count367
-\pgf@cal@easter@julianday=\count368
-))
-\gtt@currentline=\count369
-\gtt@lasttitleline=\count370
-\gtt@currgrid=\count371
-\gtt@chartwidth=\count372
-\gtt@lasttitleslot=\count373
-\gtt@elementid=\count374
-\gtt@today@slot=\count375
-\gtt@startjulian=\count376
-\gtt@endjulian=\count377
-\gtt@chartid=\count378
-\gtt@vrule@slot=\count379
-\gtt@calendar@slots=\count380
-\gtt@calendar@weeknumber=\count381
-\gtt@calendar@startofweek=\count382
-\gtt@left@slot=\count383
-\gtt@right@slot=\count384
-) (c:/texlive/2021/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
-File: tikzlibrary3d.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (c:/texlive/2021/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
- (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+))) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks48
 \t@pgfplots@tokb=\toks49
 \t@pgfplots@tokc=\toks50
-\pgfplots@tmpa=\dimen318
-\c@pgfplots@coordindex=\count385
-\c@pgfplots@scanlineindex=\count386
+\pgfplots@tmpa=\dimen317
+\c@pgfplots@coordindex=\count358
+\c@pgfplots@scanlineindex=\count359
  (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count387
+\c@pgfplotsarray@tmp=\count360
 ) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count388
+\c@pgfplotstable@counta=\count361
 \t@pgfplotstable@a=\toks51
 ) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count389
+\c@pgfplotslibrarysurf@no=\count362
  (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen319
-\pgfdecoratedremainingdistance=\dimen320
-\pgfdecoratedinputsegmentcompleteddistance=\dimen321
-\pgfdecoratedinputsegmentremainingdistance=\dimen322
-\pgf@decorate@distancetomove=\dimen323
-\pgf@decorate@repeatstate=\count390
-\pgfdecorationsegmentamplitude=\dimen324
-\pgfdecorationsegmentlength=\dimen325
+\pgfdecoratedcompleteddistance=\dimen318
+\pgfdecoratedremainingdistance=\dimen319
+\pgfdecoratedinputsegmentcompleteddistance=\dimen320
+\pgfdecoratedinputsegmentremainingdistance=\dimen321
+\pgf@decorate@distancetomove=\dimen322
+\pgf@decorate@repeatstate=\count363
+\pgfdecorationsegmentamplitude=\dimen323
+\pgfdecorationsegmentlength=\dimen324
 )
-\tikz@lib@dec@box=\box122
-) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex))
-(c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count391
-\pgfplots@xmin@reg=\dimen326
-\pgfplots@xmax@reg=\dimen327
-\pgfplots@ymin@reg=\dimen328
-\pgfplots@ymax@reg=\dimen329
-\pgfplots@zmin@reg=\dimen330
-\pgfplots@zmax@reg=\dimen331
+\tikz@lib@dec@box=\box120
+) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count364
+\pgfplots@xmin@reg=\dimen325
+\pgfplots@xmax@reg=\dimen326
+\pgfplots@ymin@reg=\dimen327
+\pgfplots@ymax@reg=\dimen328
+\pgfplots@zmin@reg=\dimen329
+\pgfplots@zmax@reg=\dimen330
 ) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (c:/texlive/2021/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
+File: tikzlibrary3d.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (c:/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\arrowsize=\dimen331
 )))
    defining Unicode char U+2212 (decimal 8722)
 \@nomenclaturefile=\write4
@@ -923,7 +875,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count392
+\c@section@level=\count365
 )
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
@@ -934,16 +886,16 @@ LaTeX Info: Redefining \nameref on input line 7.
 
  (c:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count393
+\scratchcounter=\count366
 \scratchdimen=\dimen332
-\scratchbox=\box123
-\nofMPsegments=\count394
-\nofMParguments=\count395
+\scratchbox=\box121
+\nofMPsegments=\count367
+\nofMParguments=\count368
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count396
+\MPscratchCnt=\count369
 \MPscratchDim=\dimen333
-\MPnumerator=\count397
-\makeMPintoPDFobject=\count398
+\MPnumerator=\count370
+\makeMPintoPDFobject=\count371
 \everyMPtoPDFconversion=\toks53
 ) (c:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1032,7 +984,7 @@ l.9 \subsubsection
                    \relax 
 l.17 
       [2]
-<figures/gimbal_lock.png, id=520, 853.1875pt x 330.23375pt>
+<figures/gimbal_lock.png, id=532, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package pdftex.def Info: figures/gimbal_lock.png  used on input line 25.
@@ -1069,7 +1021,7 @@ l.62 \end{equation}
                    \relax 
 l.97 
       [8] (./plots/rotation_matrix.tex) (./plots/rotation_matrix3D.tex)
-<figures/rotation.pdf, id=573, 187.66109pt x 207.65579pt>
+<figures/rotation.pdf, id=585, 187.66109pt x 207.65579pt>
 File: figures/rotation.pdf Graphic file (type pdf)
 <use figures/rotation.pdf>
 Package pdftex.def Info: figures/rotation.pdf  used on input line 116.
@@ -1100,7 +1052,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has 
                    \relax 
 l.192 
        [11]
-<figures/complex_rotation.pdf, id=603, 630.26666pt x 623.72224pt>
+<figures/complex_rotation.pdf, id=615, 630.26666pt x 623.72224pt>
 File: figures/complex_rotation.pdf Graphic file (type pdf)
 <use figures/complex_rotation.pdf>
 Package pdftex.def Info: figures/complex_rotation.pdf  used on input line 195.
@@ -1110,24 +1062,24 @@ Package pdftex.def Info: figures/complex_rotation.pdf  used on input line 195.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12] [13 <./figures/complex_rotation.pdf>] [14] [15]
-<figures/noise.pdf, id=645, 337.26pt x 81.4242pt>
+<figures/noise.pdf, id=657, 337.26pt x 81.4242pt>
 File: figures/noise.pdf Graphic file (type pdf)
 <use figures/noise.pdf>
 Package pdftex.def Info: figures/noise.pdf  used on input line 328.
 (pdftex.def)             Requested size: 347.12354pt x 83.80698pt.
  [16 <./figures/noise.pdf>]
-<figures/accelerometer.pdf, id=655, 263.06279pt x 235.8411pt>
+<figures/accelerometer.pdf, id=667, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
 Package pdftex.def Info: figures/accelerometer.pdf  used on input line 348.
 (pdftex.def)             Requested size: 173.56177pt x 155.60881pt.
  [17 <./figures/accelerometer.pdf>]
-<figures/gyroscope.pdf, id=669, 472.64577pt x 190.7928pt>
+<figures/gyroscope.pdf, id=681, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
 Package pdftex.def Info: figures/gyroscope.pdf  used on input line 358.
 (pdftex.def)             Requested size: 242.98541pt x 98.08615pt.
-<figures/coriolis.pdf, id=673, 346.4142pt x 274.1442pt>
+<figures/coriolis.pdf, id=685, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
 Package pdftex.def Info: figures/coriolis.pdf  used on input line 373.
@@ -1140,18 +1092,18 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 3590) has occurred while \output is active []
 
  [18 <./figures/gyroscope.pdf>] [19 <./figures/coriolis.pdf>] [20]
-<figures/magnetometer_distortion.pdf, id=714, 820.02356pt x 205.72859pt>
+<figures/magnetometer_distortion.pdf, id=726, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
 Package pdftex.def Info: figures/magnetometer_distortion.pdf  used on input line 434.
 (pdftex.def)             Requested size: 347.12354pt x 87.08661pt.
  [21 <./figures/magnetometer_distortion.pdf>]
-<figures/kalman1.pdf, id=735, 499.8675pt x 133.45859pt>
+<figures/kalman1.pdf, id=747, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package pdftex.def Info: figures/kalman1.pdf  used on input line 449.
 (pdftex.def)             Requested size: 242.98541pt x 64.87395pt.
-<figures/kalman2.pdf, id=740, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=752, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
 Package pdftex.def Info: figures/kalman2.pdf  used on input line 458.
@@ -1161,7 +1113,7 @@ Package pdftex.def Info: figures/kalman2.pdf  used on input line 458.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [22 <./figures/kalman1.pdf>]
-<figures/complementary.pdf, id=757, 325.215pt x 136.5903pt>
+<figures/complementary.pdf, id=769, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package pdftex.def Info: figures/complementary.pdf  used on input line 489.
@@ -1186,12 +1138,12 @@ Underfull \vbox (badness 2027) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30] [31] [32]) (./chapters/4_experimental_setup.tex [33]
-<figures/INS.jpg, id=893, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=905, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package pdftex.def Info: figures/INS.jpg  used on input line 8.
 (pdftex.def)             Requested size: 156.20453pt x 156.27342pt.
-<figures/mpu9250.jpg, id=894, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=906, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package pdftex.def Info: figures/mpu9250.jpg  used on input line 14.
@@ -1200,12 +1152,12 @@ Package pdftex.def Info: figures/mpu9250.jpg  used on input line 14.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34 <./figures/INS.jpg> <./figures/mpu9250.jpg>] [35]
-<figures/overview.pdf, id=905, 421.575pt x 169.5936pt>
+<figures/overview.pdf, id=917, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
 Package pdftex.def Info: figures/overview.pdf  used on input line 84.
 (pdftex.def)             Requested size: 312.40906pt x 125.68102pt.
-<figures/fullINS.jpg, id=906, 3569.335pt x 2569.6pt>
+<figures/fullINS.jpg, id=918, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
 Package pdftex.def Info: figures/fullINS.jpg  used on input line 91.
@@ -1214,7 +1166,7 @@ Package pdftex.def Info: figures/fullINS.jpg  used on input line 91.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor.jpg, id=907, 3276.24pt x 2457.18pt>
+<figures/indoor.jpg, id=919, 3276.24pt x 2457.18pt>
 File: figures/indoor.jpg Graphic file (type jpg)
 <use figures/indoor.jpg>
 Package pdftex.def Info: figures/indoor.jpg  used on input line 98.
@@ -1222,7 +1174,7 @@ Package pdftex.def Info: figures/indoor.jpg  used on input line 98.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_1.jpg, id=908, 3276.24pt x 2457.18pt>
+<figures/indoor_1.jpg, id=920, 3276.24pt x 2457.18pt>
 File: figures/indoor_1.jpg Graphic file (type jpg)
 <use figures/indoor_1.jpg>
 Package pdftex.def Info: figures/indoor_1.jpg  used on input line 105.
@@ -1230,7 +1182,7 @@ Package pdftex.def Info: figures/indoor_1.jpg  used on input line 105.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_2.jpg, id=909, 3276.24pt x 2457.18pt>
+<figures/indoor_2.jpg, id=921, 3276.24pt x 2457.18pt>
 File: figures/indoor_2.jpg Graphic file (type jpg)
 <use figures/indoor_2.jpg>
 Package pdftex.def Info: figures/indoor_2.jpg  used on input line 112.
@@ -1261,7 +1213,7 @@ Overfull \vbox (2.21767pt too high) has occurred while \output is active []
 LaTeX Warning: Reference `fig:compensation' on page 40 undefined on input line 61.
 
 [40] (./plots/gravity.pgf)
-<figures/orientation_position.pdf, id=944, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=956, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1278,40 +1230,40 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:1dimension' on page 44 undefined on input line 95.
+LaTeX Warning: Reference `fig:1dimension' on page 44 undefined on input line 87.
 
-(./plots/square.pgf)
+(./plots/square.pgf) (./plots/triangle.pgf)
 
-LaTeX Warning: Reference `fig:2dimension' on page 44 undefined on input line 110.
+LaTeX Warning: Reference `fig:2dimension' on page 44 undefined on input line 103.
 
 
-LaTeX Warning: Reference `fig:3dimensions' on page 44 undefined on input line 114.
+LaTeX Warning: Reference `fig:3dimensions' on page 44 undefined on input line 105.
 
-[44 <./figures/orientation_position.pdf>] (./plots/square3D.pgf)) (./chapters/6_discussion.tex) (./chapters/7_results.tex) (./thesis.bbl [45] [46] [47] [48
+[44 <./figures/orientation_position.pdf>] (./plots/triangle3D.pgf) (./plots/square3D.pgf)) (./chapters/6_discussion.tex) (./chapters/7_results.tex) (./thesis.bbl [45] [46] [47] [48] [49] [50
 
-] [49]
+] [51]
 Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [50] [51]) [52] (./thesis.aux)
+ [52] [53]) [54] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A56897E5AB08423007F72019FF989288;8267.
+(rerunfilecheck)             Checksum: BF080BF4467DC2031DA4AF7A3E9A8E8D;8267.
  ) 
 Here is how much of TeX's memory you used:
- 40257 strings out of 478599
- 908204 string characters out of 5858101
- 2271949 words of memory out of 5000000
- 57117 multiletter control sequences out of 15000+600000
+ 39849 strings out of 478599
+ 893706 string characters out of 5858101
+ 2879025 words of memory out of 5000000
+ 56731 multiletter control sequences out of 15000+600000
  420088 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 115i,13n,134p,2642b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,13n,134p,2642b,966s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on thesis.pdf (63 pages, 5444718 bytes).
+Output written on thesis.pdf (65 pages, 5527479 bytes).
 PDF statistics:
- 1149 PDF objects out of 1200 (max. 8388607)
- 987 compressed objects within 10 object streams
- 220 named destinations out of 1000 (max. 500000)
+ 1171 PDF objects out of 1200 (max. 8388607)
+ 1006 compressed objects within 11 object streams
+ 224 named destinations out of 1000 (max. 500000)
  481 words of extra memory for PDF output out of 10000 (max. 10000000)
 

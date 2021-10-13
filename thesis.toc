@@ -46,4 +46,4 @@
 \contentsline {subsubsection}{\numberline {5.1.2}Estimating position}{38}{subsubsection.0.5.1.2}%
 \contentsline {section}{\numberline {6}Discussion}{45}{section.0.6}%
 \contentsline {section}{\numberline {7}Results}{45}{section.0.7}%
-\contentsline {chapter}{References}{48}{chapter*.41}%
+\contentsline {chapter}{References}{50}{chapter*.43}%
