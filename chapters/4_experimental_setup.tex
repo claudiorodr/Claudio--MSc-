@@ -134,6 +134,60 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
 
+\begin{lstlisting}
+    import numpy as np
+        
+    def incmatrix(genl1,genl2):
+        m = len(genl1)
+        n = len(genl2)
+        M = None #to become the incidence matrix
+        VT = np.zeros((n*m,1), int)  #dummy variable
+        
+        #compute the bitwise xor matrix
+        M1 = bitxormatrix(genl1)
+        M2 = np.triu(bitxormatrix(genl2),1) 
+    
+        for i in range(m-1):
+            for j in range(i+1, m):
+                [r,c] = np.where(M2 == M1[i,j])
+                for k in range(len(r)):
+                    VT[(i)*n + r[k]] = 1;
+                    VT[(i)*n + c[k]] = 1;
+                    VT[(j)*n + r[k]] = 1;
+                    VT[(j)*n + c[k]] = 1;
+                    
+                    if M is None:
+                        M = np.copy(VT)
+                    else:
+                        M = np.concatenate((M, VT), 1)
+                    
+                    VT = np.zeros((n*m,1), int)
+        
+        return M
+\end{lstlisting}
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    % \label{fig:sensoroutput}
+\end{figure}
+
 
 \subsection{Software}
 The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.

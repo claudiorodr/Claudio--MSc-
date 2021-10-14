@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  14 OCT 2021 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.22)  14 OCT 2021 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -839,12 +839,33 @@ File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (c:/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \arrowsize=\dimen331
-)))
+))) (c:/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count365
+\lst@gtempboxa=\box121
+\lst@token=\toks52
+\lst@length=\count366
+\lst@currlwidth=\dimen332
+\lst@column=\count367
+\lst@pos=\count368
+\lst@lostspace=\dimen333
+\lst@width=\dimen334
+\lst@newlines=\count369
+\lst@lineno=\count370
+\lst@maxwidth=\dimen335
+ (c:/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count371
+\lst@skipnumbers=\count372
+\lst@framebox=\box122
+) (c:/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
    defining Unicode char U+2212 (decimal 8722)
 \@nomenclaturefile=\write4
 \openout4 = `thesis.nlo'.
 
-Package nomencl Info: Writing nomenclature file thesis.nlo on input line 67.
+Package nomencl Info: Writing nomenclature file thesis.nlo on input line 68.
 ) (./thesis.aux
 
 LaTeX Warning: Label `fig:hardware' multiply defined.
@@ -879,7 +900,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count365
+\c@section@level=\count373
 )
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
@@ -890,17 +911,17 @@ LaTeX Info: Redefining \nameref on input line 7.
 
  (c:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count366
-\scratchdimen=\dimen332
-\scratchbox=\box121
-\nofMPsegments=\count367
-\nofMParguments=\count368
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count369
-\MPscratchDim=\dimen333
-\MPnumerator=\count370
-\makeMPintoPDFobject=\count371
-\everyMPtoPDFconversion=\toks53
+\scratchcounter=\count374
+\scratchdimen=\dimen336
+\scratchbox=\box123
+\nofMPsegments=\count375
+\nofMParguments=\count376
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count377
+\MPscratchDim=\dimen337
+\MPnumerator=\count378
+\makeMPintoPDFobject=\count379
+\everyMPtoPDFconversion=\toks54
 ) (c:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -911,12 +932,14 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package chemgreek Info: Activating mapping `default' on line 7.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
  on input line 7.
 
+\c@lstlisting=\count380
 (./chapters/0_cover.tex
 <figures/logoUMa.png, id=224, 845.1575pt x 597.23125pt>
 File: figures/logoUMa.png Graphic file (type png)
@@ -961,18 +984,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9])
+ [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10])
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
- [10] (./thesis.lot)
+ [11] (./thesis.lot)
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
 \nomitemorigsep=\skip91
 
 No file thesis.nls.
-[11
+[12
 
 ] (./chapters/1_introduction.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -988,7 +1014,7 @@ l.9 \subsubsection
                    \relax 
 l.17 
       [2]
-<figures/gimbal_lock.png, id=580, 853.1875pt x 330.23375pt>
+<figures/gimbal_lock.png, id=602, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package pdftex.def Info: figures/gimbal_lock.png  used on input line 25.
@@ -1028,7 +1054,7 @@ l.88 \subsection
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/rotation.pdf, id=634, 187.66109pt x 207.65579pt>
+<figures/rotation.pdf, id=656, 187.66109pt x 207.65579pt>
 File: figures/rotation.pdf Graphic file (type pdf)
 <use figures/rotation.pdf>
 Package pdftex.def Info: figures/rotation.pdf  used on input line 116.
@@ -1056,8 +1082,12 @@ File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package pdftex.def Info: figures/gimbal_lock.png  used on input line 184.
 (pdftex.def)             Requested size: 242.98541pt x 94.04704pt.
- [12]
-<figures/complex_rotation.pdf, id=669, 630.26666pt x 623.72224pt>
+pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.192 
+       [12]
+<figures/complex_rotation.pdf, id=690, 630.26666pt x 623.72224pt>
 File: figures/complex_rotation.pdf Graphic file (type pdf)
 <use figures/complex_rotation.pdf>
 Package pdftex.def Info: figures/complex_rotation.pdf  used on input line 195.
@@ -1069,13 +1099,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 2556) has occurred while \output is active []
 
  [15]
-<figures/noise.pdf, id=703, 337.26pt x 81.4242pt>
+<figures/noise.pdf, id=724, 337.26pt x 81.4242pt>
 File: figures/noise.pdf Graphic file (type pdf)
 <use figures/noise.pdf>
 Package pdftex.def Info: figures/noise.pdf  used on input line 328.
 (pdftex.def)             Requested size: 347.12354pt x 83.80698pt.
  [16 <./figures/noise.pdf>]
-<figures/accelerometer.pdf, id=715, 263.06279pt x 235.8411pt>
+<figures/accelerometer.pdf, id=737, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
 Package pdftex.def Info: figures/accelerometer.pdf  used on input line 348.
@@ -1088,7 +1118,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/gyroscope.pdf, id=724, 472.64577pt x 190.7928pt>
+<figures/gyroscope.pdf, id=746, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
 Package pdftex.def Info: figures/gyroscope.pdf  used on input line 358.
@@ -1097,7 +1127,7 @@ Package pdftex.def Info: figures/gyroscope.pdf  used on input line 358.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18 <./figures/accelerometer.pdf> <./figures/gyroscope.pdf>]
-<figures/coriolis.pdf, id=742, 346.4142pt x 274.1442pt>
+<figures/coriolis.pdf, id=763, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
 Package pdftex.def Info: figures/coriolis.pdf  used on input line 373.
@@ -1109,7 +1139,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-<figures/magnetometer_distortion.pdf, id=779, 820.02356pt x 205.72859pt>
+<figures/magnetometer_distortion.pdf, id=800, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
 Package pdftex.def Info: figures/magnetometer_distortion.pdf  used on input line 434.
@@ -1118,18 +1148,18 @@ Package pdftex.def Info: figures/magnetometer_distortion.pdf  used on input line
 Underfull \vbox (badness 1968) has occurred while \output is active []
 
  [22 <./figures/magnetometer_distortion.pdf>]
-<figures/kalman1.pdf, id=799, 499.8675pt x 133.45859pt>
+<figures/kalman1.pdf, id=820, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package pdftex.def Info: figures/kalman1.pdf  used on input line 449.
 (pdftex.def)             Requested size: 242.98541pt x 64.87395pt.
-<figures/kalman2.pdf, id=804, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=825, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
 Package pdftex.def Info: figures/kalman2.pdf  used on input line 458.
 (pdftex.def)             Requested size: 242.98541pt x 58.96225pt.
  [23 <./figures/kalman1.pdf> <./figures/kalman2.pdf>]
-<figures/complementary.pdf, id=826, 325.215pt x 136.5903pt>
+<figures/complementary.pdf, id=848, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package pdftex.def Info: figures/complementary.pdf  used on input line 489.
@@ -1147,12 +1177,12 @@ Package pdftex.def Info: figures/kalman2.pdf  used on input line 45.
 Underfull \vbox (badness 2027) has occurred while \output is active []
 
  [30] [31] [32] [33]) [34] (./chapters/4_experimental_setup.tex
-<figures/INS.jpg, id=957, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=979, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package pdftex.def Info: figures/INS.jpg  used on input line 19.
 (pdftex.def)             Requested size: 170.09244pt x 170.16914pt.
-<figures/mpu9250.jpg, id=958, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=980, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package pdftex.def Info: figures/mpu9250.jpg  used on input line 25.
@@ -1161,75 +1191,98 @@ Package pdftex.def Info: figures/mpu9250.jpg  used on input line 25.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35] [36 <./figures/INS.jpg> <./figures/mpu9250.jpg>] [37] [38]
-<figures/overview.pdf, id=979, 421.575pt x 169.5936pt>
+[35] [36 <./figures/INS.jpg> <./figures/mpu9250.jpg>] [37] [38] (./plots/magnetometer2D.pgf)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./plots/magnetometer3D.pgf)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./plots/accelerometer.pgf)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[39]
+<figures/overview.pdf, id=1034, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
-Package pdftex.def Info: figures/overview.pdf  used on input line 146.
+Package pdftex.def Info: figures/overview.pdf  used on input line 200.
 (pdftex.def)             Requested size: 312.40906pt x 125.68102pt.
-<figures/fullINS.jpg, id=980, 3569.335pt x 2569.6pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/fullINS.jpg, id=1035, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
-Package pdftex.def Info: figures/fullINS.jpg  used on input line 155.
+Package pdftex.def Info: figures/fullINS.jpg  used on input line 209.
 (pdftex.def)             Requested size: 312.40906pt x 224.90218pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor.jpg, id=981, 3276.24pt x 2457.18pt>
+<figures/indoor.jpg, id=1036, 3276.24pt x 2457.18pt>
 File: figures/indoor.jpg Graphic file (type jpg)
 <use figures/indoor.jpg>
-Package pdftex.def Info: figures/indoor.jpg  used on input line 162.
+Package pdftex.def Info: figures/indoor.jpg  used on input line 216.
 (pdftex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_1.jpg, id=982, 3276.24pt x 2457.18pt>
+<figures/indoor_1.jpg, id=1037, 3276.24pt x 2457.18pt>
 File: figures/indoor_1.jpg Graphic file (type jpg)
 <use figures/indoor_1.jpg>
-Package pdftex.def Info: figures/indoor_1.jpg  used on input line 169.
+Package pdftex.def Info: figures/indoor_1.jpg  used on input line 223.
 (pdftex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_2.jpg, id=983, 3276.24pt x 2457.18pt>
+<figures/indoor_2.jpg, id=1038, 3276.24pt x 2457.18pt>
 File: figures/indoor_2.jpg Graphic file (type jpg)
 <use figures/indoor_2.jpg>
-Package pdftex.def Info: figures/indoor_2.jpg  used on input line 176.
+Package pdftex.def Info: figures/indoor_2.jpg  used on input line 230.
 (pdftex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor.jpg, id=984, 4047.12pt x 3035.34pt>
+<figures/outdoor.jpg, id=1039, 4047.12pt x 3035.34pt>
 File: figures/outdoor.jpg Graphic file (type jpg)
 <use figures/outdoor.jpg>
-Package pdftex.def Info: figures/outdoor.jpg  used on input line 184.
+Package pdftex.def Info: figures/outdoor.jpg  used on input line 238.
 (pdftex.def)             Requested size: 312.40906pt x 234.2638pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor_1.jpg, id=985, 4047.12pt x 3035.34pt>
+<figures/outdoor_1.jpg, id=1044, 4047.12pt x 3035.34pt>
 File: figures/outdoor_1.jpg Graphic file (type jpg)
 <use figures/outdoor_1.jpg>
-Package pdftex.def Info: figures/outdoor_1.jpg  used on input line 191.
+Package pdftex.def Info: figures/outdoor_1.jpg  used on input line 245.
 (pdftex.def)             Requested size: 312.40906pt x 234.2638pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor_2.jpg, id=986, 3035.34pt x 4047.12pt>
+<figures/outdoor_2.jpg, id=1045, 3035.34pt x 4047.12pt>
 File: figures/outdoor_2.jpg Graphic file (type jpg)
 <use figures/outdoor_2.jpg>
-Package pdftex.def Info: figures/outdoor_2.jpg  used on input line 200.
+Package pdftex.def Info: figures/outdoor_2.jpg  used on input line 254.
 (pdftex.def)             Requested size: 170.09244pt x 226.76068pt.
-<figures/outdoor_3.jpg, id=987, 3035.34pt x 4047.12pt>
+<figures/outdoor_3.jpg, id=1046, 3035.34pt x 4047.12pt>
 File: figures/outdoor_3.jpg Graphic file (type jpg)
 <use figures/outdoor_3.jpg>
-Package pdftex.def Info: figures/outdoor_3.jpg  used on input line 206.
+Package pdftex.def Info: figures/outdoor_3.jpg  used on input line 260.
 (pdftex.def)             Requested size: 170.09244pt x 226.76068pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [39 <./figures/overview.pdf>] (./chapters/5_methodology.tex [40 <./figures/fullINS.jpg>] (./plots/raw.pgf)
+) [41]
+
+LaTeX Warning: Text page 42 contains only floats.
+
+[42 <./figures/overview.pdf>] (./chapters/5_methodology.tex [43 <./figures/fullINS.jpg>] (./plots/raw.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1238,24 +1291,24 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:madgwickAHRS' on page 41 undefined on input line 30.
+LaTeX Warning: Reference `fig:madgwickAHRS' on page 44 undefined on input line 30.
 
-(./plots/euler.pgf) [41 <./figures/indoor.jpg>]
+(./plots/euler.pgf) [44 <./figures/indoor.jpg>]
 
-LaTeX Warning: Text page 42 contains only floats.
+LaTeX Warning: Text page 45 contains only floats.
 
 
 Overfull \vbox (2.21767pt too high) has occurred while \output is active []
 
- [42 <./figures/indoor_1.jpg> <./figures/indoor_2.jpg>]
+ [45 <./figures/indoor_1.jpg> <./figures/indoor_2.jpg>]
 Underfull \vbox (badness 4156) has occurred while \output is active []
 
- [43 <./figures/outdoor.jpg>]
+ [46 <./figures/outdoor.jpg>]
 
-LaTeX Warning: Reference `fig:compensation' on page 44 undefined on input line 61.
+LaTeX Warning: Reference `fig:compensation' on page 47 undefined on input line 61.
 
 (./plots/gravity.pgf)
-<figures/orientation_position.pdf, id=1019, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=1084, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package pdftex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1267,29 +1320,29 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44 <./figures/outdoor_1.jpg>] (./plots/integration.pgf)
+ [47 <./figures/outdoor_1.jpg>] (./plots/integration.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:1dimension' on page 45 undefined on input line 87.
+LaTeX Warning: Reference `fig:1dimension' on page 48 undefined on input line 87.
 
 (./plots/square.pgf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45 <./figures/outdoor_2.jpg> <./figures/outdoor_3.jpg>] (./plots/triangle.pgf)
+ [48 <./figures/outdoor_2.jpg> <./figures/outdoor_3.jpg>] (./plots/triangle.pgf)
 
-LaTeX Warning: Reference `fig:2dimension' on page 46 undefined on input line 103.
+LaTeX Warning: Reference `fig:2dimension' on page 49 undefined on input line 103.
 
 
-LaTeX Warning: Reference `fig:3dimensions' on page 46 undefined on input line 105.
+LaTeX Warning: Reference `fig:3dimensions' on page 49 undefined on input line 105.
 
-[46] (./plots/triangle3D.pgf) (./plots/square3D.pgf)) [47] [48] [49] (./chapters/6_discussion.tex) [50 <./figures/orientation_position.pdf>] [51] [52] [53] [54] (./chapters/7_results.tex) [55] (./thesis.bbl [56
+[49] (./plots/triangle3D.pgf) (./plots/square3D.pgf)) [50] [51] [52] (./chapters/6_discussion.tex) [53 <./figures/orientation_position.pdf>] [54] [55] [56] [57] (./chapters/7_results.tex) [58] (./thesis.bbl [59
 
-] [57]
+] [60]
 Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [58] [59]) [60] (./thesis.aux)
+ [61] [62]) [63] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1297,21 +1350,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 35DD15CDE55C9863AAFA33B2A278AC44;9261.
+(rerunfilecheck)             Checksum: 305F18F7A5DC476F00B07D10B00E767F;9261.
  ) 
 Here is how much of TeX's memory you used:
- 39908 strings out of 478599
- 894873 string characters out of 5858101
- 3106320 words of memory out of 5000000
- 56769 multiletter control sequences out of 15000+600000
+ 44467 strings out of 478599
+ 983845 string characters out of 5858101
+ 4088934 words of memory out of 5000000
+ 61272 multiletter control sequences out of 15000+600000
  420088 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 115i,13n,134p,2642b,966s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,13n,134p,2642b,1786s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on thesis.pdf (71 pages, 35146659 bytes).
+Output written on thesis.pdf (75 pages, 35454623 bytes).
 PDF statistics:
- 1251 PDF objects out of 1440 (max. 8388607)
- 1076 compressed objects within 11 object streams
- 241 named destinations out of 1000 (max. 500000)
+ 1324 PDF objects out of 1440 (max. 8388607)
+ 1144 compressed objects within 12 object streams
+ 277 named destinations out of 1000 (max. 500000)
  565 words of extra memory for PDF output out of 10000 (max. 10000000)
 
