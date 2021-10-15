@@ -134,21 +134,23 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
 
+To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
+
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{plt:raw_magnetometer}
+\end{figure}
+
 This data was taken by spewing properly-scaled (mG) Mx, My, and Mz values to my Serial monitor at 1 Hz while I was slowly turning the sensor board with the MPU9250 and Teensy 3.1 microcontroller through a variety of figure-eight patterns. I am plotting slices through 3D space to illustrate the facts that 1) the response between axes is not centered at the origin and 2) the response sensitivity is different along each axis. These are often referred to as hard iron and soft iron errors or biases, respectively. There is an additional common type of magnetometer bias often encountered which is due to the presence of man-made sources of magnetic field like big steel buildings and current carrying wires, etc. Encounters with these environmental sources of magnetic field can be interpreted as changes in orientation if a magnetic anomaly algorithm is not employed to detect and prevent it. This is beyond the scope of this note but we will be taking a look at this later.
 
 
 \begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
     \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{plt:raw_magnetometer3D}
 \end{figure}
 
 \begin{figure}[!h]
@@ -168,6 +170,7 @@ This data was taken by spewing properly-scaled (mG) Mx, My, and Mz values to my 
     \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
     \label{fig:hardware}
 \end{figure}
+
 Hard iron biases are typically the largest and the easiest errors to correct for. The simplest way to correct for them is to record a bunch of magnetometer data as the sensor is moved slowly in a figure eight pattern and keep track of the minimum and maximum field measured in each of the six principal directions; +/- Mx, +/- My, +/- Mz. Once the min/max values along the three axes are known, the average can be subtracted from the subsequent data which amounts to re-centering the response surface on the origin. Here is what the code to do this looks like:
 
 \lstset{language=Python}
@@ -228,7 +231,7 @@ We will do something not quite as sophisticated but in the same spirit. We will 
 \begin{figure}[!h]
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     % \label{fig:sensoroutput}
 \end{figure}
 
