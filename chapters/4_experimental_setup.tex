@@ -134,37 +134,8 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
 
-\begin{lstlisting}
-    import numpy as np
-        
-    def incmatrix(genl1,genl2):
-        m = len(genl1)
-        n = len(genl2)
-        M = None #to become the incidence matrix
-        VT = np.zeros((n*m,1), int)  #dummy variable
-        
-        #compute the bitwise xor matrix
-        M1 = bitxormatrix(genl1)
-        M2 = np.triu(bitxormatrix(genl2),1) 
-    
-        for i in range(m-1):
-            for j in range(i+1, m):
-                [r,c] = np.where(M2 == M1[i,j])
-                for k in range(len(r)):
-                    VT[(i)*n + r[k]] = 1;
-                    VT[(i)*n + c[k]] = 1;
-                    VT[(j)*n + r[k]] = 1;
-                    VT[(j)*n + c[k]] = 1;
-                    
-                    if M is None:
-                        M = np.copy(VT)
-                    else:
-                        M = np.concatenate((M, VT), 1)
-                    
-                    VT = np.zeros((n*m,1), int)
-        
-        return M
-\end{lstlisting}
+This data was taken by spewing properly-scaled (mG) Mx, My, and Mz values to my Serial monitor at 1 Hz while I was slowly turning the sensor board with the MPU9250 and Teensy 3.1 microcontroller through a variety of figure-eight patterns. I am plotting slices through 3D space to illustrate the facts that 1) the response between axes is not centered at the origin and 2) the response sensitivity is different along each axis. These are often referred to as hard iron and soft iron errors or biases, respectively. There is an additional common type of magnetometer bias often encountered which is due to the presence of man-made sources of magnetic field like big steel buildings and current carrying wires, etc. Encounters with these environmental sources of magnetic field can be interpreted as changes in orientation if a magnetic anomaly algorithm is not employed to detect and prevent it. This is beyond the scope of this note but we will be taking a look at this later.
+
 
 \begin{figure}[!h]
     \centering
@@ -173,13 +144,86 @@ A correct calibration of such sensors is essential for the compensation of their
     % \label{fig:sensoroutput}
 \end{figure}
 
-
 \begin{figure}[!h]
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system’s proper acceleration; gyroscope supplied the body’s angular rate, and the magnetometer presented the detected magnetic flux.}
     % \label{fig:sensoroutput}
 \end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
+        \caption{INS Hardware}
+        \label{fig:sub1}
+    \end{subfigure}%
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
+        \caption{MPU-9250 Breakout}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:hardware}
+\end{figure}
+Hard iron biases are typically the largest and the easiest errors to correct for. The simplest way to correct for them is to record a bunch of magnetometer data as the sensor is moved slowly in a figure eight pattern and keep track of the minimum and maximum field measured in each of the six principal directions; +/- Mx, +/- My, +/- Mz. Once the min/max values along the three axes are known, the average can be subtracted from the subsequent data which amounts to re-centering the response surface on the origin. Here is what the code to do this looks like:
+
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+def calibrate(self, count=256, delay=200):
+    self._offset = (0, 0, 0)
+    self._scale = (1, 1, 1)
+
+    reading = self.magnetic
+    minx = maxx = reading[0]
+    miny = maxy = reading[1]
+    minz = maxz = reading[2]
+
+    while count:
+        utime.sleep_ms(delay)
+        reading = self.magnetic
+        minx = min(minx, reading[0])
+        maxx = max(maxx, reading[0])
+        miny = min(miny, reading[1])
+        maxy = max(maxy, reading[1])
+        minz = min(minz, reading[2])
+        maxz = max(maxz, reading[2])
+        count -= 1
+
+    # Hard iron correction
+    offset_x = (maxx + minx) / 2
+    offset_y = (maxy + miny) / 2
+    offset_z = (maxz + minz) / 2
+
+    self._offset = (offset_x, offset_y, offset_z)
+
+    # Soft iron correction
+    avg_delta_x = (maxx - minx) / 2
+    avg_delta_y = (maxy - miny) / 2
+    avg_delta_z = (maxz - minz) / 2
+
+    avg_delta = (avg_delta_x + avg_delta_y + avg_delta_z) / 3
+
+    scale_x = avg_delta / avg_delta_x
+    scale_y = avg_delta / avg_delta_y
+    scale_z = avg_delta / avg_delta_z
+
+    self._scale = (scale_x, scale_y, scale_z)
+
+    return self._offset, self._scale
+
+\end{lstlisting}
+
+
+
+These offset biases are then subtracted from the magnetometer data taken during use to re-center the response surface and get a more accurate magnetic field measurement. This procedure can be done every time the device is powered on or it can be done once and the bias values stored on the host in the operating sketch or off-sensor on an EEPROM for loading at startup. This works because the bias values represent inherent deviations of the sensor in its final board-mounted configuration and don't change much with different environments. Still, checking every once in a while is prudent!
+
+There is one more use to which we can put this min/max calibration data and that is in re-scaling the axial response to make is even more spherical. This is the soft iron correction people talk about and to do it right means deconstructing the response surface into its elliptical principle axes and devising a 3 x 3 correction matrix to transform the general ellipsoidal response surface into a spherical one (see here and here).
+
+We will do something not quite as sophisticated but in the same spirit. We will take the min/max values already computed and use them to rescale the magnetometer data to equalize the response along the three measurement axes. This is done in the last few lines of the calibration function above where a scale factor is calculated by taking the ratio of the average max - min along each axis and the average of all three axes. This means that an axis where the max - min is large has its magnetic field reduced and an axis that under-measures the field with respect to the other axes has its magnetic field values increased. This is just a simple orthogonal rescaling, equivalent to a diagonalized 3 x 3 calibration matrix but it allows some additional correction for scale bias. When applied to the MPU9250 we calculate scale biases of 0.96, 1.01, and 1.03 or the x, y and z axes, respectively. These are not huge but even a four percent scale error will show up as several degrees of heading error. And the cost of correcting for scale bias in this way is small, so why not? Especially compared to the much more mathematically-formidable ellipsoidal error corrections employed in the most sophisticated algorithms. The result of rescaling the MPU9250 magnetometer data is shown below:
 
 \begin{figure}[!h]
     \centering
