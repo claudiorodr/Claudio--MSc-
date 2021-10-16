@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  15 OCT 2021 18:05
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  16 OCT 2021 18:14
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/thesis.tex
@@ -1010,9 +1010,6 @@ LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 
 LaTeX Warning: Label `fig:hardware' multiply defined.
 
-
-LaTeX Warning: Label `fig:hardware' multiply defined.
-
 )
 \openout1 = thesis.aux
 
@@ -1096,7 +1093,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 
 \c@lstlisting=\count376
 (./chapters/0_cover.tex
-<figures/logoUMa.png, id=224, 845.1575pt x 597.23125pt>
+<figures/logoUMa.png, id=236, 845.1575pt x 597.23125pt>
 File: figures/logoUMa.png Graphic file (type png)
 <use figures/logoUMa.png>
 Package luatex.def Info: figures/logoUMa.png  used on input line 5.
@@ -1139,21 +1136,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10])
+ [9])
 \tf@lof=\write7
 
 \openout7 = thesis.lof
- [11] (./thesis.lot)
+ [10] (./thesis.lot)
 \tf@lot=\write8
 
 \openout8 = thesis.lot
 \nomitemorigsep=\skip91
 
 No file thesis.nls.
-[12
+[11
 
 ] (./chapters/1_introduction.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1169,7 +1163,7 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.2'
 [2
 Missing character: There is no ‐ (U+2010) in font ec-lmr10!
 ]
-<figures/gimbal_lock.png, id=611, 853.1875pt x 330.23375pt>
+<figures/gimbal_lock.png, id=612, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package luatex.def Info: figures/gimbal_lock.png  used on input line 25.
@@ -1197,7 +1191,7 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.8'
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/rotation.pdf, id=668, 187.66109pt x 207.65579pt>
+<figures/rotation.pdf, id=669, 187.66109pt x 207.65579pt>
 File: figures/rotation.pdf Graphic file (type pdf)
 <use figures/rotation.pdf>
 Package luatex.def Info: figures/rotation.pdf  used on input line 116.
@@ -1221,10 +1215,8 @@ File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package luatex.def Info: figures/gimbal_lock.png  used on input line 184.
 (luatex.def)             Requested size: 242.98541pt x 94.04704pt.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.12'
-[12]
-<figures/complex_rotation.pdf, id=706, 630.26666pt x 623.72224pt>
+ [12]
+<figures/complex_rotation.pdf, id=708, 630.26666pt x 623.72224pt>
 File: figures/complex_rotation.pdf Graphic file (type pdf)
 <use figures/complex_rotation.pdf>
 Package luatex.def Info: figures/complex_rotation.pdf  used on input line 195.
@@ -1236,13 +1228,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 2556) has occurred while \output is active []
 
  [15]
-<figures/noise.pdf, id=741, 337.26pt x 81.4242pt>
+<figures/noise.pdf, id=743, 337.26pt x 81.4242pt>
 File: figures/noise.pdf Graphic file (type pdf)
 <use figures/noise.pdf>
 Package luatex.def Info: figures/noise.pdf  used on input line 328.
 (luatex.def)             Requested size: 347.12354pt x 83.80698pt.
  [16<./figures/noise.pdf>]
-<figures/accelerometer.pdf, id=753, 263.06279pt x 235.8411pt>
+<figures/accelerometer.pdf, id=755, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
 Package luatex.def Info: figures/accelerometer.pdf  used on input line 348.
@@ -1255,7 +1247,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/gyroscope.pdf, id=763, 472.64577pt x 190.7928pt>
+<figures/gyroscope.pdf, id=765, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
 Package luatex.def Info: figures/gyroscope.pdf  used on input line 358.
@@ -1264,7 +1256,7 @@ Package luatex.def Info: figures/gyroscope.pdf  used on input line 358.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18<./figures/accelerometer.pdf><./figures/gyroscope.pdf>]
-<figures/coriolis.pdf, id=779, 346.4142pt x 274.1442pt>
+<figures/coriolis.pdf, id=781, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
 Package luatex.def Info: figures/coriolis.pdf  used on input line 373.
@@ -1279,7 +1271,7 @@ Missing character: There is no − (U+2212) in font cmr7!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-<figures/magnetometer_distortion.pdf, id=817, 820.02356pt x 205.72859pt>
+<figures/magnetometer_distortion.pdf, id=819, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
 Package luatex.def Info: figures/magnetometer_distortion.pdf  used on input line 434.
@@ -1288,18 +1280,18 @@ Package luatex.def Info: figures/magnetometer_distortion.pdf  used on input line
 Underfull \vbox (badness 1968) has occurred while \output is active []
 
  [22<./figures/magnetometer_distortion.pdf>]
-<figures/kalman1.pdf, id=836, 499.8675pt x 133.45859pt>
+<figures/kalman1.pdf, id=838, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package luatex.def Info: figures/kalman1.pdf  used on input line 449.
 (luatex.def)             Requested size: 242.98541pt x 64.87395pt.
-<figures/kalman2.pdf, id=841, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=843, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
 Package luatex.def Info: figures/kalman2.pdf  used on input line 458.
 (luatex.def)             Requested size: 242.98541pt x 58.96225pt.
  [23<./figures/kalman1.pdf><./figures/kalman2.pdf>]
-<figures/complementary.pdf, id=863, 325.215pt x 136.5903pt>
+<figures/complementary.pdf, id=865, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package luatex.def Info: figures/complementary.pdf  used on input line 489.
@@ -1321,12 +1313,12 @@ Underfull \vbox (badness 2027) has occurred while \output is active []
  [30] [31] [32] [33
 Missing character: There is no ‘ (U+2018) in font ec-lmr10!
 ]) [34] (./chapters/4_experimental_setup.tex
-<figures/INS.jpg, id=1002, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=1004, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package luatex.def Info: figures/INS.jpg  used on input line 19.
 (luatex.def)             Requested size: 170.09244pt x 170.16914pt.
-<figures/mpu9250.jpg, id=1003, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=1005, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package luatex.def Info: figures/mpu9250.jpg  used on input line 25.
@@ -1335,7 +1327,14 @@ Package luatex.def Info: figures/mpu9250.jpg  used on input line 25.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35] [36<./figures/INS.jpg><./figures/mpu9250.jpg>] [37] [38] (./plots/magnetometer2D.pgf
+[35] [36<./figures/INS.jpg><./figures/mpu9250.jpg>] [37] [38] (./plots/accelerometer.pgf
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+) [39] (./plots/magnetometer2D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1354,7 +1353,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) [39] (./plots/magnetometer3D.pgf
+) (./plots/magnetometer3D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1373,7 +1372,17 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) (./plots/calibrated_magnetometer2D.pgf
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Missing character: There is no – (U+2013) in font cmr10!
+ [40] [41] (./plots/calibrated_magnetometer2D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1409,117 +1418,84 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[40] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
- [41]
-Overfull \hbox (18.88019pt too wide) in paragraph at lines 211--213
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[42] (./plots/accelerometer.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[43]
-<figures/overview.pdf, id=1091, 421.575pt x 169.5936pt>
+) [42]
+<figures/overview.pdf, id=1077, 421.575pt x 169.5936pt>
 File: figures/overview.pdf Graphic file (type pdf)
 <use figures/overview.pdf>
-Package luatex.def Info: figures/overview.pdf  used on input line 247.
+Package luatex.def Info: figures/overview.pdf  used on input line 237.
 (luatex.def)             Requested size: 312.40906pt x 125.68102pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/fullINS.jpg, id=1092, 3569.335pt x 2569.6pt>
+<figures/fullINS.jpg, id=1078, 3569.335pt x 2569.6pt>
 File: figures/fullINS.jpg Graphic file (type jpg)
 <use figures/fullINS.jpg>
-Package luatex.def Info: figures/fullINS.jpg  used on input line 256.
+Package luatex.def Info: figures/fullINS.jpg  used on input line 246.
 (luatex.def)             Requested size: 312.40906pt x 224.90218pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor.jpg, id=1093, 3276.24pt x 2457.18pt>
+<figures/indoor.jpg, id=1079, 3276.24pt x 2457.18pt>
 File: figures/indoor.jpg Graphic file (type jpg)
 <use figures/indoor.jpg>
-Package luatex.def Info: figures/indoor.jpg  used on input line 263.
+Package luatex.def Info: figures/indoor.jpg  used on input line 253.
 (luatex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_1.jpg, id=1094, 3276.24pt x 2457.18pt>
+<figures/indoor_1.jpg, id=1080, 3276.24pt x 2457.18pt>
 File: figures/indoor_1.jpg Graphic file (type jpg)
 <use figures/indoor_1.jpg>
-Package luatex.def Info: figures/indoor_1.jpg  used on input line 270.
+Package luatex.def Info: figures/indoor_1.jpg  used on input line 260.
 (luatex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/indoor_2.jpg, id=1095, 3276.24pt x 2457.18pt>
+<figures/indoor_2.jpg, id=1081, 3276.24pt x 2457.18pt>
 File: figures/indoor_2.jpg Graphic file (type jpg)
 <use figures/indoor_2.jpg>
-Package luatex.def Info: figures/indoor_2.jpg  used on input line 277.
+Package luatex.def Info: figures/indoor_2.jpg  used on input line 267.
 (luatex.def)             Requested size: 312.40906pt x 234.29688pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor.jpg, id=1096, 4047.12pt x 3035.34pt>
+<figures/outdoor.jpg, id=1082, 4047.12pt x 3035.34pt>
 File: figures/outdoor.jpg Graphic file (type jpg)
 <use figures/outdoor.jpg>
-Package luatex.def Info: figures/outdoor.jpg  used on input line 285.
+Package luatex.def Info: figures/outdoor.jpg  used on input line 275.
 (luatex.def)             Requested size: 312.40906pt x 234.2638pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor_1.jpg, id=1097, 4047.12pt x 3035.34pt>
+<figures/outdoor_1.jpg, id=1083, 4047.12pt x 3035.34pt>
 File: figures/outdoor_1.jpg Graphic file (type jpg)
 <use figures/outdoor_1.jpg>
-Package luatex.def Info: figures/outdoor_1.jpg  used on input line 292.
+Package luatex.def Info: figures/outdoor_1.jpg  used on input line 282.
 (luatex.def)             Requested size: 312.40906pt x 234.2638pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/outdoor_2.jpg, id=1098, 3035.34pt x 4047.12pt>
+<figures/outdoor_2.jpg, id=1084, 3035.34pt x 4047.12pt>
 File: figures/outdoor_2.jpg Graphic file (type jpg)
 <use figures/outdoor_2.jpg>
-Package luatex.def Info: figures/outdoor_2.jpg  used on input line 301.
+Package luatex.def Info: figures/outdoor_2.jpg  used on input line 291.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
-<figures/outdoor_3.jpg, id=1099, 3035.34pt x 4047.12pt>
+<figures/outdoor_3.jpg, id=1085, 3035.34pt x 4047.12pt>
 File: figures/outdoor_3.jpg Graphic file (type jpg)
 <use figures/outdoor_3.jpg>
-Package luatex.def Info: figures/outdoor_3.jpg  used on input line 307.
+Package luatex.def Info: figures/outdoor_3.jpg  used on input line 297.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [44] (./chapters/5_methodology.tex [45<./figures/overview.pdf><./figures/fullINS.jpg>] (./plots/raw.pgf
+) [43<./figures/overview.pdf>] (./chapters/5_methodology.tex [44<./figures/fullINS.jpg>] (./plots/raw.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) [46<./figures/indoor.jpg>]
-
-LaTeX Warning: Text page 47 contains only floats.
-
-
-Overfull \vbox (2.21767pt too high) has occurred while \output is active []
-
- [47<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
+)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1537,7 +1513,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:madgwickAHRS' on page 48 undefined on input line 30.
+LaTeX Warning: Reference `fig:madgwickAHRS' on page 45 undefined on input line 30.
 
 (./plots/euler.pgf
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1546,25 +1522,29 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
+) [45<./figures/indoor.jpg>]
+
+LaTeX Warning: Text page 46 contains only floats.
+
+
+Overfull \vbox (2.21767pt too high) has occurred while \output is active []
+
+ [46<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
+Underfull \vbox (badness 4156) has occurred while \output is active []
+
+ [47<./figures/outdoor.jpg>]
+
+LaTeX Warning: Reference `fig:compensation' on page 48 undefined on input line 61.
+
+(./plots/gravity.pgf
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48<./figures/outdoor.jpg>]
-
-LaTeX Warning: Reference `fig:compensation' on page 49 undefined on input line 61.
-
-
-Underfull \vbox (badness 6001) has occurred while \output is active []
-
- [49<./figures/outdoor_1.jpg>] (./plots/gravity.pgf
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-)
-<figures/orientation_position.pdf, id=1138, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=1118, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package luatex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1576,26 +1556,29 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50<./figures/outdoor_2.jpg><./figures/outdoor_3.jpg>] (./plots/integration.pgf)
+ [48<./figures/outdoor_1.jpg>] (./plots/integration.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:1dimension' on page 51 undefined on input line 87.
+LaTeX Warning: Reference `fig:1dimension' on page 49 undefined on input line 87.
 
-[51] (./plots/square.pgf) (./plots/triangle.pgf
+(./plots/square.pgf)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49<./figures/outdoor_2.jpg><./figures/outdoor_3.jpg>] (./plots/triangle.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 )
 
-LaTeX Warning: Reference `fig:2dimension' on page 52 undefined on input line 103.
+LaTeX Warning: Reference `fig:2dimension' on page 50 undefined on input line 103.
 
 
-LaTeX Warning: Reference `fig:3dimensions' on page 52 undefined on input line 105.
+LaTeX Warning: Reference `fig:3dimensions' on page 50 undefined on input line 105.
 
-[52] [53] [54] (./plots/triangle3D.pgf
+[50] (./plots/triangle3D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1613,16 +1596,16 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-)) [55<./figures/orientation_position.pdf>] [56] [57] [58] [59] (./chapters/6_discussion.tex) [60] (./chapters/7_results.tex) [61] (./thesis.bbl [62
+)) [51] [52] [53] (./chapters/6_discussion.tex) [54<./figures/orientation_position.pdf>] [55] [56] [57] [58] (./chapters/7_results.tex) [59] (./thesis.bbl [60
 
-] [63
+] [61
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 ]
 Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [64
+ [62
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [65]) [66] (./thesis.aux)
+] [63]) [64] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1630,23 +1613,23 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1D93E374418477D39940A9AB3896A26F;9261.
+(rerunfilecheck)             Checksum: DABC9E8E3BE2137FB70122F540C44FC1;9826.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48382 strings out of 478112
- 1165024,4921788 words of node,token memory allocated
- 1520 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 sub_mlist, 1 glyph, 226 attribute, 82 glue_spec, 115 attribute_list, 2 write, 32 pdf_action nodes
-   avail lists: 1:5,2:241796,3:130998,4:404,5:832,6:58,7:7810,8:68,9:2307,10:22,11:818
- 66473 multiletter control sequences out of 65536+600000
+ 48374 strings out of 478112
+ 932026,4921788 words of node,token memory allocated
+ 1508 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 sub_mlist, 1 glyph, 224 attribute, 82 glue_spec, 114 attribute_list, 2 write, 31 pdf_action nodes
+   avail lists: 1:6,2:168642,3:114957,4:464,5:658,6:59,7:7810,8:69,9:2332,10:22,11:818
+ 66477 multiletter control sequences out of 65536+600000
  68 fonts using 4537767 bytes
  115i,13n,131p,2633b,1048s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsco10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on thesis.pdf (78 pages, 35696771 bytes).
+Output written on thesis.pdf (75 pages, 35694038 bytes).
 
-PDF statistics: 1292 PDF objects out of 1440 (max. 8388607)
- 1135 compressed objects within 12 object streams
- 293 named destinations out of 1000 (max. 131072)
- 448 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1273 PDF objects out of 1440 (max. 8388607)
+ 1119 compressed objects within 12 object streams
+ 281 named destinations out of 1000 (max. 131072)
+ 472 words of extra memory for PDF output out of 10000 (max. 100000000)
 

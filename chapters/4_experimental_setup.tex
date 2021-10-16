@@ -130,103 +130,13 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
     \end{center}
 \end{table}
 
-\subsubsection{Calibration}
+\subsection{Software}
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.
+
+\subsection{Calibration}
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
-
-To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
-
-\begin{figure}[!h]
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{plt:raw_magnetometer}
-\end{figure}
-
-This data was taken by spewing properly-scaled (mG) Mx, My, and Mz values to my Serial monitor at 1 Hz while I was slowly turning the sensor board with the MPU9250 and Teensy 3.1 microcontroller through a variety of figure-eight patterns. I am plotting slices through 3D space to illustrate the facts that 1) the response between axes is not centered at the origin and 2) the response sensitivity is different along each axis. These are often referred to as hard iron and soft iron errors or biases, respectively. There is an additional common type of magnetometer bias often encountered which is due to the presence of man-made sources of magnetic field like big steel buildings and current carrying wires, etc. Encounters with these environmental sources of magnetic field can be interpreted as changes in orientation if a magnetic anomaly algorithm is not employed to detect and prevent it. This is beyond the scope of this note but we will be taking a look at this later.
-
-
-\begin{figure}[!h]
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{plt:raw_magnetometer3D}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:sub1}
-    \end{subfigure}%
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:sub2}
-    \end{subfigure}
-    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
-    \label{fig:hardware}
-\end{figure}
-
-Hard iron biases are typically the largest and the easiest errors to correct for. The simplest way to correct for them is to record a bunch of magnetometer data as the sensor is moved slowly in a figure eight pattern and keep track of the minimum and maximum field measured in each of the six principal directions; +/- Mx, +/- My, +/- Mz. Once the min/max values along the three axes are known, the average can be subtracted from the subsequent data which amounts to re-centering the response surface on the origin. Here is what the code to do this looks like:
-
-\lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
-
-def calibrate(self, count=256, delay=200):
-    self._offset = (0, 0, 0)
-    self._scale = (1, 1, 1)
-
-    reading = self.magnetic
-    minx = maxx = reading[0]
-    miny = maxy = reading[1]
-    minz = maxz = reading[2]
-
-    while count:
-        utime.sleep_ms(delay)
-        reading = self.magnetic
-        minx = min(minx, reading[0])
-        maxx = max(maxx, reading[0])
-        miny = min(miny, reading[1])
-        maxy = max(maxy, reading[1])
-        minz = min(minz, reading[2])
-        maxz = max(maxz, reading[2])
-        count -= 1
-
-    # Hard iron correction
-    offset_x = (maxx + minx) / 2
-    offset_y = (maxy + miny) / 2
-    offset_z = (maxz + minz) / 2
-
-    self._offset = (offset_x, offset_y, offset_z)
-
-    # Soft iron correction
-    avg_delta_x = (maxx - minx) / 2
-    avg_delta_y = (maxy - miny) / 2
-    avg_delta_z = (maxz - minz) / 2
-
-    avg_delta = (avg_delta_x + avg_delta_y + avg_delta_z) / 3
-
-    scale_x = avg_delta / avg_delta_x
-    scale_y = avg_delta / avg_delta_y
-    scale_z = avg_delta / avg_delta_z
-
-    self._scale = (scale_x, scale_y, scale_z)
-
-    return self._offset, self._scale
-
-\end{lstlisting}
-
-
-
-These offset biases are then subtracted from the magnetometer data taken during use to re-center the response surface and get a more accurate magnetic field measurement. This procedure can be done every time the device is powered on or it can be done once and the bias values stored on the host in the operating sketch or off-sensor on an EEPROM for loading at startup. This works because the bias values represent inherent deviations of the sensor in its final board-mounted configuration and don't change much with different environments. Still, checking every once in a while is prudent!
-
-There is one more use to which we can put this min/max calibration data and that is in re-scaling the axial response to make is even more spherical. This is the soft iron correction people talk about and to do it right means deconstructing the response surface into its elliptical principle axes and devising a 3 x 3 correction matrix to transform the general ellipsoidal response surface into a spherical one (see here and here).
-
-We will do something not quite as sophisticated but in the same spirit. We will take the min/max values already computed and use them to rescale the magnetometer data to equalize the response along the three measurement axes. This is done in the last few lines of the calibration function above where a scale factor is calculated by taking the ratio of the average max - min along each axis and the average of all three axes. This means that an axis where the max - min is large has its magnetic field reduced and an axis that under-measures the field with respect to the other axes has its magnetic field values increased. This is just a simple orthogonal rescaling, equivalent to a diagonalized 3 x 3 calibration matrix but it allows some additional correction for scale bias. When applied to the MPU9250 we calculate scale biases of 0.96, 1.01, and 1.03 or the x, y and z axes, respectively. These are not huge but even a four percent scale error will show up as several degrees of heading error. And the cost of correcting for scale bias in this way is small, so why not? Especially compared to the much more mathematically-formidable ellipsoidal error corrections employed in the most sophisticated algorithms. The result of rescaling the MPU9250 magnetometer data is shown below:
+\subsubsection{Accelerometer Calibration}
 
 \begin{figure}[!h]
     \centering
@@ -235,9 +145,89 @@ We will do something not quite as sophisticated but in the same spirit. We will 
     % \label{fig:sensoroutput}
 \end{figure}
 
+\subsubsection{Gyroscope Calibration}
+\subsubsection{Magnetometer Calibration}
+To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
-\subsection{Software}
-The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
+        \caption{INS Hardware}
+        \label{plt:raw_magnetometer}
+    \end{subfigure}
+
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
+        \caption{MPU-9250 Breakout}
+        \label{plt:raw_magnetometer3D}
+    \end{subfigure}
+    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+\end{figure}
+
+Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
+
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+    # Hard iron correction
+
+    # get average x mag bias in counts
+    offset_x = (maxx + minx) / 2
+    # get average y mag bias in counts
+    offset_y = (maxy + miny) / 2
+    # get average z mag bias in counts
+    offset_z = (maxz + minz) / 2
+
+    self._offset = (offset_x, offset_y, offset_z)
+    return self._offset
+\end{lstlisting}
+
+It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} – y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
+
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+    # Soft iron correction
+    # get average x axis max chord length in counts
+    avg_delta_x = (maxx - minx) / 2
+    # get average y axis max chord length in counts
+    avg_delta_y = (maxy - miny) / 2
+    # get average z axis max chord length in counts
+    avg_delta_z = (maxz - minz) / 2
+
+    avg_delta = (avg_delta_x + avg_delta_y + avg_delta_z)
+    avg_delta /= 3
+
+    scale_x = avg_delta / avg_delta_x
+    scale_y = avg_delta / avg_delta_y
+    scale_z = avg_delta / avg_delta_z
+
+    self._scale = (scale_x, scale_y, scale_z)
+    return self._scale
+
+\end{lstlisting}
+
+The result of rescaling the MPU9250 magnetometer data is shown below:
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
+        \caption{INS Hardware}
+        \label{fig:sub1}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
+        \caption{MPU-9250 Breakout}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+\end{figure}
 
 \subsection{System Architecture}
 Moreover, the navigation system is equipped with a LoRa antenna enabling the system to transmit at 868MHz/915MHz LoRa bands in real-time at a long distance the position and orientation information to an external gateway (figure \ref{fig:overview}). A visualization of the entire hardware solution is provided at image \ref{fig:full}.
