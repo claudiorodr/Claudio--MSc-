@@ -138,14 +138,60 @@ The microcontroller operates MicroPython, a barebones and efficient implementati
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
 \subsubsection{Accelerometer Calibration}
 
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+    aox, aoy, aoz = (0.0, 0.0, 0.0)
+    self._accelerometer_offset = (0.0, 0.0, 0.0)
+    n = float(count)
+
+    while count:
+        utime.sleep_ms(delay)
+        ax, ay, az = self.acceleration
+        aox += ax
+        aoy += ay
+        aoz += az 
+        count -= 1
+
+    self._accelerometer_offset = (aox / n, aoy / n, aoz / n)
+    return self._accelerometer_offset
+\end{lstlisting}
+
 \begin{figure}[!h]
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
+    % \label{fig:sensoroutput} 
 \end{figure}
 
 \subsubsection{Gyroscope Calibration}
+
+\lstset{language=Python}
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+    gox, goy, goz = (0.0, 0.0, 0.0)
+    self._gyro_offset = (0.0, 0.0, 0.0)
+    n = float(count)
+
+    while count:
+        utime.sleep_ms(delay)
+        gx, gy, gz = self.gyro
+        gox += gx
+        goy += gy
+        goz += gz
+        count -= 1
+
+    self._gyro_offset = (gox / n, goy / n, goz / n)
+    return self._gyro_offset, self._accelerometer_offset
+\end{lstlisting}
+% \begin{figure}[!h]
+%     \centering
+%     \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
+%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+%     % \label{fig:sensoroutput}
+% \end{figure}
+
 \subsubsection{Magnetometer Calibration}
 To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
@@ -169,21 +215,6 @@ To calibrate the magnetometer, a series of measurements of the nearby magnetic f
 
 Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
 
-\lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
-
-    # Hard iron correction
-
-    # get average x mag bias in counts
-    offset_x = (maxx + minx) / 2
-    # get average y mag bias in counts
-    offset_y = (maxy + miny) / 2
-    # get average z mag bias in counts
-    offset_z = (maxz + minz) / 2
-
-    self._offset = (offset_x, offset_y, offset_z)
-    return self._offset
-\end{lstlisting}
 
 It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} – y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
