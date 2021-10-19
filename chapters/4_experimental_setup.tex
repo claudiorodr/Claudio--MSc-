@@ -133,7 +133,7 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
             \hline
         \end{tabular}
         \caption{Magnetometer specification. }
-        \label{tab:magnetometer_multiplication}
+        \label{tab:magnetometer_specification}
     \end{center}
 \end{table}
 
@@ -151,18 +151,22 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
 
+    count=256
     aox, aoy, aoz = (0.0, 0.0, 0.0)
     self._accelerometer_offset = (0.0, 0.0, 0.0)
     n = float(count)
 
     while count:
         utime.sleep_ms(delay)
+        # taking samples for a period of time
         ax, ay, az = self.acceleration
+        # sum every sample on each axis
         aox += ax
         aoy += ay
         aoz += az 
         count -= 1
 
+    # average the samples taken
     self._accelerometer_offset = (aox / n, aoy / n, aoz / n)
     return self._accelerometer_offset
 \end{lstlisting}
@@ -182,21 +186,26 @@ The simplest calibration of an IMU consists of calculating the offset for each a
 
 \begin{lstlisting}[frame=single]  % Start your code-block
 
+    count=256
     gox, goy, goz = (0.0, 0.0, 0.0)
     self._gyro_offset = (0.0, 0.0, 0.0) 
     n = float(count)
 
     while count:
+        # taking samples for a period of time
         utime.sleep_ms(delay)
         gx, gy, gz = self.gyro
+        # sum every sample on each axis
         gox += gx
         goy += gy
         goz += gz
         count -= 1
 
+    # average the samples taken
     self._gyro_offset = (gox / n, goy / n, goz / n)
     return self._gyro_offset, self._accelerometer_offset
 \end{lstlisting}
+
 \begin{figure}[!h]
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
@@ -228,6 +237,21 @@ To calibrate the magnetometer, a series of measurements of the nearby magnetic f
 
 Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
 
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+    # Hard iron correction
+
+    # get average x mag bias in counts
+    offset_x = (maxx + minx) / 2
+    # get average y mag bias in counts
+    offset_y = (maxy + miny) / 2
+    # get average z mag bias in counts
+    offset_z = (maxz + minz) / 2
+
+    self._offset = (offset_x, offset_y, offset_z)
+    return self._offset
+\end{lstlisting}
 
 It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} – y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
@@ -254,7 +278,7 @@ It is possible now to filter any soft iron biases by taking the minimum and maxi
 
 \end{lstlisting}
 
-The result of rescaling the MPU9250 magnetometer data is shown below:
+The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fig:mag_calibration_output}:
 
 \begin{figure}[!h]
     \centering
@@ -271,6 +295,7 @@ The result of rescaling the MPU9250 magnetometer data is shown below:
         \label{fig:sub2}
     \end{subfigure}
     \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:mag_calibration_output}
 \end{figure}
 
 \subsection{System Architecture}
@@ -286,35 +311,56 @@ Moreover, the navigation system is equipped with a LoRa antenna enabling the sys
 
 \subsection{Experiments}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/fullINS.jpg}
-    \caption{Complete hardware solution - Box containing the full inertial navigation system, at the left the antenna  suitable for use in the 868MHz/915MHz LoRa bands. }
-    \label{fig:full}
-\end{figure}
+Several experimental tests were conducted to assess the position performance of the INS under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests consisted of carrying the INS in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
+
+% \begin{table}[H]
+%     \begin{center}
+%         \begin{tabular}[t]{lcccc}
+%             \hline
+%             Parameter                     & Min. & Typ.       & Max. & Units        \\
+%             \hline
+%             Full-Scale range              &      & $\pm 4800$ &      & $\mu T$      \\
+%             Sensitivity Scale Factor      &      & 0.6        &      & $\mu T/ LSB$ \\
+%             Operating Current             &      & 280        &      & $\mu A$      \\
+%             Initial Calibration Tolerance &      & $\pm 500$  &      & $LSB$        \\
+%             \hline
+%         \end{tabular}
+%         \caption{Magnetometer specification. }
+%         \label{tab:magnetometer_multiplication}
+%     \end{center}
+
+
 \subsection{Indoor Experiments}
+
+Indoor experiments were executed at Madeira Tecnopolo building, floor –1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds geometric shapes were tested: line, square, triangle and circle.
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/indoor.jpg}
-    \caption{ 5 meter side ground square used for baseline of accuracy of inertial system. }
+    \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
     \label{fig:indoor}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/indoor_1.jpg}
-    \caption{ Manually pulling the skateboard on each side of the ground square. }
-    \label{fig:indoor_1}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/indoor_2.jpg}
-    \caption{ Experiment made with skateboard to assess localization accuracy. }
-    \label{fig:indoor_2}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/indoor_1.jpg}
+        \caption{INS Hardware}
+        \label{fig:indoor_1}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/indoor_2.jpg}
+        \caption{MPU-9250 Breakout}
+        \label{fig:indoor_2}
+    \end{subfigure}
+    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:mag_calibration_output}
 \end{figure}
 
 \subsection{Outdoor Experiments}
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/outdoor.jpg}
@@ -346,3 +392,5 @@ Moreover, the navigation system is equipped with a LoRa antenna enabling the sys
     \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
     \label{fig:hardware}
 \end{figure}
+
+\subsection{Underwater Experiments}
