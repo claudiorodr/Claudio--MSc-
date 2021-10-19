@@ -10,7 +10,7 @@ algorithm for low-cost systems.
 
 \subsection{Hardware}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:hardware}.a) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:hardware}.b)
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:hardware}.a) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:hardware}.b).
 
 \begin{figure}[!h]
     \centering
@@ -30,7 +30,14 @@ As our projected solution involved a low-cost navigation system, the hardware se
     \label{fig:hardware}
 \end{figure}
 
-MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains as well temperature and pressure sensors. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6500 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer.
+MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains as well temperature and pressure sensors. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer.The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis. These conventions will be utilized during calibration for each of the three sensors.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/mpu_orientation.pdf}
+    \caption{System overview - }
+    \label{fig:mpu_orientation}
+\end{figure}
 
 \subsubsection{Accelerometer}
 
@@ -136,7 +143,10 @@ The microcontroller operates MicroPython, a barebones and efficient implementati
 \subsection{Calibration}
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
+
 \subsubsection{Accelerometer Calibration}
+
+Calibration of the accelerometer requires taking advantage of the acceleration due to gravity, which we can use in the positive and negative orientation of the IMU. Additionally, we can also position the IMU perpendicular to gravity in order to acquire a third calibration point. This results in three unique values that can be combined to formulate a linear fit between the three values and the values outputted by each axis of the accelerometer.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -160,18 +170,20 @@ A correct calibration of such sensors is essential for the compensation of their
 \begin{figure}[!h]
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{Sensor.}
     % \label{fig:sensoroutput} 
 \end{figure}
 
 \subsubsection{Gyroscope Calibration}
+
+The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is not moving. The offsets can be measured by first taking some readings while the IMU is not moving, then using those values as ‘offsets’ when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
 
 \lstset{language=Python}
 
 \begin{lstlisting}[frame=single]  % Start your code-block
 
     gox, goy, goz = (0.0, 0.0, 0.0)
-    self._gyro_offset = (0.0, 0.0, 0.0)
+    self._gyro_offset = (0.0, 0.0, 0.0) 
     n = float(count)
 
     while count:
@@ -185,14 +197,15 @@ A correct calibration of such sensors is essential for the compensation of their
     self._gyro_offset = (gox / n, goy / n, goz / n)
     return self._gyro_offset, self._accelerometer_offset
 \end{lstlisting}
-% \begin{figure}[!h]
-%     \centering
-%     \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
-%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-%     % \label{fig:sensoroutput}
-% \end{figure}
+\begin{figure}[!h]
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
+    \caption{Sensor.}
+    % \label{fig:sensoroutput}
+\end{figure}
 
 \subsubsection{Magnetometer Calibration}
+
 To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
 \begin{figure}[!h]
@@ -261,6 +274,7 @@ The result of rescaling the MPU9250 magnetometer data is shown below:
 \end{figure}
 
 \subsection{System Architecture}
+
 Moreover, the navigation system is equipped with a LoRa antenna enabling the system to transmit at 868MHz/915MHz LoRa bands in real-time at a long distance the position and orientation information to an external gateway (figure \ref{fig:overview}). A visualization of the entire hardware solution is provided at image \ref{fig:full}.
 
 \begin{figure}[!h]
