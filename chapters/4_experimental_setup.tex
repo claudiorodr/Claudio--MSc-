@@ -313,7 +313,7 @@ The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fi
 
 \subsection{Experiments}
 
-Several experimental tests were conducted to assess the position performance of the INS under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests consisted of carrying the INS in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
+Several experimental tests were conducted to assess the position performance of the INS under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests typically consisted of carrying the INS in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
 
 \subsection{Indoor Experiments}
 
@@ -381,13 +381,13 @@ Outdoor experiments were conducted at praça do povo’s square (figure \ref{fig
     \begin{subfigure}{0.40\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/squares.pdf}
-        \caption{ Manually pulling the skateboard on each side of the ground square. }
+        \caption{  }
         \label{fig:squares}
     \end{subfigure}
     \begin{subfigure}{0.40\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/spiral.pdf}
-        \caption{ Manually pulling the skateboard on each side of the ground square. }
+        \caption{  }
         \label{fig:spiral}
     \end{subfigure}
 \end{figure}
@@ -404,20 +404,20 @@ The inertial system was placed on an electrical scooter in this case, being powe
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{1\textwidth}
+    \begin{subfigure}{0.7\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/outdoor_1.jpg}
         \caption{ Manually pulling the skateboard on each side of the ground square. }
         \label{fig:outdoor_1}
     \end{subfigure}
 
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.40\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
         \caption{5 meter side ground square used for baseline of accuracy of inertial system.}
         \label{fig:outdoor_2}
     \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.40\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/outdoor_3.jpg}
         \caption{ Manually pulling the skateboard on each side of the ground square. }
@@ -428,3 +428,45 @@ The inertial system was placed on an electrical scooter in this case, being powe
 \end{figure}
 
 \subsection{Underwater Experiments}
+
+Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360º cameras with a portable battery pack. Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth, angle=-90]{figures/underwater.jpg}
+        \caption{  }
+        \label{fig:underwater}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth, angle=-90]{figures/underwater_1.jpg}
+        \caption{  }
+        \label{fig:underwater_1}
+    \end{subfigure}
+\end{figure}
+
+Once safety checks were completed, guaranteeing the feasibility of the study, the team went to Madeira Carlton hotel divepoint, where tests were conducted to evaluate the estimation quality of the proposed solution under water. A 5-meter square net served as guideline for the diver performing the experiment underwater.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/underwater_2.jpg}
+        \caption{  }
+        \label{fig:underwater}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/underwater_3.jpg}
+        \caption{  }
+        \label{fig:underwater_1}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/underwater_4.jpg}
+        \caption{  }
+        \label{fig:underwater_1}
+    \end{subfigure}
+\end{figure}

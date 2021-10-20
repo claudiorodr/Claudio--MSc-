@@ -1,0 +1,59 @@
+\babel@toc {english}{}\relax 
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{7}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{11}{chapter*.6}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Problem Statement}{2}{subsection.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}A. GNSS only positioning is prone to signal jamming and impacts battery autonomy}{2}{subsubsection.0.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}B. Dead reckoning is susceptible to cumulative errors and suffers from gimbal lock}{2}{subsubsection.0.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}C. Gravity acceleration greatly impacts sensor readings}{3}{subsubsection.0.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Research Questions}{4}{subsection.0.1.2}%
+\contentsline {section}{\numberline {2}Background}{6}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Frames of coordinates}{6}{subsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}ECEF and ENU frame}{6}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Body frame}{8}{subsubsection.0.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Orientation}{9}{subsection.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Rotation Matrix}{9}{subsubsection.0.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Direct Cosine Matrix}{10}{subsubsection.0.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Euler angles}{10}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Quaternions}{12}{subsubsection.0.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Inertial Measurement Units}{16}{subsection.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Accelerometer}{17}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Gyroscope}{18}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Magnetometer}{20}{subsubsection.0.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Sensor Fusion}{22}{subsection.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Kalman Filter}{23}{subsubsection.0.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Complementary Filter}{24}{subsubsection.0.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Optimization Filters}{26}{subsubsection.0.2.4.3}%
+\contentsline {paragraph}{\numberline {2.4.3.1}Other Filters}{26}{paragraph.0.2.4.3.1}%
+\contentsline {section}{\numberline {3}Related Work}{27}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Position estimation using inertial sensor systems}{27}{subsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Pedestrian Dead Reckoning}{27}{subsubsection.0.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Strapdown Inertial Integration}{28}{subsubsection.0.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Sensor fusion in position and orientation estimation }{29}{subsection.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Kalman filter}{29}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Complementary filter}{31}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Optimization filters}{32}{subsubsection.0.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Sensor fusion algorithms comparison}{33}{subsubsection.0.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Thesis Contribution}{34}{subsection.0.3.3}%
+\contentsline {section}{\numberline {4}Experimental Setup}{35}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Hardware}{35}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Accelerometer}{37}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Gyroscope}{37}{subsubsection.0.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Magnetometer}{38}{subsubsection.0.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Software}{39}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {4.3}Calibration}{39}{subsection.0.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Accelerometer Calibration}{39}{subsubsection.0.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Gyroscope Calibration}{40}{subsubsection.0.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Magnetometer Calibration}{42}{subsubsection.0.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Experiments}{46}{subsection.0.4.4}%
+\contentsline {subsection}{\numberline {4.5}Indoor Experiments}{46}{subsection.0.4.5}%
+\contentsline {subsection}{\numberline {4.6}Outdoor Experiments}{48}{subsection.0.4.6}%
+\contentsline {subsection}{\numberline {4.7}Underwater Experiments}{50}{subsection.0.4.7}%
+\contentsline {section}{\numberline {5}Methodology}{51}{section.0.5}%
+\contentsline {subsection}{\numberline {5.1}Evaluation Methodology}{51}{subsection.0.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Obtaining AHRS from sensor fusion}{51}{subsubsection.0.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Estimating position}{52}{subsubsection.0.5.1.2}%
+\contentsline {section}{\numberline {6}Discussion}{62}{section.0.6}%
+\contentsline {section}{\numberline {7}Results}{63}{section.0.7}%
