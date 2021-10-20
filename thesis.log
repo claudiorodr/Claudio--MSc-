@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  20 OCT 2021 19:06
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  20 OCT 2021 19:15
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/thesis.tex
@@ -1852,12 +1852,12 @@ Package luatex.def Info: figures/outdoor_3.jpg  used on input line 422.
 File: figures/underwater.jpg Graphic file (type jpg)
 <use figures/underwater.jpg>
 Package luatex.def Info: figures/underwater.jpg  used on input line 438.
-(luatex.def)             Requested size: 170.09244pt x 127.55289pt.
+(luatex.def)             Requested size: 138.84729pt x 104.11723pt.
 <figures/underwater_1.jpg, id=1001, 4047.12pt x 3035.34pt>
 File: figures/underwater_1.jpg Graphic file (type jpg)
 <use figures/underwater_1.jpg>
 Package luatex.def Info: figures/underwater_1.jpg  used on input line 444.
-(luatex.def)             Requested size: 170.09244pt x 127.55289pt.
+(luatex.def)             Requested size: 138.84729pt x 104.11723pt.
 <figures/underwater_2.jpg, id=1002, 3107.61pt x 3107.61pt>
 File: figures/underwater_2.jpg Graphic file (type jpg)
 <use figures/underwater_2.jpg>
@@ -1873,11 +1873,7 @@ File: figures/underwater_4.jpg Graphic file (type jpg)
 <use figures/underwater_4.jpg>
 Package luatex.def Info: figures/underwater_4.jpg  used on input line 468.
 (luatex.def)             Requested size: 104.1381pt x 104.13608pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [50<./figures/underwater.jpg><./figures/underwater_1.jpg>] (./chapters/5_methodology.tex (./plots/raw.pgf
+) [50<./figures/underwater.jpg><./figures/underwater_1.jpg><./figures/underwater_2.jpg><./figures/underwater_3.jpg><./figures/underwater_4.jpg>] (./chapters/5_methodology.tex (./plots/raw.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1911,14 +1907,11 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) [51<./figures/underwater_2.jpg><./figures/underwater_3.jpg><./figures/underwater_4.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+) [51] [52]
 
- [52] [53] [54]
+LaTeX Warning: Reference `fig:compensation' on page 53 undefined on input line 61.
 
-LaTeX Warning: Reference `fig:compensation' on page 55 undefined on input line 61.
-
-(./plots/gravity.pgf
+[53] [54] (./plots/gravity.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1926,7 +1919,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 )
-<figures/orientation_position.pdf, id=1036, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=1038, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package luatex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1942,23 +1935,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Reference `fig:1dimension' on page 55 undefined on input line 87.
 
-(./plots/square.pgf) (./plots/triangle.pgf
+[55] [56<./figures/orientation_position.pdf>] (./plots/square.pgf) (./plots/triangle.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 )
 
-LaTeX Warning: Reference `fig:2dimension' on page 55 undefined on input line 103.
+LaTeX Warning: Reference `fig:2dimension' on page 57 undefined on input line 103.
 
-[55] [56]
 
 LaTeX Warning: Reference `fig:3dimensions' on page 57 undefined on input line 105.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57<./figures/orientation_position.pdf>] [58] [59] (./plots/triangle3D.pgf
+[57] [58] (./plots/triangle3D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1976,7 +1965,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-)) [60] [61] (./chapters/6_discussion.tex) [62] (./chapters/7_results.tex) [63]
+)) [59] [60] (./chapters/6_discussion.tex) [61] (./chapters/7_results.tex) [62]
 No file thesis.bbl.
 (./thesis.aux)
 
@@ -1990,19 +1979,19 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48472 strings out of 478112
+ 48471 strings out of 478112
  932015,4921788 words of node,token memory allocated
  1460 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 sub_mlist, 1 glyph, 216 attribute, 82 glue_spec, 110 attribute_list, 2 write, 27 pdf_action nodes
-   avail lists: 1:9,2:167335,3:114871,4:284,5:893,6:62,7:8409,8:65,9:2650,10:22,11:844
+   avail lists: 1:9,2:167335,3:114871,4:284,5:893,6:62,7:7748,8:65,9:2650,10:22,11:810
  66543 multiletter control sequences out of 65536+600000
  68 fonts using 4537767 bytes
  115i,13n,131p,2641b,1048s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsco10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on thesis.pdf (74 pages, 41422122 bytes).
+Output written on thesis.pdf (73 pages, 41422392 bytes).
 
-PDF statistics: 1157 PDF objects out of 1200 (max. 8388607)
- 1009 compressed objects within 11 object streams
- 273 named destinations out of 1000 (max. 131072)
+PDF statistics: 1154 PDF objects out of 1200 (max. 8388607)
+ 1007 compressed objects within 11 object streams
+ 272 named destinations out of 1000 (max. 131072)
  464 words of extra memory for PDF output out of 10000 (max. 100000000)
 

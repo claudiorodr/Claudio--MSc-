@@ -54,6 +54,6 @@
 \contentsline {section}{\numberline {5}Methodology}{51}{section.0.5}%
 \contentsline {subsection}{\numberline {5.1}Evaluation Methodology}{51}{subsection.0.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Obtaining AHRS from sensor fusion}{51}{subsubsection.0.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Estimating position}{52}{subsubsection.0.5.1.2}%
-\contentsline {section}{\numberline {6}Discussion}{62}{section.0.6}%
-\contentsline {section}{\numberline {7}Results}{63}{section.0.7}%
+\contentsline {subsubsection}{\numberline {5.1.2}Estimating position}{51}{subsubsection.0.5.1.2}%
+\contentsline {section}{\numberline {6}Discussion}{61}{section.0.6}%
+\contentsline {section}{\numberline {7}Results}{62}{section.0.7}%
