@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  20 OCT 2021 19:15
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  20 OCT 2021 22:47
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/thesis.tex
@@ -996,6 +996,9 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 Package nomencl Info: Writing nomenclature file thesis.nlo on input line 68.
 ) (./thesis.aux
 
+LaTeX Warning: Label `tab:magnetometer_specification' multiply defined.
+
+
 LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
@@ -1111,7 +1114,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 
 \c@lstlisting=\count376
 (./chapters/0_cover.tex
-<figures/logoUMa.png, id=232, 845.1575pt x 597.23125pt>
+<figures/logoUMa.png, id=236, 845.1575pt x 597.23125pt>
 File: figures/logoUMa.png Graphic file (type png)
 <use figures/logoUMa.png>
 Package luatex.def Info: figures/logoUMa.png  used on input line 5.
@@ -1144,43 +1147,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 \openout6 = thesis.toc
  [6] (./thesis.lof
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 7 undefined on input line 4.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 7 undefined on input line 7.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 7 undefined on input line 8.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7
 
 ]
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 8 undefined on input line 9.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 8 undefined on input line 11.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 8 undefined on input line 12.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 8 undefined on input line 15.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 8 undefined on input line 16.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 8 undefined on input line 17.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 8 undefined on input line 18.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
@@ -1200,43 +1171,6 @@ No file thesis.nls.
 [11
 
 ] (./chapters/1_introduction.tex
-
-LaTeX Warning: Citation `ioannides2016known' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `omar2016integration' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `nassar2004improving' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `dewhirst2016improving' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `kao1991integration' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `coyte2013displacement' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `wong1988high' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `hetenyi2016sensor' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `luo2013uav' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `sharma2014sensor' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `madgwick2020extended' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `wilson2019formulation' on page 1 undefined on input line 2.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1246,80 +1180,22 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 Missing character: There is no “ (U+201C) in font ec-lmr10!
 Missing character: There is no ” (U+201D) in font ec-lmr10!
 ]
-
-LaTeX Warning: Citation `ioannides2016known' on page 2 undefined on input line 10.
-
-
-LaTeX Warning: Citation `papadimitratos2008protection' on page 2 undefined on input line 10.
-
-
-LaTeX Warning: Citation `amin2016vulnerabilities' on page 2 undefined on input line 10.
-
-
-LaTeX Warning: Citation `pinker1999vulnerability' on page 2 undefined on input line 11.
-
-
-LaTeX Warning: Citation `omar2016integration' on page 2 undefined on input line 11.
-
-
-LaTeX Warning: Citation `lo2016greener' on page 2 undefined on input line 12.
-
-
-LaTeX Warning: Citation `omar2016integration' on page 2 undefined on input line 16.
-
-
-LaTeX Warning: Citation `dewhirst2016improving' on page 2 undefined on input line 16.
-
-
-LaTeX Warning: Citation `kao1991integration' on page 2 undefined on input line 16.
-
-
-LaTeX Warning: Citation `krakiwsky1988kalman' on page 2 undefined on input line 16.
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.2'
 [2
 Missing character: There is no ‐ (U+2010) in font ec-lmr10!
 ]
-
-LaTeX Warning: Citation `bojanczyk1991computation' on page 3 undefined on input line 18.
-
-
-LaTeX Warning: Citation `janota2015improving' on page 3 undefined on input line 18.
-
-
-LaTeX Warning: Citation `hemingway2018perspectives' on page 3 undefined on input line 20.
-
-<figures/gimbal_lock.png, id=537, 853.1875pt x 330.23375pt>
+<figures/gimbal_lock.png, id=600, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package luatex.def Info: figures/gimbal_lock.png  used on input line 25.
 (luatex.def)             Requested size: 242.98541pt x 94.04704pt.
 
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 3 undefined on input line 26.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 3 undefined on input line 26.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `yang2006simple' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `nistler2011gravity' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `thong2004numerical' on page 3 undefined on input line 31.
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.3'
 [3]
-
-LaTeX Warning: Citation `nistler2011gravity' on page 4 undefined on input line 33.
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.4'
 [4<./figures/gimbal_lock.png>])
 warning  (pdf backend): ignoring duplicate destination with the name 'page.5'
@@ -1336,17 +1212,11 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.8'
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/rotation.pdf, id=580, 187.66109pt x 207.65579pt>
+<figures/rotation.pdf, id=658, 187.66109pt x 207.65579pt>
 File: figures/rotation.pdf Graphic file (type pdf)
 <use figures/rotation.pdf>
 Package luatex.def Info: figures/rotation.pdf  used on input line 116.
 (luatex.def)             Requested size: 242.98541pt x 268.87834pt.
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 9 undefined on input line 117.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 9 undefined on input line 117.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1366,56 +1236,30 @@ File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package luatex.def Info: figures/gimbal_lock.png  used on input line 184.
 (luatex.def)             Requested size: 242.98541pt x 94.04704pt.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 12 undefined on input line 185.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 12 undefined on input line 185.
-
-[12]
-<figures/complex_rotation.pdf, id=615, 630.26666pt x 623.72224pt>
+ [12]
+<figures/complex_rotation.pdf, id=697, 630.26666pt x 623.72224pt>
 File: figures/complex_rotation.pdf Graphic file (type pdf)
 <use figures/complex_rotation.pdf>
 Package luatex.def Info: figures/complex_rotation.pdf  used on input line 195.
 (luatex.def)             Requested size: 242.98541pt x 240.46214pt.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 13 undefined on input line 196.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 13 undefined on input line 196.
-
-[13<./figures/complex_rotation.pdf>]
+ [13<./figures/complex_rotation.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 Underfull \vbox (badness 2556) has occurred while \output is active []
 
  [15]
-
-LaTeX Warning: Citation `madgwick2020extended' on page 16 undefined on input line 324.
-
-
-LaTeX Warning: Citation `wilson2019formulation' on page 16 undefined on input line 324.
-
-<figures/noise.pdf, id=644, 337.26pt x 81.4242pt>
+<figures/noise.pdf, id=732, 337.26pt x 81.4242pt>
 File: figures/noise.pdf Graphic file (type pdf)
 <use figures/noise.pdf>
 Package luatex.def Info: figures/noise.pdf  used on input line 328.
 (luatex.def)             Requested size: 347.12354pt x 83.80698pt.
-[16<./figures/noise.pdf>]
-<figures/accelerometer.pdf, id=655, 263.06279pt x 235.8411pt>
+ [16<./figures/noise.pdf>]
+<figures/accelerometer.pdf, id=744, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
 Package luatex.def Info: figures/accelerometer.pdf  used on input line 348.
 (luatex.def)             Requested size: 173.56177pt x 155.60881pt.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 17 undefined on input line 349.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 17 undefined on input line 349.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1424,23 +1268,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/gyroscope.pdf, id=663, 472.64577pt x 190.7928pt>
+<figures/gyroscope.pdf, id=754, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
 Package luatex.def Info: figures/gyroscope.pdf  used on input line 358.
 (luatex.def)             Requested size: 242.98541pt x 98.08615pt.
 
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 18 undefined on input line 359.
-
-
-LaTeX Warning: Citation `zeitlhofler2019nominal' on page 18 undefined on input line 359.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18<./figures/accelerometer.pdf><./figures/gyroscope.pdf>]
-<figures/coriolis.pdf, id=677, 346.4142pt x 274.1442pt>
+<figures/coriolis.pdf, id=770, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
 Package luatex.def Info: figures/coriolis.pdf  used on input line 373.
@@ -1455,125 +1292,34 @@ Missing character: There is no − (U+2212) in font cmr7!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-<figures/magnetometer_distortion.pdf, id=716, 820.02356pt x 205.72859pt>
+<figures/magnetometer_distortion.pdf, id=808, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
 Package luatex.def Info: figures/magnetometer_distortion.pdf  used on input line 434.
 (luatex.def)             Requested size: 347.12354pt x 87.08661pt.
 
-
-LaTeX Warning: Citation `welch1995introduction' on page 22 undefined on input line 445.
-
-
 Underfull \vbox (badness 1968) has occurred while \output is active []
 
  [22<./figures/magnetometer_distortion.pdf>]
-<figures/kalman1.pdf, id=734, 499.8675pt x 133.45859pt>
+<figures/kalman1.pdf, id=827, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package luatex.def Info: figures/kalman1.pdf  used on input line 449.
 (luatex.def)             Requested size: 242.98541pt x 64.87395pt.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 23 undefined on input line 450.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 23 undefined on input line 450.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 23 undefined on input line 454.
-
-<figures/kalman2.pdf, id=736, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=832, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
 Package luatex.def Info: figures/kalman2.pdf  used on input line 458.
 (luatex.def)             Requested size: 242.98541pt x 58.96225pt.
-
-LaTeX Warning: Citation `mosallaei2007process' on page 23 undefined on input line 459.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 23 undefined on input line 459.
-
-
-LaTeX Warning: Citation `wilson2019formulation' on page 23 undefined on input line 464.
-
-[23<./figures/kalman1.pdf><./figures/kalman2.pdf>]
-
-LaTeX Warning: Citation `higgins1975comparison' on page 24 undefined on input line 485.
-
-<figures/complementary.pdf, id=752, 325.215pt x 136.5903pt>
+ [23<./figures/kalman1.pdf><./figures/kalman2.pdf>]
+<figures/complementary.pdf, id=854, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package luatex.def Info: figures/complementary.pdf  used on input line 489.
 (luatex.def)             Requested size: 242.98541pt x 102.05688pt.
-
-LaTeX Warning: Citation `higgins1975comparison' on page 24 undefined on input line 490.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 24 undefined on input line 490.
-
-[24<./figures/complementary.pdf>]
-
-LaTeX Warning: Citation `wilson2019formulation' on page 25 undefined on input line 526.
-
-[25]
-
-LaTeX Warning: Citation `madgwick2020extended' on page 26 undefined on input line 531.
-
-
-LaTeX Warning: Citation `ludwig2018comparison' on page 26 undefined on input line 532.
-
-
-LaTeX Warning: Citation `madgwick2010efficient' on page 26 undefined on input line 533.
-
-) [26
+ [24<./figures/complementary.pdf>] [25]) [26
 Missing character: There is no ‘ (U+2018) in font ec-lmr10!
-] (./chapters/3_related_work.tex
-
-LaTeX Warning: Citation `ladetto2002step' on page 27 undefined on input line 10.
-
-
-LaTeX Warning: Citation `stirling2003innovative' on page 27 undefined on input line 12.
-
-
-LaTeX Warning: Citation `steinhoff2010dead' on page 27 undefined on input line 14.
-
-
-LaTeX Warning: Citation `weinberg2002using' on page 27 undefined on input line 14.
-
-
-LaTeX Warning: Citation `kim2004step' on page 27 undefined on input line 14.
-
-
-LaTeX Warning: Citation `collin2002mems' on page 27 undefined on input line 14.
-
-[27]
-
-LaTeX Warning: Citation `jameian2019robust' on page 28 undefined on input line 19.
-
-
-LaTeX Warning: Citation `bird2011indoor' on page 28 undefined on input line 21.
-
-
-LaTeX Warning: Citation `coyte2013displacement' on page 28 undefined on input line 26.
-
-[28]
-
-LaTeX Warning: Citation `hall1997introduction' on page 29 undefined on input line 29.
-
-
-LaTeX Warning: Citation `elmenreich2002introduction' on page 29 undefined on input line 29.
-
-
-LaTeX Warning: Citation `welch1995introduction' on page 29 undefined on input line 32.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 29 undefined on input line 32.
-
-
-LaTeX Warning: Citation `wilson2019formulation' on page 29 undefined on input line 34.
-
-[29]
+] (./chapters/3_related_work.tex [27] [28] [29]
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package luatex.def Info: figures/kalman1.pdf  used on input line 40.
@@ -1583,81 +1329,17 @@ File: figures/kalman2.pdf Graphic file (type pdf)
 Package luatex.def Info: figures/kalman2.pdf  used on input line 45.
 (luatex.def)             Requested size: 156.20453pt x 37.90372pt.
 
-
-LaTeX Warning: Citation `mosallaei2007process' on page 30 undefined on input line 51.
-
-
-LaTeX Warning: Citation `mosallaei2007process' on page 30 undefined on input line 51.
-
-
-LaTeX Warning: Citation `wong1988high' on page 30 undefined on input line 54.
-
-
-LaTeX Warning: Citation `qi2002direct' on page 30 undefined on input line 54.
-
-
-LaTeX Warning: Citation `nassar2004improving' on page 30 undefined on input line 54.
-
-
-LaTeX Warning: Citation `mohamed1999adaptive' on page 30 undefined on input line 54.
-
-
 Underfull \vbox (badness 2027) has occurred while \output is active []
 
- [30]
-
-LaTeX Warning: Citation `hetenyi2016sensor' on page 31 undefined on input line 56.
-
-
-LaTeX Warning: Citation `luo2013uav' on page 31 undefined on input line 56.
-
-
-LaTeX Warning: Citation `sharma2014sensor' on page 31 undefined on input line 58.
-
-
-LaTeX Warning: Citation `higgins1975comparison' on page 31 undefined on input line 61.
-
-
-LaTeX Warning: Citation `wilson2019formulation' on page 31 undefined on input line 61.
-
-[31]
-
-LaTeX Warning: Citation `madgwick2020extended' on page 32 undefined on input line 70.
-
-
-LaTeX Warning: Citation `noordin2018sensor' on page 32 undefined on input line 72.
-
-
-LaTeX Warning: Citation `euston2008complementary' on page 32 undefined on input line 73.
-
-
-LaTeX Warning: Citation `madgwick2020extended' on page 32 undefined on input line 77.
-
-
-LaTeX Warning: Citation `ludwig2018comparison' on page 32 undefined on input line 78.
-
-
-LaTeX Warning: Citation `madgwick2010efficient' on page 32 undefined on input line 79.
-
-[32]
-
-LaTeX Warning: Citation `ludwig2018comparison' on page 33 undefined on input line 82.
-
-
-LaTeX Warning: Citation `ludwig2018comparisonuav' on page 33 undefined on input line 82.
-
-
-LaTeX Warning: Citation `diaz2015evaluation' on page 33 undefined on input line 82.
-
-[33
+ [30] [31] [32] [33
 Missing character: There is no ‘ (U+2018) in font ec-lmr10!
 ]) [34] (./chapters/4_experimental_setup.tex
-<figures/INS.jpg, id=828, 2000.47375pt x 2001.4775pt>
+<figures/INS.jpg, id=993, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package luatex.def Info: figures/INS.jpg  used on input line 19.
 (luatex.def)             Requested size: 170.09244pt x 170.16914pt.
-<figures/mpu9250.jpg, id=829, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=994, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package luatex.def Info: figures/mpu9250.jpg  used on input line 25.
@@ -1667,7 +1349,7 @@ Package luatex.def Info: figures/mpu9250.jpg  used on input line 25.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [35]
-<figures/mpu_orientation.pdf, id=835, 303.05219pt x 140.4447pt>
+<figures/mpu_orientation.pdf, id=1000, 303.05219pt x 140.4447pt>
 File: figures/mpu_orientation.pdf Graphic file (type pdf)
 <use figures/mpu_orientation.pdf>
 Package luatex.def Info: figures/mpu_orientation.pdf  used on input line 37.
@@ -1675,10 +1357,12 @@ Package luatex.def Info: figures/mpu_orientation.pdf  used on input line 37.
  [36<./figures/INS.jpg><./figures/mpu9250.jpg><./figures/mpu_orientation.pdf>] [37]
 Underfull \vbox (badness 3312) has occurred while \output is active []
 
- [38] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+ [38] [39] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [39]
-Overfull \hbox (12.88013pt too wide) in paragraph at lines 170--171
+) [40
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+]
+Overfull \hbox (12.88013pt too wide) in paragraph at lines 202--203
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1689,7 +1373,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[40
+[41
 Missing character: There is no ‘ (U+2018) in font ec-lmr10!
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 ] (./plots/gyroscope.pgf
@@ -1704,9 +1388,10 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 )
-Underfull \vbox (badness 1960) has occurred while \output is active []
 
- [41] (./plots/magnetometer2D.pgf
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[42] (./plots/magnetometer2D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1750,9 +1435,9 @@ Missing character: There is no − (U+2212) in font cmr10!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42] [43]
+[43] [44]
 Missing character: There is no – (U+2013) in font cmr10!
- [44] (./plots/calibrated_magnetometer2D.pgf
+ (./plots/calibrated_magnetometer2D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1790,90 +1475,120 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) [45]
-<figures/indoor.jpg, id=958, 3276.24pt x 2457.18pt>
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[45]
+<figures/indoor.jpg, id=1123, 3276.24pt x 2457.18pt>
 File: figures/indoor.jpg Graphic file (type jpg)
 <use figures/indoor.jpg>
-Package luatex.def Info: figures/indoor.jpg  used on input line 324.
+Package luatex.def Info: figures/indoor.jpg  used on input line 356.
 (luatex.def)             Requested size: 242.98541pt x 182.2184pt.
- [46
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[46
 Missing character: There is no – (U+2013) in font ec-lmr10!
-<./figures/indoor.jpg>]
-<figures/indoor_1.jpg, id=963, 1842.885pt x 2457.18pt>
+]
+<figures/indoor_1.jpg, id=1128, 1842.885pt x 2457.18pt>
 File: figures/indoor_1.jpg Graphic file (type jpg)
 <use figures/indoor_1.jpg>
-Package luatex.def Info: figures/indoor_1.jpg  used on input line 342.
+Package luatex.def Info: figures/indoor_1.jpg  used on input line 374.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
-<figures/indoor_2.jpg, id=964, 1842.885pt x 2457.18pt>
+<figures/indoor_2.jpg, id=1129, 1842.885pt x 2457.18pt>
 File: figures/indoor_2.jpg Graphic file (type jpg)
 <use figures/indoor_2.jpg>
-Package luatex.def Info: figures/indoor_2.jpg  used on input line 346.
+Package luatex.def Info: figures/indoor_2.jpg  used on input line 378.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
- [47<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
-<figures/outdoor_field.jpg, id=971, 1445.4pt x 813.0375pt>
+ [47<./figures/indoor.jpg>]
+<figures/outdoor_field.jpg, id=1136, 1445.4pt x 813.0375pt>
 File: figures/outdoor_field.jpg Graphic file (type jpg)
 <use figures/outdoor_field.jpg>
-Package luatex.def Info: figures/outdoor_field.jpg  used on input line 374.
+Package luatex.def Info: figures/outdoor_field.jpg  used on input line 406.
 (luatex.def)             Requested size: 242.98541pt x 136.67621pt.
-<figures/squares.pdf, id=972, 211.75108pt x 227.89139pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/squares.pdf, id=1137, 211.75108pt x 227.89139pt>
 File: figures/squares.pdf Graphic file (type pdf)
 <use figures/squares.pdf>
-Package luatex.def Info: figures/squares.pdf  used on input line 383.
+Package luatex.def Info: figures/squares.pdf  used on input line 415.
 (luatex.def)             Requested size: 138.84729pt x 149.42816pt.
-<figures/spiral.pdf, id=973, 211.75108pt x 227.89139pt>
+<figures/spiral.pdf, id=1138, 211.75108pt x 227.89139pt>
 File: figures/spiral.pdf Graphic file (type pdf)
 <use figures/spiral.pdf>
-Package luatex.def Info: figures/spiral.pdf  used on input line 389.
+Package luatex.def Info: figures/spiral.pdf  used on input line 421.
 (luatex.def)             Requested size: 138.84729pt x 149.42816pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [48
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-<./figures/outdoor_field.jpg><./figures/squares.pdf><./figures/spiral.pdf>]
-<figures/outdoor_1.jpg, id=992, 4047.12pt x 3035.34pt>
+<figures/outdoor_1.jpg, id=1141, 4047.12pt x 3035.34pt>
 File: figures/outdoor_1.jpg Graphic file (type jpg)
 <use figures/outdoor_1.jpg>
-Package luatex.def Info: figures/outdoor_1.jpg  used on input line 409.
+Package luatex.def Info: figures/outdoor_1.jpg  used on input line 441.
 (luatex.def)             Requested size: 242.98541pt x 182.20517pt.
-<figures/outdoor_2.jpg, id=993, 3035.34pt x 4047.12pt>
+<figures/outdoor_2.jpg, id=1142, 3035.34pt x 4047.12pt>
 File: figures/outdoor_2.jpg Graphic file (type jpg)
 <use figures/outdoor_2.jpg>
-Package luatex.def Info: figures/outdoor_2.jpg  used on input line 416.
+Package luatex.def Info: figures/outdoor_2.jpg  used on input line 448.
 (luatex.def)             Requested size: 138.84729pt x 185.07674pt.
-<figures/outdoor_3.jpg, id=994, 3035.34pt x 4047.12pt>
+<figures/outdoor_3.jpg, id=1143, 3035.34pt x 4047.12pt>
 File: figures/outdoor_3.jpg Graphic file (type jpg)
 <use figures/outdoor_3.jpg>
-Package luatex.def Info: figures/outdoor_3.jpg  used on input line 422.
+Package luatex.def Info: figures/outdoor_3.jpg  used on input line 454.
 (luatex.def)             Requested size: 138.84729pt x 185.07674pt.
- [49<./figures/outdoor_1.jpg><./figures/outdoor_2.jpg><./figures/outdoor_3.jpg>]
-<figures/underwater.jpg, id=1000, 4047.12pt x 3035.34pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[48
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
+<figures/underwater.jpg, id=1150, 3035.34pt x 4047.12pt>
 File: figures/underwater.jpg Graphic file (type jpg)
 <use figures/underwater.jpg>
-Package luatex.def Info: figures/underwater.jpg  used on input line 438.
-(luatex.def)             Requested size: 138.84729pt x 104.11723pt.
-<figures/underwater_1.jpg, id=1001, 4047.12pt x 3035.34pt>
+Package luatex.def Info: figures/underwater.jpg  used on input line 470.
+(luatex.def)             Requested size: 104.1381pt x 138.82298pt.
+<figures/underwater_1.jpg, id=1151, 3035.34pt x 4047.12pt>
 File: figures/underwater_1.jpg Graphic file (type jpg)
 <use figures/underwater_1.jpg>
-Package luatex.def Info: figures/underwater_1.jpg  used on input line 444.
-(luatex.def)             Requested size: 138.84729pt x 104.11723pt.
-<figures/underwater_2.jpg, id=1002, 3107.61pt x 3107.61pt>
+Package luatex.def Info: figures/underwater_1.jpg  used on input line 476.
+(luatex.def)             Requested size: 104.1381pt x 138.82298pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/underwater_2.jpg, id=1152, 3107.61pt x 3107.61pt>
 File: figures/underwater_2.jpg Graphic file (type jpg)
 <use figures/underwater_2.jpg>
-Package luatex.def Info: figures/underwater_2.jpg  used on input line 456.
+Package luatex.def Info: figures/underwater_2.jpg  used on input line 488.
 (luatex.def)             Requested size: 104.1381pt x 104.13048pt.
-<figures/underwater_3.jpg, id=1003, 795.97375pt x 795.97375pt>
+<figures/underwater_3.jpg, id=1153, 795.97375pt x 795.97375pt>
 File: figures/underwater_3.jpg Graphic file (type jpg)
 <use figures/underwater_3.jpg>
-Package luatex.def Info: figures/underwater_3.jpg  used on input line 462.
+Package luatex.def Info: figures/underwater_3.jpg  used on input line 494.
 (luatex.def)             Requested size: 104.1381pt x 104.13608pt.
-<figures/underwater_4.jpg, id=1004, 795.97375pt x 795.97375pt>
+<figures/underwater_4.jpg, id=1154, 795.97375pt x 795.97375pt>
 File: figures/underwater_4.jpg Graphic file (type jpg)
 <use figures/underwater_4.jpg>
-Package luatex.def Info: figures/underwater_4.jpg  used on input line 468.
+Package luatex.def Info: figures/underwater_4.jpg  used on input line 500.
 (luatex.def)             Requested size: 104.1381pt x 104.13608pt.
-) [50<./figures/underwater.jpg><./figures/underwater_1.jpg><./figures/underwater_2.jpg><./figures/underwater_3.jpg><./figures/underwater_4.jpg>] (./chapters/5_methodology.tex (./plots/raw.pgf
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [49<./figures/outdoor_field.jpg><./figures/squares.pdf><./figures/spiral.pdf>] (./chapters/5_methodology.tex [50<./figures/outdoor_1.jpg><./figures/outdoor_2.jpg><./figures/outdoor_3.jpg>] [51<./figures/underwater.jpg><./figures/underwater_1.jpg><./figures/underwater_2.jpg><./figures/underwater_3.jpg><./figures/underwater_4.jpg>] (./plots/raw.pgf
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
+) (./plots/quaternion.pgf
+Missing character: There is no − (U+2212) in font cmr10!
+Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1884,21 +1599,8 @@ Missing character: There is no − (U+2212) in font cmr10!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./plots/quaternion.pgf
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-Missing character: There is no − (U+2212) in font cmr10!
-)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `fig:madgwickAHRS' on page 51 undefined on input line 30.
+LaTeX Warning: Reference `fig:madgwickAHRS' on page 52 undefined on input line 30.
 
 (./plots/euler.pgf
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1907,11 +1609,14 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-) [51] [52]
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `fig:compensation' on page 53 undefined on input line 61.
+ [52] [53] [54]
 
-[53] [54] (./plots/gravity.pgf
+LaTeX Warning: Reference `fig:compensation' on page 55 undefined on input line 61.
+
+(./plots/gravity.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1919,7 +1624,7 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 )
-<figures/orientation_position.pdf, id=1038, 458.67358pt x 126.4725pt>
+<figures/orientation_position.pdf, id=1199, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
 Package luatex.def Info: figures/orientation_position.pdf  used on input line 73.
@@ -1935,7 +1640,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Reference `fig:1dimension' on page 55 undefined on input line 87.
 
-[55] [56<./figures/orientation_position.pdf>] (./plots/square.pgf) (./plots/triangle.pgf
+[55] [56] (./plots/square.pgf) (./plots/triangle.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1945,9 +1650,13 @@ Missing character: There is no − (U+2212) in font cmr10!
 LaTeX Warning: Reference `fig:2dimension' on page 57 undefined on input line 103.
 
 
-LaTeX Warning: Reference `fig:3dimensions' on page 57 undefined on input line 105.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[57] [58] (./plots/triangle3D.pgf
+ [57<./figures/orientation_position.pdf>] [58] [59]
+
+LaTeX Warning: Reference `fig:3dimensions' on page 60 undefined on input line 105.
+
+(./plots/triangle3D.pgf
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
@@ -1965,9 +1674,16 @@ Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
 Missing character: There is no − (U+2212) in font cmr10!
-)) [59] [60] (./chapters/6_discussion.tex) [61] (./chapters/7_results.tex) [62]
-No file thesis.bbl.
-(./thesis.aux)
+)) [60] [61] [62] (./chapters/6_results.tex) [63] (./chapters/7_discussion.tex) [64] (./thesis.bbl [65
+
+] [66
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+]
+Underfull \vbox (badness 1205) has occurred while \output is active []
+
+ [67
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+] [68]) [69] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1975,23 +1691,23 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 85DF5FDD6B53809178356387F960BF2F;9745.
+(rerunfilecheck)             Checksum: 582E64EC49ECF930005EAB8EE6E7E551;9841.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48471 strings out of 478112
+ 48531 strings out of 478112
  932015,4921788 words of node,token memory allocated
  1460 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 sub_mlist, 1 glyph, 216 attribute, 82 glue_spec, 110 attribute_list, 2 write, 27 pdf_action nodes
-   avail lists: 1:9,2:167335,3:114871,4:284,5:893,6:62,7:7748,8:65,9:2650,10:22,11:810
- 66543 multiletter control sequences out of 65536+600000
+   avail lists: 1:6,2:169288,3:114887,4:284,5:939,6:66,7:7810,8:68,9:2707,10:22,11:818
+ 66544 multiletter control sequences out of 65536+600000
  68 fonts using 4537767 bytes
- 115i,13n,131p,2641b,1048s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,13n,131p,2633b,1048s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsco10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on thesis.pdf (73 pages, 41422392 bytes).
+Output written on thesis.pdf (80 pages, 32992625 bytes).
 
-PDF statistics: 1154 PDF objects out of 1200 (max. 8388607)
- 1007 compressed objects within 11 object streams
- 272 named destinations out of 1000 (max. 131072)
- 464 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1347 PDF objects out of 1440 (max. 8388607)
+ 1182 compressed objects within 12 object streams
+ 326 named destinations out of 1000 (max. 131072)
+ 472 words of extra memory for PDF output out of 10000 (max. 100000000)
 

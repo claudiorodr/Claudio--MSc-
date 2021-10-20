@@ -1,0 +1,279 @@
+\begin{thebibliography}{10}
+
+\bibitem{amin2016vulnerabilities}
+Moeness~G Amin, Pau Closas, Ali Broumandan, and John~L Volakis.
+\newblock Vulnerabilities, threats, and authentication in satellite-based
+  navigation systems [scanning the issue].
+\newblock {\em Proceedings of the IEEE}, 104(6):1169--1173, 2016.
+
+\bibitem{bird2011indoor}
+Jeff Bird and Dale Arden.
+\newblock Indoor navigation with foot-mounted strapdown inertial navigation and
+  magnetic sensors [emerging opportunities for localization and tracking].
+\newblock {\em IEEE Wireless Communications}, 18(2):28--35, 2011.
+
+\bibitem{bojanczyk1991computation}
+Adam~W Bojanczyk and Adam Lutoborski.
+\newblock Computation of the euler angles of a symmetric 3*3 matrix.
+\newblock {\em SIAM Journal on Matrix Analysis and Applications}, 12(1):41--48,
+  1991.
+
+\bibitem{collin2002mems}
+Jussi Collin, G~Lachapelle, and Jani K{\"a}ppi.
+\newblock Mems-imu for personal positioning in a vehicle--a gyro-free approach.
+\newblock In {\em Proceedings of ION GPS}, pages 24--27, 2002.
+
+\bibitem{coyte2013displacement}
+James~L Coyte, David Stirling, Montserrat Ros, Haiping Du, and Andrew Gray.
+\newblock Displacement profile estimation using low cost inertial motion
+  sensors with applications to sporting and rehabilitation exercises.
+\newblock In {\em 2013 IEEE/ASME International Conference on Advanced
+  Intelligent Mechatronics}, pages 1290--1295. IEEE, 2013.
+
+\bibitem{dewhirst2016improving}
+Oliver~P Dewhirst, Hannah~K Evans, Kyle Roskilly, Richard~J Harvey, Tatjana~Y
+  Hubel, and Alan~M Wilson.
+\newblock Improving the accuracy of estimates of animal path and travel
+  distance using gps drift-corrected dead reckoning.
+\newblock {\em Ecology and evolution}, 6(17):6210--6222, 2016.
+
+\bibitem{diaz2015evaluation}
+Estefania~Munoz Diaz, Fabian de~Ponte~M{\"u}ller, Antonio~R Jim{\'e}nez, and
+  Francisco Zampella.
+\newblock Evaluation of ahrs algorithms for inertial personal localization in
+  industrial environments.
+\newblock In {\em 2015 IEEE International Conference on Industrial Technology
+  (ICIT)}, pages 3412--3417. IEEE, 2015.
+
+\bibitem{elmenreich2002introduction}
+Wilfried Elmenreich.
+\newblock An introduction to sensor fusion.
+\newblock {\em Vienna University of Technology, Austria}, 502:1--28, 2002.
+
+\bibitem{euston2008complementary}
+Mark Euston, Paul Coote, Robert Mahony, Jonghyuk Kim, and Tarek Hamel.
+\newblock A complementary filter for attitude estimation of a fixed-wing uav.
+\newblock In {\em 2008 IEEE/RSJ international conference on intelligent robots
+  and systems}, pages 340--345. IEEE, 2008.
+
+\bibitem{hall1997introduction}
+David~L Hall and James Llinas.
+\newblock An introduction to multisensor data fusion.
+\newblock {\em Proceedings of the IEEE}, 85(1):6--23, 1997.
+
+\bibitem{hemingway2018perspectives}
+Evan~G Hemingway and Oliver~M O’Reilly.
+\newblock Perspectives on euler angle singularities, gimbal lock, and the
+  orthogonality of applied forces and applied moments.
+\newblock {\em Multibody System Dynamics}, 44(1):31--56, 2018.
+
+\bibitem{hetenyi2016sensor}
+D{\'a}niel Het{\'e}nyi, M{\'a}rton G{\'o}tzy, and L{\'a}szl{\'o} Bl{\'a}zovics.
+\newblock Sensor fusion with enhanced kalman filter for altitude control of
+  quadrotors.
+\newblock In {\em 2016 IEEE 11th International Symposium on Applied
+  Computational Intelligence and Informatics (SACI)}, pages 413--418. IEEE,
+  2016.
+
+\bibitem{higgins1975comparison}
+Walter~T Higgins.
+\newblock A comparison of complementary and kalman filtering.
+\newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
+  (3):321--325, 1975.
+
+\bibitem{ioannides2016known}
+Rigas~Themistoklis Ioannides, Thomas Pany, and Glen Gibbons.
+\newblock Known vulnerabilities of global navigation satellite systems, status,
+  and potential mitigation techniques.
+\newblock {\em Proceedings of the IEEE}, 104(6):1174--1194, 2016.
+
+\bibitem{jameian2019robust}
+Hassan Jameian, Behrouz Safarinejadian, and Mokhtar Shasadeghi.
+\newblock A robust and fast self-alignment method for strapdown inertial
+  navigation system in rough sea conditions.
+\newblock {\em Ocean Engineering}, 187:106196, 2019.
+
+\bibitem{janota2015improving}
+Ale{\v{s}} Janota, Vojtech {\v{S}}im{\'a}k, Du{\v{s}}an Nemec, and Jozef
+  Hrb{\v{c}}ek.
+\newblock Improving the precision and speed of euler angles computation from
+  low-cost rotation sensor data.
+\newblock {\em Sensors}, 15(3):7016--7039, 2015.
+
+\bibitem{kao1991integration}
+Wei-Wen Kao.
+\newblock Integration of gps and dead-reckoning navigation systems.
+\newblock In {\em Vehicle Navigation and Information Systems Conference, 1991},
+  volume~2, pages 635--643. IEEE, 1991.
+
+\bibitem{kim2004step}
+Jeong~Won Kim, Han~Jin Jang, Dong-Hwan Hwang, and Chansik Park.
+\newblock A step, stride and heading determination for the pedestrian
+  navigation system.
+\newblock {\em Journal of Global Positioning Systems}, 3(1-2):273--279, 2004.
+
+\bibitem{krakiwsky1988kalman}
+Edward~J Krakiwsky, Clyde~B Harris, and Richard~VC Wong.
+\newblock A kalman filter for integrating dead reckoning, map matching and gps
+  positioning.
+\newblock In {\em IEEE PLANS'88., Position Location and Navigation Symposium,
+  Record.'Navigation into the 21st Century'.}, pages 39--46. IEEE, 1988.
+
+\bibitem{ladetto2002step}
+Quentin Ladetto and Bertrand Merminod.
+\newblock In step with ins navigation for the blind, tracking emergency crews.
+\newblock {\em Gps World}, 13(ARTICLE):30--38, 2002.
+
+\bibitem{lo2016greener}
+A~Tawalbeh Lo’ai, Anas Basalamah, Rashid Mehmood, and Hala Tawalbeh.
+\newblock Greener and smarter phones for future cities: Characterizing the
+  impact of gps signal strength on power consumption.
+\newblock {\em IEEE Access}, 4:858--868, 2016.
+
+\bibitem{ludwig2018comparison}
+Simone~A Ludwig and Kaleb~D Burnham.
+\newblock Comparison of euler estimate using extended kalman filter, madgwick
+  and mahony on quadcopter flight data.
+\newblock In {\em 2018 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1236--1241. IEEE, 2018.
+
+\bibitem{ludwig2018comparisonuav}
+Simone~A Ludwig, Kaleb~D Burnham, Antonio~R Jim{\'e}nez, and Pierre~A Touma.
+\newblock Comparison of attitude and heading reference systems using foot
+  mounted mimu sensor data: basic, madgwick, and mahony.
+\newblock In {\em Sensors and Smart Structures Technologies for Civil,
+  Mechanical, and Aerospace Systems 2018}, volume 10598, page 105982L.
+  International Society for Optics and Photonics, 2018.
+
+\bibitem{luo2013uav}
+Chunbo Luo, Sally~I McClean, Gerard Parr, Luke Teacy, and Renzo De~Nardi.
+\newblock Uav position estimation and collision avoidance using the extended
+  kalman filter.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 62(6):2749--2762,
+  2013.
+
+\bibitem{madgwick2010efficient}
+Sebastian Madgwick.
+\newblock An efficient orientation filter for inertial and inertial/magnetic
+  sensor arrays.
+\newblock {\em Report x-io and University of Bristol (UK)}, 25:113--118, 2010.
+
+\bibitem{madgwick2020extended}
+Sebastian~OH Madgwick, Samuel Wilson, Ruth Turk, Jane Burridge, Christos
+  Kapatos, and Ravi Vaidyanathan.
+\newblock An extended complementary filter for full-body marg orientation
+  estimation.
+\newblock {\em IEEE/ASME Transactions on Mechatronics}, 25(4):2054--2064, 2020.
+
+\bibitem{mohamed1999adaptive}
+AH~Mohamed and KP~Schwarz.
+\newblock Adaptive kalman filtering for ins/gps.
+\newblock {\em Journal of geodesy}, 73(4):193--203, 1999.
+
+\bibitem{mosallaei2007process}
+Mohsen Mosallaei, Karim Salahshoor, and Mohammad~Reza Bayat.
+\newblock Process fault detection and diagnosis by synchronous and asynchronous
+  decentralized kalman filtering using state-vector fusion technique.
+\newblock In {\em 2007 3rd International Conference on Intelligent Sensors,
+  Sensor Networks and Information}, pages 209--214. IEEE, 2007.
+
+\bibitem{nassar2004improving}
+S~Nassar, A~Noureldin, and N~El-Sheimy.
+\newblock Improving positioning accuracy during kinematic dgps outage periods
+  using sins/dgps integration and sins data de-noising.
+\newblock {\em Survey Review}, 37(292):426--438, 2004.
+
+\bibitem{nistler2011gravity}
+Jonathan~R Nistler and Majura~F Selekwa.
+\newblock Gravity compensation in accelerometer measurements for robot
+  navigation on inclined surfaces.
+\newblock {\em Procedia Computer Science}, 6:413--418, 2011.
+
+\bibitem{noordin2018sensor}
+A~Noordin, MAM Basri, and Z~Mohamed.
+\newblock Sensor fusion algorithm by complementary filter for attitude
+  estimation of quadrotor with low-cost imu.
+\newblock {\em Telkomnika}, 16(2):868--875, 2018.
+
+\bibitem{omar2016integration}
+Halima~Mansour Omar, Zhang Yanzhong, Zhang Bo, and Haris~Ubaid Gul.
+\newblock Integration of gps and dead reckoning navigation system using moving
+  horizon estimation.
+\newblock In {\em 2016 IEEE Information Technology, Networking, Electronic and
+  Automation Control Conference}, pages 553--556. IEEE, 2016.
+
+\bibitem{papadimitratos2008protection}
+Panagiotis Papadimitratos and Aleksandar Jovanovic.
+\newblock Protection and fundamental vulnerability of gnss.
+\newblock In {\em 2008 IEEE International Workshop on Satellite and Space
+  Communications}, pages 167--171. IEEE, 2008.
+
+\bibitem{pinker1999vulnerability}
+Aron Pinker and Charles Smith.
+\newblock Vulnerability of the gps signal to jamming.
+\newblock {\em GPS Solutions}, 3(2):19--27, 1999.
+
+\bibitem{qi2002direct}
+Honghui Qi and John~B Moore.
+\newblock Direct kalman filtering approach for gps/ins integration.
+\newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
+  38(2):687--693, 2002.
+
+\bibitem{sharma2014sensor}
+K~Rahul Sharma, Daniel Honc, and Franti{\v{s}}ek Du{\v{s}}ek.
+\newblock Sensor fusion for prediction of orientation and position from
+  obstacle using multiple ir sensors an approach based on kalman filter.
+\newblock In {\em 2014 International Conference on Applied Electronics}, pages
+  263--266. IEEE, 2014.
+
+\bibitem{steinhoff2010dead}
+Ulrich Steinhoff and Bernt Schiele.
+\newblock Dead reckoning from the pocket-an experimental study.
+\newblock In {\em 2010 IEEE international conference on pervasive computing and
+  communications (PerCom)}, pages 162--170. IEEE, 2010.
+
+\bibitem{stirling2003innovative}
+Ross Stirling, Jussi Collin, Ken Fyfe, and G{\'e}rard Lachapelle.
+\newblock An innovative shoe-mounted pedestrian navigation system.
+\newblock In {\em proceedings of European navigation conference GNSS}, volume
+  110, 2003.
+
+\bibitem{thong2004numerical}
+YK~Thong, MS~Woolfson, JA~Crowe, BR~Hayes-Gill, and DA~Jones.
+\newblock Numerical double integration of acceleration measurements in noise.
+\newblock {\em Measurement}, 36(1):73--92, 2004.
+
+\bibitem{weinberg2002using}
+Harvey Weinberg.
+\newblock Using the adxl202 in pedometer and personal navigation applications.
+\newblock {\em Analog Devices AN-602 application note}, 2(2):1--6, 2002.
+
+\bibitem{welch1995introduction}
+Greg Welch, Gary Bishop, et~al.
+\newblock An introduction to the kalman filter, 1995.
+
+\bibitem{wilson2019formulation}
+Samuel Wilson, Henry Eberle, Yoshikatsu Hayashi, Sebastian~OH Madgwick, Alison
+  McGregor, Xingjian Jing, and Ravi Vaidyanathan.
+\newblock Formulation of a new gradient descent marg orientation algorithm:
+  Case study on robot teleoperation.
+\newblock {\em Mechanical Systems and Signal Processing}, 130:183--200, 2019.
+
+\bibitem{wong1988high}
+RVC Wong, KP~Schwarz, and ME~Cannon.
+\newblock High-accuracy kinematic positioning by gps-ins.
+\newblock {\em Navigation}, 35(2):275--287, 1988.
+
+\bibitem{yang2006simple}
+J~Yang, JB~Li, and G~Lin.
+\newblock A simple approach to integration of acceleration data for dynamic
+  soil--structure interaction analysis.
+\newblock {\em Soil dynamics and earthquake engineering}, 26(8):725--734, 2006.
+
+\bibitem{zeitlhofler2019nominal}
+Julian Zeitlh{\"o}fler.
+\newblock Nominal and observation-based attitude realization for precise orbit
+  determination of the jason sateilltes.
+\newblock 2019.
+
+\end{thebibliography}

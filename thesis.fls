@@ -753,10 +753,12 @@ INPUT ./plots/triangle3D.pgf
 INPUT ./plots/triangle3D.pgf
 INPUT ./plots/square3D.pgf
 INPUT ./plots/square3D.pgf
-INPUT ./chapters/6_discussion.tex
-INPUT ./chapters/6_discussion.tex
-INPUT ./chapters/7_results.tex
-INPUT ./chapters/7_results.tex
+INPUT ./chapters/6_results.tex
+INPUT ./chapters/6_results.tex
+INPUT ./chapters/7_discussion.tex
+INPUT ./chapters/7_discussion.tex
+INPUT ./thesis.bbl
+INPUT ./thesis.bbl
 INPUT ./thesis.aux
 INPUT ./thesis.out
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
