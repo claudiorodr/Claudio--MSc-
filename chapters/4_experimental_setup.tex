@@ -298,85 +298,119 @@ The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fi
     \label{fig:mag_calibration_output}
 \end{figure}
 
-\subsection{System Architecture}
+\newpage
 
-Moreover, the navigation system is equipped with a LoRa antenna enabling the system to transmit at 868MHz/915MHz LoRa bands in real-time at a long distance the position and orientation information to an external gateway (figure \ref{fig:overview}). A visualization of the entire hardware solution is provided at image \ref{fig:full}.
+% \subsection{System Architecture}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/overview.pdf}
-    \caption{System overview - Raw measurements from IMU are fused together and numerically integrated to obtain position and orientation. This INS data is transmitted in real-time to a remote node gateway. }
-    \label{fig:overview}
-\end{figure}
+% Moreover, the navigation system is equipped with a LoRa antenna enabling the system to transmit at 868MHz/915MHz LoRa bands in real-time at a long distance the position and orientation information to an external gateway (figure \ref{fig:overview}). A visualization of the entire hardware solution is provided at image \ref{fig:full}.
+
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/overview.pdf}
+%     \caption{System overview - Raw measurements from IMU are fused together and numerically integrated to obtain position and orientation. This INS data is transmitted in real-time to a remote node gateway. }
+%     \label{fig:overview}
+% \end{figure}
 
 \subsection{Experiments}
 
 Several experimental tests were conducted to assess the position performance of the INS under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests consisted of carrying the INS in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
 
-% \begin{table}[H]
-%     \begin{center}
-%         \begin{tabular}[t]{lcccc}
-%             \hline
-%             Parameter                     & Min. & Typ.       & Max. & Units        \\
-%             \hline
-%             Full-Scale range              &      & $\pm 4800$ &      & $\mu T$      \\
-%             Sensitivity Scale Factor      &      & 0.6        &      & $\mu T/ LSB$ \\
-%             Operating Current             &      & 280        &      & $\mu A$      \\
-%             Initial Calibration Tolerance &      & $\pm 500$  &      & $LSB$        \\
-%             \hline
-%         \end{tabular}
-%         \caption{Magnetometer specification. }
-%         \label{tab:magnetometer_multiplication}
-%     \end{center}
-
-
 \subsection{Indoor Experiments}
 
-Indoor experiments were executed at Madeira Tecnopolo building, floor –1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds geometric shapes were tested: line, square, triangle and circle.
+Indoor experiments were executed at Madeira Tecnopolo building, floor –1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/indoor.jpg}
+    \includegraphics[width=0.7\textwidth]{figures/indoor.jpg}
     \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
-    \label{fig:indoor}
+    \label{fig:indoor_square}
 \end{figure}
 
-\begin{figure}[!h]
+Once the experiment was set up, it was time to start testing the INS. The board was dragged at constant speed through the guideline transporting the inertial system. The INS was continuously estimating orientation and position several times a second and storing data to an SD card. The board was dragged at walking speed and stopped at corners when direction changed.
+
+\begin{figure}
     \centering
+    % \begin{subfigure}{1\textwidth}
+    %     \centering
+    %     \includegraphics[width=1\textwidth]{figures/indoor.jpg}
+    %     \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
+    %     \label{fig:indoor_square}
+    % \end{subfigure}
+
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/indoor_1.jpg}
-        \caption{INS Hardware}
-        \label{fig:indoor_1}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/indoor_2.jpg}
-        \caption{MPU-9250 Breakout}
-        \label{fig:indoor_2}
     \end{subfigure}
-    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
-    \label{fig:mag_calibration_output}
+    \caption{Skateboard being dragged along the guideline.}
+    \label{fig:indoor_experiment}
 \end{figure}
+
+\newpage
 
 \subsection{Outdoor Experiments}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/outdoor.jpg}
-    \caption{ 5 meter side ground square used for baseline of accuracy of inertial system. }
-    \label{fig:outdoor}
-\end{figure}
+Outdoor experiments were conducted at praça do povo’s square (figure \ref{fig:outdoor_field}), in a sport’s platform with a guiding rope also acting as baseline for the experiment in the forming of geometric figures on the ground. Here, the sports platform consisted of one 28mx28m square, composed of 4m squares forming a 7x7 grid (figure \ref{fig:outdoor_1}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
+
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/outdoor.jpg}
+%     \caption{ 5 meter side ground square used for baseline of accuracy of inertial system. }
+%     \label{fig:outdoor}
+% \end{figure}
+
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/outdoor_1.jpg}
+%     \caption{ Manually pulling the skateboard on each side of the ground square. }
+%     \label{fig:outdoor_1}
+% \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/outdoor_1.jpg}
+    \includegraphics[width=0.7\textwidth]{figures/outdoor_field.jpg}
     \caption{ Manually pulling the skateboard on each side of the ground square. }
-    \label{fig:outdoor_1}
+    \label{fig:outdoor_field}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
+    \begin{subfigure}{0.40\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/squares.pdf}
+        \caption{ Manually pulling the skateboard on each side of the ground square. }
+        \label{fig:squares}
+    \end{subfigure}
+    \begin{subfigure}{0.40\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/spiral.pdf}
+        \caption{ Manually pulling the skateboard on each side of the ground square. }
+        \label{fig:spiral}
+    \end{subfigure}
+\end{figure}
+
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/square.pdf}
+%     \caption{ Manually pulling the skateboard on each side of the ground square. }
+%     \label{fig:square}
+% \end{figure}
+
+
+The inertial system was placed on an electrical scooter in this case, being powered by a laptop computer. Here several shapes were tested, from simple lines, squares and triangles to more complex figures such as the ones illustrated at figure \ref{fig:squares} and figure \ref{fig:spiral}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{1\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/outdoor_1.jpg}
+        \caption{ Manually pulling the skateboard on each side of the ground square. }
+        \label{fig:outdoor_1}
+    \end{subfigure}
+
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
