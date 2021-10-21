@@ -88,32 +88,60 @@ First, one-dimensional experiments were conducted, pursuing to estimate accumula
 
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square.pgf}}
+    \resizebox{1\linewidth}{!}{\input{plots/square/square.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square}
 \end{figure}
 
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/triangle.pgf}}
+    \resizebox{1\linewidth}{!}{\input{plots/square/square_truth.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:triangle}
+    \label{fig:square}
 \end{figure}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:square}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:square}
+\end{figure}
+
+% \begin{figure}
+%     \centering
+%     \resizebox{1\linewidth}{!}{\input{plots/triangle.pgf}}
+%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+%     \label{fig:triangle}
+% \end{figure}
 
 In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:2dimension} shows an experiment performed with two-dimensional positioning.
 
 Finally, only the three-dimensional experiment was left combining the output readings from the Z-axis accelerometer. The same previous procedure was employed in this experimentation; the output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes. A similar movement to the two-dimensional test was performed, but this time wobbling the inertial unit vertically to better visualize the position variation on the Z-axis. An example of an experimental test conducted in three dimensions in visible is figure \ref{fig:3dimensions}.
 
+% \begin{figure}
+%     \centering
+%     \resizebox{1\linewidth}{!}{\input{plots/triangle3D.pgf}}
+%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+%     \label{fig:triangle3D}
+% \end{figure}
+
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/triangle3D.pgf}}
+    \resizebox{1\linewidth}{!}{\input{plots/square/square3D.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:triangle3D}
+    \label{fig:square3D}
 \end{figure}
 
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square3D.pgf}}
+    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square3D}
-\end{figure}
+\end{figure}1
