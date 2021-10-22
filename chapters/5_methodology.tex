@@ -86,7 +86,7 @@ The next step consisted of experimentally testing the inertial system seeking to
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:1dimension}, where the final observed accumulative position was 25 meters.
 
-Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. This norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation into two components,
+Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis:
 
 \begin{figure}[!h]
     \centering
