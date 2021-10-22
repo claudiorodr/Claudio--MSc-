@@ -86,6 +86,44 @@ The next step consisted of experimentally testing the inertial system seeking to
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:1dimension}, where the final observed accumulative position was 25 meters.
 
+Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. This norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation into two components,
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/trignometric.pdf}
+    \caption{Overview of the position estimation method.}
+    \label{fig:position}
+\end{figure}
+
+\begin{equation}
+    \begin{gathered}
+        x_i = \Delta x \cos (\theta) + x_{i-1} \\
+        y_i = \Delta y \sin (\theta) + y_{i-1} \\
+    \end{gathered}
+    \label{eq:dead_reckoning}
+\end{equation}
+
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+# Calculate X, Y, Z positions - Distance * heading angle
+lastX, lastY, lastZ = getCoordinates()
+newX = displacementX * cos(radians(yaw)) + lastX
+newY = displacementY * sin(radians(yaw)) + lastY
+newZ = displacement * sin(radians(pitch)) + lastZ 
+
+# Update the coordinate with each function
+updateCoordinates(newX, newY, newZ)
+
+\end{lstlisting}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/dead_reckoning.pdf}
+    \caption{Overview of the position estimation method.}
+    \label{fig:position}
+\end{figure}
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square.pgf}}
@@ -121,9 +159,9 @@ First, one-dimensional experiments were conducted, pursuing to estimate accumula
 %     \label{fig:triangle}
 % \end{figure}
 
-In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:2dimension} shows an experiment performed with two-dimensional positioning.
+In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows an experiment performed with two-dimensional positioning.
 
-Finally, only the three-dimensional experiment was left combining the output readings from the Z-axis accelerometer. The same previous procedure was employed in this experimentation; the output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes. A similar movement to the two-dimensional test was performed, but this time wobbling the inertial unit vertically to better visualize the position variation on the Z-axis. An example of an experimental test conducted in three dimensions in visible is figure \ref{fig:3dimensions}.
+Finally, only the three-dimensional experiment was left combining the output readings from the Z-axis accelerometer. The same previous procedure was employed in this experimentation; the output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes. A similar movement to the two-dimensional test was performed, but this time wobbling the inertial unit vertically to better visualize the position variation on the Z-axis. An example of an experimental test conducted in three dimensions in visible is figure \ref{fig:fig:square3D}.
 
 % \begin{figure}
 %     \centering
@@ -144,4 +182,29 @@ Finally, only the three-dimensional experiment was left combining the output rea
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square3D}
-\end{figure}1
+\end{figure}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:square3D}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:square3D}
+\end{figure}
+
+\begin{equation}
+    MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
+\end{equation}
+
+\begin{figure}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/comparison.pgf}}
+    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \label{fig:square3D}
+\end{figure}
