@@ -9,11 +9,11 @@ This section will focus on defining and distinguishing the different concepts of
 
 \subsubsection{ECEF and ENU frame}
 
-ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eqn:ecef}).
+ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}).
 
 \begin{equation}
     \int \overrightarrow{x}\rho~dx^3 = 0
-    \label{eqn:ecef}
+    \label{eq:ecef}
 \end{equation}
 
 The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction.  The right-hand rule explains its orientation.
@@ -29,25 +29,11 @@ The East North Up (ENU) system is a geographic coordinate structure where the or
 
 Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude of the reference point (Xr, Yr, Zr). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS}.
 
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}[t]{lcc}
-            \hline
-            Parameter                   & Notation & Value                 \\
-            \hline
-            Semi-major axis             & $a$      & 6 378 137.0 m
-            \\
-            Reciprocal of flattening    & $1/f$    & 298.257 223 563
-            \\
-            Semi-minor axis             & $b$      & 6 356 752.3142 m      \\
-            First eccentricity squared  & $e^2$    & 6.694 379 990 14x10-3 \\
-            Second eccentricity squared & $e'^{2}$ & 6.739 496 742 28x10-3 \\
-            \hline
-        \end{tabular}
-        \caption{WGS 84 needed parameters to convert ECEF coordinates into ENU. }
-        \label{tab:WGS}
-    \end{center}
-\end{table}
+\begin{figure}[H]
+    \centering
+    \input{tables/ecef}
+\end{figure}
+
 
 Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities.
 
@@ -251,22 +237,10 @@ Applying the notation as declared previously, ${^w_b}q$ constitutes the orientat
     \label{eq:quaternion_rules}
 \end{equation}
 
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}[t]{l|cccc}
-            \hline
-            $\times$ & $1$ & $i$  & $j$  & $k$  \\
-            \hline
-            $1$      & $1$ & $i$  & $j$  & $k$  \\
-            $i$      & $i$ & $-1$ & $k$  & $-j$ \\
-            $j$      & $j$ & $-k$ & $-1$ & $i$  \\
-            $k$      & $k$ & $j$  & $-i$ & $-1$ \\
-            \hline
-        \end{tabular}
-        \caption{Quaternion multiplication of basis elements. }
-        \label{tab:quaternion_multiplication}
-    \end{center}
-\end{table}
+\begin{figure}[H]
+    \centering
+    \input{tables/quaternion}
+\end{figure}
 
 \item \textbf{Multiplication of quaternions} The product of two quaternions, $a$ and $b$, is denoted by $\otimes$ and it is defined by the Hamilton product. It can be calculated by the product of the basis elements and the distributive law. The product can then be expanded by the distributive law into a a sum of products of basis elements. Returning the next expression:
 

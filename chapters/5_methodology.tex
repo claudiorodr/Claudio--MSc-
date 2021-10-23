@@ -86,14 +86,16 @@ The next step consisted of experimentally testing the inertial system seeking to
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:1dimension}, where the final observed accumulative position was 25 meters.
 
-Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis:
+Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/trignometric.pdf}
     \caption{Overview of the position estimation method.}
-    \label{fig:position}
+    \label{fig:trignometric}
 \end{figure}
+
+A mathematical representation of this approach is seen at equation \ref{eq:dead_reckoning}:
 
 \begin{equation}
     \begin{gathered}
@@ -102,6 +104,8 @@ Combining the displacement over a period of time with the estimations of attitud
     \end{gathered}
     \label{eq:dead_reckoning}
 \end{equation}
+
+Programmatically
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -124,6 +128,8 @@ updateCoordinates(newX, newY, newZ)
     \label{fig:position}
 \end{figure}
 
+In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows an experiment performed with two-dimensional positioning.
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square.pgf}}
@@ -131,12 +137,16 @@ updateCoordinates(newX, newY, newZ)
     \label{fig:square}
 \end{figure}
 
+In order to quantify how well a test performed in estimating position, it is necessary to compare it against a ground truth (explained in previous chapter). Error was quantified in two ways, the first being how far are the estimated shape corners from the ground truth's vertices. A turning detection algorithm, Ramer-Douglas-Peucker Algorithm, was used to estimate when a vertice is present in the estimated path.
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square_truth.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square}
+    \label{fig:square_truth}
 \end{figure}
+
+By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
 
 \begin{figure}
     \centering
@@ -144,6 +154,8 @@ updateCoordinates(newX, newY, newZ)
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square}
 \end{figure}
+
+The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}
     \centering
@@ -159,9 +171,10 @@ updateCoordinates(newX, newY, newZ)
 %     \label{fig:triangle}
 % \end{figure}
 
-In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows an experiment performed with two-dimensional positioning.
 
-Finally, only the three-dimensional experiment was left combining the output readings from the Z-axis accelerometer. The same previous procedure was employed in this experimentation; the output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes. A similar movement to the two-dimensional test was performed, but this time wobbling the inertial unit vertically to better visualize the position variation on the Z-axis. An example of an experimental test conducted in three dimensions in visible is figure \ref{fig:fig:square3D}.
+
+Finally, by applying the aforementioned method to the Z-axis, it is possible to obtain a  three-dimensional estimation. The output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes.
+A three-dimensional visualization of the previous experiment is visible at figure \ref{fig:square3D}.
 
 % \begin{figure}
 %     \centering
@@ -177,6 +190,8 @@ Finally, only the three-dimensional experiment was left combining the output rea
     \label{fig:square3D}
 \end{figure}
 
+The same methodology mentioned in the previous chapter can be applied in three dimensions. The Ramer-Douglas-Peucker algorithm was applied to detect turns in the estimated path. By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
@@ -184,12 +199,16 @@ Finally, only the three-dimensional experiment was left combining the output rea
     \label{fig:square3D}
 \end{figure}
 
+
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square3D}
 \end{figure}
+
+The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}
     \centering
