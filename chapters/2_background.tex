@@ -1,7 +1,7 @@
 \section{Background}
 
 The subsequent section presents background knowledge regarding different concepts and notions that will be adopted throughout the dissertation.
-First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to Euler angles and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
+First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to rotation matrices, euler angles and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
 
 \subsection{Frames of coordinates}
 
@@ -72,6 +72,7 @@ Applying the set of equations (\ref{eq:transformation}) to approximate latitude 
 Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two wheel axes in such a away that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
 
 \subsection{Orientation}
+\label{sub:orientation}
 
 The attitude orientation of a UAV is a critical aspect in autonomous flight. In a low-cost
 AHRS, accuracy and low complexity are important in calculating the attitude of the UAV.
@@ -413,6 +414,7 @@ The major axis is the axis that runs along the x axes. This will be used to find
 
 
 \subsection{Sensor Fusion}
+\label{sub:sensor_fusion}
 Sensor fusion defines the blending of sensory information from two or more sources in a way that generates a more consistent and dependable understanding of the system. One that would otherwise not be possible when these sources were used individually. Ideally, a gyroscope could deduce a body's attitude independently. As mentioned previously, integrating the gyroscope's readings can ascertain the attitude solution of a body. Notwithstanding, with less cost comes lower accuracy and precision. This originates from a drift build up on the gyro's readings, where error accumulates exponentially on the integrated output. The accelerometer and magnetometer can work together to evaluate attitude straight from measurements of acceleration and present magnetic fields. This combination is often corrupted by disturbances such as vibrations and local magnetic interferences. Hence, both solutions have their respective benefits and require a rectifying term from an additional sensor. This conducts to a demand for a sensor fusion algorithm that combines both solutions in a way that emphasizes their strengths and minimizes their weaknesses. A sensor fusion algorithm will decide on the optimal trust combination of each sensor to assess attitude. A diversity of suitable algorithms exist that can fuse the output of different sensors to create a more reliable and consistent signal. This chapter will highlight some of the most prominent sensor fusion algorithms in existence:
 \subsubsection{Kalman Filter}
 
