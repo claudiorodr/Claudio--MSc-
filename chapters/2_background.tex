@@ -1,7 +1,7 @@
 \section{Background}
 
 The subsequent section presents background knowledge regarding different concepts and notions that will be adopted throughout the dissertation.
-First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to rotation matrices, euler angles and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
+First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to rotation matrices, Euler angles and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
 
 \subsection{Frames of coordinates}
 
@@ -74,9 +74,7 @@ Each sensor present in the razor board is aligned to match the sensor axes print
 \subsection{Orientation}
 \label{sub:orientation}
 
-The attitude orientation of a UAV is a critical aspect in autonomous flight. In a low-cost
-AHRS, accuracy and low complexity are important in calculating the attitude of the UAV.
-There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
+The attitude orientation of a body in space a critical aspect in position estimation. In a low-cost AHRS, accuracy and low complexity are important in calculating the attitude of a body. There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
 
 \subsubsection{Rotation Matrix}
 
@@ -92,8 +90,8 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
 
 \begin{figure}[!h]
     \centering
-    \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix.tex}}
-    \resizebox{0.49\linewidth}{!}{\input{plots/rotation_matrix3D.tex}}
+    \resizebox{0.44\linewidth}{!}{\input{figures/rotation_matrix.tex}}
+    \resizebox{0.54\linewidth}{!}{\input{figures/rotation_matrix3D.tex}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:axes_frames}
 \end{figure}

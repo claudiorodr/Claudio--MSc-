@@ -1,0 +1,24 @@
+\tdplotsetmaincoords{20}{-30}
+\begin{tikzpicture}[tdplot_main_coords,font=\sffamily]
+    \tdplotsetrotatedcoords{00}{30}{0}
+    \begin{scope}[tdplot_rotated_coords]
+        \begin{scope}[canvas is xy plane at z=0]
+            \draw[thin,gray!40] (-5,-5) grid (5,5);
+            % \fill[gray,fill opacity=0.3] (-2,-3) rectangle (2,3);
+            \draw[-latex] (-5,0,0) -- (5,0,0)node[anchor=west]{$^{a}x$};
+            \draw[-latex] (0,-5,0) -- (0,5,0)node[anchor=south]{$^{a}y$};
+            \draw[line width=1pt,blue,dashed](3,0,0)--(3,3,0) node[midway, right, scale=2]{$r_{xx}$};
+            \draw[line width=1pt,blue,dashed](0,3,0)--(3,3,0) node[midway, above, scale=2]{$r_{xy}$};
+            \draw[line width=1pt,green,dashed](0,-4,0)--(2,-4,0) node[midway, below, scale=2]{$r_{xx}$};
+            \draw[line width=1pt,green,dashed](2,0,0)--(2,-4,0) node[midway, right, scale=2]{$r_{xy}$};
+            \draw[line width=1pt,red,dashed](0,1,0)--(-4,1,0) node[midway, above, scale=2]{$r_{xx}$};
+            \draw[line width=1pt,red,dashed](-4,0,0)--(-4,1,0) node[midway, left, scale=2]{$r_{xy}$};
+        \end{scope}
+    \end{scope}
+    \draw[line width=1pt,blue,-stealth](0,0,0)--(3,3,1) node[anchor=south west, scale=2]{$^{b}x$};
+    \draw[line width=1pt,blue,dashed](3,3,0)--(3,3,1) node[midway, right, scale=2]{$r_{xx}$};
+    \draw[line width=1pt,red,-stealth](0,0,0)--(-4,1,1) node[anchor=south east, scale=2]{${^{b}y}$};
+    \draw[line width=1pt,green,dashed](2,0-4,0)--(2,-4,1) node[midway, right, scale=2]{$r_{xy}$};
+    \draw[line width=1pt,green,-stealth](0,0,0)--(2,-4,1) node[anchor=north west, scale=2]{${^{b}z}$};
+    \draw[-latex] (0,0,0) -- (0,0,12)node[anchor=north]{$^{a}z$};
+\end{tikzpicture}
