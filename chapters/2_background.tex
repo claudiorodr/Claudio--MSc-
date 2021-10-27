@@ -71,6 +71,7 @@ Applying the set of equations (\ref{eq:transformation}) to approximate latitude 
 
 Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two wheel axes in such a away that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
 
+\newpage
 \subsection{Orientation}
 \label{sub:orientation}
 
@@ -85,24 +86,15 @@ The rotation matrix is a concept employed to express the transformation of coord
     \label{eq:rotation_matrices}
 \end{equation}
 
-In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order). The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
-
-
 \begin{figure}[!h]
     \centering
     \resizebox{0.44\linewidth}{!}{\input{figures/rotation_matrix.tex}}
     \resizebox{0.54\linewidth}{!}{\input{figures/rotation_matrix3D.tex}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{frame axis example.}
     \label{fig:axes_frames}
 \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
-    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
-    \label{fig:rotation}
-\end{figure}
-
+In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order). The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
 
 \begin{equation}
     \textrm{$_{b}^{a}R$}
@@ -115,9 +107,16 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
     \label{eq:axes_frames}
 \end{equation}
 
-Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR−1 . Also a bRT is equal to b aR [36][37].
+Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR−1 . Also a bRT is equal to b aR.
 
 \subsubsection{Direct Cosine Matrix}
+
+The direct cosine matrix (DCM) is similar to the rotational matrix, however it is a 3x3
+matrix that contains the cosines of the 9 possible pairs of axes of two different Cartesian coordinate systems. The DCM is typically used to translate from the body frame into the earth frame. A great introduction to the Direct Cosine Matrix theory is written by Premerlani, W. and Bizard, P. [32], providing information on how to use the DCM method
+integrated with IMUs. The DCM approach has gained much popularity for its advantage of
+linear measurement equations in Kalman filters[33, 34, 35, 36]. An analysis of various error sources using low-cost IMUs and optimizing fusion algorithms using the DCM method is
+presented in [37].
+
 
 \subsubsection{Euler angles}
 
@@ -128,6 +127,13 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 %     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
 %     \label{fig:axes_frames}
 % \end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
+    \caption{ 3D rotation around vector $\hat{r}$ between frame A and B. }
+    \label{fig:rotation}
+\end{figure}
 
 \begin{equation}
     \begin{bmatrix}
@@ -178,7 +184,7 @@ Another commonly used attitude representation is the quaternion. To comprehend q
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/complex_rotation.pdf}
-    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+    \caption{90-degree rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis. }
     \label{fig:complex_rotation}
 \end{figure}
 
