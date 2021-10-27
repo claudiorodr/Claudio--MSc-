@@ -301,20 +301,35 @@ $^bv = \begin{bmatrix}
 
 \subsection{Inertial Measurement Units}
 An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts, satellites, and unmanned aerial vehicles (UAVs), to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
+There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non linearity and accuracy error. The main errors that causes unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{figures/noise.pdf}
-    \caption{MPU-9250 Breakout}
+    \caption{Three main types of sensor error}
     \label{fig:noise}
 \end{figure}
 
-
+The first graph in the picture above represents the signal error classified as noise. The noise is high frequent and can be eliminated by using a low pass filter. The noise sources in the sensor can be categorized into three types.
+1. Environmental noise, such as temperature fluctuations, gravity , etc.
+2. Movements, such as vibrations, shocks .
+3. Hardware noise, such as electrical and mechanical thermal noise.
+The second graph is the offset error, called bias error. This error results in a shift from the zero value and can be solved by subtracting the DC component with a high pass filter. In the last graph the drift error is presented. The drift components occurs from vibration, shock, and temperature variations. The main drift component in this study will be caused by numerical integration during the position calculation.
+Temperature changes may cause fluctuations in the bias of the sensor signal. By using an additional sensor to measure the ambient temperature the bias induced error can be compensated by applying corrections to the output signals. The relationship between bias error and temperature depends on the sensor device. For a gyroscope the temperature change will cause an error in orientation which grows linearly with time. For an accelerometer the temperature will cause an error in position, thus grow quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure.
 
 \subsubsection{Accelerometer}
 An accelerometer is a device capable of measuring proper acceleration. Proper acceleration is the physical acceleration experienced by an object. It is thus acceleration relative to an inertial observer who is momentarily at rest relative to the object being measured. As an example, if an accelerometer would be placed at rest on the surface of the Earth, it will measure an upwards acceleration due to Earth's gravity of g $\simeq$ 9.81 $m/s^2$. This is due to the Earth's surface exerting a normal force upwards relative to the local inertial frame. On the other hand, a free-falling accelerometer (moving in the center of the Earth's direction at around 9.81 $m/s^2$) would quantify no acceleration. Acceleration is quantified in the SI unit meters per second ($m/s^2$), or standard gravity, denoted by $g_n$, being the nominal gravitational acceleration of an object in a vacuum near the surface of the Earth. It is defined by standard as 9.80665 $m/s^2$.
 
-The working principle of an accelerometer can be expounded by a single mass ($m$) fixed to a stiffness spring ($k$) that in turn is fastened to outer frame, as illustrated in figure \ref{fig:accelerometer_schematic}. Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration a, the equation of motion for the mass is:
+The working principle of an accelerometer can be expounded by a single mass ($m$) fixed to a stiffness spring ($k$) that in turn is fastened to outer frame, as illustrated in figure \ref{fig:accelerometer_schematic}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/accelerometer.pdf}
+    \caption{Schematic demonstrating the working principle of an accelerometer. }
+    \label{fig:accelerometer_schematic}
+\end{figure}
+
+Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration a, the equation of motion for the mass is:
 
 \begin{equation}
     mx + kx + cx = \overrightarrow{F}\Leftrightarrow mx + kx + cx = m\overrightarrow{a}
@@ -322,12 +337,6 @@ The working principle of an accelerometer can be expounded by a single mass ($m$
 
 Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness constant, respectively. Consequently, the acceleration can be computed by measuring $x$, compression of the spring.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/accelerometer.pdf}
-    \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
-    \label{fig:accelerometer_schematic}
-\end{figure}
 
 \subsubsection{Gyroscope}
 A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change.
@@ -335,7 +344,7 @@ A gyroscope is a device utilized to quantify angular velocity and orientation ba
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/gyroscope.pdf}
-    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal}  }
+    \caption{Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals.  }
     \label{fig:gyroscope}
 \end{figure}
 
@@ -411,7 +420,7 @@ The major axis is the axis that runs along the x axes. This will be used to find
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{figures/magnetometer_distortion.pdf}
-    \caption{Representation of the Gimbal Lock problematic}
+    \caption{Representation of a magnetometer's different types of disturbances. }
     \label{fig:magnetometer_distortion}
 \end{figure}
 
