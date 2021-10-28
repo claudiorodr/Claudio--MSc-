@@ -1,42 +1,87 @@
 \section{Methodology}
 
-% \section{Proposed Solution}
-This section provides a hardware and software solution outline, describing the development and implementation of a low-cost, multipurpose Inertial Navigation System with experimental tests. Resultant findings are analyzed and validated to assess the implemented system's positioning and orientation (AHRS) effectiveness and precision. Several fusion algorithms will be benchmarked by performance and accuracy.
-This development was achieved mainly in three phases, system design, hardware application, and software implementation.
+This section provides an overview of the methodology employed to assess the system's orientation and position. Going through how the sensor's outputs are combined to obtain orientation by sensor fusion, and how displacement can be estimated using clever filter to remover gravity's influence on accelerometer's readings. A position estimation method is then presented showing how combining orientation and displacement using dead reckoning technique can return a body's position over time. The chapter ends with a visualization of how the designed position methodology pipeline performs trying to estimate position of an experiment. It will also describe how to measure how well did the estimation perform by describing how to measuring an experiment's estimation error.
 
-\subsection{Evaluation Methodology}
 %Estimation pipeline
 % Field tests are in methodology. 
 % -Indoor field test, discover issues with electromagnetic interference, surface washad friction causing slow downs. (garage and tecno)
 %-Outdoor field test, praça do povo tests, avoind macrovibrations from dragging, and less magnetic field
-\subsubsection{Obtaining AHRS from sensor fusion}
 
-The first experiment involved obtaining orientation (AHRS) from the fusion of the three sensor outputs. The accelerometer provided the system's proper acceleration; the gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux. In this first experiment, we first utilized the Madgwick algorithm to sensor fusion for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. A simple test was performed using a box containing the inertial navigation system and rotating around its three inertial axes, pitch, roll, and yaw, with a sampling frequency of 20 Hz. The raw output measurements from the sensors are visualized in figure \ref{fig:raw} and are subsequently taken as input by the sensor fusion algorithm.
+\subsubsection{Estimating Orientation}
+
+The first step in methodology is to obtain orientation (AHRS) from the fusion of the three sensor raw outputs (figure \ref{fig:raw}). The accelerometer provided the system's proper acceleration; the gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.
 
 \begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/raw.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \resizebox{0.75\linewidth}{!}{\input{plots/raw.pgf}}
+    \caption{Raw sensor data on each axis obtained by the accelerometer, gyroscope, and magnetometer.}
     \label{fig:raw}
 \end{figure}
 
+To estimate orientation from the raw sensor data, two approaches were created: the first approach was to apply a sensor fusion algorithm directly in the inertial system's microcontroller, which could estimate orientation in real time while the measurements were being taken. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. The second approach meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, so a benchmark of how different sensor fusion algorithms perform under the same data. This chapter's data and plots will be based on the microcontroller's Madgwick real time sensor fusion, but the same principle applies exactly the same manner to the post-experiment sensor fusion approach. The sensor fusion algorithm (in this case Madgwick's filter) takes as input the raw sensor measurements and outputs estimated orientation as a set of four quaternions (figure \ref{fig:fusion_output}).
+
+% A simple test was performed using a box containing the inertial navigation system and rotating around its three inertial axes, pitch, roll, and yaw, with a sampling frequency of 20 Hz. The raw output measurements from the sensors are visualized in figure \ref{fig:raw} and are subsequently taken as input by the sensor fusion algorithm.
+
 \begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/quaternion.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
+    \resizebox{0.8\linewidth}{!}{\input{plots/quaternion.pgf}}
+    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of figure \ref{fig:raw}.}
+    \label{fig:fusion_output}
 \end{figure}
 
-The fusion output is shown in figure \ref{fig:madgwickAHRS}. About sample \#140 there was a shift in pitch to -40º and later jumping to 40º. Around sample \#350 there is a change in roll to 60º and then -40º, and around sample \#540 there is a variation in yaw value. This output is analogous to the movement made on the board.
+% The fusion output is shown in figure \ref{fig:madgwickAHRS}. About sample \#140 there was a shift in pitch to -40º and later jumping to 40º. Around sample \#350 there is a change in roll to 60º and then -40º, and around sample \#540 there is a variation in yaw value. This output is analogous to the movement made on the board.
+
+As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quaternions can be converted back into euler angles by:
+
+\begin{equation}
+    \begin{bmatrix}
+        \phi   \\
+        \theta \\
+        \psi   \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \arctan \frac{2(q_0q_1+q_2q_3)}{1-2(q{_1^2}+q_{2^2})} \\
+        \arcsin (2(q_0q_2-q_3q_1))                            \\
+        \arctan \frac{2(q_0q_1+q_1q_2)}{1-2(q_{2^2}+q_{3^2})} \\
+    \end{bmatrix}
+\end{equation}
+
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+    
+# roll (x-axis rotation)
+sinr_cosp = 2 * (q0 * q1 + q2 * q3)
+cosr_cosp = 1 - 2 * (q1 * q1 + q2 * q2)
+angles.roll = math.atan2(sinr_cosp, cosr_cosp)
+
+# pitch (y-axis rotation)
+sinp = 2 * (q0 * q2 - q3 * q1)
+
+if (abs(sinp) >= 1):
+    # use 90 degrees if out of range
+    angles.pitch = math.copysign(M_PI / 2, sinp)
+else
+    angles.pitch = math.asin(sinp)
+
+# yaw (z-axis rotation)
+siny_cosp = 2 * (q0 * q3 + q1 * q2)
+cosy_cosp = 1 - 2 * (q2 * q2 + q3 * q3)
+angles.yaw = math.atan2(siny_cosp, cosy_cosp)
+
+return angles
+    
+\end{lstlisting}
 
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/euler.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    % \label{fig:sensoroutput}
+    \resizebox{0.8\linewidth}{!}{\input{plots/euler.pgf}}
+    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of figure converted into euler angles.}
+    \label{fig:fusion_output_euler}
 \end{figure}
 
-\subsubsection{Estimating position}
+\subsubsection{Estimating Displacement}
+
 Accelerometer readings can measure proper acceleration forces, which can be employed to determine a body's velocity and position relative to a starting point. Integrating the resultant of acceleration will yield velocity, and double integrating will provide the body's accumulative position.
 
 Once the measured inertial-frame acceleration is attained, it can be integrated to obtain inertial frame velocity $v_i$  and position $x_i$ can be calculated:
@@ -60,13 +105,14 @@ In practice, data is acquired at discrete time periods ($\Delta t$) so the appro
 
 However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:sensoroutput} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:compensation}). Resulting in a linear acceleration that corresponds to the physical acceleration of the device. This linear acceleration can be numerically integrated returning velocity and double integrating delivering the position of the device (figure \ref{fig:position}).
 
-
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/gravity.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     % \label{fig:sensoroutput}
 \end{figure}
+
+\subsubsection{Estimating Position}
 
 \begin{figure}[!h]
     \centering
@@ -109,16 +155,16 @@ Programmatically
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
-
-# Calculate X, Y, Z positions - Distance * heading angle
-lastX, lastY, lastZ = getCoordinates()
-newX = displacementX * cos(radians(yaw)) + lastX
-newY = displacementY * sin(radians(yaw)) + lastY
-newZ = displacement * sin(radians(pitch)) + lastZ 
-
-# Update the coordinate with each function
-updateCoordinates(newX, newY, newZ)
-
+    
+    # Calculate X, Y, Z positions - Distance * heading angle
+    lastX, lastY, lastZ = getCoordinates()
+    newX = displacementX * cos(radians(yaw)) + lastX
+    newY = displacementY * sin(radians(yaw)) + lastY
+    newZ = displacement * sin(radians(pitch)) + lastZ 
+    
+    # Update the coordinate with each function
+    updateCoordinates(newX, newY, newZ)
+    
 \end{lstlisting}
 
 \begin{figure}[!h]
@@ -128,6 +174,8 @@ updateCoordinates(newX, newY, newZ)
     \label{fig:position}
 \end{figure}
 
+\subsubsection{Applying methodology in 2D}
+
 In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows an experiment performed with two-dimensional positioning.
 
 \begin{figure}
@@ -136,6 +184,8 @@ In two-dimensional tests, the output from X-axis and Y-axis accelerometer measur
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square}
 \end{figure}
+
+\paragraph{Measuring error}
 
 In order to quantify how well a test performed in estimating position, it is necessary to compare it against a ground truth (explained in previous chapter). Error was quantified in two ways, the first being how far are the estimated shape corners from the ground truth's vertices. A turning detection algorithm, Ramer-Douglas-Peucker Algorithm, was used to estimate when a vertice is present in the estimated path.
 
@@ -164,24 +214,10 @@ The second way to quantify error is to measure the distance from every estimated
     \label{fig:square}
 \end{figure}
 
-% \begin{figure}
-%     \centering
-%     \resizebox{1\linewidth}{!}{\input{plots/triangle.pgf}}
-%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-%     \label{fig:triangle}
-% \end{figure}
-
-
+\subsection{Applying methodology in 3D}
 
 Finally, by applying the aforementioned method to the Z-axis, it is possible to obtain a  three-dimensional estimation. The output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes.
 A three-dimensional visualization of the previous experiment is visible at figure \ref{fig:square3D}.
-
-% \begin{figure}
-%     \centering
-%     \resizebox{1\linewidth}{!}{\input{plots/triangle3D.pgf}}
-%     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-%     \label{fig:triangle3D}
-% \end{figure}
 
 \begin{figure}
     \centering
@@ -192,14 +228,14 @@ A three-dimensional visualization of the previous experiment is visible at figur
 
 The same methodology mentioned in the previous chapter can be applied in three dimensions. The Ramer-Douglas-Peucker algorithm was applied to detect turns in the estimated path. By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
 
+\paragraph{Measuring error}
+
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
     \label{fig:square3D}
 \end{figure}
-
-
 
 \begin{figure}
     \centering

@@ -1,16 +1,11 @@
 \section{Experimental Setup}
 
-This section contains the hardware setup used to communicate with the low cost IMU sensors and the platform that the Kalman filter is implemented on. There were two Inertial
-Navigation Systems (INS) used to compare the results of the implemented Kalman filter to,
-the MIDGII and the UmarimLite. The MIDGII is an expensive INS known as the golden
-standard for AHRS and the UmarimLite is a commercially available low-cost AHRS that
-uses the open source Paparazzi autopilot software. The experimental setup was chosen such
-that the algorithm could be designed and tested without any of the low-cost considerations, this makes it possible to develop the algorithm with no constraints and then optimize the
-algorithm for low-cost systems.
+This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost Inertial Navigation System aimed at position estimation in three dimensional space. This section will first describe what actual hardware was used and how it was assembled, and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
+
 
 \subsection{Hardware}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:hardware}.a) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:hardware}.b).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}.
 
 \begin{figure}[!h]
     \centering
@@ -18,13 +13,13 @@ As our projected solution involved a low-cost navigation system, the hardware se
         \centering
         \includegraphics[width=1\textwidth]{figures/INS.jpg}
         \caption{INS Hardware}
-        \label{fig:sub1}
+        \label{fig:ins_1}
     \end{subfigure}%
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/mpu9250.jpg}
         \caption{MPU-9250 Breakout}
-        \label{fig:sub2}
+        \label{fig:ins_2}
     \end{subfigure}
     \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
     \label{fig:hardware}
@@ -376,7 +371,7 @@ Here, the sports platform consisted of one 28mx28m square, composed of 4m square
 %     \label{fig:outdoor_1}
 % \end{figure}
 
-The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor_experiments}) in this case, being powered by a laptop computer. The scooter was dragged at walking pace (figure \ref{fig:outdoor_experiments}) along the planned path marked by the rope (figure \ref{fig:outdoor_experiments}).
+The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor_1}) in this case, being powered by a laptop computer (figure \ref{fig:outdoor_2}). The scooter was dragged at walking pace (figure \ref{fig:outdoor_3}) along the planned path marked by the rope.
 
 \begin{figure}[!h]
     \centering
@@ -389,17 +384,17 @@ The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor
 
     \begin{subfigure}{0.40\textwidth}
         \centering
-        \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
-        \caption{ Pushing the electrical scooter containing the laptop and inertial system along the platform's edges forming geometrical shapes. }
+        \includegraphics[width=1\textwidth]{figures/outdoor_3.jpg}
+        \caption{ Close-up view of the inertial system (white box) attach with an elastic band to the scooter's body frame. }
         \label{fig:outdoor_2}
     \end{subfigure}
     \begin{subfigure}{0.40\textwidth}
         \centering
-        \includegraphics[width=1\textwidth]{figures/outdoor_3.jpg}
-        \caption{ Close-up view of the inertial system (white box) attach with an elastic band to the scooter's body frame. }
+        \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
+        \caption{ Pushing the electrical scooter containing the laptop and inertial system along the platform's edges forming geometrical shapes. }
         \label{fig:outdoor_3}
     \end{subfigure}
-    \caption{.}
+    \caption{ Photos illustrating hoe outdoor experiments were performed.}
     \label{fig:outdoor_experiments}
 \end{figure}
 
@@ -407,61 +402,67 @@ Here several shapes were tested, from simple lines, squares and triangles to mor
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/spiral.pdf}
-        \caption{  }
+        \caption{ Spiral-based shape with increasing length sides.  }
         \label{fig:spiral}
     \end{subfigure}
-    \begin{subfigure}{0.50\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/squares.pdf}
-        \caption{ Path made  }
+        \caption{ Squares of increasing side length.  }
         \label{fig:squares}
     \end{subfigure}
+    \caption{ Bird's-eye view representation of the more complex path shapes taken. }
 \end{figure}
 
+\newpage
 
 \subsection{Underwater Experiments}
 
-Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360º cameras with a portable battery pack. Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS.
+Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360º cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{0.30\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/underwater.jpg}
-        \caption{  }
-        \label{fig:underwater}
+        \caption{ Spherical housing encompassing the inertial system and portable battery pack. }
+        \label{fig:underwater1_test}
     \end{subfigure}
-    \begin{subfigure}{0.30\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/underwater_1.jpg}
-        \caption{  }
-        \label{fig:underwater_1}
+        \caption{ The capsule was submerged in a water tank to verify the presence of any water leaks. }
+        \label{fig:underwater2_test}
     \end{subfigure}
+    \label{fig:underwater_test}
+    \caption{ View of the tests made to assure the underwater housing was water proof. }
 \end{figure}
 
-Once safety checks were completed, guaranteeing the feasibility of the study, the team went to Madeira Carlton hotel divepoint, where tests were conducted to evaluate the estimation quality of the proposed solution under water. A 5-meter square net served as guideline for the diver performing the experiment underwater.
+Once safety checks were completed, guaranteeing the feasibility of the study, the team went to Madeira Carlton hotel divepoint, where tests were conducted to evaluate the estimation quality of the proposed solution under water by a professional diver (figure \ref{fig:underwater}). A 5-meter square net being held by two people above water served as guideline for the diver performing the experiment underwater. The diver held the spherical housing while swimming along the guideline maintaining a constant speed while slowly increasing depth (figure \ref{fig:underwater_2}).
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_2.jpg}
-        \caption{  }
+        \includegraphics[width=1\textwidth]{figures/underwater_5.jpg}
+        \caption{ The housing being held underwater by the diver.  }
         \label{fig:underwater}
     \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
+
+    \begin{subfigure}{0.35\textwidth}
         \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_3.jpg}
-        \caption{  }
-        \label{fig:underwater_1}
+        \includegraphics[width=1\textwidth]{figures/underwater_2.jpg}
+        \caption{ The capsule housing the inertial system being handed out to a professional diver. }
+        \label{fig:underwater}
     \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}{0.35\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/underwater_4.jpg}
-        \caption{  }
-        \label{fig:underwater_1}
+        \caption{ View of the diver following the net underwater holding the spherical housing. }
+        \label{fig:underwater_2}
     \end{subfigure}
+    \caption{ Photos of the underwater tests conducted at Madeira Carlton hotel divepoint. }
 \end{figure}
