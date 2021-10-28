@@ -8,30 +8,30 @@ This section provides a hardware and software experimental setup outline, descri
 As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}.
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
     \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/INS.jpg}
-        \caption{INS Hardware}
-        \label{fig:ins_1}
-    \end{subfigure}%
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/mpu9250.jpg}
-        \caption{MPU-9250 Breakout}
-        \label{fig:ins_2}
-    \end{subfigure}
-    \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
-    \label{fig:hardware}
+    \includegraphics[width=1\textwidth]{figures/INS.jpg}
+    \caption{INS Hardware}
+    \label{fig:ins_1}
+  \end{subfigure}%
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/mpu9250.jpg}
+    \caption{MPU-9250 Breakout}
+    \label{fig:ins_2}
+  \end{subfigure}
+  \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+  \label{fig:hardware}
 \end{figure}
 
 MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains as well temperature and pressure sensors. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer.The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis. These conventions will be utilized during calibration for each of the three sensors.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/mpu_orientation.pdf}
-    \caption{ Coordinate system of an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and AK8963 3-axis magnetometer. }
-    \label{fig:mpu_orientation}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/mpu_orientation.pdf}
+  \caption{ Coordinate system of an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and AK8963 3-axis magnetometer. }
+  \label{fig:mpu_orientation}
 \end{figure}
 
 \subsubsection{Accelerometer}
@@ -39,19 +39,19 @@ MPU-9250 inertial measurement unit is one of the most widely available low cost 
 The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features:
 
 \begin{itemize}
-    \item Digital-output triple-axis accelerometer with a programmable full scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
-    \item Accelerometer normal operating current: $450 \mu A$
-    \item The text in the entries may be of any length
-    \item Low power accelerometer mode current: $8.4 \mu A$ at $0.98Hz$, $19.8 \mu A$ at 31.$25Hz$
-    \item Sleep mode current: $8 \mu A$
-    \item User-programmable interrupts
-    \item Wake-on-motion interrupt for low power operation of applications processor
-    \item Self-test
+  \item Digital-output triple-axis accelerometer with a programmable full scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
+  \item Accelerometer normal operating current: $450 \mu A$
+  \item The text in the entries may be of any length
+  \item Low power accelerometer mode current: $8.4 \mu A$ at $0.98Hz$, $19.8 \mu A$ at 31.$25Hz$
+  \item Sleep mode current: $8 \mu A$
+  \item User-programmable interrupts
+  \item Wake-on-motion interrupt for low power operation of applications processor
+  \item Self-test
 \end{itemize}
 
 \begin{figure}[H]
-    \centering
-    \input{tables/accelerometer_specification}
+  \centering
+  \input{tables/accelerometer_specification}
 \end{figure}
 
 \subsubsection{Gyroscope}
@@ -59,67 +59,67 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 The triple-axis MEMS gyroscope in the MPU-9250 includes a wide range of features:
 
 \begin{itemize}
-    \item Digital-output X-Axis, Y-Axis, and Z-Axis angular rate sensors (gyroscopes) with a user-programmable fullscale range of $\pm 250$, $\pm 500$, $\pm 1000$, and $\pm 2000^{\circ}/s$ and integrated 16-bit ADCs
-    \item Digitally-programmable low-pass filter
-    \item Gyroscope operating current: $3.2mA$
-    \item Sleep mode current: $8 \mu A$
-    \item Factory calibrated sensitivity scale factor
-    \item Self-test
+  \item Digital-output X-Axis, Y-Axis, and Z-Axis angular rate sensors (gyroscopes) with a user-programmable fullscale range of $\pm 250$, $\pm 500$, $\pm 1000$, and $\pm 2000^{\circ}/s$ and integrated 16-bit ADCs
+  \item Digitally-programmable low-pass filter
+  \item Gyroscope operating current: $3.2mA$
+  \item Sleep mode current: $8 \mu A$
+  \item Factory calibrated sensitivity scale factor
+  \item Self-test
 \end{itemize}
 
 \begin{figure}[H]
-    \centering
-    \input{tables/gyroscope_specification}
+  \centering
+  \input{tables/gyroscope_specification}
 \end{figure}
 
 \subsubsection{Magnetometer}
 
 The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features:
 \begin{itemize}
-    \item 3-axis silicon monolithic Hall-effect magnetic sensor with magnetic concentrator
-    \item Wide dynamic measurement range and high resolution with lower current consumption.
-    \item Output data resolution of 14 bit ($0.6 \mu T/LSB$) or 16 bit ($15 \mu T/LSB$)
-    \item Full scale measurement range is $\pm 4800 \mu T$
-    \item Magnetometer normal operating current: $280\mu A$ at $8 Hz$ repetition rate
-    \item Self-test function with internal magnetic source to confirm magnetic sensor operation on end products
+  \item 3-axis silicon monolithic Hall-effect magnetic sensor with magnetic concentrator
+  \item Wide dynamic measurement range and high resolution with lower current consumption.
+  \item Output data resolution of 14 bit ($0.6 \mu T/LSB$) or 16 bit ($15 \mu T/LSB$)
+  \item Full scale measurement range is $\pm 4800 \mu T$
+  \item Magnetometer normal operating current: $280\mu A$ at $8 Hz$ repetition rate
+  \item Self-test function with internal magnetic source to confirm magnetic sensor operation on end products
 \end{itemize}
 
 \begin{figure}[H]
-    \centering
-    \input{tables/magnetometer_specification}
+  \centering
+  \input{tables/magnetometer_specification}
 \end{figure}
 
 \subsection{Software}
 The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.
 
 \begin{table}
-    \begin{center}
-        \begin{tabular}[t]{lcccc}
-            \hline
-            Algorithm     & Accelerometer & Gyroscope & Magnetometer \\
-            \hline
-            AQUA          & YES           & YES       & Optional     \\
-            Complementary & YES           & YES       & Optional     \\
-            Davenport’s   & YES           & NO        & YES          \\
-            EKF           & YES           & YES       & YES          \\
-            FAMC          & YES           & NO        & YES          \\
-            FLAE          & YES           & NO        & YES          \\
-            Fourati       & YES           & YES       & YES          \\
-            FQA           & YES           & NO        & Optional     \\
-            Integration   & YES           & YES       & NO           \\
-            Madgwick      & YES           & YES       & Optional     \\
-            Mahony        & YES           & YES       & Optional     \\
-            OLEQ          & YES           & NO        & YES          \\
-            QUEST         & YES           & NO        & YES          \\
-            ROLEQ         & YES           & NO        & YES          \\
-            SAAM          & YES           & NO        & YES          \\
-            Tilt          & YES           & NO        & Optional     \\
-            TRIAD         & YES           & NO        & YES          \\
-            \hline
-        \end{tabular}
-        \caption{Available sensor fusion algorithms in AHRS library. }
-        \label{tab:ahrs_algorithms}
-    \end{center}
+  \begin{center}
+    \begin{tabular}[t]{lcccc}
+      \hline
+      Algorithm     & Accelerometer & Gyroscope & Magnetometer \\
+      \hline
+      AQUA          & YES           & YES       & Optional     \\
+      Complementary & YES           & YES       & Optional     \\
+      Davenport's   & YES           & NO        & YES          \\
+      EKF           & YES           & YES       & YES          \\
+      FAMC          & YES           & NO        & YES          \\
+      FLAE          & YES           & NO        & YES          \\
+      Fourati       & YES           & YES       & YES          \\
+      FQA           & YES           & NO        & Optional     \\
+      Integration   & YES           & YES       & NO           \\
+      Madgwick      & YES           & YES       & Optional     \\
+      Mahony        & YES           & YES       & Optional     \\
+      OLEQ          & YES           & NO        & YES          \\
+      QUEST         & YES           & NO        & YES          \\
+      ROLEQ         & YES           & NO        & YES          \\
+      SAAM          & YES           & NO        & YES          \\
+      Tilt          & YES           & NO        & Optional     \\
+      TRIAD         & YES           & NO        & YES          \\
+      \hline
+    \end{tabular}
+    \caption{Available sensor fusion algorithms in AHRS library. }
+    \label{tab:ahrs_algorithms}
+  \end{center}
 \end{table}
 
 The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.
@@ -156,15 +156,15 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
 \end{lstlisting}
 
 \begin{figure}[!h]
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
-    \caption{Accelerometer calibration offset correction.}
-    % \label{fig:sensoroutput} 
+  \centering
+  \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
+  \caption{Accelerometer calibration offset correction.}
+  % \label{fig:sensoroutput} 
 \end{figure}
 
 \subsubsection{Gyroscope Calibration}
 
-The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is not moving. The offsets can be measured by first taking some readings while the IMU is not moving, then using those values as ‘offsets’ when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
+The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is not moving. The offsets can be measured by first taking some readings while the IMU is not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
 
 \lstset{language=Python}
 
@@ -191,10 +191,10 @@ The simplest calibration of an IMU consists of calculating the offset for each a
 \end{lstlisting}
 
 \begin{figure}[!h]
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
-    \caption{Gyroscope calibration offset correction.}
-    % \label{fig:sensoroutput}
+  \centering
+  \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
+  \caption{Gyroscope calibration offset correction.}
+  % \label{fig:sensoroutput}
 \end{figure}
 
 \subsubsection{Magnetometer Calibration}
@@ -202,21 +202,21 @@ The simplest calibration of an IMU consists of calculating the offset for each a
 To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.7\textwidth}
     \centering
-    \begin{subfigure}{0.7\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
-        \caption{Magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
-        \label{plt:raw_magnetometer}
-    \end{subfigure}
+    \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
+    \caption{Magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
+    \label{plt:raw_magnetometer}
+  \end{subfigure}
 
-    \begin{subfigure}{0.7\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
-        \caption{Magnetometer measurements of magnetic field strength along orthogonal X, Y and Z-axis.}
-        \label{plt:raw_magnetometer3D}
-    \end{subfigure}
-    \caption{Raw magnetometer measurements.}
+  \begin{subfigure}{0.7\textwidth}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/magnetometer3D.pgf}}
+    \caption{Magnetometer measurements of magnetic field strength along orthogonal X, Y and Z-axis.}
+    \label{plt:raw_magnetometer3D}
+  \end{subfigure}
+  \caption{Raw magnetometer measurements.}
 \end{figure}
 
 Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
@@ -237,7 +237,7 @@ Hard iron biases are commonly the largest and the simplest errors to rectify. Wi
     return self._offset
 \end{lstlisting}
 
-It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} – y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
+It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -265,21 +265,21 @@ It is possible now to filter any soft iron biases by taking the minimum and maxi
 The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fig:mag_calibration_output}:
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
     \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
-        \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
-        \label{fig:magnetometer_calibrated2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
-        \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y and Z-axis.}
-        \label{fig:magnetometer_calibrated3D}
-    \end{subfigure}
-    \caption{Raw and calibrated magnetometer measurements.}
-    \label{fig:mag_calibration_output}
+    \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
+    \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
+    \label{fig:magnetometer_calibrated2D}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
+    \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y and Z-axis.}
+    \label{fig:magnetometer_calibrated3D}
+  \end{subfigure}
+  \caption{Raw and calibrated magnetometer measurements.}
+  \label{fig:mag_calibration_output}
 \end{figure}
 
 \newpage
@@ -301,58 +301,58 @@ Several experimental tests were conducted to assess the position performance of 
 
 \subsection{Indoor Experiments}
 
-Indoor experiments were executed at Madeira Tecnopolo building, floor –1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
+Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/indoor.jpg}
-    \caption{4 meter side ground square used for baseline of accuracy of inertial system.}
-    \label{fig:indoor_square}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/indoor.jpg}
+  \caption{4 meter side ground square used for baseline of accuracy of inertial system.}
+  \label{fig:indoor_square}
 \end{figure}
 
 Once the experiment was set up, it was time to start testing the INS. The board was dragged at constant speed through the guideline transporting the inertial system. The INS was continuously estimating orientation and position several times a second and storing data to an SD card. The board was dragged at walking speed and stopped at corners when direction changed.
 
 \begin{figure}
-    \centering
-    % \begin{subfigure}{1\textwidth}
-    %     \centering
-    %     \includegraphics[width=1\textwidth]{figures/indoor.jpg}
-    %     \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
-    %     \label{fig:indoor_square}
-    % \end{subfigure}
+  \centering
+  % \begin{subfigure}{1\textwidth}
+  %     \centering
+  %     \includegraphics[width=1\textwidth]{figures/indoor.jpg}
+  %     \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
+  %     \label{fig:indoor_square}
+  % \end{subfigure}
 
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/indoor_1.jpg}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/indoor_2.jpg}
-    \end{subfigure}
-    \caption{Skateboard being dragged along the guideline.}
-    \label{fig:indoor_experiment}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/indoor_1.jpg}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/indoor_2.jpg}
+  \end{subfigure}
+  \caption{Skateboard being dragged along the guideline.}
+  \label{fig:indoor_experiment}
 \end{figure}
 
 \newpage
 
 \subsection{Outdoor Experiments}
 
-Outdoor experiments were conducted at praça do povo’s square (figure \ref{fig:outdoor_field}), in a sport’s platform with a guiding rope also acting as baseline for the experiment in the forming of geometric figures on the ground.
+Outdoor experiments were conducted at praça do povo's square (figure \ref{fig:outdoor_field}), in a sport's platform with a guiding rope also acting as baseline for the experiment in the forming of geometric figures on the ground.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/outdoor_field.jpg}
-    \caption{ Platform where outdoors experiments were conducted. }
-    \label{fig:outdoor_field}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/outdoor_field.jpg}
+  \caption{ Platform where outdoors experiments were conducted. }
+  \label{fig:outdoor_field}
 \end{figure}
 
 Here, the sports platform consisted of one 28mx28m square, composed of 4m squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{figures/square.pdf}
-    \caption{ Bird's-eye view representation of the 7x7 grid platform where outdoor experiments were conducted. }
-    \label{fig:platform_representation}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/square.pdf}
+  \caption{ Bird's-eye view representation of the 7x7 grid platform where outdoor experiments were conducted. }
+  \label{fig:platform_representation}
 \end{figure}
 
 
@@ -374,47 +374,47 @@ Here, the sports platform consisted of one 28mx28m square, composed of 4m square
 The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor_1}) in this case, being powered by a laptop computer (figure \ref{fig:outdoor_2}). The scooter was dragged at walking pace (figure \ref{fig:outdoor_3}) along the planned path marked by the rope.
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.8\textwidth}
     \centering
-    \begin{subfigure}{0.8\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/outdoor_1.jpg}
-        \caption{ Spiral experiment path outlined by the white rope. }
-        \label{fig:outdoor_1}
-    \end{subfigure}
+    \includegraphics[width=1\textwidth]{figures/outdoor_1.jpg}
+    \caption{ Spiral experiment path outlined by the white rope. }
+    \label{fig:outdoor_1}
+  \end{subfigure}
 
-    \begin{subfigure}{0.40\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/outdoor_3.jpg}
-        \caption{ Close-up view of the inertial system (white box) attach with an elastic band to the scooter's body frame. }
-        \label{fig:outdoor_2}
-    \end{subfigure}
-    \begin{subfigure}{0.40\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
-        \caption{ Pushing the electrical scooter containing the laptop and inertial system along the platform's edges forming geometrical shapes. }
-        \label{fig:outdoor_3}
-    \end{subfigure}
-    \caption{ Photos illustrating hoe outdoor experiments were performed.}
-    \label{fig:outdoor_experiments}
+  \begin{subfigure}{0.40\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/outdoor_3.jpg}
+    \caption{ Close-up view of the inertial system (white box) attach with an elastic band to the scooter's body frame. }
+    \label{fig:outdoor_2}
+  \end{subfigure}
+  \begin{subfigure}{0.40\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/outdoor_2.jpg}
+    \caption{ Pushing the electrical scooter containing the laptop and inertial system along the platform's edges forming geometrical shapes. }
+    \label{fig:outdoor_3}
+  \end{subfigure}
+  \caption{ Photos illustrating hoe outdoor experiments were performed.}
+  \label{fig:outdoor_experiments}
 \end{figure}
 
 Here several shapes were tested, from simple lines, squares and triangles to more complex figures such as the ones illustrated at figure \ref{fig:squares} and figure \ref{fig:spiral}.
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
     \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/spiral.pdf}
-        \caption{ Spiral-based shape with increasing length sides.  }
-        \label{fig:spiral}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/squares.pdf}
-        \caption{ Squares of increasing side length.  }
-        \label{fig:squares}
-    \end{subfigure}
-    \caption{ Bird's-eye view representation of the more complex path shapes taken. }
+    \includegraphics[width=1\textwidth]{figures/spiral.pdf}
+    \caption{ Spiral-based shape with increasing length sides.  }
+    \label{fig:spiral}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/squares.pdf}
+    \caption{ Squares of increasing side length.  }
+    \label{fig:squares}
+  \end{subfigure}
+  \caption{ Bird's-eye view representation of the more complex path shapes taken. }
 \end{figure}
 
 \newpage
@@ -424,45 +424,45 @@ Here several shapes were tested, from simple lines, squares and triangles to mor
 Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360º cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/underwater.jpg}
-        \caption{ Spherical housing encompassing the inertial system and portable battery pack. }
-        \label{fig:underwater1_test}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_1.jpg}
-        \caption{ The capsule was submerged in a water tank to verify the presence of any water leaks. }
-        \label{fig:underwater2_test}
-    \end{subfigure}
-    \label{fig:underwater_test}
-    \caption{ View of the tests made to assure the underwater housing was water proof. }
+    \includegraphics[width=1\textwidth]{figures/underwater.jpg}
+    \caption{ Spherical housing encompassing the inertial system and portable battery pack. }
+    \label{fig:underwater1_test}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/underwater_1.jpg}
+    \caption{ The capsule was submerged in a water tank to verify the presence of any water leaks. }
+    \label{fig:underwater2_test}
+  \end{subfigure}
+  \label{fig:underwater_test}
+  \caption{ View of the tests made to assure the underwater housing was water proof. }
 \end{figure}
 
 Once safety checks were completed, guaranteeing the feasibility of the study, the team went to Madeira Carlton hotel divepoint, where tests were conducted to evaluate the estimation quality of the proposed solution under water by a professional diver (figure \ref{fig:underwater}). A 5-meter square net being held by two people above water served as guideline for the diver performing the experiment underwater. The diver held the spherical housing while swimming along the guideline maintaining a constant speed while slowly increasing depth (figure \ref{fig:underwater_2}).
 
 \begin{figure}[!h]
+  \centering
+  \begin{subfigure}{0.7\textwidth}
     \centering
-    \begin{subfigure}{0.7\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_5.jpg}
-        \caption{ The housing being held underwater by the diver.  }
-        \label{fig:underwater}
-    \end{subfigure}
+    \includegraphics[width=1\textwidth]{figures/underwater_5.jpg}
+    \caption{ The housing being held underwater by the diver.  }
+    \label{fig:underwater}
+  \end{subfigure}
 
-    \begin{subfigure}{0.35\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_2.jpg}
-        \caption{ The capsule housing the inertial system being handed out to a professional diver. }
-        \label{fig:underwater}
-    \end{subfigure}
-    \begin{subfigure}{0.35\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{figures/underwater_4.jpg}
-        \caption{ View of the diver following the net underwater holding the spherical housing. }
-        \label{fig:underwater_2}
-    \end{subfigure}
-    \caption{ Photos of the underwater tests conducted at Madeira Carlton hotel divepoint. }
+  \begin{subfigure}{0.35\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/underwater_2.jpg}
+    \caption{ The capsule housing the inertial system being handed out to a professional diver. }
+    \label{fig:underwater}
+  \end{subfigure}
+  \begin{subfigure}{0.35\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/underwater_4.jpg}
+    \caption{ View of the diver following the net underwater holding the spherical housing. }
+    \label{fig:underwater_2}
+  \end{subfigure}
+  \caption{ Photos of the underwater tests conducted at Madeira Carlton hotel divepoint. }
 \end{figure}

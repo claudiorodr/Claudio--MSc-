@@ -57,8 +57,8 @@
 \contentsline {subsubsection}{\numberline {5.0.3}Estimating Position}{58}{subsubsection.0.5.0.3}%
 \contentsline {subsubsection}{\numberline {5.0.4}Applying methodology in 2D}{61}{subsubsection.0.5.0.4}%
 \contentsline {paragraph}{\numberline {5.0.4.1}Measuring error}{61}{paragraph.0.5.0.4.1}%
-\contentsline {subsection}{\numberline {5.1}Applying methodology in 3D}{62}{subsection.0.5.1}%
-\contentsline {paragraph}{\numberline {5.1.0.1}Measuring error}{68}{paragraph.0.5.1.0.1}%
-\contentsline {section}{\numberline {6}Discussion}{72}{section.0.6}%
-\contentsline {section}{\numberline {7}Conclusion}{73}{section.0.7}%
-\contentsline {chapter}{References}{74}{chapter*.62}%
+\contentsline {subsection}{\numberline {5.1}Applying methodology in 3D}{66}{subsection.0.5.1}%
+\contentsline {paragraph}{\numberline {5.1.0.1}Measuring error}{67}{paragraph.0.5.1.0.1}%
+\contentsline {section}{\numberline {6}Discussion}{71}{section.0.6}%
+\contentsline {section}{\numberline {7}Conclusion}{72}{section.0.7}%
+\contentsline {chapter}{References}{73}{chapter*.62}%

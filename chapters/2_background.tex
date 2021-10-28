@@ -12,8 +12,8 @@ This section will focus on defining and distinguishing the different concepts of
 ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}).
 
 \begin{equation}
-    \int \overrightarrow{x}\rho~dx^3 = 0
-    \label{eq:ecef}
+  \int \overrightarrow{x}\rho~dx^3 = 0
+  \label{eq:ecef}
 \end{equation}
 
 The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction.  The right-hand rule explains its orientation.
@@ -21,50 +21,50 @@ The X-axis is described by the intersection of the zero-latitude line (Equator) 
 The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system.  In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
 
 \begin{figure}[H]
-    \centering
-    \resizebox{0.70\linewidth}{!}{\input{figures/ECEF}}
-    \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\phi$ and $\lambda$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
-    \label{fig:ECEF}
+  \centering
+  \resizebox{0.70\linewidth}{!}{\input{figures/ECEF}}
+  \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\phi$ and $\lambda$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
+  \label{fig:ECEF}
 \end{figure}
 
 Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude of the reference point (Xr, Yr, Zr). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS}.
 
 \begin{figure}[H]
-    \centering
-    \input{tables/ecef}
+  \centering
+  \input{tables/ecef}
 \end{figure}
 
 
 Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities.
 
 \begin{equation}
-    \begin{gathered}
-        p = \sqrt{(X_r)^2 + (Y_r)^2} \\
-        \theta = \arctan(Z_r\frac{a}{pb} ) \\
-        \lambda_r = \arctan(Y_r,X_r) \\
-        \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )}  \\
-    \end{gathered}
-    \label{eq:transformation}
+  \begin{gathered}
+    p = \sqrt{(X_r)^2 + (Y_r)^2} \\
+    \theta = \arctan(Z_r\frac{a}{pb} ) \\
+    \lambda_r = \arctan(Y_r,X_r) \\
+    \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )}  \\
+  \end{gathered}
+  \label{eq:transformation}
 \end{equation}
 
 \begin{equation}
-    \begin{bmatrix}
-        x \\
-        y \\
-        z
-    \end{bmatrix}_{ENU}
-    =
-    \begin{bmatrix}
-        -\sin(\lambda_r)             & \cos( \phi_r)                 & 0            \\
-        -\sin(\phi_r)\cos(\lambda_r) & -\sin( \phi_r)\sin(\lambda_r) & \cos(\phi_r) \\
-        \cos(\phi_r)\cos(\lambda_r)  & \cos(\phi_r) \sin(\lambda_r)  & \sin(\phi_r)
-    \end{bmatrix}
-    \begin{bmatrix}
-        X_p - X_r \\
-        Y_p - Y_r \\
-        Z_p - Z_r
-    \end{bmatrix}_{ECEF}
-    \label{eq:transformation_results}
+  \begin{bmatrix}
+    x \\
+    y \\
+    z
+  \end{bmatrix}_{ENU}
+  =
+  \begin{bmatrix}
+    -\sin(\lambda_r)             & \cos( \phi_r)                 & 0            \\
+    -\sin(\phi_r)\cos(\lambda_r) & -\sin( \phi_r)\sin(\lambda_r) & \cos(\phi_r) \\
+    \cos(\phi_r)\cos(\lambda_r)  & \cos(\phi_r) \sin(\lambda_r)  & \sin(\phi_r)
+  \end{bmatrix}
+  \begin{bmatrix}
+    X_p - X_r \\
+    Y_p - Y_r \\
+    Z_p - Z_r
+  \end{bmatrix}_{ECEF}
+  \label{eq:transformation_results}
 \end{equation}
 
 \subsubsection{Body frame}
@@ -82,32 +82,32 @@ The attitude orientation of a body in space a critical aspect in position estima
 The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
 
 \begin{equation}
-    R = X(\alpha)Y(\beta)Z(\gamma)
-    \label{eq:rotation_matrices}
+  R = X(\alpha)Y(\beta)Z(\gamma)
+  \label{eq:rotation_matrices}
 \end{equation}
 
 \begin{figure}[!h]
-    \centering
-    \resizebox{0.44\linewidth}{!}{\input{figures/rotation_matrix.tex}}
-    \resizebox{0.54\linewidth}{!}{\input{figures/rotation_matrix3D.tex}}
-    \caption{frame axis example.}
-    \label{fig:axes_frames}
+  \centering
+  \resizebox{0.44\linewidth}{!}{\input{figures/rotation_matrix.tex}}
+  \resizebox{0.54\linewidth}{!}{\input{figures/rotation_matrix3D.tex}}
+  \caption{frame axis example.}
+  \label{fig:axes_frames}
 \end{figure}
 
 In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order). The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
 
 \begin{equation}
-    \textrm{$_{b}^{a}R$}
-    =
-    \begin{bmatrix}
-        \textrm{$^{a}r_{xx}$} & \textrm{$^{a}r_{yx}$} & \textrm{$^{a}r_{zx}$} \\
-        \textrm{$^{a}r_{xy}$} & \textrm{$^{a}r_{yy}$} & \textrm{$^{a}r_{zy}$} \\
-        \textrm{$^{a}r_{xz}$} & \textrm{$^{a}r_{yz}$} & \textrm{$^{a}r_{zz}$} \\
-    \end{bmatrix}
-    \label{eq:axes_frames}
+  \textrm{$_{b}^{a}R$}
+  =
+  \begin{bmatrix}
+    \textrm{$^{a}r_{xx}$} & \textrm{$^{a}r_{yx}$} & \textrm{$^{a}r_{zx}$} \\
+    \textrm{$^{a}r_{xy}$} & \textrm{$^{a}r_{yy}$} & \textrm{$^{a}r_{zy}$} \\
+    \textrm{$^{a}r_{xz}$} & \textrm{$^{a}r_{yz}$} & \textrm{$^{a}r_{zz}$} \\
+  \end{bmatrix}
+  \label{eq:axes_frames}
 \end{equation}
 
-Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR−1 . Also a bRT is equal to b aR.
+Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR-1 . Also a bRT is equal to b aR.
 
 \subsubsection{Direct Cosine Matrix}
 
@@ -129,52 +129,52 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 % \end{figure}
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
-    \caption{ 3D rotation around vector $\hat{r}$ between frame A and B. }
-    \label{fig:rotation}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
+  \caption{ 3D rotation around vector $\hat{r}$ between frame A and B. }
+  \label{fig:rotation}
 \end{figure}
 
 \begin{equation}
-    \begin{bmatrix}
-        \dot{\psi}   \\
-        \dot{\theta} \\
-        \dot{\phi}   \\
-    \end{bmatrix}
-    =
-    \frac{1}{\cos(\theta)}
-    \begin{bmatrix}
-        \sin(\phi)             & 0 & -\cos(\phi)            \\
-        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
-        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
-    \end{bmatrix}
-    \begin{bmatrix}
-        \omega{^b_{nbx}} \\
-        \omega{^b_{nby}} \\
-        \omega{^b_{nbz}} \\
-    \end{bmatrix}
-    \label{eq:euler_equation}
+  \begin{bmatrix}
+    \dot{\psi}   \\
+    \dot{\theta} \\
+    \dot{\phi}   \\
+  \end{bmatrix}
+  =
+  \frac{1}{\cos(\theta)}
+  \begin{bmatrix}
+    \sin(\phi)             & 0 & -\cos(\phi)            \\
+    \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+    \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+  \end{bmatrix}
+  \begin{bmatrix}
+    \omega{^b_{nbx}} \\
+    \omega{^b_{nby}} \\
+    \omega{^b_{nbz}} \\
+  \end{bmatrix}
+  \label{eq:euler_equation}
 \end{equation}
 
 \begin{equation}
-    {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
-    =
-    \begin{bmatrix}
-        \sin(\phi)             & 0 & -\cos(\phi)            \\
-        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
-        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
-    \end{bmatrix}
-    \label{eq:euler_equations}
+  {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
+  =
+  \begin{bmatrix}
+    \sin(\phi)             & 0 & -\cos(\phi)            \\
+    \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+    \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+  \end{bmatrix}
+  \label{eq:euler_equations}
 \end{equation}
 
 Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}).
 Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance. In this dissertation, a different kind of orientation representation will be used quaternions.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/gimbal_lock.png}
-    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
-    \label{fig:gimbal_lock}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/gimbal_lock.png}
+  \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+  \label{fig:gimbal_lock}
 \end{figure}
 
 \subsubsection{Quaternions}
@@ -182,49 +182,49 @@ Euler angles commonly involve a large number of complex mathematical operations,
 Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}). A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors. Equation (2.1) shows this relation with the complex number x having a real part a and imaginary part b; and the quaternion q containing a real scalar part s and an imaginary vector component ~v.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/complex_rotation.pdf}
-    \caption{90-degree rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis. }
-    \label{fig:complex_rotation}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/complex_rotation.pdf}
+  \caption{90-degree rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis. }
+  \label{fig:complex_rotation}
 \end{figure}
 
 \begin{equation}
-    q = q_0 + q_1 i + q_2 j + q_3 k
-    \label{eq:quaternion_representation}
+  q = q_0 + q_1 i + q_2 j + q_3 k
+  \label{eq:quaternion_representation}
 \end{equation}
 
 \begin{equation}
-    q =     \begin{bmatrix}
-        q_0 & q_1 & q_2 & q_3 \\
-    \end{bmatrix}
-    \label{eq:quaternion_vector}
+  q =     \begin{bmatrix}
+    q_0 & q_1 & q_2 & q_3 \\
+  \end{bmatrix}
+  \label{eq:quaternion_vector}
 \end{equation}
 
 Specifically, when used for attitude description the quaternions should have a norm equal to 1:
 
 \begin{equation}
-    \left\lVert q\right\rVert =\sqrt{q^2_0 + q^2_1 + q^2_2 + q^2_3} =1
+  \left\lVert q\right\rVert =\sqrt{q^2_0 + q^2_1 + q^2_2 + q^2_3} =1
 \end{equation}
 
 Normalizing a quaternion is identical to normalizing a vector. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is known as unit quaternion (also mentioned as versor of $q$) and denoted with a circumflex accent ($\hat{q}$):
 
 \begin{equation}
-    \hat{q} = \frac{q}{\left\lVert q \right\rVert }
+  \hat{q} = \frac{q}{\left\lVert q \right\rVert }
 \end{equation}
 
 
 A quaternion's conjugate ($q^{\ast} $) is expressed by:
 
 \begin{equation}
-    q^{\ast}  =\begin{bmatrix}
-        q_0 & -q_1 & -q_2 & -q_3 \\
-    \end{bmatrix}
+  q^{\ast}  =\begin{bmatrix}
+    q_0 & -q_1 & -q_2 & -q_3 \\
+  \end{bmatrix}
 \end{equation}
 
 The inverse of a quaternion (${q^{-1}}$) is therefore given by:
 
 \begin{equation}
-    q^{-1} = \frac{q^{\ast} }{\left\lVert q \right\rVert }
+  q^{-1} = \frac{q^{\ast} }{\left\lVert q \right\rVert }
 \end{equation}
 
 Applying the notation as declared previously, ${^w_b}q$ constitutes the orientation of body frame ($b$) with respect to world frame ($w$). From equation \ref{eq:quaternion_representation}, the subsequent list of properties/operations is derived:
@@ -233,70 +233,70 @@ Applying the notation as declared previously, ${^w_b}q$ constitutes the orientat
 
 
 \begin{equation}
-    \begin{gathered}
-        i^2=j^2=k^2=ijk=-1 \\
-        ij = -ji = k       \\
-        jk = -kj = i       \\
-        ki = -ik = j       \\
-    \end{gathered}
-    \label{eq:quaternion_rules}
+  \begin{gathered}
+    i^2=j^2=k^2=ijk=-1 \\
+    ij = -ji = k       \\
+    jk = -kj = i       \\
+    ki = -ik = j       \\
+  \end{gathered}
+  \label{eq:quaternion_rules}
 \end{equation}
 
 \begin{figure}[H]
-    \centering
-    \input{tables/quaternion}
+  \centering
+  \input{tables/quaternion}
 \end{figure}
 
 \item \textbf{Multiplication of quaternions} The product of two quaternions, $a$ and $b$, is denoted by $\otimes$ and it is defined by the Hamilton product. It can be calculated by the product of the basis elements and the distributive law. The product can then be expanded by the distributive law into a a sum of products of basis elements. Returning the next expression:
 
 \begin{equation}
-    a \otimes b = \left[a_0 a_1 a_2 a_3\right] \otimes \left[b_0 b_1 b_2 b_3\right]     =
-    \begin{bmatrix}
-        a_0 b_0 + a_1 b_0\boldsymbol{i} + a_2 b_0\boldsymbol{j} + a_3 b_0\boldsymbol{k}                   \\
-        a_0 b_1\boldsymbol{i} + a_1 b_1\boldsymbol{i^2} + a_2 b_1\boldsymbol{ij} + a_3 b_1\boldsymbol{ik} \\
-        a_0 b_2\boldsymbol{j}+ a_1 b_2\boldsymbol{ji} + a_2 b_2\boldsymbol{j^2} + a_3 b_2\boldsymbol{jk}  \\
-        a_0 b_3\boldsymbol{k} + a_1 b_3\boldsymbol{ki} + a_2 b_3\boldsymbol{kj} + a_3 b_3\boldsymbol{k^2} \\
-    \end{bmatrix}
+  a \otimes b = \left[a_0 a_1 a_2 a_3\right] \otimes \left[b_0 b_1 b_2 b_3\right]     =
+  \begin{bmatrix}
+    a_0 b_0 + a_1 b_0\boldsymbol{i} + a_2 b_0\boldsymbol{j} + a_3 b_0\boldsymbol{k}                   \\
+    a_0 b_1\boldsymbol{i} + a_1 b_1\boldsymbol{i^2} + a_2 b_1\boldsymbol{ij} + a_3 b_1\boldsymbol{ik} \\
+    a_0 b_2\boldsymbol{j}+ a_1 b_2\boldsymbol{ji} + a_2 b_2\boldsymbol{j^2} + a_3 b_2\boldsymbol{jk}  \\
+    a_0 b_3\boldsymbol{k} + a_1 b_3\boldsymbol{ki} + a_2 b_3\boldsymbol{kj} + a_3 b_3\boldsymbol{k^2} \\
+  \end{bmatrix}
 \end{equation}
 
 As a result, the rules defined in equation \ref{eq:quaternion_rules} and table \ref{tab:quaternion_multiplication} can be applied at this step producing:
 
 \begin{equation}
-    a \otimes b =
-    \begin{bmatrix}
-        a_0 b_0 - a_1 b_1 - a_2 b_2 - a_3 b_3                 \\
-        (a_0 b_1 + a_1 b_0 + a_2 b_3 - a_3 b_2)\boldsymbol{i} \\
-        (a_0 b_2 - a_1 b_3 + a_2 b_0 + a_3 b_1)\boldsymbol{j} \\
-        (a_0 b_3 + a_1 b_2 - a_2 b_1 + a_3 b_0)\boldsymbol{k} \\
-    \end{bmatrix}
-    \label{eq:quaternion_matrix}
+  a \otimes b =
+  \begin{bmatrix}
+    a_0 b_0 - a_1 b_1 - a_2 b_2 - a_3 b_3                 \\
+    (a_0 b_1 + a_1 b_0 + a_2 b_3 - a_3 b_2)\boldsymbol{i} \\
+    (a_0 b_2 - a_1 b_3 + a_2 b_0 + a_3 b_1)\boldsymbol{j} \\
+    (a_0 b_3 + a_1 b_2 - a_2 b_1 + a_3 b_0)\boldsymbol{k} \\
+  \end{bmatrix}
+  \label{eq:quaternion_matrix}
 \end{equation}
 
 \item \textbf{Quaternion conjugate} Conjugation is an involution (a function that is its own inverse), conjugating an element twice yields the original constituent. The conjugate of a quaternion relates to an inverse rotation, in this case constitutes the orientation of world frame with respect to body frame:
 
 \begin{equation}
-    \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
+  \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
 \end{equation}
 
 \item \textbf{Vector rotation} Let's define the following quaternion representation of the same vector but in each referential by using is pure quaternion as
 
 $ ^wv = \begin{bmatrix}
-        0 & ^wx & ^wy & ^wz
-    \end{bmatrix} $
+    0 & ^wx & ^wy & ^wz
+  \end{bmatrix} $
 and
 $^bv = \begin{bmatrix}
-        0 & ^bx & ^by & ^bz
-    \end{bmatrix} $. The rotation of vector $v$ from one frame to other, using a quaternion, is performed by equation 2.10.
+    0 & ^bx & ^by & ^bz
+  \end{bmatrix} $. The rotation of vector $v$ from one frame to other, using a quaternion, is performed by equation 2.10.
 
 \begin{equation}
-    \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
+  \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
 \end{equation}
 
 \item \textbf{Composed rotations} The composition of rotations can be described in quaternions as the product between quaternions. For example the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is defined as equation 2.11.
 
 
 \begin{equation}
-    \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
+  \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
 \end{equation}
 
 \subsection{Inertial Measurement Units}
@@ -305,10 +305,10 @@ An inertial measurement unit (IMU) is an electronic tool that quantifies and des
 There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non linearity and accuracy error. The main errors that causes unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/noise.pdf}
-    \caption{Three main types of sensor error}
-    \label{fig:noise}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/noise.pdf}
+  \caption{Three main types of sensor error}
+  \label{fig:noise}
 \end{figure}
 
 The first graph in the picture above represents the signal error classified as noise. The noise is high frequent and can be eliminated by using a low pass filter. The noise sources in the sensor can be categorized into three types.
@@ -325,16 +325,16 @@ An accelerometer is a device capable of measuring proper acceleration. Proper ac
 The working principle of an accelerometer can be expounded by a single mass ($m$) fixed to a stiffness spring ($k$) that in turn is fastened to outer frame, as illustrated in figure \ref{fig:accelerometer_schematic}.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/accelerometer.pdf}
-    \caption{Schematic demonstrating the working principle of an accelerometer. }
-    \label{fig:accelerometer_schematic}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/accelerometer.pdf}
+  \caption{Schematic demonstrating the working principle of an accelerometer. }
+  \label{fig:accelerometer_schematic}
 \end{figure}
 
 Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration a, the equation of motion for the mass is:
 
 \begin{equation}
-    mx + kx + cx = \overrightarrow{F}\Leftrightarrow mx + kx + cx = m\overrightarrow{a}
+  mx + kx + cx = \overrightarrow{F}\Leftrightarrow mx + kx + cx = m\overrightarrow{a}
 \end{equation}
 
 Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness constant, respectively. Consequently, the acceleration can be computed by measuring $x$, compression of the spring.
@@ -345,55 +345,55 @@ Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness con
 A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/gyroscope.pdf}
-    \caption{Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals.  }
-    \label{fig:gyroscope}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/gyroscope.pdf}
+  \caption{Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals.  }
+  \label{fig:gyroscope}
 \end{figure}
 
 A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}):
 
 \begin{equation}
-    \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
+  \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
 \end{equation}
 
 Above, the cross product between angular velocity ($\omega$) and linear velocity ($v$) multiplies solely by orthogonal vector components. The outcome of the cross product is orthogonal to both $v$ and $\omega$. Its direction can be ascertained by the right-hand rule.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/coriolis.pdf}
-    \caption{ System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.}
-    \label{fig:coriolis}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/coriolis.pdf}
+  \caption{ System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.}
+  \label{fig:coriolis}
 \end{figure}
 
 The gyroscope sensor measurements supply a body's angular rate, a measurement of the change in angle over time which is represented by $\omega(x)$:
 
 \begin{equation}
-    \omega(x) = \frac{dx}{dt}
+  \omega(x) = \frac{dx}{dt}
 \end{equation}
 
 The angular rate supplied by the gyroscope sensor can be integrated over an interval of time ($t$) and a sampling period ($T_s$). The sum of every measurement will return an absolute angle $\theta$. The integration of the angular rate is shown in equation $\ref{eq:angular_integration}$:
 
 \begin{equation}
-    \theta = \int_{0}^{t} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
-    \label{eq:angular_integration}
+  \theta = \int_{0}^{t} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
+  \label{eq:angular_integration}
 \end{equation}
 
 Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equation \ref{eq:quaternion_matrix} it is possible to convert the set into a matrix of quaternion rates ($\Omega$):
 
 \begin{equation}
-    \Omega = \begin{bmatrix}
-        0   & -w_x & -w_y & -w_z \\
-        w_x & 0    & w_z  & -w_y \\
-        w_y & -w_z & 0    & w_x  \\
-        w_z & w_y  & -w_x & 0    \\
-    \end{bmatrix}
+  \Omega = \begin{bmatrix}
+    0   & -w_x & -w_y & -w_z \\
+    w_x & 0    & w_z  & -w_y \\
+    w_y & -w_z & 0    & w_x  \\
+    w_z & w_y  & -w_x & 0    \\
+  \end{bmatrix}
 \end{equation}
 
-From a quaternion rate at instant $t-1$, given a current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{t−1}$ is multiplied by $\Omega$, then half of the period $Ts$.
+From a quaternion rate at instant $t-1$, given a current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{t-1}$ is multiplied by $\Omega$, then half of the period $Ts$.
 
 \begin{equation}
-    q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
+  q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
 \end{equation}
 
 \subsubsection{Magnetometer}
@@ -401,10 +401,10 @@ From a quaternion rate at instant $t-1$, given a current angular speed it is pos
 A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor. There are two categories of magnetic distortions: Hard iron and soft iron. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard-iron disturbances by discerning the maximum and minimum x and y offsets. The x axis and y axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis:
 
 \begin{equation}
-    \begin{gathered}
-        \alpha = \frac{x_{max}+x_{min}}{2}\\
-        \beta = \frac{y_{max}+y_{min}}{2}
-    \end{gathered}
+  \begin{gathered}
+    \alpha = \frac{x_{max}+x_{min}}{2}\\
+    \beta = \frac{y_{max}+y_{min}}{2}
+  \end{gathered}
 \end{equation}
 
 By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any present hard-iron disturbances.
@@ -414,18 +414,18 @@ Soft-iron distortion is the consequence of a material's influence that can warp 
 The major axis is the axis that runs along the x axes. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing r, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point.
 
 \begin{equation}
-    r=\sqrt{(x_1)^2+(y_1)^2}
+  r=\sqrt{(x_1)^2+(y_1)^2}
 \end{equation}
 
 \begin{equation}
-    \theta=\arcsin(\frac{y_1}{r})
+  \theta=\arcsin(\frac{y_1}{r})
 \end{equation}
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/magnetometer_distortion.pdf}
-    \caption{Representation of a magnetometer's different types of disturbances. }
-    \label{fig:magnetometer_distortion}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/magnetometer_distortion.pdf}
+  \caption{Representation of a magnetometer's different types of disturbances. }
+  \label{fig:magnetometer_distortion}
 \end{figure}
 
 
@@ -440,19 +440,19 @@ Sensor fusion defines the blending of sensory information from two or more sourc
 The Kalman filter algorithm is a set of mathematical equations that provides a computationally efficient approach to estimate some unknown variables by the detected measurements\cite{welch1995introduction}. Kalman filters operate recursive functions to predict the present state of a linear problem by monitoring the current input data, the previous input data, and the previous state prediction. Two generally assigned methods for Kalman filter-based sensor fusion are state-vector fusion and measurement fusion. The state-vector fusion method (figure \ref{fig:state_kalman}) applies a group of Kalman filters to acquire individual sensor-based state estimates, which are subsequently fused to obtain an enhanced combined state estimate.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/kalman1.pdf}
-    \caption{Kalman-filter-based multi-sensor state-vector fusion. \cite{mosallaei2007process}}
-    \label{fig:state_kalman}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/kalman1.pdf}
+  \caption{Kalman-filter-based multi-sensor state-vector fusion. \cite{mosallaei2007process}}
+  \label{fig:state_kalman}
 \end{figure}
 
 Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly combines the sensor data to achieve a joint measurement and later uses a single Kalman filter to get hold of the final state estimate centered on the fused measurement \cite{mosallaei2007process}.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/kalman2.pdf}
-    \caption{Kalman-filter-based multi-sensor easurement fusion. \cite{mosallaei2007process}}
-    \label{fig:mesearurment_kalman}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/kalman2.pdf}
+  \caption{Kalman-filter-based multi-sensor easurement fusion. \cite{mosallaei2007process}}
+  \label{fig:mesearurment_kalman}
 \end{figure}
 
 When applied appropriately, Kalman filters offer highly precise orientation, even with the existence of substantial noise. Nevertheless, Kalman filters are computationally expensive rising hardware cost and latency. They are also of complex implementation, which, shared with computational overhead, can make the algorithm unfeasible for computationally restricted applications. They are regularly useful in a wide-ranging variety of applications and have become a standard method in sensor fusion. Several studies examine the possibility of using Kalman filters to predict a body's orientation and position by combining multiple sensors. The Kalman filter is founded on recursive Bayesian filtering.
@@ -480,42 +480,42 @@ Consequently, the system's noise is assumed to be Gaussian. Therefore, the Kalma
 The complementary filter is considered a simpler approach relatively to the Kalman filter since it is a computationally lightweight solution and straightforward to implement \cite{higgins1975comparison}. This filter takes as input two noisy sensor measurements and assumes one input is mainly formed by high-frequency signals whereas the other is mostly by low-frequency signals. Through a low pass filter, the high-frequency noise of the first input is filtered out. An identical procedure occurs with the second signal, but this time with a high pass filter to remove low-frequency noises, as illustrated in figure \ref{fig:complementary}.
 
 \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/complementary.pdf}
-    \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
-    \label{fig:complementary}
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/complementary.pdf}
+  \caption{Basic complementary filter \cite{higgins1975comparison} - Two different measurement sources for estimating one variable. The noise properties of the two measurements are such that one source gives good information only in low frequency region while the other is good only in high frequency region. }
+  \label{fig:complementary}
 \end{figure}
 
 The accelerometer is especially vulnerable to vibrations and centripetal forces, these can be filtered by a low pass filter behaving as a moving average filter. The gyroscope is precise and exact in the short term, but quickly loses precision in integration due to drift. For that reason, a high pass filter that allows the short-term gyroscope data is desirable, thus, removing the long-term drift.
 At any given moment, the complete the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}), where $\theta_t$ represents current orientation, $\alpha$ is a filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
 
 \begin{equation}
-    y_t = (1-\alpha)x_{t} + \alpha y_{t-1}
-    \label{eq:low_pass_filter}
+  y_t = (1-\alpha)x_{t} + \alpha y_{t-1}
+  \label{eq:low_pass_filter}
 \end{equation}
 
 \begin{equation}
-    y_t = (1-\alpha)y_{t-1} + (1-\alpha) (x_t - x_{t-1})
-    \label{eq:high_pass_filter}
+  y_t = (1-\alpha)y_{t-1} + (1-\alpha) (x_t - x_{t-1})
+  \label{eq:high_pass_filter}
 \end{equation}
 
 $\alpha$ filter coefficient describes the borderline where the gyroscope measurements end, and the accelerometer readings begin and vice versa. It rules how much the output relies on the current reading or a new value that arrives. $\alpha$ is typically above 0.5 by the definition above. Where the filter coefficient $\alpha$ is determined by:
 
 \begin{equation}
-    \alpha = \frac{\tau}{\tau + \Delta t}
+  \alpha = \frac{\tau}{\tau + \Delta t}
 \end{equation}
 
 Where $\tau$ is the wanted time constant (time interval for the readings to respond) and $\Delta t$ is the sampling period.
 
 \begin{equation}
-    \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
+  \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
 \end{equation}
 
 A mathematical model of the complementary filter can be represented as equation \ref{eq:complementary_model}, where $\theta_t$ represents current orientation, $\alpha$ is the filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
 
 \begin{equation}
-    \theta_t = (1 - \alpha) (\theta_{t-1} + \omega \Delta t) + \alpha a
-    \label{eq:complementary_model}
+  \theta_t = (1 - \alpha) (\theta_{t-1} + \omega \Delta t) + \alpha a
+  \label{eq:complementary_model}
 \end{equation}
 
 Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
@@ -525,7 +525,7 @@ Yet, the complementary filter is not especially robust to noisy or biased data s
 
 Up until recently, there remained mainly two distinct AHRS fusion approaches. One category including the complementary filters, and the other is related to Kalman filtering. Some recent AHRS algorithms have emerged in the literature over the past years. Two of the most prominent are the Mahony and Madgwick algorithms, which have been categorized as optimization filters. Optimization filters obtain orientation by assessing a vector representative of the sensor output at the present orientation and lessening the disparity concerning predicted and observed outputs. Optimization filters are well established for linking accuracy with computational expense and simplicity of implementation \cite{madgwick2020extended}.
 Both methods make use of a quaternion representation, which is a four-dimensional complex number representing of an object orientation. Quaternions involve fewer computation time because of their minimal quantity of calculation parameters \cite{ludwig2018comparison}. Additionally, vector rotations are easily executed by quaternion multiplications.
-Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as ‘Madgwick Algorithm.' This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick's approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
+Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as 'Madgwick Algorithm.' This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick's approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
 
 \paragraph{Other Filters}
 % \subsection{Low-Cost Inertial Measurement Units}

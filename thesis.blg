@@ -9,7 +9,7 @@ Warning--can't use both volume and number fields in stirling2003innovative
 Warning--empty journal in zeitlhofler2019nominal
 You've used 46 entries,
             2118 wiz_defined-function locations,
-            779 strings with 13736 characters,
+            779 strings with 13732 characters,
 and the built_in function-call counts, 18532 in all, are:
 = -- 1909
 > -- 837
