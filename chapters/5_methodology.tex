@@ -160,7 +160,7 @@ The next step consisted of experimentally testing the inertial system seeking to
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:integration}, where the final observed accumulative position was 25 meters.
 
-Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\psi$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
+Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
 
 \begin{figure}[!h]
     \centering
@@ -209,7 +209,7 @@ In two-dimensional tests, the output from X-axis and Y-axis accelerometer measur
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{ Example of the result after applying the position estimation methodology to the raw sensor data }
     \label{fig:square}
 \end{figure}
 
@@ -220,7 +220,7 @@ In order to quantify how well a test performed in estimating position, it is nec
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square_truth.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{Illustration of the real world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
     \label{fig:square_truth}
 \end{figure}
 
@@ -229,8 +229,8 @@ By measuring how far each estimated turn is from the closest real shapes vertice
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square}
+    \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
+    \label{fig:square_turn}
 \end{figure}
 
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
@@ -238,8 +238,8 @@ The second way to quantify error is to measure the distance from every estimated
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square}
+    \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+    \label{fig:square_point}
 \end{figure}
 
 \subsection{Applying methodology in 3D}
@@ -250,7 +250,7 @@ A three-dimensional visualization of the previous experiment is visible at figur
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{Three dimensional view of the experiment.}
     \label{fig:square3D}
 \end{figure}
 
@@ -261,15 +261,15 @@ The same methodology mentioned in the previous chapter can be applied in three d
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D}
+    \caption{The same methodology applies to three dimensional estimation. The real world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
+    \label{fig:square3D_truth}
 \end{figure}
 
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D}
+    \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
+    \label{fig:square3D_error}
 \end{figure}
 
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
@@ -278,7 +278,7 @@ The second way to quantify error is to measure the distance from every estimated
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
     \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D}
+    \label{fig:square3D_point}
 \end{figure}
 
 \begin{equation}
@@ -288,6 +288,6 @@ The second way to quantify error is to measure the distance from every estimated
 \begin{figure}
     \centering
     \resizebox{1\linewidth}{!}{\input{plots/comparison.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D}
+    \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+    \label{fig:comparison}
 \end{figure}
