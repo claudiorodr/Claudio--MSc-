@@ -76,9 +76,12 @@ return angles
 \begin{figure}
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/euler.pgf}}
-    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of figure converted into euler angles.}
+    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of  \ref{fig:raw} converted into euler angles.}
     \label{fig:fusion_output_euler}
 \end{figure}
+
+
+\newpage
 
 \subsubsection{Estimating Displacement}
 
@@ -103,16 +106,41 @@ In practice, data is acquired at discrete time periods ($\Delta t$) so the appro
     x_i[k+1]= x_i[k]+v_i[k]\Delta t
 \end{equation}
 
-However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:raw} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}). Resulting in a linear acceleration that corresponds to the physical acceleration of the device. This linear acceleration can be numerically integrated returning velocity and double integrating delivering the position of the device (figure \ref{fig:position_overview}).
+However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:raw} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings.
 
-\begin{figure}
+\lstset{language=Python}
+\begin{lstlisting}[frame=single]  % Start your code-block
+    
+# accelerometer reading
+acceleration = [ax, ay, ay]  
+
+# quaternion corresponding to the orientation
+q                            
+
+# gravity on Earth in m/s^2
+gravity = [0, 0, -9.81]      
+
+a_rotated = rotate(acceleration, q) 
+# rotate the measured acceleration into
+# the Earth frame of reference
+
+user_acceleration = a_rotated - gravity
+
+\end{lstlisting}
+
+You need to rotate the accelerometer reading by the quaternion into the Earth frame of reference (into the coordinate system of the room if you like), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration or user acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
+
+
+\begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/gravity.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+    \caption{Comparison between raw acceleration (red) and measurements with gravity compensation (blue). When tilting the sensor, the accelerometer will measure  gravity’s acceleration (around 9.8 $ms^{-2}$). The gravity compensation filter can counteract virtually all the gravitational influence on the sensor readings.}
     \label{fig:gavity_compensation}
 \end{figure}
 
 \subsubsection{Estimating Position}
+
+Resulting in a linear acceleration that corresponds to the physical acceleration of the device. This linear acceleration can be numerically integrated returning velocity and double integrating delivering the position of the device (figure \ref{fig:position_overview}).
 
 \begin{figure}[!h]
     \centering
@@ -126,18 +154,18 @@ The next step consisted of experimentally testing the inertial system seeking to
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/integration.pgf}}
-    \caption{}
+    \caption{ Plot showing how acceleration is integrated into velocity and displacement. }
     \label{fig:integration}
 \end{figure}
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:integration}, where the final observed accumulative position was 25 meters.
 
-Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
+Combining the displacement over a period of time with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period of time since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\psi$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/trignometric.pdf}
-    \caption{Overview of the position estimation method.}
+    \caption{Illustration of a unit circle where $\theta$.}
     \label{fig:trignometric}
 \end{figure}
 
@@ -156,21 +184,21 @@ Programmatically
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
     
-    # Calculate X, Y, Z positions - Distance * heading angle
-    lastX, lastY, lastZ = getCoordinates()
-    newX = displacementX * cos(radians(yaw)) + lastX
-    newY = displacementY * sin(radians(yaw)) + lastY
-    newZ = displacement * sin(radians(pitch)) + lastZ 
-    
-    # Update the coordinate with each function
-    updateCoordinates(newX, newY, newZ)
+# Calculate X, Y, Z positions - Distance * heading angle
+lastX, lastY, lastZ = getCoordinates()
+newX = displacementX * cos(radians(yaw)) + lastX
+newY = displacementY * sin(radians(yaw)) + lastY
+newZ = displacement * sin(radians(pitch)) + lastZ 
+
+# Update the coordinate with each function
+updateCoordinates(newX, newY, newZ)
     
 \end{lstlisting}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/dead_reckoning.pdf}
-    \caption{Overview of the position estimation method.}
+    \caption{Illustration of a unit circle where $\theta$}
     \label{fig:position}
 \end{figure}
 
