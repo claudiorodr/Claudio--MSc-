@@ -198,58 +198,68 @@ updateCoordinates(newX, newY, newZ)
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/dead_reckoning.pdf}
-    \caption{Illustration of a unit circle where $\theta$}
+    \caption{Illustration of the dead reckoning approach. The object's position at a given moment is given by the last known position, the heading angle $\Delta \theta$, and the travelled distance $\Delta x$ that occur during the last sample. }
     \label{fig:position}
 \end{figure}
 
+\newpage
+
 \subsubsection{Applying methodology in 2D}
 
-In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. These tests implicated moving on a linear pattern, generally 10 meters on each axis. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows an experiment performed with two-dimensional positioning.
+In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows the output of applying the position methodology to an experiment of a $4m\times 4m$ square.
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square.pgf}}
-    \caption{ Example of the result after applying the position estimation methodology to the raw sensor data }
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square.pgf}}
+    \caption{ Result after applying the position estimation methodology to the raw sensor data. }
     \label{fig:square}
 \end{figure}
+
+The figure shows a succession of position points, each calculated by the last known position, the heading angle, and the travelled distance. The position given is relative to the sensor's own body frame, not the the world's frame.
 
 \paragraph{Measuring error}
 
 In order to quantify how well a test performed in estimating position, it is necessary to compare it against a ground truth (explained in previous chapter). Error was quantified in two ways, the first being how far are the estimated shape corners from the ground truth's vertices. A turning detection algorithm, Ramer-Douglas-Peucker Algorithm, was used to estimate when a vertice is present in the estimated path.
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square_truth.pgf}}
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square_truth.pgf}}
     \caption{Illustration of the real world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
     \label{fig:square_truth}
 \end{figure}
 
 By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
-
-\begin{figure}
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
-    \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
-    \label{fig:square_turn}
-\end{figure}
-
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
-    \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
-    \label{fig:square_point}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
+        \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
+        \label{fig:square_turn}
+    \end{subfigure}
+
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
+        \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+        \label{fig:square_point}
+    \end{subfigure}
+    % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:error_methods}
 \end{figure}
+
+\newpage
 
 \subsection{Applying methodology in 3D}
 
 Finally, by applying the aforementioned method to the Z-axis, it is possible to obtain a  three-dimensional estimation. The output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes.
 A three-dimensional visualization of the previous experiment is visible at figure \ref{fig:square3D}.
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D.pgf}}
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D.pgf}}
     \caption{Three dimensional view of the experiment.}
     \label{fig:square3D}
 \end{figure}
@@ -258,28 +268,33 @@ The same methodology mentioned in the previous chapter can be applied in three d
 
 \paragraph{Measuring error}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
     \caption{The same methodology applies to three dimensional estimation. The real world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
     \label{fig:square3D_truth}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
-    \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
-    \label{fig:square3D_error}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
+        % \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
+        \label{fig:square3D_error}
+    \end{subfigure}
+
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
+        % \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+        \label{fig:square3D_point}
+    \end{subfigure}
+    % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:error_methods_3D}
 \end{figure}
 
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
-
-\begin{figure}
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
-    \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D_point}
-\end{figure}
 
 \begin{equation}
     MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
@@ -287,7 +302,7 @@ The second way to quantify error is to measure the distance from every estimated
 
 \begin{figure}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/comparison.pgf}}
+    \resizebox{0.8\linewidth}{!}{\input{plots/comparison.pgf}}
     \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
     \label{fig:comparison}
 \end{figure}
