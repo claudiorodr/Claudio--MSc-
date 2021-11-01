@@ -252,7 +252,7 @@ The second way to quantify error is to measure the distance from every estimated
 
 \newpage
 
-\subsection{Applying methodology in 3D}
+\subsubsection{Applying methodology in 3D}
 
 Finally, by applying the aforementioned method to the Z-axis, it is possible to obtain a  three-dimensional estimation. The output from X-axis, Y-axis, and Z-axis accelerometer measurements were combined with orientation and integrated to obtain an accumulative position on all axes.
 A three-dimensional visualization of the previous experiment is visible at figure \ref{fig:square3D}.
@@ -268,12 +268,18 @@ The same methodology mentioned in the previous chapter can be applied in three d
 
 \paragraph{Measuring error}
 
+
+In order to quantify how well a test performed in estimating position, it is necessary to compare it against a ground truth (explained in previous chapter). Error was quantified in two ways, the first being how far are the estimated shape corners from the ground truth's vertices. A turning detection algorithm, Ramer-Douglas-Peucker Algorithm, was used to estimate when a vertice is present in the estimated path.
+
+
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
     \caption{The same methodology applies to three dimensional estimation. The real world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
     \label{fig:square3D_truth}
 \end{figure}
+
+The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}[!h]
     \centering
@@ -283,6 +289,7 @@ The same methodology mentioned in the previous chapter can be applied in three d
         % \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all this distances will give a better understanding of how the shape was estimated by the inertial system.}
         \label{fig:square3D_error}
     \end{subfigure}
+
 
     \begin{subfigure}{0.75\textwidth}
         \centering
@@ -294,7 +301,6 @@ The same methodology mentioned in the previous chapter can be applied in three d
     \label{fig:error_methods_3D}
 \end{figure}
 
-The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{equation}
     MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
