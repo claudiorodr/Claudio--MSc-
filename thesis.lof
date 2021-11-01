@@ -41,11 +41,8 @@
 \contentsline {figure}{\numberline {39}{\ignorespaces Three dimensional view of the experiment.\relax }}{66}{figure.caption.56}%
 \contentsline {figure}{\numberline {40}{\ignorespaces The same methodology applies to three dimensional estimation. The real world test ground truth (represented by the 4mx4m blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }}{67}{figure.caption.57}%
 \contentsline {figure}{\numberline {42}{\ignorespaces The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.\relax }}{69}{figure.caption.59}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Position estimation by the .. algorithm.\relax }}{71}{figure.caption.62}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Position estimation by the .. algorithm.\relax }}{72}{figure.caption.65}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{73}{figure.caption.68}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Position estimation by the best performing algorithms in the 4 meter line experiment.\relax }}{71}{figure.caption.62}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Position estimation by the best performing algorithms in the 4 meter line experiment.\relax }}{72}{figure.caption.65}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Position estimation by the best performing algorithms in the 4 meter line experiment.\relax }}{73}{figure.caption.68}%
 \contentsline {figure}{\numberline {46}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{74}{figure.caption.71}%
 \contentsline {figure}{\numberline {47}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{75}{figure.caption.74}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{76}{figure.caption.77}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{77}{figure.caption.78}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.\relax }}{78}{figure.caption.81}%
