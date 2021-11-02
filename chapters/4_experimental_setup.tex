@@ -1,6 +1,6 @@
 \section{Experimental Setup}
 
-This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost Inertial Navigation System aimed at position estimation in three dimensional space. This section will first describe what actual hardware was used and how it was assembled, and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
+This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost Inertial Navigation System aimed at position estimation in three-dimensional space. This section will first describe what actual hardware was used and how it was assembled and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
 
 
 \subsection{Hardware}
@@ -25,7 +25,7 @@ As our projected solution involved a low-cost navigation system, the hardware se
   \label{fig:hardware}
 \end{figure}
 
-MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains as well temperature and pressure sensors. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer.The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis. These conventions will be utilized during calibration for each of the three sensors.
+MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis. These conventions will be utilized during calibration for each of the three sensors.
 
 \begin{figure}[!h]
   \centering
@@ -39,7 +39,7 @@ MPU-9250 inertial measurement unit is one of the most widely available low cost 
 The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features:
 
 \begin{itemize}
-  \item Digital-output triple-axis accelerometer with a programmable full scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
+  \item Digital-output triple-axis accelerometer with a programmable full-scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
   \item Accelerometer normal operating current: $450 \mu A$
   \item The text in the entries may be of any length
   \item Low power accelerometer mode current: $8.4 \mu A$ at $0.98Hz$, $19.8 \mu A$ at 31.$25Hz$
@@ -60,7 +60,7 @@ The triple-axis MEMS gyroscope in the MPU-9250 includes a wide range of features
 
 \begin{itemize}
   \item Digital-output X-Axis, Y-Axis, and Z-Axis angular rate sensors (gyroscopes) with a user-programmable fullscale range of $\pm 250$, $\pm 500$, $\pm 1000$, and $\pm 2000^{\circ}/s$ and integrated 16-bit ADCs
-  \item Digitally-programmable low-pass filter
+  \item Digitally programmable low-pass filter
   \item Gyroscope operating current: $3.2mA$
   \item Sleep mode current: $8 \mu A$
   \item Factory calibrated sensitivity scale factor
@@ -78,7 +78,7 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 \begin{itemize}
   \item 3-axis silicon monolithic Hall-effect magnetic sensor with magnetic concentrator
   \item Wide dynamic measurement range and high resolution with lower current consumption.
-  \item Output data resolution of 14 bit ($0.6 \mu T/LSB$) or 16 bit ($15 \mu T/LSB$)
+  \item Output data resolution of 14 bit ($0.6 \mu T/LSB$) or 16 bits ($15 \mu T/LSB$)
   \item Full scale measurement range is $\pm 4800 \mu T$
   \item Magnetometer normal operating current: $280\mu A$ at $8 Hz$ repetition rate
   \item Self-test function with internal magnetic source to confirm magnetic sensor operation on end products
@@ -307,7 +307,7 @@ Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a w
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/indoor.jpg}
-  \caption{4 meter side ground square used for baseline of accuracy of inertial system.}
+  \caption{4-meter side ground square used for baseline of accuracy of inertial system.}
   \label{fig:indoor_square}
 \end{figure}
 
@@ -318,7 +318,7 @@ Once the experiment was set up, it was time to start testing the INS. The board 
   % \begin{subfigure}{1\textwidth}
   %     \centering
   %     \includegraphics[width=1\textwidth]{figures/indoor.jpg}
-  %     \caption{ 4 meter side ground square used for baseline of accuracy of inertial system. }
+  %     \caption{ 4-meter side ground square used for baseline of accuracy of inertial system. }
   %     \label{fig:indoor_square}
   % \end{subfigure}
 
@@ -347,7 +347,7 @@ Outdoor experiments were conducted at praça do povo's square (figure \ref{fig:o
   \label{fig:outdoor_field}
 \end{figure}
 
-Here, the sports platform consisted of one 28mx28m square, composed of 4m squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
+Here, the sports platform consisted of one 28mx28m square, composed of 4 meter squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
 
 \begin{figure}[!h]
   \centering
@@ -361,7 +361,7 @@ Here, the sports platform consisted of one 28mx28m square, composed of 4m square
 % \begin{figure}[!h]
 %     \centering
 %     \includegraphics[width=0.9\textwidth]{figures/outdoor.jpg}
-%     \caption{ 5 meter side ground square used for baseline of accuracy of inertial system. }
+%     \caption{ 5-meter side ground square used for baseline of accuracy of inertial system. }
 %     \label{fig:outdoor}
 % \end{figure}
 
@@ -399,7 +399,7 @@ The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor
   \label{fig:outdoor_experiments}
 \end{figure}
 
-Here several shapes were tested, from simple lines, squares and triangles to more complex figures such as the ones illustrated at figure \ref{fig:squares} and figure \ref{fig:spiral}.
+Here several shapes were tested, from simple lines, squares, and triangles to more complex figures such as the ones illustrated at figure \ref{fig:squares} and figure \ref{fig:spiral}.
 
 \begin{figure}[!h]
   \centering
@@ -439,7 +439,7 @@ Underwater experiments were carried out at Madeira Carlton hotel divepoint, wher
     \label{fig:underwater2_test}
   \end{subfigure}
   \label{fig:underwater_test}
-  \caption{ View of the tests made to assure the underwater housing was water proof. }
+  \caption{ View of the tests made to assure the underwater housing was waterproof. }
 \end{figure}
 
 Once safety checks were completed, guaranteeing the feasibility of the study, the team went to Madeira Carlton hotel divepoint, where tests were conducted to evaluate the estimation quality of the proposed solution under water by a professional diver (figure \ref{fig:underwater}). A 5-meter square net being held by two people above water served as guideline for the diver performing the experiment underwater. The diver held the spherical housing while swimming along the guideline maintaining a constant speed while slowly increasing depth (figure \ref{fig:underwater_2}).
