@@ -1,3 +1,55 @@
+\section{Introduction}
+Navigation systems have become a popular subject in the designing of unmanned and autonomous systems in recent years. Still, most navigation systems highly depend on the Global Navigation Satellite System (GNSS) receivers as the central resource of navigation data. Although the satellite system can deliver accurate and long-term positioning in open spaces, when relying on GNSS only localization, there are often circumstances when the satellite signal is obstructed or weakened, resulting in degradation or even loss of position estimate precision \cite{ioannides2016known}. Such is especially threatening in high urbanized centers where satellite signals can suffer multipath propagation from tall glass-covered buildings \cite{omar2016integration}. Satellite positioning is especially impactful in battery autonomy, whereas GNSS receivers remain draining a substantial amount of electric current. Inevitably, there is a need to become less dependent on GNSS-based localization, particularly in autonomous settings. Substantial research has been conducted to enhance the localization precision of an object devoid of satellite signals \cite{nassar2004improving}\cite{dewhirst2016improving}\cite{kao1991integration}\cite{coyte2013displacement}\cite{wong1988high}. Increased accuracy is a precursor to establishing autonomous agents for a diversity of functions. Inertial measurement units (IMU) have become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. They can provide short-term position and orientation changes. Furthermore, inertial systems have been employed in wearable applications with uses in unmanned aerial vehicles (UAV) \cite{hetenyi2016sensor}\cite{luo2013uav}\cite{sharma2014sensor}, telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Despite these accomplishments, inertial systems suffer from rapid drift owing to the existence of disturbances and noise in the measurements. Practically all present commercial applications are restricted to minimal motion recognition. Position and orientation in real-world applications are rarely employed due to difficulties in precise integration. Recently, innovative fusion algorithms have emerged, which can diminish the impacts of noise and disturbances, broadening these devices' capabilities. There is an increasing need, which remains unmet, for inertial orientation and position applications since they are key to automation and the "Internet of Things" (IoT).
+We propose a low-cost, multipurpose inertial solution with modules for an Inertial Measurement Unit that may support maintaining high levels of orientation and location exactness even when satellite-based location is not possible. Focusing on how different sensor fusion algorithms perform in assessing a body's position in space.
+
+\subsection{Problem Statement}
+This dissertation explores three core challenges that remain with significant interest in literature.
+%satellite-based radio-navigation service is power-hungry, and there is a need for more passive solutions.
+
+\subsubsection{A. GNSS only positioning is prone to signal jamming and impacts battery autonomy}
+Modern navigation relies greatly on the Global Navigation Satellite System (GNSS) constellations (such as GPS, Galileo, GLONASS, etc.); being straightforward to operate, accurate and trustworthy, it is widely employed in navigation systems. Nevertheless, GNSS signals still encounter numerous vulnerabilities and can often be compromised by natural and human sources~\cite{ioannides2016known}. Attacks against GNSS-based localization are becoming more frequent and of intensifying damage~\cite{papadimitratos2008protection}. Satellite signals can also be affected by abnormal activity due to solar winds, creating temporary gaps in coverage~\cite{amin2016vulnerabilities}.
+Moreover, while GNSS offers seamless navigation with inexpensive receivers, they are also prone to signal jamming, where satellites are unable to detect the objects. Repeatedly, position accuracy is reduced or even lost, such as in tunnels or underground sections~\cite{pinker1999vulnerability}~\cite{omar2016integration}. Furthermore, GNSS cannot accurately determine altitude with the necessary exactness, which is essential to accurately depict a body in three-dimensional space.
+Lastly, localization technologies demand high processing capacity and communication costs. This is particularly impactful in autonomous settings, where battery autonomy is crucial, while GNSS receivers continue to drain a large amount of electric current~\cite{lo2016greener}. Consequently, power optimization is critical, and there is a necessity to become less reliant on GNSS-based localization.
+
+
+\subsubsection{B. Dead reckoning is susceptible to cumulative errors and suffers from gimbal lock} %Dead reckoning uses Euler angles, trigonometry which makes gimbal lock
+When understanding the alternatives to GNSS for estimating the position, the dead reckoning technique is often employed to resolve the location of a moving object. Using sensor data (gyroscope, accelerometer, magnetometer, etc.), it is possible to assess current position even when GNSS positioning is not possible~\cite{omar2016integration}. It has been recognized as a low-power alternative to GNSS localization that can deliver high-resolution position data~\cite{dewhirst2016improving}. It is possible to estimate the current position from an obtained distance (which may be estimated from velocity), the known starting point, and estimated drift. However, the precision of the dead-reckoning approach is continuously worsening while measurement errors accumulate during the current position estimation~\cite{kao1991integration}. The approach is also embedded sensorial fusion techniques (will be explored in Section \ref{sub:sensor_fusion} \nameref{sub:sensor_fusion}), which mathematically merge a series of navigation solutions to obtain the best estimate of the navigator's current position, velocity, attitude angles, etc~\cite{krakiwsky1988kalman}.
+
+Still, precise tracking of a moving and rotating body in three-dimensional space implies a superior degree of complexity (compared to two-dimensional tracking). It can be accomplished in a range of approaches. Most commonly, the orientation of bodies that move in three dimensions may be explained by a combination of their angle of rotation across each of their three axes (e.g., such as in trigonometry, where Euler angles can approximate yaw, roll, and pitch). Fundamentally, a specific movement could be defined by multiple rotations. In such case, to perform a rotation over a particular axis, rotational matrices, vector operations, and trigonometric functions are required~\cite{bojanczyk1991computation}. This involves numerous complex mathematical operations and several clock cycles in a microprocessor that could negatively impact computational performance~\cite{janota2015improving}.
+
+Nevertheless, the rotation axes are not always independent, and results are not necessarily distinctive or unique. This further implies that the plane of two gimbals (rotational axes) to align, which causes the recognized gimbal lock phenomenon, where two out of three gimbals are parallel or very nearly parallel, reducing the output to two degrees of freedom \cite{hemingway2018perspectives}. When gimbal lock happens, it is not possible to reorientate the axes without an external reference (a more in-depth analysis will be given at \ref{sub:orientation} \nameref{sub:orientation}).
+Alternatives using quaternions may be used, while most studies apply them in microcomputers rather than on microcontrollers. Quaternions give the capability to define any three-dimensional rotation around an axis distinctively and are not susceptible to gimbal lock \cite{alaimo2013comparison}.
+
+\subsubsection{C. Gravity acceleration greatly impacts sensor readings}
+An accelerometer is generally utilized to estimate the velocity and position of a given body devoid of the usage of GNSS. These electromechanical devices can measure proper acceleration forces, which can be employed to determine a body's velocity and position relative to a starting point. In theory, this can be done by integrating the resultant of acceleration yielding velocity; double integrating will deliver the body's accumulative position~\cite{yang2006simple}. In practice, these measurements are influenced by Earth's gravitational field and rotational components of acceleration, significantly magnifying numerical errors during the readings~\cite{nistler2011gravity}. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. Double integrating these measurements will inherently amplify errors which will accumulate exponentially, translating into a yet greater offset in velocity and position estimates~\cite{thong2004numerical}.
+
+A potential solution to minimize this difficulty is to assume the body moves on a flat surface, thus greatly diminishing the influence of the gravity component on acceleration readings. Every inaccuracy that may arise from hiring such supposition can be regarded as noise and is smoothly filtered~\cite{nistler2011gravity}. Understandably, such an assumption is not possible with a body moving through three-dimensional space since it is subject to many kinds of forces and movements.  A numerical process is required for handling accelerometer measurements that utterly removes the effect of the gravity component and further undesirable acceleration vectors.
+
+
+
+
+% Dead Reckoning
+% Euler angles
+% Estimation using Trigonometry
+% Sensor data (IMU)
+% AHRS  - Attitude Heading Reference System
+% Pitch, Roll, and Yaw
+% Complementary filters
+% Kalman filters
+% inertial measurement unit (IMU) sensing packages are revolutionizing mature industries, "turning agriculture into smart agriculture, infrastructure into Smart infrastructure, and cities into Smart cities," - https://ieeexplore.ieee.org/document/9103115
+
+
+\subsection{Research Questions}
+While research has been performed towards orientation estimation by the fusion of multiple sensors, few studies sought to assess position due to difficulties removing the measurement of normal forces that do not cause physical acceleration of the sensor. This investigation seeks to comprehend how different sensor fusion approaches perform in approximating the orientation of a moving system, along with how to overcome the positioning challenge through a technique that combines orientation estimation to filter non-physical acceleration.
+
+\begin{itemize}
+  \item \textbf{[RQ1]. Estimate} - How to perform a low-cost orientation and position estimation of a moving object devoid of GNSS?\\
+        The study will emphasize on the possibility of estimating the orientation and position of a moving object in three-dimensional space short of GNSS-based positioning by combining multiple low-cost sensors to provide an object's navigation information.
+  \item \textbf{[RQ2]. Comparing} - How distinct fusion techniques perform in orientation and position estimation? \\
+        An experimental comparison between various sensor fusion algorithms is used to evaluate how accurate each approach can approximate orientation and position.
+
+\end{itemize}
+
 \section{Background}
 
 The subsequent section presents background knowledge regarding different concepts and notions that will be adopted throughout the dissertation.
@@ -69,7 +121,7 @@ Applying the set of equations (\ref{eq:transformation}) to approximate latitude 
 
 \subsubsection{Body frame}
 
-Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two wheel axes in such a away that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
+Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two-wheel axes in such a way that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right-hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
 
 \newpage
 \subsection{Orientation}
@@ -292,7 +344,7 @@ $^bv = \begin{bmatrix}
   \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
 \end{equation}
 
-\item \textbf{Composed rotations} The composition of rotations can be described in quaternions as the product between quaternions. For example the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is defined as equation 2.11.
+\item \textbf{Composed rotations} The composition of rotations can be described in quaternions as the product between quaternions. For example, the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is defined as equation 2.11.
 
 
 \begin{equation}
@@ -302,7 +354,7 @@ $^bv = \begin{bmatrix}
 \subsection{Inertial Measurement Units}
 
 An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts, satellites, and unmanned aerial vehicles (UAVs), to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
-There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non linearity and accuracy error. The main errors that causes unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
+There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error. The main errors that cause unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
 
 \begin{figure}[!h]
   \centering
@@ -315,7 +367,7 @@ The first graph in the picture above represents the signal error classified as n
 1. Environmental noise, such as temperature fluctuations, gravity , etc.
 2. Movements, such as vibrations, shocks .
 3. Hardware noise, such as electrical and mechanical thermal noise.
-The second graph is the offset error, called bias error. This error results in a shift from the zero value and can be solved by subtracting the DC component with a high pass filter. In the last graph the drift error is presented. The drift components occurs from vibration, shock, and temperature variations. The main drift component in this study will be caused by numerical integration during the position calculation.
+The second graph is the offset error, called bias error. This error results in a shift from the zero value and can be solved by subtracting the DC component with a high pass filter. In the last graph the drift error is presented. The drift components occur from vibration, shock, and temperature variations. The main drift component in this study will be caused by numerical integration during the position calculation.
 Temperature changes may cause fluctuations in the bias of the sensor signal. By using an additional sensor to measure the ambient temperature the bias induced error can be compensated by applying corrections to the output signals. The relationship between bias error and temperature depends on the sensor device. For a gyroscope the temperature change will cause an error in orientation which grows linearly with time. For an accelerometer the temperature will cause an error in position, thus grow quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure.
 
 \subsubsection{Accelerometer}
@@ -409,7 +461,7 @@ A magnetometer is an electronic utensil that evaluates existent magnetic flux (a
 
 By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any present hard-iron disturbances.
 
-Soft-iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive. Unlike hard-iron distortion which has a continuous disturbance, a soft-iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to take into account, the major and the minor axes.
+Soft-iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive. Unlike hard-iron distortion which has a continuous disturbance, a soft-iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes.
 
 The major axis is the axis that runs along the x axes. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing r, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point.
 
@@ -519,7 +571,6 @@ A mathematical model of the complementary filter can be represented as equation 
 \end{equation}
 
 Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
-
 
 \subsubsection{Optimization Filters}
 
