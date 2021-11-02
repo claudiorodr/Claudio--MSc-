@@ -49,3 +49,10 @@ INPUT c:/texlive/2021/texmf-dist/tex/luatex/luaotfload/luaotfload-szss.lua
 INPUT c:/texlive/2021/texmf-dist/tex/luatex/luaotfload/luaotfload-auxiliary.lua
 INPUT c:/texlive/2021/texmf-dist/tex/luatex/luaotfload/luaotfload-tounicode.lua
 INPUT c:/texlive/2021/texmf-dist/tex/luatex/luaotfload/luaotfload-case.lua
+INPUT c:/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.lua
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT c:/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
