@@ -2,10 +2,9 @@
 
 This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost Inertial Navigation System aimed at position estimation in three-dimensional space. This section will first describe what actual hardware was used and how it was assembled and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
 
-
 \subsection{Hardware}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction Normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is No longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
 
 \begin{figure}[!h]
   \centering
@@ -25,22 +24,22 @@ As our projected solution involved a low-cost navigation system, the hardware se
   \label{fig:hardware}
 \end{figure}
 
-MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health, fitness, and sports, motion-based game controllers, and portable gaming. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis. These conventions will be utilized during calibration for each of the three sensors.
+MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health \cite{majumder2017wearable} \cite{al2019remote}, fitness \cite{altini2016cardiorespiratory}, and sports \cite{rum2021wearable} \cite{morris2008wearable} \cite{ermes2008detection}, motion-based game controllers \cite{heinz2006using}, and portable gaming \cite{mortazavi2013near} \cite{cao2019wearable}. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer \cite{mpu9250}. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction \cite{mpu6050}. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis \cite{ak8963c}. These conventions will be utilized during calibration for each of the three sensors.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/mpu_orientation.pdf}
-  \caption{ Coordinate system of an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and AK8963 3-axis magnetometer. }
+  \caption{ Coordinate system of an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and AK8963 3-axis magnetometer. \cite{mpu6050} \cite{ak8963c} }
   \label{fig:mpu_orientation}
 \end{figure}
 
 \subsubsection{Accelerometer}
 
-The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features:
+The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features \cite{mpu9250specification}:
 
 \begin{itemize}
   \item Digital-output triple-axis accelerometer with a programmable full-scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
-  \item Accelerometer normal operating current: $450 \mu A$
+  \item Accelerometer Normal operating current: $450 \mu A$
   \item The text in the entries may be of any length
   \item Low power accelerometer mode current: $8.4 \mu A$ at $0.98Hz$, $19.8 \mu A$ at 31.$25Hz$
   \item Sleep mode current: $8 \mu A$
@@ -56,7 +55,7 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 
 \subsubsection{Gyroscope}
 
-The triple-axis MEMS gyroscope in the MPU-9250 includes a wide range of features:
+The triple-axis MEMS gyroscope in the MPU-9250 includes a wide range of features \cite{mpu9250specification}:
 
 \begin{itemize}
   \item Digital-output X-Axis, Y-Axis, and Z-Axis angular rate sensors (gyroscopes) with a user-programmable fullscale range of $\pm 250$, $\pm 500$, $\pm 1000$, and $\pm 2000^{\circ}/s$ and integrated 16-bit ADCs
@@ -74,13 +73,13 @@ The triple-axis MEMS gyroscope in the MPU-9250 includes a wide range of features
 
 \subsubsection{Magnetometer}
 
-The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features:
+The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features \cite{mpu9250specification}:
 \begin{itemize}
-  \item 3-axis silicon monolithic Hall-effect magnetic sensor with magnetic concentrator
+  \item 3-axis silicon moNolithic Hall-effect magnetic sensor with magnetic concentrator
   \item Wide dynamic measurement range and high resolution with lower current consumption.
   \item Output data resolution of 14 bit ($0.6 \mu T/LSB$) or 16 bits ($15 \mu T/LSB$)
   \item Full scale measurement range is $\pm 4800 \mu T$
-  \item Magnetometer normal operating current: $280\mu A$ at $8 Hz$ repetition rate
+  \item Magnetometer Normal operating current: $280\mu A$ at $8 Hz$ repetition rate
   \item Self-test function with internal magnetic source to confirm magnetic sensor operation on end products
 \end{itemize}
 
@@ -90,7 +89,19 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 \end{figure}
 
 \subsection{Software}
-The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library. It is optimized to run on microcontrollers and in constrained environments. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit (I2C) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time.
+
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchroNously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL provides the serial clock and the SDA provides the serial data. The address of the MPU9250 is set by pin AD0, this address is 0x68 when the pin is connected
+to ground, which is done in this project. The address of the AK8963 is by default 0x0C. Before the communication starts the SCL and SDA are both high, caused by pull-up resistors. These pull-up resistors are placed to make certain both pins become high when Not being defined by the LoPy, this will prevent communication problems when the LoPy is waiting for incoming data.
+When the communication between the LoPy (master) and the MPU9250 (slave) starts the start condition is created. This is done by making SDA low, see figure \ref{fig:i2c}. Then the serial clock (SCL) begins to generate clock pulses and the first byte is send by the master. This first byte contains the 7-bit address of the slave and a read/write bite. When the read/write bit is 0 the master will write to the slave and when the bit is 1 the master will read from the slave. The bits are send when the serial clock is high. When the serial clock is low the bit value are allowed to change. The number of bytes  ent is Not limited but each byte must be followed by an acknowledge bit, see figure \ref{fig:i2c}. When the master is done writing/reading then the stop condition is created, see figure \ref{fig:i2c}.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/i2c.png}
+  \caption{ $I^2C$ protocol. }
+  \label{fig:i2c}
+\end{figure}
+
+The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time \cite{ahrs}.
 
 \begin{table}
   \begin{center}
@@ -98,23 +109,23 @@ The microcontroller operates MicroPython, a barebones and efficient implementati
       \hline
       Algorithm     & Accelerometer & Gyroscope & Magnetometer \\
       \hline
-      AQUA          & YES           & YES       & Optional     \\
-      Complementary & YES           & YES       & Optional     \\
-      Davenport's   & YES           & NO        & YES          \\
-      EKF           & YES           & YES       & YES          \\
-      FAMC          & YES           & NO        & YES          \\
-      FLAE          & YES           & NO        & YES          \\
-      Fourati       & YES           & YES       & YES          \\
-      FQA           & YES           & NO        & Optional     \\
-      Integration   & YES           & YES       & NO           \\
-      Madgwick      & YES           & YES       & Optional     \\
-      Mahony        & YES           & YES       & Optional     \\
-      OLEQ          & YES           & NO        & YES          \\
-      QUEST         & YES           & NO        & YES          \\
-      ROLEQ         & YES           & NO        & YES          \\
-      SAAM          & YES           & NO        & YES          \\
-      Tilt          & YES           & NO        & Optional     \\
-      TRIAD         & YES           & NO        & YES          \\
+      AQUA          & Yes           & Yes       & Optional     \\
+      Complementary & Yes           & Yes       & Optional     \\
+      Davenport's   & Yes           & No        & Yes          \\
+      EKF           & Yes           & Yes       & Yes          \\
+      FAMC          & Yes           & No        & Yes          \\
+      FLAE          & Yes           & No        & Yes          \\
+      Fourati       & Yes           & Yes       & Yes          \\
+      FQA           & Yes           & No        & Optional     \\
+      Integration   & Yes           & Yes       & No           \\
+      Madgwick      & Yes           & Yes       & Optional     \\
+      Mahony        & Yes           & Yes       & Optional     \\
+      OLEQ          & Yes           & No        & Yes          \\
+      QUEST         & Yes           & No        & Yes          \\
+      ROLEQ         & Yes           & No        & Yes          \\
+      SAAM          & Yes           & No        & Yes          \\
+      Tilt          & Yes           & No        & Optional     \\
+      TRIAD         & Yes           & No        & Yes          \\
       \hline
     \end{tabular}
     \caption{Available sensor fusion algorithms in AHRS library. }
@@ -128,7 +139,7 @@ A correct calibration of such sensors is essential for the compensation of their
 
 \subsubsection{Accelerometer Calibration}
 
-Calibration of the accelerometer requires taking advantage of the acceleration due to gravity, which we can use in the positive and negative orientation of the IMU. Additionally, we can also position the IMU perpendicular to gravity in order to acquire a third calibration point. This results in three unique values that can be combined to formulate a linear fit between the three values and the values outputted by each axis of the accelerometer.
+Calibration of the accelerometer requires taking advantage of the acceleration due to gravity, which we can use in the positive and negative orientation of the IMU \cite{won2009triaxial}. Additionally, we can also position the IMU perpendicular to gravity in order to acquire a third calibration point. This results in three unique values that can be combined to formulate a linear fit between the three values and the values outputted by each axis of the accelerometer.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -162,7 +173,7 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
 
 \subsubsection{Gyroscope Calibration}
 
-The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is not moving. The offsets can be measured by first taking some readings while the IMU is not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
+The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is Not moving. The offsets can be measured by first taking some readings while the IMU is Not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU \cite{olivares2009high}. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
 
 \lstset{language=Python}
 
@@ -197,7 +208,7 @@ The simplest calibration of an IMU consists of calculating the offset for each a
 
 \subsubsection{Magnetometer Calibration}
 
-To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
+To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength \cite{kok2016magnetometer}. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do Not form a perfect sphere, Nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If No magnetic aNomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
 \begin{figure}[!h]
   \centering
@@ -217,7 +228,7 @@ To calibrate the magnetometer, a series of measurements of the nearby magnetic f
   \caption{Raw magnetometer measurements.}
 \end{figure}
 
-Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
+Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are kNown, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -235,7 +246,7 @@ Hard iron biases are commonly the largest and the simplest errors to rectify. Wi
     return self._offset
 \end{lstlisting}
 
-It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
+It is possible Now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to Normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is kNown as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -289,7 +300,7 @@ The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fi
 % \begin{figure}[!h]
 %     \centering
 %     \includegraphics[width=0.9\textwidth]{figures/overview.pdf}
-%     \caption{System overview - Raw measurements from IMU are fused together and numerically integrated to obtain position and orientation. This INS data is transmitted in real-time to a remote node gateway. }
+%     \caption{System overview - Raw measurements from IMU are fused together and numerically integrated to obtain position and orientation. This INS data is transmitted in real-time to a remote Node gateway. }
 %     \label{fig:overview}
 % \end{figure}
 
@@ -300,7 +311,7 @@ Several experimental tests were conducted to assess the position performance of 
 
 \subsection{Indoor Experiments}
 
-Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
+Indoor experiments were executed at Madeira TecNopolo building, floor -1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
 
 \begin{figure}[!h]
   \centering
@@ -345,7 +356,7 @@ Outdoor experiments were conducted at praça do povo's square (figure \ref{fig:o
   \label{fig:outdoor_field}
 \end{figure}
 
-Here, the sports platform consisted of one 28mx28m square, composed of 4 meter squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
+Here, the sports platform consisted of one 28mx28m square, composed of 4 meter squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this kNowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
 
 \begin{figure}[!h]
   \centering

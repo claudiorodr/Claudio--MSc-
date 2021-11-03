@@ -1,4 +1,10 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
+
+\bibitem{al2019remote}
+Mohammed Al-Khafajiy, Thar Baker, Carl Chalmers, Muhammad Asim, Hoshang
+  Kolivand, Muhammad Fahim, and Atif Waraich.
+\newblock Remote health monitoring of elderly through wearable sensors.
+\newblock {\em Multimedia Tools and Applications}, 78(17):24681--24706, 2019.
 
 \bibitem{alaimo2013comparison}
 Andrea Alaimo, V~Artale, C~Milazzo, and Angela Ricciardello.
@@ -13,6 +19,12 @@ Brandon Allen, Robert Derveloy, Nancy Fell, Wade Gasior, George Yu, and Mina
 \newblock Telemedicine assessment of fall risk using wireless sensors.
 \newblock In {\em 2013 IEEE International Conference on Sensing, Communications
   and Networking (SECON)}, pages 245--247. IEEE, 2013.
+
+\bibitem{altini2016cardiorespiratory}
+Marco Altini, Pierluigi Casale, Julien Penders, and Oliver Amft.
+\newblock Cardiorespiratory fitness estimation in free-living using wearable
+  sensors.
+\newblock {\em Artificial intelligence in medicine}, 68:37--46, 2016.
 
 \bibitem{amin2016vulnerabilities}
 Moeness~G Amin, Pau Closas, Ali Broumandan, and John~L Volakis.
@@ -30,6 +42,13 @@ Riccardo Antonello and Roberto Oboe.
 \newblock Exploring the potential of mems gyroscopes: Successfully using
   sensors in typical industrial motion control applications.
 \newblock {\em IEEE Industrial Electronics Magazine}, 6(1):14--24, 2012.
+
+\bibitem{bachmann2004investigation}
+Eric~R Bachmann, Xiaoping Yun, and Christopher~W Peterson.
+\newblock An investigation of the effects of magnetic variations on
+  inertial/magnetic orientation sensors.
+\newblock In {\em IEEE International Conference on Robotics and Automation,
+  2004. Proceedings. ICRA'04. 2004}, volume~2, pages 1115--1122. IEEE, 2004.
 
 \bibitem{bar1985attitude}
 IY~Bar-Itzhack and Yaakov Oshman.
@@ -50,6 +69,20 @@ Adam~W Bojanczyk and Adam Lutoborski.
 \newblock {\em SIAM Journal on Matrix Analysis and Applications}, 12(1):41--48,
   1991.
 
+\bibitem{borenstein2009heuristic}
+Johann Borenstein and Lauro Ojeda.
+\newblock Heuristic reduction of gyro drift in gyro-based vehicle tracking.
+\newblock In {\em Sensors, and Command, Control, Communications, and
+  Intelligence (C3I) Technologies for Homeland Security and Homeland Defense
+  VIII}, volume 7305, page 730507. International Society for Optics and
+  Photonics, 2009.
+
+\bibitem{bostrom2007definition}
+Henrik Bostr{\"o}m, Sten~F Andler, Marcus Brohede, Ronnie Johansson, Alexander
+  Karlsson, Joeri Van~Laere, Lars Niklasson, Marie Nilsson, Anne Persson, and
+  Tom Ziemke.
+\newblock On the definition of information fusion as a field of research, 2007.
+
 \bibitem{boucher2001itrs}
 Claude Boucher and Zuheir Altamimi.
 \newblock Itrs, pz-90 and wgs 84: current realizations and the related
@@ -60,6 +93,11 @@ Claude Boucher and Zuheir Altamimi.
 Guowei Cai, Ben~M Chen, and Tong~Heng Lee.
 \newblock Coordinate systems and transformations.
 \newblock In {\em Unmanned rotorcraft systems}, pages 23--34. Springer, 2011.
+
+\bibitem{cao2019wearable}
+Mingliang Cao, Tianhua Xie, and Zebin Chen.
+\newblock Wearable sensors and equipment in vr games: a review.
+\newblock {\em Transactions on Edutainment XV}, pages 3--12, 2019.
 
 \bibitem{caruso1998new}
 Michael~J Caruso, Tamara Bratland, Carl~H Smith, and Robert Schneider.
@@ -77,6 +115,14 @@ James~L Coyte, David Stirling, Montserrat Ros, Haiping Du, and Andrew Gray.
   sensors with applications to sporting and rehabilitation exercises.
 \newblock In {\em 2013 IEEE/ASME International Conference on Advanced
   Intelligent Mechatronics}, pages 1290--1295. IEEE, 2013.
+
+\bibitem{daponte2017method}
+Pasquale Daponte, Luca De~Vito, Gianluca Mazzilli, Francesco Picariello, and
+  Sergio Rapuano.
+\newblock Method for compensating the effect of disturbances on magnetometer
+  measurements: experimental results.
+\newblock In {\em 2017 IEEE International Instrumentation and Measurement
+  Technology Conference (I2MTC)}, pages 1--6. IEEE, 2017.
 
 \bibitem{dewhirst2016improving}
 Oliver~P Dewhirst, Hannah~K Evans, Kyle Roskilly, Richard~J Harvey, Tatjana~Y
@@ -110,6 +156,13 @@ Wilfried Elmenreich.
 \newblock An introduction to sensor fusion.
 \newblock {\em Vienna University of Technology, Austria}, 502:1--28, 2002.
 
+\bibitem{ermes2008detection}
+Miikka Ermes, Juha P{\"a}rkk{\"a}, Jani M{\"a}ntyj{\"a}rvi, and Ilkka Korhonen.
+\newblock Detection of daily activities and sports with wearable sensors in
+  controlled and uncontrolled conditions.
+\newblock {\em IEEE transactions on information technology in biomedicine},
+  12(1):20--26, 2008.
+
 \bibitem{euston2008complementary}
 Mark Euston, Paul Coote, Robert Mahony, Jonghyuk Kim, and Tarek Hamel.
 \newblock A complementary filter for attitude estimation of a fixed-wing uav.
@@ -133,6 +186,13 @@ Gilbert~R Grado.
 \newblock A solution to the euler angle transformation equations.
 \newblock {\em IRE Transactions on Electronic Computers}, (3):362--369, 1960.
 
+\bibitem{guo2008soft}
+Pengfei Guo, Haitao Qiu, Yunchun Yang, and Zhang Ren.
+\newblock The soft iron and hard iron calibration method using extended kalman
+  filter for attitude and heading reference system.
+\newblock In {\em 2008 IEEE/ION Position, Location and Navigation Symposium},
+  pages 1167--1174. IEEE, 2008.
+
 \bibitem{haberberger2016imu}
 Samuel~J Haberberger.
 \newblock {\em An IMU-based spacecraft navigation architecture using a robust
@@ -151,6 +211,13 @@ Timo Hanke, Nils Hirsenkorn, Bernhard Dehlink, Andreas Rauch, Ralph Rasshofer,
   environmental perception in automated driving systems.
 \newblock In {\em 2016 IEEE 19th International Conference on Intelligent
   Transportation Systems (ITSC)}, pages 643--648. IEEE, 2016.
+
+\bibitem{heinz2006using}
+Ernst~A Heinz, Kai~S Kunze, Matthias Gruber, David Bannach, and Paul Lukowicz.
+\newblock Using wearable sensors for real-time recognition tasks in games of
+  martial arts-an initial experiment.
+\newblock In {\em 2006 IEEE Symposium on Computational Intelligence and Games},
+  pages 98--102. IEEE, 2006.
 
 \bibitem{hemingway2018perspectives}
 Evan~G Hemingway and Oliver~M O'Reilly.
@@ -171,6 +238,12 @@ Walter~T Higgins.
 \newblock A comparison of complementary and kalman filtering.
 \newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
   (3):321--325, 1975.
+
+\bibitem{hol2011sensor}
+Jeroen~D Hol.
+\newblock {\em Sensor fusion and calibration of inertial sensors, vision,
+  ultra-wideband and GPS}.
+\newblock PhD thesis, Link{\"o}ping University Electronic Press, 2011.
 
 \bibitem{huynh2009metrics}
 Du~Q Huynh.
@@ -208,11 +281,24 @@ Wei-Wen Kao.
 \newblock In {\em Vehicle Navigation and Information Systems Conference, 1991},
   volume~2, pages 635--643. IEEE, 1991.
 
+\bibitem{khamphroo2017micropython}
+Matenat Khamphroo, Natavut Kwankeo, Kamol Kaemarungsi, and Kazuhiko Fukawa.
+\newblock Micropython-based educational mobile robot for computer coding
+  learning.
+\newblock In {\em 2017 8th International Conference of Information and
+  Communication Technology for Embedded Systems (IC-ICTES)}, pages 1--6. IEEE,
+  2017.
+
 \bibitem{kim2004step}
 Jeong~Won Kim, Han~Jin Jang, Dong-Hwan Hwang, and Chansik Park.
 \newblock A step, stride and heading determination for the pedestrian
   navigation system.
 \newblock {\em Journal of Global Positioning Systems}, 3(1-2):273--279, 2004.
+
+\bibitem{kok2016magnetometer}
+Manon Kok and Thomas~B Sch{\"o}n.
+\newblock Magnetometer calibration using inertial sensors.
+\newblock {\em IEEE Sensors Journal}, 16(14):5679--5689, 2016.
 
 \bibitem{krakiwsky1988kalman}
 Edward~J Krakiwsky, Clyde~B Harris, and Richard~VC Wong.
@@ -288,6 +374,11 @@ Sebastian~OH Madgwick, Samuel Wilson, Ruth Turk, Jane Burridge, Christos
   estimation.
 \newblock {\em IEEE/ASME Transactions on Mechatronics}, 25(4):2054--2064, 2020.
 
+\bibitem{majumder2017wearable}
+Sumit Majumder, Tapas Mondal, and M~Jamal Deen.
+\newblock Wearable sensors for remote health monitoring.
+\newblock {\em Sensors}, 17(1):130, 2017.
+
 \bibitem{marotto2013orientation}
 Valentina Marotto, Alberto Serra, D~Carbouni, Mariella Sole, Tiziana Dessi, and
   Andrea Manchinu.
@@ -306,6 +397,20 @@ KENNETH~G MCCONNELL.
 AH~Mohamed and KP~Schwarz.
 \newblock Adaptive kalman filtering for ins/gps.
 \newblock {\em Journal of geodesy}, 73(4):193--203, 1999.
+
+\bibitem{morris2008wearable}
+Deirdre Morris, Benjamin Schazmann, Yangzhe Wu, Shirley Coyle, Sarah Brady, Jer
+  Hayes, Conor Slater, Cormac Fay, King~Tong Lau, Gordon Wallace, et~al.
+\newblock Wearable sensors for monitoring sports performance and training.
+\newblock In {\em 2008 5th International Summer School and Symposium on Medical
+  Devices and Biosensors}, pages 121--124. IEEE, 2008.
+
+\bibitem{mortazavi2013near}
+Bobak Mortazavi, Suneil Nyamathi, Sunghoon~Ivan Lee, Thomas Wilkerson, Hassan
+  Ghasemzadeh, and Majid Sarrafzadeh.
+\newblock Near-realistic mobile exergames with wireless wearable sensors.
+\newblock {\em IEEE Journal of Biomedical and Health Informatics},
+  18(2):449--456, 2013.
 
 \bibitem{mosallaei2007process}
 Mohsen Mosallaei, Karim Salahshoor, and Mohammad~Reza Bayat.
@@ -346,12 +451,64 @@ Megan O'Grady, Tom O'Dwyer, James Connolly, Joan Condell, Karla~Mu{\~n}oz
   A reliability study in axial spondyloarthritis.
 \newblock {\em Diagnostics}, 11(3):490, 2021.
 
+\bibitem{olivares2009high}
+Alberto Olivares, Gonzalo Olivares, JM~Gorriz, and J~Ramirez.
+\newblock High-efficiency low-cost accelerometer-aided gyroscope calibration.
+\newblock In {\em 2009 International Conference on Test and Measurement},
+  volume~1, pages 354--360. IEEE, 2009.
+
 \bibitem{omar2016integration}
 Halima~Mansour Omar, Zhang Yanzhong, Zhang Bo, and Haris~Ubaid Gul.
 \newblock Integration of gps and dead reckoning navigation system using moving
   horizon estimation.
 \newblock In {\em 2016 IEEE Information Technology, Networking, Electronic and
   Automation Control Conference}, pages 553--556. IEEE, 2016.
+
+\bibitem{lopy}
+Online.
+\newblock Ahrs: Attitude and heading reference systems.
+\newblock \url{https://docs.pycom.io/datasheets/development/lopy/}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{ahrs}
+Online.
+\newblock Ahrs: Attitude and heading reference systems.
+\newblock \url{https://ahrs.readthedocs.io/en/latest/}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{ak8963c}
+Online.
+\newblock Ak8963 3-axis electronic compass.
+\newblock
+  \url{https://download.mikroe.com/documents/datasheets/ak8963c-datasheet.pdf}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{micropython}
+Online.
+\newblock Micropython documentation.
+\newblock \url{http://docs.micropython.org/en/latest/}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{mpu6050}
+Online.
+\newblock Mpu-6050 six-axis (gyro + accelerometer) mems motiontracking devices.
+\newblock
+  \url{https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{mpu9250specification}
+Online.
+\newblock Mpu-9250 product specification.
+\newblock
+  \url{https://cdn.sparkfun.com/assets/learn_tutorials/5/5/0/MPU9250REV1.0.pdf}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{mpu9250}
+Online.
+\newblock Mpu-9250 six-axis (gyro + accelerometer) mems motiontracking devices.
+\newblock
+  \url{https://invensense.tdk.com/products/motion-tracking/9-axis/mpu-9250/}.
+\newblock Accessed: 2021-04-29.
 
 \bibitem{papadimitratos2008protection}
 Panagiotis Papadimitratos and Aleksandar Jovanovic.
@@ -388,10 +545,25 @@ Honghui Qi and John~B Moore.
 \newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
   38(2):687--693, 2002.
 
+\bibitem{roetenberg2005compensation}
+Daniel Roetenberg, Henk~J Luinge, Chris~TM Baten, and Peter~H Veltink.
+\newblock Compensation of magnetic disturbances improves inertial and magnetic
+  sensing of human body segment orientation.
+\newblock {\em IEEE Transactions on neural systems and rehabilitation
+  engineering}, 13(3):395--405, 2005.
+
 \bibitem{roylance1979batch}
 Lynn~Michelle Roylance and James~B Angell.
 \newblock A batch-fabricated silicon accelerometer.
 \newblock {\em IEEE Transactions on Electron Devices}, 26(12):1911--1917, 1979.
+
+\bibitem{rum2021wearable}
+Lorenzo Rum, Oscar Sten, Eleonora Vendrame, Valeria Belluscio, Valentina
+  Camomilla, Giuseppe Vannozzi, Luigi Truppa, Marco Notarantonio, Tommaso
+  Sciarra, Aldo Lazich, et~al.
+\newblock Wearable sensors in sports for persons with disability: a systematic
+  review.
+\newblock {\em Sensors}, 21(5):1858, 2021.
 
 \bibitem{sahawneh2008development}
 L~Sahawneh and MA~Jarrah.
@@ -441,6 +613,12 @@ YK~Thong, MS~Woolfson, JA~Crowe, BR~Hayes-Gill, and DA~Jones.
 \newblock Numerical double integration of acceleration measurements in noise.
 \newblock {\em Measurement}, 36(1):73--92, 2004.
 
+\bibitem{tollervey2017programming}
+Nicholas~H Tollervey.
+\newblock {\em Programming with MicroPython: embedded programming with
+  microcontrollers and Python}.
+\newblock " O'Reilly Media, Inc.", 2017.
+
 \bibitem{trusov2011overview}
 Alexander~A Trusov.
 \newblock Overview of mems gyroscopes: history, principles of operations, types
@@ -452,6 +630,13 @@ Roberto~G Valenti, Ivan Dryanovski, and Jizhong Xiao.
 \newblock Keeping a good attitude: A quaternion-based orientation filter for
   imus and margs.
 \newblock {\em Sensors}, 15(8):19302--19330, 2015.
+
+\bibitem{wahdan2014magnetometer}
+Ahmed Wahdan, Jacques Georgy, Walid~F Abdelfatah, and Aboelmagd Noureldin.
+\newblock Magnetometer calibration for portable navigation devices in vehicles
+  using a fast and autonomous technique.
+\newblock {\em IEEE Transactions on Intelligent Transportation Systems},
+  15(5):2347--2352, 2014.
 
 \bibitem{weinberg2002using}
 Harvey Weinberg.
@@ -468,6 +653,13 @@ Samuel Wilson, Henry Eberle, Yoshikatsu Hayashi, Sebastian~OH Madgwick, Alison
 \newblock Formulation of a new gradient descent marg orientation algorithm:
   Case study on robot teleoperation.
 \newblock {\em Mechanical Systems and Signal Processing}, 130:183--200, 2019.
+
+\bibitem{won2009triaxial}
+Seong-hoon~Peter Won and Farid Golnaraghi.
+\newblock A triaxial accelerometer calibration method using a mathematical
+  model.
+\newblock {\em IEEE transactions on instrumentation and measurement},
+  59(8):2144--2153, 2009.
 
 \bibitem{wong1988high}
 RVC Wong, KP~Schwarz, and ME~Cannon.
