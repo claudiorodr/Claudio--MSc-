@@ -1,17 +1,10 @@
 \babel@toc {english}{}\relax 
 \babel@toc {portuguese}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces WGS 84 needed parameters to convert ECEF coordinates into ENU. \relax }}{12}{table.caption.9}%
+\contentsline {table}{\numberline {1}{\ignorespaces WGS 84 needed parameters to convert ECEF coordinates into ENU. \cite {soler1988coordinate}\relax }}{12}{table.caption.9}%
 \contentsline {table}{\numberline {2}{\ignorespaces Quaternion multiplication of basis elements. \relax }}{20}{table.caption.15}%
 \contentsline {table}{\numberline {3}{\ignorespaces Accelerometer Specifications. \relax }}{41}{table.caption.27}%
 \contentsline {table}{\numberline {4}{\ignorespaces Gyroscope Specifications. \relax }}{42}{table.caption.29}%
 \contentsline {table}{\numberline {5}{\ignorespaces Magnetometer specification. \relax }}{43}{table.caption.31}%
 \contentsline {table}{\numberline {6}{\ignorespaces Available sensor fusion algorithms in AHRS library. \relax }}{44}{table.caption.32}%
 \contentsline {table}{\numberline {7}{\ignorespaces Accelerometer Specifications. \relax }}{74}{table.caption.61}%
-\contentsline {table}{\numberline {8}{\ignorespaces Accelerometer Specifications. \relax }}{76}{table.caption.64}%
-\contentsline {table}{\numberline {9}{\ignorespaces Accelerometer Specifications. \relax }}{77}{table.caption.67}%
-\contentsline {table}{\numberline {10}{\ignorespaces Accelerometer Specifications. \relax }}{78}{table.caption.70}%
-\contentsline {table}{\numberline {11}{\ignorespaces Accelerometer Specifications. \relax }}{79}{table.caption.73}%
-\contentsline {table}{\numberline {12}{\ignorespaces Accelerometer Specifications. \relax }}{80}{table.caption.76}%
-\contentsline {table}{\numberline {13}{\ignorespaces Accelerometer Specifications. \relax }}{81}{table.caption.79}%
-\contentsline {table}{\numberline {14}{\ignorespaces Accelerometer Specifications. \relax }}{83}{table.caption.82}%

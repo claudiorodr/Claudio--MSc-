@@ -61,16 +61,16 @@ This section will focus on defining and distinguishing the different concepts of
 
 \subsubsection{ECEF and ENU frame}
 
-ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}).
+ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter \cite{cai2011coordinate}. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}) \cite{laundal2017magnetic}.
 
 \begin{equation}
   \int \overrightarrow{x}\rho~dx^3 = 0
   \label{eq:ecef}
 \end{equation}
 
-The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction.  The right-hand rule explains its orientation.
+The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction. The right-hand rule explains its orientation.
 
-The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system.  In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
+The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system. In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
 
 \begin{figure}[H]
   \centering
@@ -79,7 +79,7 @@ The East North Up (ENU) system is a geographic coordinate structure where the or
   \label{fig:ECEF}
 \end{figure}
 
-Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude of the reference point (Xr, Yr, Zr). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS}.
+Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude of the reference point (Xr, Yr, Zr). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS} \cite{soler1988coordinate}.
 
 \begin{figure}[H]
   \centering
@@ -87,7 +87,7 @@ Considering a point of reference in the ECEF frame, it is required to discover t
 \end{figure}
 
 
-Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities.
+Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities \cite{boucher2001itrs}.
 
 \begin{equation}
   \begin{gathered}
@@ -131,7 +131,7 @@ The attitude orientation of a body in space a critical aspect in position estima
 
 \subsubsection{Rotation Matrix}
 
-The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
+The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation \cite{huynh2009metrics}. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
 
 \begin{equation}
   R = X(\alpha)Y(\beta)Z(\gamma)
@@ -164,15 +164,14 @@ Rotation matrices belong to the orthonormal group and one important property is 
 \subsubsection{Direct Cosine Matrix}
 
 The direct cosine matrix (DCM) is similar to the rotational matrix, however it is a 3x3
-matrix that contains the cosines of the 9 possible pairs of axes of two different Cartesian coordinate systems. The DCM is typically used to translate from the body frame into the earth frame. A great introduction to the Direct Cosine Matrix theory is written by Premerlani, W. and Bizard, P. [32], providing information on how to use the DCM method
-integrated with IMUs. The DCM approach has gained much popularity for its advantage of
-linear measurement equations in Kalman filters[33, 34, 35, 36]. An analysis of various error sources using low-cost IMUs and optimizing fusion algorithms using the DCM method is
-presented in [37].
+matrix that contains the cosines of the 9 possible pairs of axes of two different Cartesian coordinate systems. The DCM is typically used to translate from the body frame into the earth frame. The DCM approach has gained much popularity for its advantage of
+linear measurement equations in Kalman filters. \cite{premerlani2009direction}
 
 
 \subsubsection{Euler angles}
 
-Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements. Merely three differential equations require solving prior to the attitude gets distinctly approximated.
+Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame \cite{diebel2006representing}. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis \cite{grado1960solution}. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements. Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}.
+
 % \begin{figure}[!h]
 %     \centering
 %     \resizebox{0.70\linewidth}{!}{\input{figures/euler}}
@@ -219,7 +218,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
   \label{eq:euler_equations}
 \end{equation}
 
-Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}).
+Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space \cite{spring1986euler}. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together \cite{mcconnell1967kinematics}. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}) \cite{hemingway2018perspectives}.
 Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance. In this dissertation, a different kind of orientation representation will be used quaternions.
 
 \begin{figure}[!h]
@@ -231,7 +230,7 @@ Euler angles commonly involve a large number of complex mathematical operations,
 
 \subsubsection{Quaternions}
 
-Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}). A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors. Equation (2.1) shows this relation with the complex number x having a real part a and imaginary part b; and the quaternion q containing a real scalar part s and an imaginary vector component ~v.
+Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}) \cite{lee2008representing}. A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors. Equation (2.1) shows this relation with the complex number x having a real part a and imaginary part b; and the quaternion q containing a real scalar part s and an imaginary vector component ~v \cite{mukundan2002quaternions}.
 
 \begin{figure}[!h]
   \centering
@@ -252,13 +251,13 @@ Another commonly used attitude representation is the quaternion. To comprehend q
   \label{eq:quaternion_vector}
 \end{equation}
 
-Specifically, when used for attitude description the quaternions should have a norm equal to 1:
+Specifically, when used for attitude description the quaternions should have a norm equal to 1 \cite{valenti2015keeping}:
 
 \begin{equation}
   \left\lVert q\right\rVert =\sqrt{q^2_0 + q^2_1 + q^2_2 + q^2_3} =1
 \end{equation}
 
-Normalizing a quaternion is identical to normalizing a vector. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is known as unit quaternion (also mentioned as versor of $q$) and denoted with a circumflex accent ($\hat{q}$):
+Normalizing a quaternion is identical to normalizing a vector \cite{bar1985attitude}. The quaternion $q$ is divided by the norm of the quaternion $\left\lVert q \right\rVert$. When a quaternion is normalized, it is known as unit quaternion (also mentioned as versor of $q$) and denoted with a circumflex accent ($\hat{q}$):
 
 \begin{equation}
   \hat{q} = \frac{q}{\left\lVert q \right\rVert }
@@ -353,8 +352,8 @@ $^bv = \begin{bmatrix}
 
 \subsection{Inertial Measurement Units}
 
-An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts, satellites, and unmanned aerial vehicles (UAVs), to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
-There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error. The main errors that cause unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
+An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts \cite{li2011calibration} \cite{haberberger2016imu} \cite{faragher2012understanding}, satellites \cite{lu2020orbit}, and unmanned aerial vehicles (UAVs) \cite{sahawneh2008development} \cite{eling2015real}, to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended} \cite{allen2013telemedicine} \cite{giansanti2009toward} \cite{o2021measuring}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference.
+There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error \cite{hanke2016classification}. The main errors that cause unreliable readings are high frequent noise, offset error and drift error. Thus, these three will be considered and reduced using suitable filters.
 
 \begin{figure}[!h]
   \centering
@@ -363,23 +362,24 @@ There are several different types of sensor errors. These can be noise, offset, 
   \label{fig:noise}
 \end{figure}
 
-The first graph in the picture above represents the signal error classified as noise. The noise is high frequent and can be eliminated by using a low pass filter. The noise sources in the sensor can be categorized into three types.
+The first graph in the picture above represents the signal error classified as noise. The noise is high frequent and can be eliminated by using a low pass filter \cite{kaiser1977data}. The noise sources in the sensor can be categorized into three types.
 1. Environmental noise, such as temperature fluctuations, gravity , etc.
 2. Movements, such as vibrations, shocks .
 3. Hardware noise, such as electrical and mechanical thermal noise.
+
 The second graph is the offset error, called bias error. This error results in a shift from the zero value and can be solved by subtracting the DC component with a high pass filter. In the last graph the drift error is presented. The drift components occur from vibration, shock, and temperature variations. The main drift component in this study will be caused by numerical integration during the position calculation.
 Temperature changes may cause fluctuations in the bias of the sensor signal. By using an additional sensor to measure the ambient temperature the bias induced error can be compensated by applying corrections to the output signals. The relationship between bias error and temperature depends on the sensor device. For a gyroscope the temperature change will cause an error in orientation which grows linearly with time. For an accelerometer the temperature will cause an error in position, thus grow quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure.
 
 \subsubsection{Accelerometer}
 
-An accelerometer is a device capable of measuring proper acceleration. Proper acceleration is the physical acceleration experienced by an object. It is thus acceleration relative to an inertial observer who is momentarily at rest relative to the object being measured. As an example, if an accelerometer would be placed at rest on the surface of the Earth, it will measure an upwards acceleration due to Earth's gravity of g $\simeq$ 9.81 $m/s^2$. This is due to the Earth's surface exerting a normal force upwards relative to the local inertial frame. On the other hand, a free-falling accelerometer (moving in the center of the Earth's direction at around 9.81 $m/s^2$) would quantify no acceleration. Acceleration is quantified in the SI unit meters per second ($m/s^2$), or standard gravity, denoted by $g_n$, being the nominal gravitational acceleration of an object in a vacuum near the surface of the Earth. It is defined by standard as 9.80665 $m/s^2$.
+An accelerometer is a device capable of measuring proper acceleration. Proper acceleration is the physical acceleration experienced by an object. It is thus acceleration relative to an inertial observer who is momentarily at rest relative to the object being measured \cite{pons2019observers}. As an example, if an accelerometer would be placed at rest on the surface of the Earth, it will measure an upwards acceleration due to Earth's gravity of g $\simeq$ 9.81 $m/s^2$. This is due to the Earth's surface exerting a normal force upwards relative to the local inertial frame. On the other hand, a free-falling accelerometer (moving in the center of the Earth's direction at around 9.81 $m/s^2$) would quantify no acceleration. Acceleration is quantified in the SI unit meters per second ($m/s^2$), or standard gravity, denoted by $g_n$, being the nominal gravitational acceleration of an object in a vacuum near the surface of the Earth. It is defined by standard as 9.80665 $m/s^2$.
 
-The working principle of an accelerometer can be expounded by a single mass ($m$) fixed to a stiffness spring ($k$) that in turn is fastened to outer frame, as illustrated in figure \ref{fig:accelerometer_schematic}.
+The working principle of an accelerometer can be expounded by a single mass ($m$) fixed to a stiffness spring ($k$) that in turn is fastened to outer frame, as illustrated in figure \ref{fig:accelerometer_schematic} \cite{roylance1979batch}.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/accelerometer.pdf}
-  \caption{Schematic demonstrating the working principle of an accelerometer. }
+  \caption{Schematic demonstrating the working principle of an accelerometer. \cite{roylance1979batch} }
   \label{fig:accelerometer_schematic}
 \end{figure}
 
@@ -394,16 +394,16 @@ Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness con
 
 \subsubsection{Gyroscope}
 
-A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change.
+A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular  \cite{zhuang2020introductory}. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change \cite{marotto2013orientation}.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/gyroscope.pdf}
-  \caption{Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals.  }
+  \caption{ Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals. \cite{marotto2013orientation} }
   \label{fig:gyroscope}
 \end{figure}
 
-A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}):
+A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and MEMS gyroscopes) are rate-gyros, meaning they can detect angular velocity \cite{antonello2011mems}. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). MEMS sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce \cite{antonello2012exploring}. MEMS gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}) \cite{trusov2011overview}:
 
 \begin{equation}
   \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
@@ -414,24 +414,24 @@ Above, the cross product between angular velocity ($\omega$) and linear velocity
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/coriolis.pdf}
-  \caption{ System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance.}
+  \caption{ System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance. \cite{passaro2017gyroscope}}
   \label{fig:coriolis}
 \end{figure}
 
-The gyroscope sensor measurements supply a body's angular rate, a measurement of the change in angle over time which is represented by $\omega(x)$:
+The gyroscope sensor measurements supply a body's angular rate, a measurement of the change in angle over time which is represented by $\omega(x)$ \cite{trusov2011overview}:
 
 \begin{equation}
   \omega(x) = \frac{dx}{dt}
 \end{equation}
 
-The angular rate supplied by the gyroscope sensor can be integrated over an interval of time ($t$) and a sampling period ($T_s$). The sum of every measurement will return an absolute angle $\theta$. The integration of the angular rate is shown in equation $\ref{eq:angular_integration}$:
+The angular rate supplied by the gyroscope sensor can be integrated over an interval of time ($t$) and a sampling period ($T_s$). The sum of every measurement will return an absolute angle $\theta$. The integration of the angular rate is shown in equation $\ref{eq:angular_integration}$ \cite{trusov2011overview}:
 
 \begin{equation}
   \theta = \int_{0}^{t} \omega(x) dx = \sum_{0}^{t} \omega(x)\cdot T_s
   \label{eq:angular_integration}
 \end{equation}
 
-Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equation \ref{eq:quaternion_matrix} it is possible to convert the set into a matrix of quaternion rates ($\Omega$):
+Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equation \ref{eq:quaternion_matrix} it is possible to convert the set into a matrix of quaternion rates ($\Omega$) \cite{trusov2011overview}:
 
 \begin{equation}
   \Omega = \begin{bmatrix}
@@ -442,7 +442,7 @@ Given a set of angular rates $w=[w_x,w_y,w_z]$ measured by the gyroscope, by equ
   \end{bmatrix}
 \end{equation}
 
-From a quaternion rate at instant $t-1$, given a current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{t-1}$ is multiplied by $\Omega$, then half of the period $Ts$.
+From a quaternion rate at instant $t-1$, given a current angular speed it is possible to estimate the quaternion at instant $t$. Quaternion $q_t$ revolved by the gyroscope, the antecedent attitude quaternion $q_{t-1}$ is multiplied by $\Omega$, then half of the period $Ts$ \cite{trusov2011overview}.
 
 \begin{equation}
   q_t = q_{t-1} \ast \Omega \ast \frac{1}{2} \ast T_s
@@ -450,7 +450,7 @@ From a quaternion rate at instant $t-1$, given a current angular speed it is pos
 
 \subsubsection{Magnetometer}
 
-A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor. There are two categories of magnetic distortions: Hard iron and soft iron. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard-iron disturbances by discerning the maximum and minimum x and y offsets. The x axis and y axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis:
+A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field \cite{caruso1998new}. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor \cite{silva2021error}. There are two categories of magnetic distortions: Hard iron and soft iron. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard-iron disturbances by discerning the maximum and minimum x and y offsets. The x axis and y axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis:
 
 \begin{equation}
   \begin{gathered}
