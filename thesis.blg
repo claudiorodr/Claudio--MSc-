@@ -1,53 +1,53 @@
 This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
-The style file: plain.bst
+The style file: unsrt.bst
 Database file #1: mybibliography.bib
-Warning--can't use both volume and number fields in alaimo2013comparison
-Warning--there's a number but no volume in bar1985attitude
-Warning--there's a number but no volume in grado1960solution
-Warning--there's a number but no volume in higgins1975comparison
-Warning--can't use both volume and number fields in stirling2003innovative
 Warning--empty journal in zeitlhofler2019nominal
+Warning--there's a number but no volume in higgins1975comparison
+Warning--can't use both volume and number fields in alaimo2013comparison
+Warning--there's a number but no volume in grado1960solution
+Warning--there's a number but no volume in bar1985attitude
+Warning--can't use both volume and number fields in stirling2003innovative
 You've used 110 entries,
-            2118 wiz_defined-function locations,
-            1107 strings with 26316 characters,
-and the built_in function-call counts, 42558 in all, are:
-= -- 4321
-> -- 2010
+            1791 wiz_defined-function locations,
+            1056 strings with 25842 characters,
+and the built_in function-call counts, 30094 in all, are:
+= -- 2873
+> -- 1218
 < -- 41
-+ -- 811
-- -- 682
-* -- 3062
-:= -- 6819
++ -- 451
+- -- 341
+* -- 2050
+:= -- 4476
 add.period$ -- 362
 call.type$ -- 110
-change.case$ -- 665
+change.case$ -- 107
 chr.to.int$ -- 0
 cite$ -- 116
-duplicate$ -- 1559
-empty$ -- 3248
-format.name$ -- 682
-if$ -- 9017
+duplicate$ -- 1339
+empty$ -- 2909
+format.name$ -- 341
+if$ -- 6880
 int.to.chr$ -- 0
 int.to.str$ -- 110
 missing$ -- 102
 newline$ -- 558
-num.names$ -- 220
-pop$ -- 698
+num.names$ -- 110
+pop$ -- 344
 preamble$ -- 1
-purify$ -- 558
+purify$ -- 0
 quote$ -- 0
-skip$ -- 1144
+skip$ -- 708
 stack$ -- 0
-substring$ -- 2961
+substring$ -- 2392
 swap$ -- 439
 text.length$ -- 41
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 436
+type$ -- 0
 warning$ -- 6
-while$ -- 432
+while$ -- 322
 width$ -- 113
 write$ -- 1234
 (There were 6 warnings)
