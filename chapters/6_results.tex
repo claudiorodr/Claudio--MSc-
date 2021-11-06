@@ -1,290 +1,290 @@
-\section{Results}
+% \section{Results}
 
-This section presents results from the different set of experiments mentioned in chapter \ref{sub:experiments} \nameref{sub:experiments}. For every experiment, a table comparing every algorithm's displacement and turn error is present. And an error percentage for that shape. And lastly, a 2D and 3D visualization of the best performing algorithm for that experiment is present for every test.
+% This section presents results from the different set of experiments mentioned in chapter \ref{sub:experiments} \nameref{sub:experiments}. For every experiment, a table comparing every algorithm's displacement and turn error is present. And an error percentage for that shape. And lastly, a 2D and 3D visualization of the best performing algorithm for that experiment is present for every test.
 
-\subsection{Line}
+% \subsection{Line}
 
-The line shape consisted of moving the inertial system in a straight line for a determined distance. Three-line distances were tested: 4, 16, and 28 meter. The results are shown below:
+% The line shape consisted of moving the inertial system in a straight line for a determined distance. Three-line distances were tested: 4, 16, and 28 meter. The results are shown below:
 
-\subsubsection{4 meter}
+% \subsubsection{4 meter}
 
-For the 4-meter line experiment, the OLEQ algorithm which had the lowest displacement error with an average of 0.13 meters (3.24\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (6.06\% of error margin).
+% For the 4-meter line experiment, the OLEQ algorithm which had the lowest displacement error with an average of 0.13 meters (3.24\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (6.06\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/lines/line4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/lines/line4}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line42D.pgf}}
-        \caption{ OLEQ's 3D position estimation had the lowest displacement error for the 4-meter line experiment. }
-        \label{fig:line4_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line43D.pgf}}
-        \caption{ ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment. }
-        \label{fig:line4_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:line4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line42D.pgf}}
+%         \caption{ OLEQ's 3D position estimation had the lowest displacement error for the 4-meter line experiment. }
+%         \label{fig:line4_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line43D.pgf}}
+%         \caption{ ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment. }
+%         \label{fig:line4_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:line4}
+% \end{figure}
 
-\subsubsection{16 meter}
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% \subsubsection{16 meter}
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/lines/line16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/lines/line16}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line162D.pgf}}
-        \caption{ ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment. }
-        \label{fig:line16_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line163D.pgf}}
-        \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
-        \label{fig:line16_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:line16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line162D.pgf}}
+%         \caption{ ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment. }
+%         \label{fig:line16_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line163D.pgf}}
+%         \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
+%         \label{fig:line16_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:line16}
+% \end{figure}
 
-\subsubsection{28 meter}
+% \subsubsection{28 meter}
 
-For the 28-meter line experiment, the OLEQ algorithm which had the lowest displacement error with an average of 0.16 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 28-meter line experiment, the OLEQ algorithm which had the lowest displacement error with an average of 0.16 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/lines/line28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/lines/line28}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line282D.pgf}}
-        \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
-        \label{fig:line28_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/line/line283D.pgf}}
-        \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
-        \label{fig:line28_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:line28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line282D.pgf}}
+%         \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
+%         \label{fig:line28_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/line/line283D.pgf}}
+%         \caption{ROLEQ's 3D position estimation had the lowest turn error for the 4-meter line experiment.}
+%         \label{fig:line28_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:line28}
+% \end{figure}
 
-\subsection{Triangle}
+% \subsection{Triangle}
 
-The line shape consisted of moving the inertial system in a straight line for a determined distance. 3-line distances were tested: 4, 16, and 28 meter. The results are shown below:
+% The line shape consisted of moving the inertial system in a straight line for a determined distance. 3-line distances were tested: 4, 16, and 28 meter. The results are shown below:
 
-\subsubsection{4 meter}
+% \subsubsection{4 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/triangles/triangle4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/triangles/triangle4}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle42D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:triangle4_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle43D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:triangle4_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:triangle4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle42D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:triangle4_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle43D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:triangle4_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:triangle4}
+% \end{figure}
 
-\subsubsection{16 meter}
+% \subsubsection{16 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/triangles/triangle16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/triangles/triangle16}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle162D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:triangle16_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle163D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:triangle16_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:triangle16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle162D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:triangle16_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle163D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:triangle16_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:triangle16}
+% \end{figure}
 
-\subsubsection{28 meter}
+% \subsubsection{28 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/triangles/triangle28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/triangles/triangle28}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle282D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:triangle28_2D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle283D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:triangle28_3D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:triangle28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle282D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:triangle28_2D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/triangle/triangle283D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:triangle28_3D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:triangle28}
+% \end{figure}
 
-\subsection{Square}
+% \subsection{Square}
 
-The line shape consisted of moving the inertial system in a straight line for a determined distance. 3 line distances were tested: 4, 16, and 28 meter. The results are shown below:
+% The line shape consisted of moving the inertial system in a straight line for a determined distance. 3 line distances were tested: 4, 16, and 28 meter. The results are shown below:
 
-\subsubsection{4 meter}
+% \subsubsection{4 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/squares/square4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/squares/square4}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square42D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:square42D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square43D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:square43D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:square4}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square42D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:square42D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square43D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:square43D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:square4}
+% \end{figure}
 
-\subsubsection{16 meter}
+% \subsubsection{16 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/squares/square16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/squares/square16}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square162D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:square162D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square163D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:square163D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:square16}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square162D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:square162D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square163D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:square163D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:square16}
+% \end{figure}
 
-\subsubsection{28 meter}
+% \subsubsection{28 meter}
 
-For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
+% For the 16-meter line experiment, the Mahony algorithm which had the lowest displacement error with an average of 0.48 meters (16\% of error margin), and ROLEQ with an average of 0.24 meters of turn error (7\% of error margin).
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/squares/square28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/squares/square28}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square282D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:square282D}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/square283D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:square283D}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:square28}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square282D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:square282D}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/square283D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:square283D}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:square28}
+% \end{figure}
 
-\subsection{Squares}
+% \subsection{Squares}
 
-\begin{figure}[!h]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/squares2D.pgf}}
-        \caption{INS Hardware}
-        \label{fig:sub1}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\input{plots/square/squares3D.pgf}}
-        \caption{MPU-9250 Breakout}
-        \label{fig:sub2}
-    \end{subfigure}
-    \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
-    \label{fig:mag_calibration_output}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/squares2D.pgf}}
+%         \caption{INS Hardware}
+%         \label{fig:sub1}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \resizebox{1\linewidth}{!}{\input{plots/square/squares3D.pgf}}
+%         \caption{MPU-9250 Breakout}
+%         \label{fig:sub2}
+%     \end{subfigure}
+%     \caption{Position estimation by the best performing algorithms in the 4-meter line experiment.}
+%     \label{fig:mag_calibration_output}
+% \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/squares/squares}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/squares/squares}
+% \end{figure}
 
-\subsection{Spiral}
+% \subsection{Spiral}
 
-\begin{figure}[!h]
-    \centering
-    \input{tables/squares/spiral}
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \input{tables/squares/spiral}
+% \end{figure}
