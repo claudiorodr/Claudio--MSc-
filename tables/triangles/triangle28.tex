@@ -1,27 +1,29 @@
 \begin{table}[H]
     \begin{center}
         \resizebox{1\linewidth}{!}{
+
             \begin{tabular}[t]{lcccc}
                 \hline
                 Algorithm     & Displacement Error[$m$] & Displacement Error[\%] & Turn Error[$m$] & Turn Error[\%] \\
                 \hline
-                AngularRate   & 21.96                   & 26.15                  & 38.76           & 46.15          \\
-                AQUA          & 6.64                    & 7.91                   & 15.91           & 18.94          \\
-                Complementary & 14.51                   & 17.27                  & 17.72           & 21.09          \\
-                Davenport     & 9.67                    & 11.51                  & 8.61            & 10.25          \\
-                EKF           & 2.95                    & 3.52                   & 5.72            & 6.81           \\
-                FAMC          & 20.40                   & 24.28                  & 30.85           & 36.72          \\
-                FLAE          & 9.67                    & 11.51                  & 8.34            & 9.93           \\
-                Fourati       & 17.07                   & 20.32                  & 41.31           & 49.17          \\
-                Madgwick      & 9.29                    & 11.06                  & 9.42            & 11.22          \\
-                Mahony        & 2.85                    & 3.39                   & 5.48            & 6.52           \\
-                OLEQ          & 3.40                    & 4.04                   & 7.37            & 8.77           \\
-                QUEST         & 13.11                   & 15.60                  & 36.75           & 43.75          \\
-                ROLEQ         & 3.08                    & 3.66                   & 5.70            & 6.78           \\
-                SAAM          & 10.01                   & 11.91                  & 8.50            & 10.11          \\
-                Tilt          & 10.01                   & 11.91                  & 8.50            & 10.11          \\
+                AngularRate   & 22.91                   & 27.28                  & 48.97           & 58.29          \\
+                AQUA          & 6.77                    & 8.06                   & 15.53           & 18.49          \\
+                Complementary & 5.69                    & 6.78                   & 10.22           & 12.16          \\
+                Davenport     & 3.93                    & 4.68                   & 5.06            & 6.02           \\
+                EKF           & 3.52                    & 4.19                   & 5.04            & 5.99           \\
+                FAMC          & 21.07                   & 25.08                  & 46.74           & 55.64          \\
+                FLAE          & 3.88                    & 4.62                   & 4.98            & 5.93           \\
+                Fourati       & 35.63                   & 42.41                  & 53.27           & 63.42          \\
+                Madgwick      & 15.58                   & 18.55                  & 17.78           & 21.16          \\
+                Mahony        & 2.93                    & 3.49                   & 4.69            & 5.59           \\
+                OLEQ          & 4.69                    & 5.58                   & 5.05            & 6.01           \\
+                QUEST         & 15.18                   & 18.08                  & 30.32           & 36.09          \\
+                ROLEQ         & 4.38                    & 5.22                   & 5.40            & 6.43           \\
+                SAAM          & 2.93                    & 3.48                   & 4.54            & 5.40           \\
+                Tilt          & 2.93                    & 3.48                   & 4.54            & 5.40           \\
+
                 \hline
-                Average       & 10.31                   & 12.27                  & 16.59           & 19.75
+                Average       & 10.14                   & 12.07                  & 17.47           & 20.80
             \end{tabular}
         }
         \caption{28 meter square position estimation error (displacement and turn) of the sensor fusion algorithms. }

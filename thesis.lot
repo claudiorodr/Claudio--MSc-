@@ -6,16 +6,5 @@
 \contentsline {table}{\numberline {3}{\ignorespaces Accelerometer Specifications. \relax }}{37}{table.caption.27}%
 \contentsline {table}{\numberline {4}{\ignorespaces Gyroscope Specifications. \relax }}{38}{table.caption.29}%
 \contentsline {table}{\numberline {5}{\ignorespaces Magnetometer specification. \relax }}{39}{table.caption.31}%
-\contentsline {table}{\numberline {6}{\ignorespaces Available sensor fusion algorithms in AHRS library. \relax }}{41}{table.caption.33}%
-\contentsline {table}{\numberline {7}{\ignorespaces 4 meter line position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{71}{table.caption.62}%
-\contentsline {table}{\numberline {8}{\ignorespaces 16 meter line position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{72}{table.caption.65}%
-\contentsline {table}{\numberline {9}{\ignorespaces 28 meter line position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{73}{table.caption.68}%
-\contentsline {table}{\numberline {10}{\ignorespaces 4 meter triangle position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{74}{table.caption.71}%
-\contentsline {table}{\numberline {11}{\ignorespaces 16 meter triangle position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{75}{table.caption.74}%
-\contentsline {table}{\numberline {12}{\ignorespaces 28 meter square position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{76}{table.caption.77}%
-\contentsline {table}{\numberline {13}{\ignorespaces 4 meter square position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{78}{table.caption.80}%
-\contentsline {table}{\numberline {14}{\ignorespaces 16 meter square position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{79}{table.caption.83}%
-\contentsline {table}{\numberline {15}{\ignorespaces 28 meter square position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{80}{table.caption.86}%
-\contentsline {table}{\numberline {16}{\ignorespaces Spiral position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{81}{table.caption.89}%
-\contentsline {table}{\numberline {17}{\ignorespaces Squares position estimation error (displacement and turn) of the sensor fusion algorithms. \relax }}{82}{table.caption.92}%
-\contentsline {table}{\numberline {18}{\ignorespaces Overall ranking of how every algorithm performed in the given test. \relax }}{84}{table.caption.95}%
+\contentsline {table}{\numberline {6}{\ignorespaces Available sensor fusion algorithms in AHRS library and what sensors they use. \cite {ahrs}\relax }}{41}{table.caption.33}%
+\contentsline {table}{\numberline {7}{\ignorespaces Overall ranking of how every algorithm performed in the given test. \relax }}{72}{table.caption.62}%

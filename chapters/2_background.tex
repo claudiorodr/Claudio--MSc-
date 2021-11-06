@@ -96,15 +96,17 @@ The rotation matrix is a concept employed to express the transformation of coord
   \label{eq:rotation_matrices}
 \end{equation}
 
+In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order).
+
 \begin{figure}[!h]
   \centering
   \resizebox{0.44\linewidth}{!}{\input{figures/rotation_matrix.tex}}
   \resizebox{0.54\linewidth}{!}{\input{figures/rotation_matrix3D.tex}}
-  \caption{frame axis example.}
+  \caption{Frame axis example.}
   \label{fig:axes_frames}
 \end{figure}
 
-In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order). The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
+The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
 
 \begin{equation}
   \textrm{$_{b}^{a}R$}

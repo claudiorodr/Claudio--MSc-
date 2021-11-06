@@ -90,9 +90,8 @@ The triple-axis MEMS accelerometer in MPU-9250 includes a wide range of features
 
 \subsection{Software}
 
-The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchroNously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL provides the serial clock and the SDA provides the serial data. The address of the MPU9250 is set by pin AD0, this address is 0x68 when the pin is connected
-to ground, which is done in this project. The address of the AK8963 is by default 0x0C. Before the communication starts the SCL and SDA are both high, caused by pull-up resistors. These pull-up resistors are placed to make certain both pins become high when Not being defined by the LoPy, this will prevent communication problems when the LoPy is waiting for incoming data.
-When the communication between the LoPy (master) and the MPU9250 (slave) starts the start condition is created. This is done by making SDA low, see figure \ref{fig:i2c}. Then the serial clock (SCL) begins to generate clock pulses and the first byte is send by the master. This first byte contains the 7-bit address of the slave and a read/write bite. When the read/write bit is 0 the master will write to the slave and when the bit is 1 the master will read from the slave. The bits are send when the serial clock is high. When the serial clock is low the bit value are allowed to change. The number of bytes  ent is Not limited but each byte must be followed by an acknowledge bit, see figure \ref{fig:i2c}. When the master is done writing/reading then the stop condition is created, see figure \ref{fig:i2c}.
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL offers the serial clock, and the SDA gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963’s address is by default at 0x0C. Prior to the communication begins the SCL and SDA are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
+When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering SDA, see figure \ref{fig:i2c}. Later the serial clock (SCL) commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit, see figure \ref{fig:i2c}. When the master is done writing/reading then the stop condition is created, see figure \ref{fig:i2c}.
 
 \begin{figure}[!h]
   \centering
@@ -101,7 +100,8 @@ When the communication between the LoPy (master) and the MPU9250 (slave) starts 
   \label{fig:i2c}
 \end{figure}
 
-The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time \cite{ahrs}.
+The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. to benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
+
 
 \begin{table}
   \begin{center}
@@ -128,7 +128,7 @@ The readings of each sensor are later averaged and linearized to better detect a
       TRIAD         & Yes           & No        & Yes          \\
       \hline
     \end{tabular}
-    \caption{Available sensor fusion algorithms in AHRS library. }
+    \caption{Available sensor fusion algorithms in AHRS library and what sensors they use. \cite{ahrs}}
     \label{tab:ahrs_algorithms}
   \end{center}
 \end{table}
@@ -166,7 +166,7 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
 
 \begin{figure}[!h]
   \centering
-  \resizebox{1\linewidth}{!}{\input{plots/accelerometer.pgf}}
+  \resizebox{0.8\linewidth}{!}{\input{plots/accelerometer.pgf}}
   \caption{Accelerometer calibration offset correction.}
   % \label{fig:sensoroutput} 
 \end{figure}
@@ -201,7 +201,7 @@ The simplest calibration of an IMU consists of calculating the offset for each a
 
 \begin{figure}[!h]
   \centering
-  \resizebox{1\linewidth}{!}{\input{plots/gyroscope.pgf}}
+  \resizebox{0.8\linewidth}{!}{\input{plots/gyroscope.pgf}}
   \caption{Gyroscope calibration offset correction.}
   % \label{fig:sensoroutput}
 \end{figure}
@@ -246,7 +246,7 @@ Hard iron biases are commonly the largest and the simplest errors to rectify. Wi
     return self._offset
 \end{lstlisting}
 
-It is possible Now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to Normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is kNown as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
+It is possible Now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to Normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -273,7 +273,7 @@ It is possible Now to filter any soft iron biases by taking the minimum and maxi
 
 The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fig:mag_calibration_output}:
 
-\begin{figure}[!h]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering

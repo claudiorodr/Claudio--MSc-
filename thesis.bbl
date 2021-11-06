@@ -66,6 +66,12 @@ Tomas Soler and Larry~D Hothem.
 \newblock Coordinate systems used in geodesy: Basic definitions and concepts.
 \newblock {\em Journal of surveying engineering}, 114(2):84--97, 1988.
 
+\bibitem{ahrs}
+Online.
+\newblock Ahrs: Attitude and heading reference systems.
+\newblock \url{https://ahrs.readthedocs.io/en/latest/}.
+\newblock Accessed: 2021-04-29.
+
 \bibitem{ioannides2016known}
 Rigas~Themistoklis Ioannides, Thomas Pany, and Glen Gibbons.
 \newblock Known vulnerabilities of global navigation satellite systems, status,
@@ -658,12 +664,6 @@ Matenat Khamphroo, Natavut Kwankeo, Kamol Kaemarungsi, and Kazuhiko Fukawa.
 \newblock In {\em 2017 8th International Conference of Information and
   Communication Technology for Embedded Systems (IC-ICTES)}, pages 1--6. IEEE,
   2017.
-
-\bibitem{ahrs}
-Online.
-\newblock Ahrs: Attitude and heading reference systems.
-\newblock \url{https://ahrs.readthedocs.io/en/latest/}.
-\newblock Accessed: 2021-04-29.
 
 \bibitem{won2009triaxial}
 Seong-hoon~Peter Won and Farid Golnaraghi.
