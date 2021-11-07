@@ -12,10 +12,10 @@ This section provides an overview of the methodology employed to assess the syst
 The first step in methodology is to obtain orientation (AHRS) from the fusion of the three sensor raw outputs (figure \ref{fig:raw}). The accelerometer provided the system's proper acceleration; the gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.75\linewidth}{!}{\input{plots/raw.pgf}}
-  \caption{Raw sensor data on each axis obtained by the accelerometer, gyroscope, and magnetometer.}
-  \label{fig:raw}
+    \centering
+    \resizebox{0.75\linewidth}{!}{\input{plots/raw.pgf}}
+    \caption{Raw sensor data on each axis obtained by the accelerometer, gyroscope, and magnetometer.}
+    \label{fig:raw}
 \end{figure}
 
 To estimate orientation from the raw sensor data, two approaches were created: the first approach was to apply a sensor fusion algorithm directly in the inertial system's microcontroller, which could estimate orientation in real time while the measurements were being taken. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. The second approach meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, so a benchmark of how different sensor fusion algorithms perform under the same data. This chapter's data and plots will be based on the microcontroller's Madgwick real time sensor fusion, but the same principle applies the same manner to the post-experiment sensor fusion approach. The sensor fusion algorithm (in this case Madgwick's filter) takes as input the raw sensor measurements and outputs estimated orientation as a set of four quaternions (figure \ref{fig:fusion_output}).
@@ -23,10 +23,10 @@ To estimate orientation from the raw sensor data, two approaches were created: t
 % A simple test was performed using a box containing the inertial navigation system and rotating around its three inertial axes, pitch, roll, and yaw, with a sampling frequency of 20 Hz. The raw output measurements from the sensors are visualized in figure \ref{fig:raw} and are subsequently taken as input by the sensor fusion algorithm.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/quaternion.pgf}}
-  \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of figure \ref{fig:raw}.}
-  \label{fig:fusion_output}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/quaternion.pgf}}
+    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of figure \ref{fig:raw}.}
+    \label{fig:fusion_output}
 \end{figure}
 
 % The fusion output is shown in figure \ref{fig:madgwickAHRS}. About sample \#140 there was a shift in pitch to -40º and later jumping to 40º. Around sample \#350 there is a change in roll to 60º and then -40º, and around sample \#540 there is a variation in yaw value. This output is analogous to the movement made on the board.
@@ -34,17 +34,17 @@ To estimate orientation from the raw sensor data, two approaches were created: t
 As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quaternions can be converted back into euler angles by:
 
 \begin{equation}
-  \begin{bmatrix}
-    \phi   \\
-    \theta \\
-    \psi   \\
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    \arctan \frac{2(q_0q_1+q_2q_3)}{1-2(q{_1^2}+q_{2^2})} \\
-    \arcsin (2(q_0q_2-q_3q_1))                            \\
-    \arctan \frac{2(q_0q_1+q_1q_2)}{1-2(q_{2^2}+q_{3^2})} \\
-  \end{bmatrix}
+    \begin{bmatrix}
+        \phi   \\
+        \theta \\
+        \psi   \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \arctan \frac{2(q_0q_1+q_2q_3)}{1-2(q{_1^2}+q_{2^2})} \\
+        \arcsin (2(q_0q_2-q_3q_1))                            \\
+        \arctan \frac{2(q_0q_1+q_1q_2)}{1-2(q_{2^2}+q_{3^2})} \\
+    \end{bmatrix}
 \end{equation}
 
 \lstset{language=Python}
@@ -74,10 +74,10 @@ return angles
 \end{lstlisting}
 
 \begin{figure}
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/euler.pgf}}
-  \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of  \ref{fig:raw} converted into Euler angles.}
-  \label{fig:fusion_output_euler}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/euler.pgf}}
+    \caption{Madgwick's algorithm sensor fusion output of the raw measurement data of  \ref{fig:raw} converted into Euler angles.}
+    \label{fig:fusion_output_euler}
 \end{figure}
 
 
@@ -89,21 +89,21 @@ Accelerometer readings can measure proper acceleration forces, which can be empl
 
 Once the measured inertial-frame acceleration is attained, it can be integrated to obtain inertial frame velocity $v_i$  and position $x_i$ can be calculated:
 \begin{equation}
-  v_i = v_0 +  \int^t a_i~dt
+    v_i = v_0 +  \int^t a_i~dt
 \end{equation}
 
 \begin{equation}
-  x_i = x_0 + \iint^t a_i~dt
+    x_i = x_0 + \iint^t a_i~dt
 \end{equation}
 
 In practice, data is acquired at discrete time periods ($\Delta t$), so the approximate velocity and position are estimated by:
 
 \begin{equation}
-  v_i[k+1]= v_i[k]+a_i[k]\Delta t
+    v_i[k+1]= v_i[k]+a_i[k]\Delta t
 \end{equation}
 
 \begin{equation}
-  x_i[k+1]= x_i[k]+v_i[k]\Delta t
+    x_i[k+1]= x_i[k]+v_i[k]\Delta t
 \end{equation}
 
 However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:raw} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings.
@@ -128,14 +128,13 @@ user_acceleration = a_rotated - gravity
 
 \end{lstlisting}
 
-You need to rotate the accelerometer reading by the quaternion into the Earth frame of reference (into the coordinate system of the room if you like), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration or user acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
-
+Rotating the accelerometer reading by the quaternion into the Earth frame of reference (into the Earth’s coordinate system), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/gravity.pgf}}
-  \caption{Comparison between raw acceleration (red) and measurements with gravity compensation (blue). When tilting the sensor, the accelerometer will measure  gravity's acceleration (around 9.8 $ms^{-2}$). The gravity compensation filter can counteract virtually all the gravitational influence on the sensor readings.}
-  \label{fig:gavity_compensation}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/gravity.pgf}}
+    \caption{Comparison between raw acceleration (blue) and measurements with gravity compensation (red). When tilting the sensor, the accelerometer will measure gravity's acceleration (around 9.8 $ms^{-2}$). The gravity compensation filter can counteract virtually all the gravitational influence on the sensor readings.}
+    \label{fig:gavity_compensation}
 \end{figure}
 
 \subsubsection{Estimating Position}
@@ -143,19 +142,19 @@ You need to rotate the accelerometer reading by the quaternion into the Earth fr
 Resulting in a linear acceleration that corresponds to the physical acceleration of the device. This linear acceleration can be numerically integrated returning velocity and double integrating delivering the position of the device (figure \ref{fig:position_overview}).
 
 \begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/orientation_position.pdf}
-  \caption{Overview of the position estimation methodology.}
-  \label{fig:position_overview}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/orientation_position.pdf}
+    \caption{Overview of the position estimation methodology.}
+    \label{fig:position_overview}
 \end{figure}
 
 The next step consisted of experimentally testing the inertial system seeking to achieve position estimation merely by integrating the accelerometer measurements with the gravity compensation filter. The tests involved walking on a straight line carrying a box containing the inertial system (with the inertial X-axis parallel to the path) for around 30 meters, evaluating the computed acceleration, velocity, and accumulative position estimation. Specific tests were executed at walking pace, others at running pace, and some with a combination of both.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/integration.pgf}}
-  \caption{ Plot showing how acceleration is integrated into velocity and displacement. }
-  \label{fig:integration}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/integration.pgf}}
+    \caption{ Plot showing how acceleration is integrated into velocity and displacement. }
+    \label{fig:integration}
 \end{figure}
 
 First, one-dimensional experiments were conducted, pursuing to estimate accumulative position when moving on a straight line for 30 meters. These tests revealed an average error margin from 10\% to 15\% of the actual distance. Different movements and walking paces were tested, such as stopping at different time intervals. With the accomplishment of this first experiment, we decided to expand the testing to two dimensions. An experiment result is observed in figure \ref{fig:integration}, where the final observed accumulative position was 25 meters.
@@ -163,20 +162,20 @@ First, one-dimensional experiments were conducted, pursuing to estimate accumula
 Combining the displacement over a period with the estimations of attitude, it is possible to implement a two-dimensional estimation of position using the dead reckoning technique. The new position $x_i$, is given by applying a direction vector to the previous determined position $x_{i-1}$. The norm of the direction vector is given by the displacement in that axis over the period since last sample ($\Delta x$) and its angle by the decomposing the attitude estimation (yaw $\theta$) into two components, $\cos \theta$ for the $x$ axis, and $\sin \theta$ for the $y$ axis (as shown in figure \ref{fig:trignometric}):
 
 \begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/trignometric.pdf}
-  \caption{Illustration of a unit circle where $\theta$.}
-  \label{fig:trignometric}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/trignometric.pdf}
+    \caption{Illustration of a unit circle where $\theta$ is the attitude angle.}
+    \label{fig:trignometric}
 \end{figure}
 
 A mathematical representation of this approach is seen at equation \ref{eq:dead_reckoning}:
 
 \begin{equation}
-  \begin{gathered}
-    x_i = \Delta x \cos (\theta) + x_{i-1} \\
-    y_i = \Delta y \sin (\theta) + y_{i-1} \\
-  \end{gathered}
-  \label{eq:dead_reckoning}
+    \begin{gathered}
+        x_i = \Delta x \cos (\theta) + x_{i-1} \\
+        y_i = \Delta y \sin (\theta) + y_{i-1} \\
+    \end{gathered}
+    \label{eq:dead_reckoning}
 \end{equation}
 
 Programmatically
@@ -196,10 +195,10 @@ updateCoordinates(newX, newY, newZ)
 \end{lstlisting}
 
 \begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/dead_reckoning.pdf}
-  \caption{Illustration of the dead reckoning approach. The object's position at a given moment is given by the last known position, the heading angle $\Delta \theta$, and the travelled distance $\Delta x$ that occur during the last sample. }
-  \label{fig:position}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/dead_reckoning.pdf}
+    \caption{Illustration of the dead reckoning approach. The object's position at a given moment is given by the last known position, the heading angle $\Delta \theta$, and the travelled distance $\Delta x$ that occur during the last sample. }
+    \label{fig:position}
 \end{figure}
 
 \newpage
@@ -209,10 +208,10 @@ updateCoordinates(newX, newY, newZ)
 In two-dimensional tests, the output from X-axis and Y-axis accelerometer measurements were integrated with orientation to acquire accumulative position on both axes. Integrated axis position was then plotted into a scatter plot that combines the accumulative position on the two axes. Figure \ref{fig:square} shows the output of applying the position methodology to an experiment of a $4m\times 4m$ square.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/square/square.pgf}}
-  \caption{ Result after applying the position estimation methodology to the raw sensor data. }
-  \label{fig:square}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square.pgf}}
+    \caption{ Result after applying the position estimation methodology to the raw sensor data. }
+    \label{fig:square}
 \end{figure}
 
 The figure shows a succession of position points, each calculated by the last known position, the heading angle, and the travelled distance. The position given is relative to the sensor's own body frame, not the world's frame.
@@ -222,32 +221,32 @@ The figure shows a succession of position points, each calculated by the last kn
 In order to quantify how well a test performed in estimating position, it is necessary to compare it against a ground truth (explained in previous chapter). Error was quantified in two ways, the first being how far are the estimated shape corners from the ground truth's vertices. A turning detection algorithm, Ramer-Douglas-Peucker Algorithm, was used to estimate when a vertice is present in the estimated path.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/square/square_truth.pgf}}
-  \caption{Illustration of the real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
-  \label{fig:square_truth}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square_truth.pgf}}
+    \caption{Illustration of the real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
+    \label{fig:square_truth}
 \end{figure}
 
 By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}[!h]
-  \centering
-  \begin{subfigure}{0.75\textwidth}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
-    \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.}
-    \label{fig:square_turn}
-  \end{subfigure}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
+        \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.}
+        \label{fig:square_turn}
+    \end{subfigure}
 
-  \begin{subfigure}{0.75\textwidth}
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
-    \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
-    \label{fig:square_point}
-  \end{subfigure}
-  % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
-  \label{fig:error_methods}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
+        \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+        \label{fig:square_point}
+    \end{subfigure}
+    % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:error_methods}
 \end{figure}
 
 \newpage
@@ -258,10 +257,10 @@ Finally, by applying the method to the Z-axis, it is possible to obtain a  three
 A three-dimensional visualization of the previous experiment is visible at figure \ref{fig:square3D}.
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D.pgf}}
-  \caption{Three-dimensional view of the experiment.}
-  \label{fig:square3D}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D.pgf}}
+    \caption{Three-dimensional view of the experiment.}
+    \label{fig:square3D}
 \end{figure}
 
 The same methodology mentioned in the previous chapter can be applied in three dimensions. The Ramer-Douglas-Peucker algorithm was applied to detect turns in the estimated path. By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
@@ -273,42 +272,42 @@ To quantify how well a test performed in estimating position, it is necessary to
 
 
 \begin{figure}[!h]
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
-  \caption{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
-  \label{fig:square3D_truth}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
+    \caption{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
+    \label{fig:square3D_truth}
 \end{figure}
 
 The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}[!h]
-  \centering
-  \begin{subfigure}{0.75\textwidth}
     \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
-    % \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.}
-    \label{fig:square3D_error}
-  \end{subfigure}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_turn.pgf}}
+        % \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.}
+        \label{fig:square3D_error}
+    \end{subfigure}
 
 
-  \begin{subfigure}{0.75\textwidth}
-    \centering
-    \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
-    % \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
-    \label{fig:square3D_point}
-  \end{subfigure}
-  % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
-  \label{fig:error_methods_3D}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\input{plots/square/square3D_error_point.pgf}}
+        % \caption{Sensor data on each axis (blue is X-axis, red is Y-axis, green is Z-axis) obtained by the accelerometer, gyroscope, and magnetometer at 100 Hz sampling rate. Accelerometer provided the system's proper acceleration; gyroscope supplied the body's angular rate, and the magnetometer presented the detected magnetic flux.}
+        \label{fig:square3D_point}
+    \end{subfigure}
+    % \caption{Pin connection between the microcontroller (left) and the IMU (right). Modules are linked through SCL, CLK, VDD and GND pins.}
+    \label{fig:error_methods_3D}
 \end{figure}
 
 
 \begin{equation}
-  MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
+    MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
 \end{equation}
 
 \begin{figure}
-  \centering
-  \resizebox{0.8\linewidth}{!}{\input{plots/comparison.pgf}}
-  \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
-  \label{fig:comparison}
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{plots/comparison.pgf}}
+    \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+    \label{fig:comparison}
 \end{figure}

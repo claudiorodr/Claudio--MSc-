@@ -247,6 +247,16 @@ Du~Q Huynh.
 \newblock {\em Journal of Mathematical Imaging and Vision}, 35(2):155--164,
   2009.
 
+\bibitem{weisstein2003rotation}
+Eric~W Weisstein.
+\newblock Rotation matrix.
+\newblock {\em https://mathworld. wolfram. com/}, 2003.
+
+\bibitem{gruber2000mathematics}
+Diana Gruber.
+\newblock The mathematics of the 3d rotation matrix.
+\newblock In {\em Xtreme Game Developers Conference}, pages 1--14, 2000.
+
 \bibitem{premerlani2009direction}
 William Premerlani and Paul Bizard.
 \newblock Direction cosine matrix imu: Theory.

@@ -30,29 +30,28 @@ The X-axis is described by the intersection of the zero-latitude line (Equator) 
 
 The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system. In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
 
-\begin{figure}[H]
+\begin{figure}[!h]
   \centering
   \resizebox{0.70\linewidth}{!}{\input{figures/ECEF}}
-  \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\phi$ and $\lambda$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
+  \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\lambda$ and $\phi$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
   \label{fig:ECEF}
 \end{figure}
 
-Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude of the reference point (Xr, Yr, Zr). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS} \cite{soler1988coordinate}.
+Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude ($\lambda_r$ and $\phi_r$ respectively) of the reference point ($X_r$, $Y_r$, $Z_r$). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS} \cite{soler1988coordinate}.
 
-\begin{figure}[H]
+\begin{figure}[!h]
   \centering
   \input{tables/ecef}
 \end{figure}
 
-
-Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\psi_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities \cite{boucher2001itrs}.
+The conversion from ECEF to ENU coordinates is done with respect to the receiver reference point. Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\lambda_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities with the vector pointing from the receiver reference point ($Xr$, $Yr$, $Zr$) to estimated position ($Xp$, $Yp$, $Zp$) in the ENU coordinate frame \cite{boucher2001itrs}.
 
 \begin{equation}
   \begin{gathered}
     p = \sqrt{(X_r)^2 + (Y_r)^2} \\
     \theta = \arctan(Z_r\frac{a}{pb} ) \\
     \lambda_r = \arctan(Y_r,X_r) \\
-    \varphi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )}  \\
+    \phi_r = \arctan(\frac{Z_r + e^2 b\sin^3(\theta)}{p - e^2 a \cos^3(\theta )}  \\
   \end{gathered}
   \label{eq:transformation}
 \end{equation}
@@ -79,7 +78,14 @@ Applying the set of equations (\ref{eq:transformation}) to approximate latitude 
 
 \subsubsection{Body frame}
 
-Each sensor present in the razor board is aligned to match the sensor axes printed in the board as seen in figure 3.1. For simplicity, the razor sensors are placed as possible near the middle point of the bisector segment between the two-wheel axes in such a way that YY axis as marked in the figure 3.1 is pointing towards the front of vehicle, XX axis is pointing to the right side of the car and ZZ axis is pointing to the top. This way, if the Euler angles describing the orientation of body frame related to world frame are all equal to zero, it means the axes in each frame are coincident apart from an offset in origin. Rotation angles are considered positive following the right-hand rule in each axis. The origin of body frame is equal to intersection of rear wheel axis with the bisector defined above.
+As the name indicates, the body reference frame is attached to, and moves with, the platform body itself. It is an orthogonal cartesian system with an origin specified at a point on the platform. Axes can be defined both relative to the platform or to the navigation frame. The body frame being an entity which moves and rotates freely inside the navigation frame coordinate system (figure \ref{fig:body_frame}). In this dissertation the term body frame is utilized to explain the IMU’s frame of reference relative to the navigation frame coordinate system. With the $X_b$, $Y_b$ and $Z_b$ being defined by the MPU-6050 coordinate system (explored at chapter \ref{sub:setup} \nameref{sub:setup}).
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/body_frame.pdf}
+  \caption{ Navigation and body frame coordinate systems. }
+  \label{fig:body_frame}
+\end{figure}
 
 \newpage
 \subsection{Orientation}
@@ -96,7 +102,7 @@ The rotation matrix is a concept employed to express the transformation of coord
   \label{eq:rotation_matrices}
 \end{equation}
 
-In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order).
+In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order) \cite{weisstein2003rotation}.
 
 \begin{figure}[!h]
   \centering
@@ -106,7 +112,7 @@ In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be app
   \label{fig:axes_frames}
 \end{figure}
 
-The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of (2.3) with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
+The convention used in this work is represented by equation \ref{eq:axes_frames} and maps quantities described in frame $b$ to frame $a$. Comparing the structure of equation \ref{eq:axes_frames} with figure \ref{fig:axes_frames} it is seen that columns of $^a_bR$ represent each unity vector defining all axes of frame $b$.
 
 \begin{equation}
   \textrm{$_{b}^{a}R$}
@@ -119,7 +125,7 @@ The convention used in this work is represented by equation \ref{eq:axes_frames}
   \label{eq:axes_frames}
 \end{equation}
 
-Rotation matrices belong to the orthonormal group and one important property is that bRa bRT = I meaning a bRT = a bR-1 . Also a bRT is equal to b aR.
+Rotation matrices belong to the orthonormal group and one important property is that $^a_bR ^a_bR^T = I$ meaning $^a_bR^T = ^a_bR^{-1}$. Also a $^a_bR^T$ is equal to $^b_aR^T$ \cite{gruber2000mathematics}.
 
 \subsubsection{Direct Cosine Matrix}
 

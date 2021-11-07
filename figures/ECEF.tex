@@ -8,9 +8,9 @@
 
 \begin{tikzpicture}[scale=5,tdplot_main_coords]
     \coordinate (O) at (0,0,0);
-    \draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$X{\text{ecef}}$};
-    \draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$Y_{\text{ecdf}}$};
-    \draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$Z_{\text{ecef}}$};
+    \draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$X{\text{ECEF}}$};
+    \draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$Y_{\text{ECEF}}$};
+    \draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$Z_{\text{ECEF}}$};
 
     \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
     \draw[-stealth,color=red] (O) -- (P);
