@@ -1,77 +1,5 @@
 \begin{thebibliography}{100}
 
-\bibitem{zeitlhofler2019nominal}
-Julian Zeitlh{\"o}fler.
-\newblock Nominal and observation-based attitude realization for precise orbit
-  determination of the jason sateilltes.
-\newblock 2019.
-
-\bibitem{roylance1979batch}
-Lynn~Michelle Roylance and James~B Angell.
-\newblock A batch-fabricated silicon accelerometer.
-\newblock {\em IEEE Transactions on Electron Devices}, 26(12):1911--1917, 1979.
-
-\bibitem{marotto2013orientation}
-Valentina Marotto, Alberto Serra, D~Carbouni, Mariella Sole, Tiziana Dessi, and
-  Andrea Manchinu.
-\newblock Orientation analysis through a gyroscope sensor for indoor navigation
-  systems.
-\newblock In {\em Proc. The Fourth International Conference on Sensor Device
-  Technologies and Applications}, pages 85--90, 2013.
-
-\bibitem{passaro2017gyroscope}
-Vittorio Passaro, Antonello Cuccovillo, Lorenzo Vaiani, Martino De~Carlo, and
-  Carlo~Edoardo Campanella.
-\newblock Gyroscope technology and applications: A review in the industrial
-  perspective.
-\newblock {\em Sensors}, 17(10):2284, 2017.
-
-\bibitem{daponte2017method}
-Pasquale Daponte, Luca De~Vito, Gianluca Mazzilli, Francesco Picariello, and
-  Sergio Rapuano.
-\newblock Method for compensating the effect of disturbances on magnetometer
-  measurements: experimental results.
-\newblock In {\em 2017 IEEE International Instrumentation and Measurement
-  Technology Conference (I2MTC)}, pages 1--6. IEEE, 2017.
-
-\bibitem{mosallaei2007process}
-Mohsen Mosallaei, Karim Salahshoor, and Mohammad~Reza Bayat.
-\newblock Process fault detection and diagnosis by synchronous and asynchronous
-  decentralized kalman filtering using state-vector fusion technique.
-\newblock In {\em 2007 3rd International Conference on Intelligent Sensors,
-  Sensor Networks and Information}, pages 209--214. IEEE, 2007.
-
-\bibitem{higgins1975comparison}
-Walter~T Higgins.
-\newblock A comparison of complementary and kalman filtering.
-\newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
-  (3):321--325, 1975.
-
-\bibitem{mpu6050}
-Online.
-\newblock Mpu-6050 six-axis (gyro + accelerometer) mems motiontracking devices.
-\newblock
-  \url{https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/}.
-\newblock Accessed: 2021-04-29.
-
-\bibitem{ak8963c}
-Online.
-\newblock Ak8963 3-axis electronic compass.
-\newblock
-  \url{https://download.mikroe.com/documents/datasheets/ak8963c-datasheet.pdf}.
-\newblock Accessed: 2021-04-29.
-
-\bibitem{soler1988coordinate}
-Tomas Soler and Larry~D Hothem.
-\newblock Coordinate systems used in geodesy: Basic definitions and concepts.
-\newblock {\em Journal of surveying engineering}, 114(2):84--97, 1988.
-
-\bibitem{ahrs}
-Online.
-\newblock Ahrs: Attitude and heading reference systems.
-\newblock \url{https://ahrs.readthedocs.io/en/latest/}.
-\newblock Accessed: 2021-04-29.
-
 \bibitem{ioannides2016known}
 Rigas~Themistoklis Ioannides, Thomas Pany, and Glen Gibbons.
 \newblock Known vulnerabilities of global navigation satellite systems, status,
@@ -235,6 +163,11 @@ Karl~Magnus Laundal and Arthur~D Richmond.
 \newblock Magnetic coordinate systems.
 \newblock {\em Space Science Reviews}, 206(1-4):27--59, 2017.
 
+\bibitem{soler1988coordinate}
+Tomas Soler and Larry~D Hothem.
+\newblock Coordinate systems used in geodesy: Basic definitions and concepts.
+\newblock {\em Journal of surveying engineering}, 114(2):84--97, 1988.
+
 \bibitem{boucher2001itrs}
 Claude Boucher and Zuheir Altamimi.
 \newblock Itrs, pz-90 and wgs 84: current realizations and the related
@@ -291,6 +224,12 @@ KENNETH~G MCCONNELL.
 \newblock Kinematics of a three-axis gimbal system.
 \newblock In {\em Developments in Theoretical and Applied Mechanics}, pages
   515--541. Elsevier, 1967.
+
+\bibitem{zeitlhofler2019nominal}
+Julian Zeitlh{\"o}fler.
+\newblock Nominal and observation-based attitude realization for precise orbit
+  determination of the jason sateilltes.
+\newblock 2019.
 
 \bibitem{lee2008representing}
 Jehee Lee.
@@ -385,10 +324,23 @@ Josep~M Pons and Ferran de~Palol.
   and beyond.
 \newblock {\em General Relativity and Gravitation}, 51(6):1--40, 2019.
 
+\bibitem{roylance1979batch}
+Lynn~Michelle Roylance and James~B Angell.
+\newblock A batch-fabricated silicon accelerometer.
+\newblock {\em IEEE Transactions on Electron Devices}, 26(12):1911--1917, 1979.
+
 \bibitem{zhuang2020introductory}
 Xuye Zhuang, Pinghua Li, Dongxing Li, and Wentao Sui.
 \newblock Introductory chapter: Gyroscopes-principles and applications.
 \newblock {\em Gyroscopes: Principles and Applications}, page~1, 2020.
+
+\bibitem{marotto2013orientation}
+Valentina Marotto, Alberto Serra, D~Carbouni, Mariella Sole, Tiziana Dessi, and
+  Andrea Manchinu.
+\newblock Orientation analysis through a gyroscope sensor for indoor navigation
+  systems.
+\newblock In {\em Proc. The Fourth International Conference on Sensor Device
+  Technologies and Applications}, pages 85--90, 2013.
 
 \bibitem{antonello2011mems}
 Riccardo Antonello and Roberto Oboe.
@@ -406,6 +358,13 @@ Alexander~A Trusov.
 \newblock Overview of mems gyroscopes: history, principles of operations, types
   of measurements.
 \newblock {\em University of California, Irvine, USA}, 2011.
+
+\bibitem{passaro2017gyroscope}
+Vittorio Passaro, Antonello Cuccovillo, Lorenzo Vaiani, Martino De~Carlo, and
+  Carlo~Edoardo Campanella.
+\newblock Gyroscope technology and applications: A review in the industrial
+  perspective.
+\newblock {\em Sensors}, 17(10):2284, 2017.
 
 \bibitem{caruso1998new}
 Michael~J Caruso, Tamara Bratland, Carl~H Smith, and Robert Schneider.
@@ -431,6 +390,14 @@ Pengfei Guo, Haitao Qiu, Yunchun Yang, and Zhang Ren.
   filter for attitude and heading reference system.
 \newblock In {\em 2008 IEEE/ION Position, Location and Navigation Symposium},
   pages 1167--1174. IEEE, 2008.
+
+\bibitem{daponte2017method}
+Pasquale Daponte, Luca De~Vito, Gianluca Mazzilli, Francesco Picariello, and
+  Sergio Rapuano.
+\newblock Method for compensating the effect of disturbances on magnetometer
+  measurements: experimental results.
+\newblock In {\em 2017 IEEE International Instrumentation and Measurement
+  Technology Conference (I2MTC)}, pages 1--6. IEEE, 2017.
 
 \bibitem{bachmann2004investigation}
 Eric~R Bachmann, Xiaoping Yun, and Christopher~W Peterson.
@@ -469,6 +436,19 @@ Jeroen~D Hol.
 \bibitem{welch1995introduction}
 Greg Welch, Gary Bishop, et~al.
 \newblock An introduction to the kalman filter, 1995.
+
+\bibitem{mosallaei2007process}
+Mohsen Mosallaei, Karim Salahshoor, and Mohammad~Reza Bayat.
+\newblock Process fault detection and diagnosis by synchronous and asynchronous
+  decentralized kalman filtering using state-vector fusion technique.
+\newblock In {\em 2007 3rd International Conference on Intelligent Sensors,
+  Sensor Networks and Information}, pages 209--214. IEEE, 2007.
+
+\bibitem{higgins1975comparison}
+Walter~T Higgins.
+\newblock A comparison of complementary and kalman filtering.
+\newblock {\em IEEE Transactions on Aerospace and Electronic Systems},
+  (3):321--325, 1975.
 
 \bibitem{ludwig2018comparison}
 Simone~A Ludwig and Kaleb~D Burnham.
@@ -648,6 +628,20 @@ Online.
   \url{https://invensense.tdk.com/products/motion-tracking/9-axis/mpu-9250/}.
 \newblock Accessed: 2021-04-29.
 
+\bibitem{mpu6050}
+Online.
+\newblock Mpu-6050 six-axis (gyro + accelerometer) mems motiontracking devices.
+\newblock
+  \url{https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/}.
+\newblock Accessed: 2021-04-29.
+
+\bibitem{ak8963c}
+Online.
+\newblock Ak8963 3-axis electronic compass.
+\newblock
+  \url{https://download.mikroe.com/documents/datasheets/ak8963c-datasheet.pdf}.
+\newblock Accessed: 2021-04-29.
+
 \bibitem{mpu9250specification}
 Online.
 \newblock Mpu-9250 product specification.
@@ -674,6 +668,12 @@ Matenat Khamphroo, Natavut Kwankeo, Kamol Kaemarungsi, and Kazuhiko Fukawa.
 \newblock In {\em 2017 8th International Conference of Information and
   Communication Technology for Embedded Systems (IC-ICTES)}, pages 1--6. IEEE,
   2017.
+
+\bibitem{ahrs}
+Online.
+\newblock Ahrs: Attitude and heading reference systems.
+\newblock \url{https://ahrs.readthedocs.io/en/latest/}.
+\newblock Accessed: 2021-04-29.
 
 \bibitem{won2009triaxial}
 Seong-hoon~Peter Won and Farid Golnaraghi.

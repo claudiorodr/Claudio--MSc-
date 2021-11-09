@@ -49,10 +49,7 @@ The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9
     \item Self-test
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \input{tables/accelerometer_specification}
-\end{figure}
+\input{tables/accelerometer_specification}
 
 \subsubsection{Gyroscope}
 
@@ -67,10 +64,7 @@ The triple-axis MEMS gyroscope in the MPU-9250 the following features \cite{mpu9
     \item Self-test
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \input{tables/gyroscope_specification}
-\end{figure}
+\input{tables/gyroscope_specification}
 
 \subsubsection{Magnetometer}
 
@@ -84,14 +78,11 @@ The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9
     \item Self-test function with internal magnetic source to confirm magnetic sensor operation on end products
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \input{tables/magnetometer_specification}
-\end{figure}
+\input{tables/magnetometer_specification}
 
 \subsection{Software}
 
-The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL offers the serial clock, and the SDA gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963’s address is by default at 0x0C. Prior to the communication begins the SCL and SDA are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL offers the serial clock, and the SDA gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963's address is by default at 0x0C. Prior to the communication begins the SCL and SDA are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
 When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering SDA, see figure \ref{fig:i2c}. Later the serial clock (SCL) commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit, see figure \ref{fig:i2c}. When the master is done writing/reading then the stop condition is created, see figure \ref{fig:i2c}.
 
 \begin{figure}[!h]

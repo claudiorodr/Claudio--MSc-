@@ -128,7 +128,7 @@ user_acceleration = a_rotated - gravity
 
 \end{lstlisting}
 
-Rotating the accelerometer reading by the quaternion into the Earth frame of reference (into the Earth’s coordinate system), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
+Rotating the accelerometer reading by the quaternion into the Earth frame of reference (into the Earth's coordinate system), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
 
 \begin{figure}[!h]
     \centering
