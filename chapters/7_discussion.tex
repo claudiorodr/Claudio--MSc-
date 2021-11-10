@@ -1,18 +1,25 @@
 \section{Discussion}
-Facing the result from the previous chapter, a few conclusions can be drawn. Generally, the results showed a good estimation accuracy by most sensor fusion algorithms, with small difference between the best performing algorithms. The results showed that the algorithms had generally smaller displacement error than turn error which indicates that algorithms were generally better at estimating position than necessarily the shape of the experiment. Another conclusion was that absolute error increases with distance, since longer experiments had bigger absolute error rates than shorter experiments. Relative error measurements, on the other side, decreased in longer tests. Some unexpected surprises from less known algorithms such as OLEQ, ROLEQ, SAAM, Tilt, FLAE and Davenport outperforming more well-established algorithms like the Complementary, EKF and Madgwick. From every test made, Mahony ranks best at displacement and with an average of 3.72 meters of absolute displacement error and 3.72
-\% relative error. SAAM and Tilt ranked best at turn error with an average of 2.79 meters of absolute turn error and 6.93\%. Closely followed by OLEQ and Mahony with 0.79 meters of displacement error, and 1.02 and 0.97 meters of turn error respectively. On the other hand, Fourati had the worst general performance among all algorithms, with a 24.19 meter error average displacement and 31.87 meter turn error average. Angular Rate, FAMC, QUEST and AQUA also had poor overall results generally performing under average of the other fusion algorithms.
+Facing the result from the previous chapter, a few conclusions can be drawn. Generally, the results showed a good estimation accuracy by most sensor fusion algorithms, with small difference between the best performing algorithms \ref{tab:overall}.
 
-\vspace{-0.5cm}
+% \vspace{-0.5cm}
 \input{tables/overall}
-\vspace{-1.5cm}
+% \vspace{-1.5cm}
 
-\vspace{-0.5cm}
+The results showed that the algorithms had generally smaller displacement error than turn error which indicates that algorithms were generally better at estimating position than necessarily the shape of the experiment. Another conclusion was that absolute error increases with distance, since longer experiments had bigger absolute error rates than shorter experiments. Relative error measurements, on the other side, decreased in longer tests. Some unexpected surprises from less known algorithms such as OLEQ, ROLEQ, SAAM, Tilt, FLAE and Davenport outperforming more well-established algorithms like the Complementary, EKF and Madgwick.
+
+From every test made, Mahony ranks best at displacement and with an average of 3.72 meters of absolute displacement error and 3.72 \% relative error. Closely followed by SAAM and Tilt with 2 meters of displacement error, and 4.12 meters of displacement error \ref{tab:ranked_displacement}.
+
+% \vspace{-0.5cm}
 \input{tables/ranked_displacement}
-\vspace{-1.5cm}
+% \vspace{-1.5cm}
 
-\vspace{-0.5cm}
+SAAM and Tilt ranked best at turn error both with an average of 2.79 meters of absolute turn error and 6.93\% of relative turn error. Closely followed by Mahony with 6.97\% meters of relative turn error \ref{tab:ranked_turn}.
+
+% \vspace{-0.5cm}
 \input{tables/ranked_turn}
-\vspace{-1.5cm}
+% \vspace{-1.5cm}
+
+On the other hand, Fourati had the worst general performance among all algorithms, with a 24.19 (36.14\% relative displacement error) meter error average displacement and 31.87 (48.16\% relative turn error) meter turn error average. Angular Rate, FAMC, QUEST and AQUA also had poor overall results generally performing under average of the other fusion algorithms.
 
 To develop and determine an accurate positioning system is a challenge on many levels as it requires computationally advanced electronic components that can perform highly accurate calculations. The difficulties faced when solving this problem arise when the determining the orientation of an object as it produces many sources of error. The downside of having a well oriented system is at the expense of detection of low velocities and vice versa. The positioning system performs at high accuracy (cm precision) during non-rotational movements but has trouble with drift when the object is rotated. This is due to the low convergence rate of the orientation filter which is clearly a big system limitation. A suggestion on solving this problem could be making the tuning parameters of the filter more dynamic which would make the system more adaptable to extreme rotations and low velocities.
 

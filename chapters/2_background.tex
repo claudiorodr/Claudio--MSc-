@@ -26,7 +26,7 @@ ECEF coordinate system describes a referential axis where the origin of the coor
     \label{eq:ecef}
 \end{equation}
 
-The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction. The right-hand rule explains its orientation.
+The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction (figure \ref{fig:ECEF}). The right-hand rule explains its orientation.
 
 The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system. In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
 
@@ -122,18 +122,22 @@ The convention used in this work is represented by equation \ref{eq:axes_frames}
     \label{eq:axes_frames}
 \end{equation}
 
-Rotation matrices belong to the orthonormal group and one important property is that $^a_bR ^a_bR^T = I$ meaning $^a_bR^T = ^a_bR^{-1}$. Also a $^a_bR^T$ is equal to $^b_aR^T$ \cite{gruber2000mathematics}.
+Rotation matrices fit in to the orthonormal class and one crucial property is that $^a_bR ^a_bR^T = I$ indicating $^a_bR^T = ^a_bR^{-1}$. Likewise, a $^a_bR^T$ is equivalent to $^b_aR$ \cite{gruber2000mathematics}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
+    \caption{ 3D rotation around vector $\hat{r}$ of angle $\theta$ between frame A and B. }
+    \label{fig:rotation}
+\end{figure}
 
 \subsubsection{Direct Cosine Matrix}
 
-The direct cosine matrix (DCM) is similar to the rotational matrix, however it is a 3x3
-matrix that contains the cosines of the 9 possible pairs of axes of two different Cartesian coordinate systems. The DCM is typically used to translate from the body frame into the earth frame. The DCM approach has gained much popularity for its advantage of
-linear measurement equations in Kalman filters. \cite{premerlani2009direction}
-
+The direct cosine matrix (DCM) is related to the rotational matrix, however it is a 3x3 matrix that comprises the cosines of the 9 possible sets of axes of two distinct Cartesian coordinate systems. The DCM is normally employed to convert from the body frame into the earth frame. The DCM methodology has achieved considerable recognition for its improvement of linear measurement equations in Kalman filters (more in-depth review at chapter \ref{sub:sensor_fusion} \nameref{sub:sensor_fusion}) \cite{premerlani2009direction}.
 
 \subsubsection{Euler angles}
 
-Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame \cite{diebel2006representing}. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis \cite{grado1960solution}. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements. Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}.
+Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame \cite{diebel2006representing}. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis \cite{grado1960solution}. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements.
 
 % \begin{figure}[!h]
 %     \centering
@@ -142,33 +146,27 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 %     \label{fig:axes_frames}
 % \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/rotation.pdf}
-    \caption{ 3D rotation around vector $\hat{r}$ between frame A and B. }
-    \label{fig:rotation}
-\end{figure}
-
-\begin{equation}
-    \begin{bmatrix}
-        \dot{\psi}   \\
-        \dot{\theta} \\
-        \dot{\phi}   \\
-    \end{bmatrix}
-    =
-    \frac{1}{\cos(\theta)}
-    \begin{bmatrix}
-        \sin(\phi)             & 0 & -\cos(\phi)            \\
-        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
-        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
-    \end{bmatrix}
-    \begin{bmatrix}
-        \omega{^b_{nbx}} \\
-        \omega{^b_{nby}} \\
-        \omega{^b_{nbz}} \\
-    \end{bmatrix}
-    \label{eq:euler_equation}
+\begin{bmatrix}
+    \dot{\psi}   \\
+    \dot{\theta} \\
+    \dot{\phi}   \\
+\end{bmatrix}
+=
+\frac{1}{\cos(\theta)}
+\begin{bmatrix}
+    \sin(\phi)             & 0 & -\cos(\phi)            \\
+    \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+    \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+\end{bmatrix}
+\begin{bmatrix}
+    \omega{^b_{nbx}} \\
+    \omega{^b_{nby}} \\
+    \omega{^b_{nbz}} \\
+\end{bmatrix}
+\label{eq:euler_equation}
 \end{equation}
+
+Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by is own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
 
 \begin{equation}
     {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
@@ -182,7 +180,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 \end{equation}
 
 Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space \cite{spring1986euler}. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together \cite{mcconnell1967kinematics}. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}) \cite{hemingway2018perspectives}.
-Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance. In this dissertation, a different kind of orientation representation will be used quaternions.
+Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance.
 
 \begin{figure}[!h]
     \centering
@@ -193,7 +191,7 @@ Euler angles commonly involve a large number of complex mathematical operations,
 
 \subsubsection{Quaternions}
 
-Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}) \cite{lee2008representing}. A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors. Equation (2.1) shows this relation with the complex number x having a real part a and imaginary part b; and the quaternion q containing a real scalar part s and an imaginary vector component ~v \cite{mukundan2002quaternions}.
+Another commonly used attitude representation is the quaternion. To comprehend quaternions, one must first grasp the complex number relationship. A complex number can depict a rotation in a 2-dimensional coordinate frame with a real x-axis and an imaginary y-axis (or vice versa) (figure \ref{fig:complex_rotation}) \cite{lee2008representing}. A quaternion builds upon this concept, but rather than one imaginary axis, it makes use of three imaginary axes: similar to merging three complex numbers into one. Four components are required to progress from a two-dimensional definition to a three-dimensional plane: one real component $q_0$ and three imaginary $q_1$, $q_2$ and $q_3$. Quaternions are mathematically denoted as equation \ref{eq:quaternion_representation}, and are commonly represented as a vector (equation \ref{eq:quaternion_vector}), where $q_0$ is the norm, $q_1$, $q_2$, and $q_3$ are complex coordinates with $i$, $j$, $k$ being the axis versors.  \cite{mukundan2002quaternions}.
 
 \begin{figure}[!h]
     \centering
@@ -286,10 +284,10 @@ As a result, the rules defined in equation \ref{eq:quaternion_rules} and table \
 \item \textbf{Quaternion conjugate} Conjugation is an involution (a function that is its own inverse), conjugating an element twice yields the original constituent. The conjugate of a quaternion relates to an inverse rotation, in this case constitutes the orientation of world frame with respect to body frame:
 
 \begin{equation}
-    \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_1 - q_2 - q_3 - q_4\right]
+    \textrm{$_{b}^{w}q$}^* =\textrm{$_{w}^{b}q$} = \left[q_0 - q_1 - q_2 - q_3\right]
 \end{equation}
 
-\item \textbf{Vector rotation} Let's define the following quaternion representation of the same vector but in each referential by using is pure quaternion as
+\item \textbf{Vector rotation} Defining the subsequent quaternion representation of the same vector but in each referential by using is pure quaternion as
 
 $ ^wv = \begin{bmatrix}
         0 & ^wx & ^wy & ^wz
@@ -297,18 +295,19 @@ $ ^wv = \begin{bmatrix}
 and
 $^bv = \begin{bmatrix}
         0 & ^bx & ^by & ^bz
-    \end{bmatrix} $. The rotation of vector $v$ from one frame to other, using a quaternion, is performed by equation 2.10.
+    \end{bmatrix} $. The rotation of vector $v$ from one frame to other, using a quaternion is given by:
 
 \begin{equation}
     \textrm{$^{b}v$} = \textrm{$_{b}^{w}\hat{q}$} \otimes \textrm{$^{w}v$} \otimes \textrm{$_{b}^{w}\hat{q}$}^*
 \end{equation}
 
-\item \textbf{Composed rotations} The composition of rotations can be described in quaternions as the product between quaternions. For example, the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is defined as equation 2.11.
-
+\item \textbf{Composed rotations} The composition of rotations can be defined in quaternions as the product between two quaternions. For instance, the sequence a $^a_b\hat{q} \rightarrow {^b_c\hat{q}}$ is equal to $^a_c{\hat{q}}$ and is described by:
 
 \begin{equation}
     \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
 \end{equation}
+
+Quaternion representation permits a more truthful and efficient attitude estimation approach. This is because operations in Euler angles entails matrix multiplication which involve additional computational effort as it entails more mathematical numerical calculations. An additional benefit of employing quaternions is that any transformation is intrinsically orthonormal. Normalizing a quaternion is significantly computationally more efficient than normalizing a matrix. And since every rotation needs normalization when completed, the computational costs accumulate \cite{funda1990homogeneous}. Owing to these benefits the quaternions are used to determine attitude in this project, while Euler angles are applied merely as a representation of the orientation defined by the quaternions (Euler angles are simpler in human physical interpretation) \cite{toso2015esa}.
 
 \subsection{Inertial Measurement Units}
 
@@ -435,8 +434,6 @@ The major axis is the axis that runs along the x axes. This will be used to find
     \caption{Representation of a magnetometer's different types of disturbances. \cite{daponte2017method} }
     \label{fig:magnetometer_distortion}
 \end{figure}
-
-
 
 \subsection{Sensor Fusion}
 \label{sub:sensor_fusion}
