@@ -320,10 +320,7 @@ An inertial measurement unit (IMU) is an electronic tool that quantifies and des
     \label{fig:noise}
 \end{figure}
 
-The first diagram in the figure above correspond to the signal error categorized as noise. Noise is of high frequency and might be reduced by applying a low pass filter \cite{kaiser1977data}. The main sensor noise sources sensor can be environmental noise, such as temperature oscillations, gravity , etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise.
-The second type is the offset error, also known as bias error (second graph in figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter.
-The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation.
-Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure.
+The first diagram in the figure above correspond to the signal error categorized as noise. Noise is of high frequency and might be reduced by applying a low pass filter \cite{kaiser1977data}. The main sensor noise sources sensor can be environmental noise, such as temperature oscillations, gravity , etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise. The second type is the offset error, also known as bias error (second graph in figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter. The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation. Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure \cite{el2007temperature}.
 
 \subsubsection{Accelerometer}
 
@@ -338,7 +335,7 @@ The working principle of an accelerometer can be expounded by a single mass ($m$
     \label{fig:accelerometer_schematic}
 \end{figure}
 
-Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration a, the equation of motion for the mass is:
+Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration $a$, the equation of motion for the mass is:
 
 \begin{equation}
     mx + kx + cx = \overrightarrow{F}\Leftrightarrow mx + kx + cx = m\overrightarrow{a}
@@ -418,7 +415,7 @@ By subtracting these offsets from the magnetometer readings, it is possible to s
 
 Soft-iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard-iron distortion which has a continuous disturbance, a soft-iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
 
-The major axis is the axis that runs along the x axes. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing r, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point \cite{daponte2017method}.
+The major axis is the axis that runs along the x axes. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing $r$, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point \cite{daponte2017method}.
 
 \begin{equation}
     r=\sqrt{(x_1)^2+(y_1)^2}
@@ -492,7 +489,7 @@ The complementary filter is considered a simpler approach relatively to the Kalm
 \end{figure}
 
 The accelerometer is especially vulnerable to vibrations and centripetal forces, these can be filtered by a low pass filter behaving as a moving average filter. The gyroscope is precise and exact in the short term, but quickly loses precision in integration due to drift. For that reason, a high pass filter that allows the short-term gyroscope data is desirable, thus, removing the long-term drift.
-At any given moment, the complete the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}), where $\theta_t$ represents current orientation, $\alpha$ is a filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
+At any given moment, the signal is subject to a low pass filter (equation \ref{eq:low_pass_filter}) or a high pass filter (equation \ref{eq:high_pass_filter}), where $x_t$ is the measurements from the sensor, $y_t$ is the filtered final output, and $\alpha$ is a filter coefficient:
 
 \begin{equation}
     y_t = (1-\alpha)x_{t} + \alpha y_{t-1}
@@ -531,6 +528,6 @@ Up until recently, there remained mainly two distinct AHRS fusion approaches. On
 Both methods make use of a quaternion representation, which is a four-dimensional complex number representing of an object orientation. Quaternions involve fewer computation time because of their minimal quantity of calculation parameters \cite{ludwig2018comparison}. Additionally, vector rotations are easily executed by quaternion multiplications.
 Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as 'Madgwick Algorithm.' This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick's approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
 
-\paragraph{Other Filters}
+% \paragraph{Other Filters}
 % \subsection{Low-Cost Inertial Measurement Units}
 % \subsubsection{MPU-9150 Evaluation Board 9DOF}

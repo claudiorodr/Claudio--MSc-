@@ -5,7 +5,7 @@ This section provides a hardware and software experimental setup outline, descri
 \subsection{Hardware}
 \label{sub:setup}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction Normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
 
 \begin{figure}[!h]
     \centering
@@ -83,7 +83,7 @@ The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9
 \subsection{Software}
 
 The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL offers the serial clock, and the SDA gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963's address is by default at 0x0C. Prior to the communication begins the SCL and SDA are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
-When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering SDA, see figure \ref{fig:i2c}. Later the serial clock (SCL) commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit, see figure \ref{fig:i2c}. When the master is done writing/reading then the stop condition is created, see figure \ref{fig:i2c}.
+When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering SDA, see figure \ref{fig:i2c}. Later the serial clock (SCL) commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit. When the master is done writing/reading then the stop condition is created.
 
 \begin{figure}[!h]
     \centering
@@ -92,7 +92,7 @@ When the transmission between the LoPy (master) and the MPU9250 (slave) initiali
     \label{fig:i2c}
 \end{figure}
 
-The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position. Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. to benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
+The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position (more in-depth explanation at chapter\ref{sub:methodology} \nameref{sub:methodology}). Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. To benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
 
 
 \begin{table}
@@ -156,11 +156,13 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
     return self._accelerometer_offset
 \end{lstlisting}
 
+The result of the accelerometer's calibration offset correction is present at figure \ref{fig:accelerometer_calibration} where the calibrated output clearly shows an offset correction with the $a_x$ and $a_y$ readings centered at $0 ms^{-2}$ while the $a_z$ revolving at the $9.8 ms^{-2}$.
+
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/accelerometer.pgf}}
     \caption{Accelerometer calibration offset correction.}
-    % \label{fig:sensoroutput} 
+    \label{fig:accelerometer_calibration}
 \end{figure}
 
 \subsubsection{Gyroscope Calibration}
@@ -191,23 +193,25 @@ The simplest calibration of an IMU consists of calculating the offset for each a
     return self._gyro_offset, self._accelerometer_offset
 \end{lstlisting}
 
+The result of the gyroscope's calibration offset correction is present at figure \ref{fig:accelerometer_calibration} where the calibrated output clearly shows an offset correction with the $\omega_x$, $\omega_y$  and $\omega_z$ readings centered at $0 rad/s$.
+
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/gyroscope.pgf}}
     \caption{Gyroscope calibration offset correction.}
-    % \label{fig:sensoroutput}
+    \label{fig:gyroscope_calibration}
 \end{figure}
 
 \subsubsection{Magnetometer Calibration}
 
-To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength \cite{kok2016magnetometer}. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do Not form a perfect sphere, Nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If No magnetic aNomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
+To calibrate the magnetometer, a series of measurements of the nearby magnetic field are taken while holding the sensor in an eight-figure pattern through every orientation possible. Ideally the measurements should portray a perfect sphere centered at the origin and where the radius of the sphere is the magnetic field's strength \cite{kok2016magnetometer}. Plotting the magnetometer's raw measurements (as seen in figure \ref{plt:raw_magnetometer} and figure \ref{plt:raw_magnetometer3D}), it is visible that these do not form a perfect sphere, nor are they centered at the origin. These are referred to as hard iron and soft iron errors or biases, respectively. If no magnetic anomaly algorithm is applied to perceive and avoid it, such distortions in the magnetic field can be interpreted as changes in orientation.
 
 \begin{figure}[!h]
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\input{plots/magnetometer2D.pgf}}
-        \caption{Magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
+        \caption{Magnetometer measurements of magnetic field strength along orthogonal X and Y-axis.}
         \label{plt:raw_magnetometer}
     \end{subfigure}
 
@@ -220,7 +224,7 @@ To calibrate the magnetometer, a series of measurements of the nearby magnetic f
     \caption{Raw magnetometer measurements.}
 \end{figure}
 
-Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are kNown, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
+Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -238,7 +242,7 @@ Hard iron biases are commonly the largest and the simplest errors to rectify. Wi
     return self._offset
 \end{lstlisting}
 
-It is possible Now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to Normalize the output across mx, my and mz. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
+It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -397,7 +401,7 @@ The inertial system was placed on an electrical scooter (figure \ref{fig:outdoor
         \caption{ Pushing the electrical scooter containing the laptop and inertial system along the platform's edges forming geometrical shapes. }
         \label{fig:outdoor_3}
     \end{subfigure}
-    \caption{ Photos illustrating hoe outdoor experiments were performed.}
+    \caption{ Photos illustrating how outdoor experiments were performed.}
     \label{fig:outdoor_experiments}
 \end{figure}
 
@@ -424,7 +428,7 @@ Here several shapes were tested, from simple lines, squares, and triangles to mo
 
 \subsection{Underwater Experiments}
 
-Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360º cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
+Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for $360\circ$ cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
 
 \begin{figure}[!h]
     \centering

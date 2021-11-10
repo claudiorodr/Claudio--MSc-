@@ -1,6 +1,7 @@
 \section{Methodology}
+\label{sub:methodology}
 
-This section provides an overview of the methodology employed to assess the system's orientation and position. Going through how the sensor's outputs are combined to obtain orientation by sensor fusion, and how displacement can be estimated using clever filter to remover gravity's influence on accelerometer's readings. A position estimation method is then presented showing how combining orientation and displacement using dead reckoning technique can return a body's position over time. The chapter ends with a visualization of how the designed position methodology pipeline performs trying to estimate position of an experiment. It will also describe how to measure how well did the estimation perform by describing how to measure an experiment's estimation error.
+This section provides an overview of the methodology employed to assess the system's orientation and position. Going through how the sensor's outputs are combined to obtain orientation by sensor fusion, and how displacement can be estimated using clever filter techniques to remove gravity's influence on accelerometer's readings. A position estimation method is then presented showing how combining orientation and displacement using dead reckoning technique can return a body's position over time. The chapter ends with a visualization of how the designed position methodology pipeline performs trying to estimate position of an experiment. It will also describes how well did the estimation perform by describing how to measure an experiment's estimation error.
 
 %Estimation pipeline
 % Field tests are in methodology. 
@@ -124,11 +125,11 @@ a_rotated = rotate(acceleration, q)
 # rotate the measured acceleration into
 # the Earth frame of reference
 
-user_acceleration = a_rotated - gravity
+linear_acceleration = a_rotated - gravity
 
 \end{lstlisting}
 
-Rotating the accelerometer reading by the quaternion into the Earth frame of reference (into the Earth's coordinate system), then subtract gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
+Rotating the accelerometer reading by the quaternion into the Earth frame of reference (into the Earth's coordinate system), then subtracting gravity. The remaining acceleration is the acceleration of the sensor in the Earth frame of reference often referred to as linear acceleration. Through orientation estimation determined previously, it is possible to find the orientation of the Earth frame with respect to the sensor frame. Therefore, compute the expected direction of gravity and then subtract that from the accelerometer readings (figure \ref{fig:gavity_compensation}).
 
 \begin{figure}[!h]
     \centering
@@ -178,7 +179,7 @@ A mathematical representation of this approach is seen at equation \ref{eq:dead_
     \label{eq:dead_reckoning}
 \end{equation}
 
-Programmatically
+Programmatically this is equivalent to:
 
 \lstset{language=Python}
 \begin{lstlisting}[frame=single]  % Start your code-block
@@ -305,9 +306,9 @@ The second way to quantify error is to measure the distance from every estimated
     MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
 \end{equation}
 
-\begin{figure}
-    \centering
-    \resizebox{0.8\linewidth}{!}{\input{plots/comparison.pgf}}
-    \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
-    \label{fig:comparison}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \resizebox{0.8\linewidth}{!}{\input{plots/comparison.pgf}}
+%     \caption{ The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
+%     \label{fig:comparison}
+% \end{figure}
