@@ -3,51 +3,51 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: mybibliography.bib
+Warning--empty journal in zeitlhofler2019nominal
+Warning--there's a number but no volume in higgins1975comparison
 Warning--can't use both volume and number fields in alaimo2013comparison
 Warning--there's a number but no volume in grado1960solution
 Warning--there's a number but no volume in bar1985attitude
-Warning--empty journal in zeitlhofler2019nominal
-Warning--there's a number but no volume in higgins1975comparison
 Warning--can't use both volume and number fields in stirling2003innovative
-You've used 112 entries,
+You've used 115 entries,
             1791 wiz_defined-function locations,
-            1067 strings with 26066 characters,
-and the built_in function-call counts, 30496 in all, are:
-= -- 2910
-> -- 1226
+            1085 strings with 26672 characters,
+and the built_in function-call counts, 31215 in all, are:
+= -- 2975
+> -- 1259
 < -- 42
-+ -- 455
-- -- 343
-* -- 2065
-:= -- 4535
-add.period$ -- 368
-call.type$ -- 112
-change.case$ -- 109
++ -- 467
+- -- 352
+* -- 2127
+:= -- 4651
+add.period$ -- 377
+call.type$ -- 115
+change.case$ -- 112
 chr.to.int$ -- 0
-cite$ -- 118
-duplicate$ -- 1364
-empty$ -- 2956
-format.name$ -- 343
-if$ -- 6976
+cite$ -- 121
+duplicate$ -- 1391
+empty$ -- 3025
+format.name$ -- 352
+if$ -- 7130
 int.to.chr$ -- 0
-int.to.str$ -- 112
-missing$ -- 104
-newline$ -- 568
-num.names$ -- 112
-pop$ -- 353
+int.to.str$ -- 115
+missing$ -- 107
+newline$ -- 583
+num.names$ -- 115
+pop$ -- 356
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 721
+skip$ -- 730
 stack$ -- 0
-substring$ -- 2411
-swap$ -- 447
+substring$ -- 2473
+swap$ -- 450
 text.length$ -- 42
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 327
-width$ -- 115
-write$ -- 1255
+while$ -- 335
+width$ -- 118
+write$ -- 1288
 (There were 6 warnings)

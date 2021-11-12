@@ -41,7 +41,7 @@ Considering a point of reference in the ECEF frame, it is required to discover t
 
 \input{tables/ecef}
 
-The conversion from ECEF to ENU coordinates is done with respect to the receiver reference point. Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\lambda_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities with the vector pointing from the receiver reference point ($Xr$, $Yr$, $Zr$) to estimated position ($Xp$, $Yp$, $Zp$) in the ENU coordinate frame \cite{boucher2001itrs}.
+The conversion from ECEF to ENU coordinates is done with respect to the receiver reference point. Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\lambda_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities with the vector pointing from the receiver reference point ($X_r$, $Y_r$, $Z_r$) to estimated position ($X_p$, $Y_p$, $Z_p$) in the ENU coordinate frame \cite{boucher2001itrs}.
 
 \begin{equation}
     \begin{gathered}
@@ -146,24 +146,25 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 %     \label{fig:axes_frames}
 % \end{figure}
 
-\begin{bmatrix}
-    \dot{\psi}   \\
-    \dot{\theta} \\
-    \dot{\phi}   \\
-\end{bmatrix}
-=
-\frac{1}{\cos(\theta)}
-\begin{bmatrix}
-    \sin(\phi)             & 0 & -\cos(\phi)            \\
-    \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
-    \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
-\end{bmatrix}
-\begin{bmatrix}
-    \omega{^b_{nbx}} \\
-    \omega{^b_{nby}} \\
-    \omega{^b_{nbz}} \\
-\end{bmatrix}
-\label{eq:euler_equation}
+\begin{equation}
+    \begin{bmatrix}
+        \dot{\psi}   \\
+        \dot{\theta} \\
+        \dot{\phi}   \\
+    \end{bmatrix}
+    =
+    \frac{1}{\cos(\theta)}
+    \begin{bmatrix}
+        \sin(\phi)             & 0 & -\cos(\phi)            \\
+        \cos(\theta)\cos(\phi) & 0 & \cos(\theta)\sin(\phi) \\
+        \sin(\theta)\sin(\phi) & 1 & \sin(\theta)\cos(\phi)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \omega{^b_{nbx}} \\
+        \omega{^b_{nby}} \\
+        \omega{^b_{nbz}} \\
+    \end{bmatrix}
+    \label{eq:euler_equation}
 \end{equation}
 
 Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by is own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
