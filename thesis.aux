@@ -19,6 +19,13 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\@newglossary[4]{}
+\@newglossary{main}{glg}{gls}{glo}
+\@newglossary{acronym}{alg}{acr}{acn}
+\providecommand\@glsorder[1]{}
+\providecommand\@istfilename[1]{}
+\@istfilename{thesis.ist}
+\@glsorder{word}
 \babel@aux{english}{}
 \babel@aux{portuguese}{}
 \babel@aux{english}{}
@@ -120,8 +127,8 @@
 \citation{zeitlhofler2019nominal}
 \citation{lee2008representing}
 \citation{mukundan2002quaternions}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Representation of the Gimbal Lock problematic \cite  {zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. \relax }}{13}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:gimbal_lock}{{5}{13}{Representation of the Gimbal Lock problematic \cite {zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. \relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Representation of the Gimbal Lock problematic \cite  {zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y-axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90\circ across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. \relax }}{13}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:gimbal_lock}{{5}{13}{Representation of the Gimbal Lock problematic \cite {zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y-axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90\circ across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. \relax }{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Quaternions}{13}{subsubsection.0.2.2.4}\protected@file@percent }
 \citation{valenti2015keeping}
 \citation{bar1985attitude}
@@ -168,10 +175,10 @@
 \citation{trusov2011overview}
 \citation{passaro2017gyroscope}
 \citation{passaro2017gyroscope}
-\citation{trusov2011overview}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Gyroscope}{20}{subsubsection.0.2.3.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals. \cite  {marotto2013orientation} \relax }}{20}{figure.caption.17}\protected@file@percent }
 \newlabel{fig:gyroscope}{{9}{20}{Representation of a conventional gyroscope accommodating a spinning wheel mounted on two gimbals. \cite {marotto2013orientation} \relax }{figure.caption.17}{}}
+\citation{trusov2011overview}
 \citation{trusov2011overview}
 \citation{trusov2011overview}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  System where two masses are oscillating in opposite directions. When a rotation is applied, the masses are affected by the Coriolis force and the displacement is measured by a change in capacitance. \cite  {passaro2017gyroscope}\relax }}{21}{figure.caption.18}\protected@file@percent }
@@ -395,8 +402,8 @@
 \@writefile{toc}{\contentsline {paragraph}{\numberline {5.0.4.1}Measuring error}{63}{paragraph.0.5.0.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces  Result after applying the position estimation methodology to the raw sensor data. \relax }}{64}{figure.caption.50}\protected@file@percent }
 \newlabel{fig:square}{{38}{64}{Result after applying the position estimation methodology to the raw sensor data. \relax }{figure.caption.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Illustration of the real-world test ground truth (represented by the 4mx4m blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. \relax }}{64}{figure.caption.51}\protected@file@percent }
-\newlabel{fig:square_truth}{{39}{64}{Illustration of the real-world test ground truth (represented by the 4mx4m blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. \relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Illustration of the real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. \relax }}{64}{figure.caption.51}\protected@file@percent }
+\newlabel{fig:square_truth}{{39}{64}{Illustration of the real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. \relax }{figure.caption.51}{}}
 \newlabel{fig:square_turn}{{40a}{66}{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.\relax }{figure.caption.52}{}}
 \newlabel{sub@fig:square_turn}{{a}{66}{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.\relax }{figure.caption.52}{}}
 \newlabel{fig:square_point}{{40b}{66}{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.\relax }{figure.caption.52}{}}
@@ -406,8 +413,9 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {41}{\ignorespaces Three-dimensional view of the experiment.\relax }}{67}{figure.caption.53}\protected@file@percent }
 \newlabel{fig:square3D}{{41}{67}{Three-dimensional view of the experiment.\relax }{figure.caption.53}{}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {5.0.5.1}Measuring error}{67}{paragraph.0.5.0.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {42}{\ignorespaces The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the 4mx4m blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }}{68}{figure.caption.54}\protected@file@percent }
-\newlabel{fig:square3D_truth}{{42}{68}{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the 4mx4m blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }{figure.caption.54}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {42}{\ignorespaces The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }}{68}{figure.caption.54}\protected@file@percent }
+\newlabel{fig:square3D_truth}{{42}{68}{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }{figure.caption.54}{}}
+\newlabel{eq:mae}{{40}{68}{Measuring error}{equation.0.5.40}{}}
 \newlabel{fig:square3D_error}{{\caption@xref {fig:square3D_error}{ on input line 290}}{69}{Measuring error}{figure.caption.55}{}}
 \newlabel{sub@fig:square3D_error}{{}{69}{Measuring error}{figure.caption.55}{}}
 \newlabel{fig:square3D_point}{{\caption@xref {fig:square3D_point}{ on input line 298}}{69}{Measuring error}{figure.caption.55}{}}

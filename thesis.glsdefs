@@ -1,0 +1,1110 @@
+\ifglsentryexists{gnss}{}%
+{%
+\gls@defglossaryentry{gnss}%
+{%
+name={GNSS},%
+sort={GNSS},%
+type={acronym},%
+first={Global Navigation Satellite System\glsspace (GNSS)},%
+firstplural={Global Navigation Satellite Systems\glsspace (GNSSs)},%
+text={GNSS},%
+plural={GNSSs},%
+description={Global Navigation Satellite System},%
+descriptionplural={Global Navigation Satellite System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Global Navigation Satellite System},%
+longplural={Global Navigation Satellite Systems},%
+short={GNSS},%
+shortplural={GNSSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{imu}{}%
+{%
+\gls@defglossaryentry{imu}%
+{%
+name={IMU},%
+sort={IMU},%
+type={acronym},%
+first={Inertial measurement unit\glsspace (IMU)},%
+firstplural={Inertial measurement units\glsspace (IMUs)},%
+text={IMU},%
+plural={IMUs},%
+description={Inertial measurement unit},%
+descriptionplural={Inertial measurement unit\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Inertial measurement unit},%
+longplural={Inertial measurement units},%
+short={IMU},%
+shortplural={IMUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{uav}{}%
+{%
+\gls@defglossaryentry{uav}%
+{%
+name={UAV},%
+sort={UAV},%
+type={acronym},%
+first={Unmanned Aerial Vehicle\glsspace (UAV)},%
+firstplural={Unmanned Aerial Vehicles\glsspace (UAVs)},%
+text={UAV},%
+plural={UAVs},%
+description={Unmanned Aerial Vehicle},%
+descriptionplural={Unmanned Aerial Vehicle\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Unmanned Aerial Vehicle},%
+longplural={Unmanned Aerial Vehicles},%
+short={UAV},%
+shortplural={UAVs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{iot}{}%
+{%
+\gls@defglossaryentry{iot}%
+{%
+name={Iot},%
+sort={Iot},%
+type={acronym},%
+first={Internet of Things\glsspace (Iot)},%
+firstplural={Internet of Thingss\glsspace (Iots)},%
+text={Iot},%
+plural={Iots},%
+description={Internet of Things},%
+descriptionplural={Internet of Things\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Internet of Things},%
+longplural={Internet of Thingss},%
+short={Iot},%
+shortplural={Iots},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{gps}{}%
+{%
+\gls@defglossaryentry{gps}%
+{%
+name={GPS},%
+sort={GPS},%
+type={acronym},%
+first={Global Positioning System\glsspace (GPS)},%
+firstplural={Global Positioning Systems\glsspace (GPSs)},%
+text={GPS},%
+plural={GPSs},%
+description={Global Positioning System},%
+descriptionplural={Global Positioning System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Global Positioning System},%
+longplural={Global Positioning Systems},%
+short={GPS},%
+shortplural={GPSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{glonass}{}%
+{%
+\gls@defglossaryentry{glonass}%
+{%
+name={GLONASS},%
+sort={GLONASS},%
+type={acronym},%
+first={Globalnaya Navigatsionnaya Sputnikovaya Sistema\glsspace (GLONASS)},%
+firstplural={Globalnaya Navigatsionnaya Sputnikovaya Sistemas\glsspace (GLONASSs)},%
+text={GLONASS},%
+plural={GLONASSs},%
+description={Globalnaya Navigatsionnaya Sputnikovaya Sistema},%
+descriptionplural={Globalnaya Navigatsionnaya Sputnikovaya Sistema\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Globalnaya Navigatsionnaya Sputnikovaya Sistema},%
+longplural={Globalnaya Navigatsionnaya Sputnikovaya Sistemas},%
+short={GLONASS},%
+shortplural={GLONASSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{enu}{}%
+{%
+\gls@defglossaryentry{enu}%
+{%
+name={ENU},%
+sort={ENU},%
+type={acronym},%
+first={East North Up\glsspace (ENU)},%
+firstplural={East North Ups\glsspace (ENUs)},%
+text={ENU},%
+plural={ENUs},%
+description={East North Up},%
+descriptionplural={East North Up\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={East North Up},%
+longplural={East North Ups},%
+short={ENU},%
+shortplural={ENUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ecef}{}%
+{%
+\gls@defglossaryentry{ecef}%
+{%
+name={ECEF},%
+sort={ECEF},%
+type={acronym},%
+first={Earth Centered, Earth Fixed\glsspace (ECEF)},%
+firstplural={Earth Centered, Earth Fixeds\glsspace (ECEFs)},%
+text={ECEF},%
+plural={ECEFs},%
+description={Earth Centered, Earth Fixed},%
+descriptionplural={Earth Centered, Earth Fixed\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Earth Centered, Earth Fixed},%
+longplural={Earth Centered, Earth Fixeds},%
+short={ECEF},%
+shortplural={ECEFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{wgs84}{}%
+{%
+\gls@defglossaryentry{wgs84}%
+{%
+name={WGS84},%
+sort={WGS84},%
+type={acronym},%
+first={World Geodetic System\glsspace (WGS84)},%
+firstplural={World Geodetic Systems\glsspace (WGS84s)},%
+text={WGS84},%
+plural={WGS84s},%
+description={World Geodetic System},%
+descriptionplural={World Geodetic System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={World Geodetic System},%
+longplural={World Geodetic Systems},%
+short={WGS84},%
+shortplural={WGS84s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ahrs}{}%
+{%
+\gls@defglossaryentry{ahrs}%
+{%
+name={AHRS},%
+sort={AHRS},%
+type={acronym},%
+first={Attitude and Heading Reference System\glsspace (AHRS)},%
+firstplural={Attitude and Heading Reference Systems\glsspace (AHRSs)},%
+text={AHRS},%
+plural={AHRSs},%
+description={Attitude and Heading Reference System},%
+descriptionplural={Attitude and Heading Reference System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Attitude and Heading Reference System},%
+longplural={Attitude and Heading Reference Systems},%
+short={AHRS},%
+shortplural={AHRSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dcm}{}%
+{%
+\gls@defglossaryentry{dcm}%
+{%
+name={DCM},%
+sort={DCM},%
+type={acronym},%
+first={Direct Cosine Matrix\glsspace (DCM)},%
+firstplural={Direct Cosine Matrixs\glsspace (DCMs)},%
+text={DCM},%
+plural={DCMs},%
+description={Direct Cosine Matrix},%
+descriptionplural={Direct Cosine Matrix\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Direct Cosine Matrix},%
+longplural={Direct Cosine Matrixs},%
+short={DCM},%
+shortplural={DCMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cpu}{}%
+{%
+\gls@defglossaryentry{cpu}%
+{%
+name={CPU},%
+sort={CPU},%
+type={acronym},%
+first={Central Processing Unit\glsspace (CPU)},%
+firstplural={Central Processing Units\glsspace (CPUs)},%
+text={CPU},%
+plural={CPUs},%
+description={Central Processing Unit},%
+descriptionplural={Central Processing Unit\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Central Processing Unit},%
+longplural={Central Processing Units},%
+short={CPU},%
+shortplural={CPUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mems}{}%
+{%
+\gls@defglossaryentry{mems}%
+{%
+name={MEMS},%
+sort={MEMS},%
+type={acronym},%
+first={Micro-Electro-Mechanical Systems\glsspace (MEMS)},%
+firstplural={Micro-Electro-Mechanical Systemss\glsspace (MEMSs)},%
+text={MEMS},%
+plural={MEMSs},%
+description={Micro-Electro-Mechanical Systems},%
+descriptionplural={Micro-Electro-Mechanical Systems\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Micro-Electro-Mechanical Systems},%
+longplural={Micro-Electro-Mechanical Systemss},%
+short={MEMS},%
+shortplural={MEMSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ekf}{}%
+{%
+\gls@defglossaryentry{ekf}%
+{%
+name={EKF},%
+sort={EKF},%
+type={acronym},%
+first={Extended Kalman Filter\glsspace (EKF)},%
+firstplural={Extended Kalman Filters\glsspace (EKFs)},%
+text={EKF},%
+plural={EKFs},%
+description={Extended Kalman Filter},%
+descriptionplural={Extended Kalman Filter\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Extended Kalman Filter},%
+longplural={Extended Kalman Filters},%
+short={EKF},%
+shortplural={EKFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ecf}{}%
+{%
+\gls@defglossaryentry{ecf}%
+{%
+name={ECF},%
+sort={ECF},%
+type={acronym},%
+first={Extended Complementary Filter\glsspace (ECF)},%
+firstplural={Extended Complementary Filters\glsspace (ECFs)},%
+text={ECF},%
+plural={ECFs},%
+description={Extended Complementary Filter},%
+descriptionplural={Extended Complementary Filter\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Extended Complementary Filter},%
+longplural={Extended Complementary Filters},%
+short={ECF},%
+shortplural={ECFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pdr}{}%
+{%
+\gls@defglossaryentry{pdr}%
+{%
+name={PDR},%
+sort={PDR},%
+type={acronym},%
+first={Pedestrian dead reckoning\glsspace (PDR)},%
+firstplural={Pedestrian dead reckonings\glsspace (PDRs)},%
+text={PDR},%
+plural={PDRs},%
+description={Pedestrian dead reckoning},%
+descriptionplural={Pedestrian dead reckoning\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Pedestrian dead reckoning},%
+longplural={Pedestrian dead reckonings},%
+short={PDR},%
+shortplural={PDRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{snis}{}%
+{%
+\gls@defglossaryentry{snis}%
+{%
+name={SNIS},%
+sort={SNIS},%
+type={acronym},%
+first={Strapdown Inertial Navigation System\glsspace (SNIS)},%
+firstplural={Strapdown Inertial Navigation Systems\glsspace (SNISs)},%
+text={SNIS},%
+plural={SNISs},%
+description={Strapdown Inertial Navigation System},%
+descriptionplural={Strapdown Inertial Navigation System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Strapdown Inertial Navigation System},%
+longplural={Strapdown Inertial Navigation Systems},%
+short={SNIS},%
+shortplural={SNISs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rov}{}%
+{%
+\gls@defglossaryentry{rov}%
+{%
+name={ROV},%
+sort={ROV},%
+type={acronym},%
+first={Remotely Operated Underwater Vehicle\glsspace (ROV)},%
+firstplural={Remotely Operated Underwater Vehicles\glsspace (ROVs)},%
+text={ROV},%
+plural={ROVs},%
+description={Remotely Operated Underwater Vehicle},%
+descriptionplural={Remotely Operated Underwater Vehicle\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Remotely Operated Underwater Vehicle},%
+longplural={Remotely Operated Underwater Vehicles},%
+short={ROV},%
+shortplural={ROVs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{zvu}{}%
+{%
+\gls@defglossaryentry{zvu}%
+{%
+name={ZVU},%
+sort={ZVU},%
+type={acronym},%
+first={Zero-Velocity Update\glsspace (ZVU)},%
+firstplural={Zero-Velocity Updates\glsspace (ZVUs)},%
+text={ZVU},%
+plural={ZVUs},%
+description={Zero-Velocity Update},%
+descriptionplural={Zero-Velocity Update\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Zero-Velocity Update},%
+longplural={Zero-Velocity Updates},%
+short={ZVU},%
+shortplural={ZVUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{aoa}{}%
+{%
+\gls@defglossaryentry{aoa}%
+{%
+name={AOA},%
+sort={AOA},%
+type={acronym},%
+first={Angle of Arrival\glsspace (AOA)},%
+firstplural={Angle of Arrivals\glsspace (AOAs)},%
+text={AOA},%
+plural={AOAs},%
+description={Angle of Arrival},%
+descriptionplural={Angle of Arrival\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Angle of Arrival},%
+longplural={Angle of Arrivals},%
+short={AOA},%
+shortplural={AOAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{toa}{}%
+{%
+\gls@defglossaryentry{toa}%
+{%
+name={TOA},%
+sort={TOA},%
+type={acronym},%
+first={Time of Arrival\glsspace (TOA)},%
+firstplural={Time of Arrivals\glsspace (TOAs)},%
+text={TOA},%
+plural={TOAs},%
+description={Time of Arrival},%
+descriptionplural={Time of Arrival\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Time of Arrival},%
+longplural={Time of Arrivals},%
+short={TOA},%
+shortplural={TOAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rss}{}%
+{%
+\gls@defglossaryentry{rss}%
+{%
+name={RSS},%
+sort={RSS},%
+type={acronym},%
+first={Received Signal Strength\glsspace (RSS)},%
+firstplural={Received Signal Strengths\glsspace (RSSs)},%
+text={RSS},%
+plural={RSSs},%
+description={Received Signal Strength},%
+descriptionplural={Received Signal Strength\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Received Signal Strength},%
+longplural={Received Signal Strengths},%
+short={RSS},%
+shortplural={RSSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{snr}{}%
+{%
+\gls@defglossaryentry{snr}%
+{%
+name={SNR},%
+sort={SNR},%
+type={acronym},%
+first={Signal to Noise Ratio\glsspace (SNR)},%
+firstplural={Signal to Noise Ratios\glsspace (SNRs)},%
+text={SNR},%
+plural={SNRs},%
+description={Signal to Noise Ratio},%
+descriptionplural={Signal to Noise Ratio\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Signal to Noise Ratio},%
+longplural={Signal to Noise Ratios},%
+short={SNR},%
+shortplural={SNRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{lora}{}%
+{%
+\gls@defglossaryentry{lora}%
+{%
+name={LoRa},%
+sort={LoRa},%
+type={acronym},%
+first={Long Range Communication\glsspace (LoRa)},%
+firstplural={Long Range Communications\glsspace (LoRas)},%
+text={LoRa},%
+plural={LoRas},%
+description={Long Range Communication},%
+descriptionplural={Long Range Communication\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Long Range Communication},%
+longplural={Long Range Communications},%
+short={LoRa},%
+shortplural={LoRas},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{i2c}{}%
+{%
+\gls@defglossaryentry{i2c}%
+{%
+name={$I^2C$},%
+sort={$I^2C$},%
+type={acronym},%
+first={Inter-Integrated Circuit\glsspace ($I^2C$)},%
+firstplural={Inter-Integrated Circuits\glsspace ($I^2C$s)},%
+text={$I^2C$},%
+plural={$I^2C$s},%
+description={Inter-Integrated Circuit},%
+descriptionplural={Inter-Integrated Circuit\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Inter-Integrated Circuit},%
+longplural={Inter-Integrated Circuits},%
+short={$I^2C$},%
+shortplural={$I^2C$s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sda}{}%
+{%
+\gls@defglossaryentry{sda}%
+{%
+name={SDA},%
+sort={SDA},%
+type={acronym},%
+first={Serial Data\glsspace (SDA)},%
+firstplural={Serial Datas\glsspace (SDAs)},%
+text={SDA},%
+plural={SDAs},%
+description={Serial Data},%
+descriptionplural={Serial Data\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Serial Data},%
+longplural={Serial Datas},%
+short={SDA},%
+shortplural={SDAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{scl}{}%
+{%
+\gls@defglossaryentry{scl}%
+{%
+name={SCL},%
+sort={SCL},%
+type={acronym},%
+first={Serial Clock\glsspace (SCL)},%
+firstplural={Serial Clocks\glsspace (SCLs)},%
+text={SCL},%
+plural={SCLs},%
+description={Serial Clock},%
+descriptionplural={Serial Clock\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Serial Clock},%
+longplural={Serial Clocks},%
+short={SCL},%
+shortplural={SCLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ins}{}%
+{%
+\gls@defglossaryentry{ins}%
+{%
+name={INS},%
+sort={INS},%
+type={acronym},%
+first={Inertial Navigation System\glsspace (INS)},%
+firstplural={Inertial Navigation Systems\glsspace (INSs)},%
+text={INS},%
+plural={INSs},%
+description={Inertial Navigation System},%
+descriptionplural={Inertial Navigation System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Inertial Navigation System},%
+longplural={Inertial Navigation Systems},%
+short={INS},%
+shortplural={INSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rdp}{}%
+{%
+\gls@defglossaryentry{rdp}%
+{%
+name={RDP},%
+sort={RDP},%
+type={acronym},%
+first={Ramer-Douglas-Peucke\glsspace (RDP)},%
+firstplural={Ramer-Douglas-Peuckes\glsspace (RDPs)},%
+text={RDP},%
+plural={RDPs},%
+description={Ramer-Douglas-Peucke},%
+descriptionplural={Ramer-Douglas-Peucke\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Ramer-Douglas-Peucke},%
+longplural={Ramer-Douglas-Peuckes},%
+short={RDP},%
+shortplural={RDPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mae}{}%
+{%
+\gls@defglossaryentry{mae}%
+{%
+name={MAE},%
+sort={MAE},%
+type={acronym},%
+first={Mean Average Erro\glsspace (MAE)},%
+firstplural={Mean Average Erros\glsspace (MAEs)},%
+text={MAE},%
+plural={MAEs},%
+description={Mean Average Erro},%
+descriptionplural={Mean Average Erro\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Mean Average Erro},%
+longplural={Mean Average Erros},%
+short={MAE},%
+shortplural={MAEs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{aqua}{}%
+{%
+\gls@defglossaryentry{aqua}%
+{%
+name={AQUA},%
+sort={AQUA},%
+type={acronym},%
+first={Algebraic Quaternion Algorithm\glsspace (AQUA)},%
+firstplural={Algebraic Quaternion Algorithms\glsspace (AQUAs)},%
+text={AQUA},%
+plural={AQUAs},%
+description={Algebraic Quaternion Algorithm},%
+descriptionplural={Algebraic Quaternion Algorithm\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Algebraic Quaternion Algorithm},%
+longplural={Algebraic Quaternion Algorithms},%
+short={AQUA},%
+shortplural={AQUAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{famc}{}%
+{%
+\gls@defglossaryentry{famc}%
+{%
+name={FAMC},%
+sort={FAMC},%
+type={acronym},%
+first={Fast Accelerometer-Magnetometer Combination\glsspace (FAMC)},%
+firstplural={Fast Accelerometer-Magnetometer Combinations\glsspace (FAMCs)},%
+text={FAMC},%
+plural={FAMCs},%
+description={Fast Accelerometer-Magnetometer Combination},%
+descriptionplural={Fast Accelerometer-Magnetometer Combination\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Fast Accelerometer-Magnetometer Combination},%
+longplural={Fast Accelerometer-Magnetometer Combinations},%
+short={FAMC},%
+shortplural={FAMCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{flae}{}%
+{%
+\gls@defglossaryentry{flae}%
+{%
+name={FLAE},%
+sort={FLAE},%
+type={acronym},%
+first={Fast Linear Attitude Estimator\glsspace (FLAE)},%
+firstplural={Fast Linear Attitude Estimators\glsspace (FLAEs)},%
+text={FLAE},%
+plural={FLAEs},%
+description={Fast Linear Attitude Estimator},%
+descriptionplural={Fast Linear Attitude Estimator\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Fast Linear Attitude Estimator},%
+longplural={Fast Linear Attitude Estimators},%
+short={FLAE},%
+shortplural={FLAEs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{oleq}{}%
+{%
+\gls@defglossaryentry{oleq}%
+{%
+name={OLEQ},%
+sort={OLEQ},%
+type={acronym},%
+first={Optimal Linear Estimator of Quaternion\glsspace (OLEQ)},%
+firstplural={Optimal Linear Estimator of Quaternions\glsspace (OLEQs)},%
+text={OLEQ},%
+plural={OLEQs},%
+description={Optimal Linear Estimator of Quaternion},%
+descriptionplural={Optimal Linear Estimator of Quaternion\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Optimal Linear Estimator of Quaternion},%
+longplural={Optimal Linear Estimator of Quaternions},%
+short={OLEQ},%
+shortplural={OLEQs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{quest}{}%
+{%
+\gls@defglossaryentry{quest}%
+{%
+name={QUEST},%
+sort={QUEST},%
+type={acronym},%
+first={QUaternion ESTimator\glsspace (QUEST)},%
+firstplural={QUaternion ESTimators\glsspace (QUESTs)},%
+text={QUEST},%
+plural={QUESTs},%
+description={QUaternion ESTimator},%
+descriptionplural={QUaternion ESTimator\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={QUaternion ESTimator},%
+longplural={QUaternion ESTimators},%
+short={QUEST},%
+shortplural={QUESTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{roleq}{}%
+{%
+\gls@defglossaryentry{roleq}%
+{%
+name={ROLEQ},%
+sort={ROLEQ},%
+type={acronym},%
+first={Recursive Optimal Linear Estimator of Quaternion\glsspace (ROLEQ)},%
+firstplural={Recursive Optimal Linear Estimator of Quaternions\glsspace (ROLEQs)},%
+text={ROLEQ},%
+plural={ROLEQs},%
+description={Recursive Optimal Linear Estimator of Quaternion},%
+descriptionplural={Recursive Optimal Linear Estimator of Quaternion\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Recursive Optimal Linear Estimator of Quaternion},%
+longplural={Recursive Optimal Linear Estimator of Quaternions},%
+short={ROLEQ},%
+shortplural={ROLEQs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{saam}{}%
+{%
+\gls@defglossaryentry{saam}%
+{%
+name={SAAM},%
+sort={SAAM},%
+type={acronym},%
+first={Super-fast Attitude from Accelerometer and Magnetometer\glsspace (SAAM)},%
+firstplural={Super-fast Attitude from Accelerometer and Magnetometers\glsspace (SAAMs)},%
+text={SAAM},%
+plural={SAAMs},%
+description={Super-fast Attitude from Accelerometer and Magnetometer},%
+descriptionplural={Super-fast Attitude from Accelerometer and Magnetometer\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Super-fast Attitude from Accelerometer and Magnetometer},%
+longplural={Super-fast Attitude from Accelerometer and Magnetometers},%
+short={SAAM},%
+shortplural={SAAMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

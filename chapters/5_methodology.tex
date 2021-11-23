@@ -19,7 +19,7 @@ The first step in methodology is to obtain orientation (AHRS) from the fusion of
     \label{fig:raw}
 \end{figure}
 
-To estimate orientation from the raw sensor data, two approaches were created: the first approach was to apply a sensor fusion algorithm directly in the inertial system's microcontroller, which could estimate orientation in real time while the measurements were being taken. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. The second approach meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, so a benchmark of how different sensor fusion algorithms perform under the same data. This chapter's data and plots will be based on the microcontroller's Madgwick real time sensor fusion, but the same principle applies the same manner to the post-experiment sensor fusion approach. The sensor fusion algorithm (in this case Madgwick's filter) takes as input the raw sensor measurements and outputs estimated orientation as a set of four quaternions (figure \ref{fig:fusion_output}).
+To estimate orientation from the raw sensor data, two approaches were created: the first approach was to apply a sensor fusion algorithm directly in the inertial system's microcontroller, which could estimate orientation in real time while the measurements were being taken. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. The second approach meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, so a benchmark of how different sensor fusion algorithms perform under the same data. This chapter's data and plots will be based on the microcontroller's Madgwick real time sensor fusion, but this principle applies in the same manner to the post-experiment sensor fusion approach. The sensor fusion algorithm (in this case Madgwick's filter) takes as input the raw sensor measurements and outputs estimated orientation as a set of four quaternions (figure \ref{fig:fusion_output}).
 
 % A simple test was performed using a box containing the inertial navigation system and rotating around its three inertial axes, pitch, roll, and yaw, with a sampling frequency of 20 Hz. The raw output measurements from the sensors are visualized in figure \ref{fig:raw} and are subsequently taken as input by the sensor fusion algorithm.
 
@@ -188,7 +188,7 @@ Programmatically this is equivalent to:
 lastX, lastY, lastZ = getCoordinates()
 newX = displacementX * cos(radians(yaw)) + lastX
 newY = displacementY * sin(radians(yaw)) + lastY
-newZ = displacement * sin(radians(pitch)) + lastZ 
+newZ = displacementZ * sin(radians(pitch)) + lastZ 
 
 # Update the coordinate with each function
 updateCoordinates(newX, newY, newZ)
@@ -224,7 +224,7 @@ In order to quantify how well a test performed in estimating position, it is nec
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/square/square_truth.pgf}}
-    \caption{Illustration of the real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
+    \caption{Illustration of the real-world test ground truth (represented by the $4m\times 4m$  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. }
     \label{fig:square_truth}
 \end{figure}
 
@@ -275,11 +275,11 @@ To quantify how well a test performed in estimating position, it is necessary to
 \begin{figure}[!h]
     \centering
     \resizebox{0.8\linewidth}{!}{\input{plots/square/square3D_error.pgf}}
-    \caption{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the 4mx4m  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
+    \caption{The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.}
     \label{fig:square3D_truth}
 \end{figure}
 
-The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
+The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance (Mean Average Error), it is possible to have an overall understanding of how the estimation performed (equation \ref{eq:mae}).
 
 \begin{figure}[!h]
     \centering
@@ -304,6 +304,7 @@ The second way to quantify error is to measure the distance from every estimated
 
 \begin{equation}
     MAE = \frac{1}{n}\sum_{i = 1}^{n} \left\lvert x_i - x\right\rvert
+    \label{eq:mae}
 \end{equation}
 
 % \begin{figure}

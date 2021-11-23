@@ -5,7 +5,7 @@ This section provides a hardware and software experimental setup outline, descri
 \subsection{Hardware}
 \label{sub:setup}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1} and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1}) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
 
 \begin{figure}[!h]
     \centering
@@ -92,7 +92,7 @@ When the transmission between the LoPy (master) and the MPU9250 (slave) initiali
     \label{fig:i2c}
 \end{figure}
 
-The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position (more in-depth explanation at chapter\ref{sub:methodology} \nameref{sub:methodology}). Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. To benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
+The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position (more in-depth explanation at chapter \ref{sub:methodology} \nameref{sub:methodology}). Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. To benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
 
 
 \begin{table}
@@ -156,7 +156,7 @@ Calibration of the accelerometer requires taking advantage of the acceleration d
     return self._accelerometer_offset
 \end{lstlisting}
 
-The result of the accelerometer's calibration offset correction is present at figure \ref{fig:accelerometer_calibration} where the calibrated output clearly shows an offset correction with the $a_x$ and $a_y$ readings centered at $0 ms^{-2}$ while the $a_z$ revolving at the $9.8 ms^{-2}$.
+The result of the accelerometer's calibration offset correction is present at figure \ref{fig:accelerometer_calibration} where the calibrated output clearly shows an offset correction with the $a_x$ and $a_y$ readings centered at 0 $ms^{-2}$ while the $a_z$ revolving at the 9.8 $ms^{-2}$.
 
 \begin{figure}[!h]
     \centering
@@ -167,7 +167,7 @@ The result of the accelerometer's calibration offset correction is present at fi
 
 \subsubsection{Gyroscope Calibration}
 
-The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 degrees-per-second (dps, °/s) when the IMU is Not moving. The offsets can be measured by first taking some readings while the IMU is Not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU \cite{olivares2009high}. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
+The simplest calibration of an IMU consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 radians-per-second ($rad/s$) when the IMU is not moving. The offsets can be measured by first taking some readings while the IMU is not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the IMU and suffices for most casual uses of the gyroscope and IMU \cite{olivares2009high}. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
 
 \lstset{language=Python}
 
@@ -193,7 +193,7 @@ The simplest calibration of an IMU consists of calculating the offset for each a
     return self._gyro_offset, self._accelerometer_offset
 \end{lstlisting}
 
-The result of the gyroscope's calibration offset correction is present at figure \ref{fig:accelerometer_calibration} where the calibrated output clearly shows an offset correction with the $\omega_x$, $\omega_y$  and $\omega_z$ readings centered at $0 rad/s$.
+The result of the gyroscope's calibration offset correction is present at figure \ref{fig:gyroscope_calibration} where the calibrated output clearly shows an offset correction with the $\omega_x$, $\omega_y$  and $\omega_z$ readings centered at 0 $rad/s$.
 
 \begin{figure}[!h]
     \centering
@@ -248,11 +248,11 @@ It is possible now to filter any soft iron biases by taking the minimum and maxi
 \begin{lstlisting}[frame=single]  % Start your code-block
 
     # Soft iron correction
-    # get average x axis max chord length in counts
+    # get average x-axis max chord length in counts
     avg_delta_x = (maxx - minx) / 2
-    # get average y axis max chord length in counts
+    # get average y-axis max chord length in counts
     avg_delta_y = (maxy - miny) / 2
-    # get average z axis max chord length in counts
+    # get average z-axis max chord length in counts
     avg_delta_z = (maxz - minz) / 2
 
     avg_delta = (avg_delta_x + avg_delta_y + avg_delta_z)
@@ -308,7 +308,7 @@ Several experimental tests were conducted to assess the position performance of 
 
 \subsection{Indoor Experiments}
 
-Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle and circle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 8 meters.
+Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a wide-open interior. A guiding rope was layout out in the floor forming a geometric figure acting as baseline for the experiment. The inertial system was placed on an electrical skateboard powered by a laptop computer, which could have been replaced by a portable battery pack. Three kinds of geometric shapes were tested: line, square, triangle. To better understand how distance affects estimation of position, for every geometric figure, tests were made under two different distance magnitudes: 4 and 16 meters.
 
 \begin{figure}[!h]
     \centering
@@ -353,7 +353,7 @@ Outdoor experiments were conducted at praça do povo's square (figure \ref{fig:o
     \label{fig:outdoor_field}
 \end{figure}
 
-Here, the sports platform consisted of one 28mx28m square, composed of 4 meter squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this kNowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
+Here, the sports platform consisted of one 28mx28m square, composed of 4 meter squares, forming a 7x7 grid (figure \ref{fig:platform_representation}). This was helpful since this knowledge could also be used to benchmark the position estimation of the system and easily calculate error margins.
 
 \begin{figure}[!h]
     \centering
@@ -428,7 +428,7 @@ Here several shapes were tested, from simple lines, squares, and triangles to mo
 
 \subsection{Underwater Experiments}
 
-Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for $360\circ$ cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
+Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360\circ cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
 
 \begin{figure}[!h]
     \centering
