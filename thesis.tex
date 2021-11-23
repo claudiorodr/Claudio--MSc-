@@ -3,6 +3,8 @@
 
 
 \input{settings}
+\input{abbreviations}
+\makeglossaries
 %makeindex thesis.nlo -s nomencl.ist -o thesis.nls
 
 \begin{document}
@@ -16,6 +18,10 @@
 \bfseries
 \tableofcontents
 \normalfont
+
+\printglossary[type=\acronymtype,title=Abbreviations]
+
+\printglossary[title=Nomenclature]
 
 \listoffigures
 \listoftables

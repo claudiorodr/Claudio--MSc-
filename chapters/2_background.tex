@@ -148,9 +148,9 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
 
 \begin{equation}
     \begin{bmatrix}
-        \dot{\psi}   \\
-        \dot{\theta} \\
         \dot{\phi}   \\
+        \dot{\theta} \\
+        \dot{\psi}   \\
     \end{bmatrix}
     =
     \frac{1}{\cos(\theta)}
@@ -167,7 +167,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
     \label{eq:euler_equation}
 \end{equation}
 
-Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by is own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
+Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by it's own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
 
 \begin{equation}
     {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
@@ -186,7 +186,7 @@ Euler angles commonly involve a large number of complex mathematical operations,
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/gimbal_lock.png}
-    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90º across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
+    \caption{Representation of the Gimbal Lock problematic \cite{zeitlhofler2019nominal} - The exterior blue gimbal characterizes the x-axis, the middle, red-colored gimbal the y-axis, and the inner green gimbal the z-axis. In the initial arrangement a), every axis is perpendicular to one another. Following a rotation of 90\circ  across the red arrow (y-axis), the blue and the green gimbals occupy the same rotation axis. This condition inhibits the clear determination of the rotation axes when subsequently rotating around the x or z-axis. }
     \label{fig:gimbal_lock}
 \end{figure}
 
@@ -321,7 +321,7 @@ An inertial measurement unit (IMU) is an electronic tool that quantifies and des
     \label{fig:noise}
 \end{figure}
 
-The first diagram in the figure above correspond to the signal error categorized as noise. Noise is of high frequency and might be reduced by applying a low pass filter \cite{kaiser1977data}. The main sensor noise sources sensor can be environmental noise, such as temperature oscillations, gravity , etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise. The second type is the offset error, also known as bias error (second graph in figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter. The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation. Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure \cite{el2007temperature}.
+The first diagram in the figure \ref{fig:noise} corresponds to the signal error categorized as noise. Noise is of high frequency and might be reduced by applying a low pass filter \cite{kaiser1977data}. The main sensor noise sources can be environmental noise, such as temperature oscillations, gravity, etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise. The second type is the offset error, also known as bias error (second graph in figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter. The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation. Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure \cite{el2007temperature}.
 
 \subsubsection{Accelerometer}
 
@@ -347,7 +347,7 @@ Where $c$ and $k$ are the dashpot resistive coefficient and spring stiffness con
 
 \subsubsection{Gyroscope}
 
-A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular  \cite{zhuang2020introductory}. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change \cite{marotto2013orientation}.
+A gyroscope is a device utilized to quantify angular velocity and orientation based on the principles of conservation of angular momentum \cite{zhuang2020introductory}. A conventional gyroscope accommodates a spinning wheel mounted on two gimbals letting it spin in all three axes, as shown in figure \ref{fig:gyroscope}. The rotating wheel will resist changes in orientation as an effect of the angular momentum. As a result, when a rotation is exerted on the mechanical gyroscope, the wheel will persist in its global orientation meanwhile the angles between neighboring gimbals will change \cite{marotto2013orientation}.
 
 \begin{figure}[!h]
     \centering
@@ -403,7 +403,7 @@ From a quaternion rate at instant $t-1$, given a current angular speed it is pos
 
 \subsubsection{Magnetometer}
 
-A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field \cite{caruso1998new}. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor \cite{silva2021error} \cite{caruso1998new}. There are two categories of magnetic distortions: Hard iron and soft iron \cite{wahdan2014magnetometer}. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer \cite{guo2008soft}. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard-iron disturbances by discerning the maximum and minimum x and y offsets. The x axis and y axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis \cite{daponte2017method}:
+A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field \cite{caruso1998new}. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor \cite{silva2021error} \cite{caruso1998new}. There are two categories of magnetic distortions: Hard iron and soft iron \cite{wahdan2014magnetometer}. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer \cite{guo2008soft}. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard iron disturbances by discerning the maximum and minimum x and y offsets. The x-axis and y-axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis \cite{daponte2017method}:
 
 \begin{equation}
     \begin{gathered}
@@ -412,11 +412,11 @@ A magnetometer is an electronic utensil that evaluates existent magnetic flux (a
     \end{gathered}
 \end{equation}
 
-By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any present hard-iron disturbances.
+By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any presenthard iron disturbances.
 
-Soft-iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard-iron distortion which has a continuous disturbance, a soft-iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
+soft iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard iron distortion which has a continuous disturbance, a soft iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
 
-The major axis is the axis that runs along the x axes. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing $r$, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point \cite{daponte2017method}.
+The major axis is the axis that runs along the x-axis. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing $r$, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point \cite{daponte2017method}.
 
 \begin{equation}
     r=\sqrt{(x_1)^2+(y_1)^2}
