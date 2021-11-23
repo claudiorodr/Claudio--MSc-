@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: unsrt.bst
+Database file #1: mybibliography.bib
+Warning--I didn't find a database entry for "antonello2011"
+Warning--empty journal in zeitlhofler2019nominal
+Warning--there's a number but no volume in higgins1975comparison
+Warning--can't use both volume and number fields in alaimo2013comparison
+Warning--there's a number but no volume in grado1960solution
+Warning--there's a number but no volume in bar1985attitude
+Warning--can't use both volume and number fields in stirling2003innovative
+You've used 114 entries,
+            1791 wiz_defined-function locations,
+            1082 strings with 26584 characters,
+and the built_in function-call counts, 30884 in all, are:
+= -- 2939
+> -- 1251
+< -- 41
++ -- 464
+- -- 350
+* -- 2111
+:= -- 4608
+add.period$ -- 374
+call.type$ -- 114
+change.case$ -- 111
+chr.to.int$ -- 0
+cite$ -- 120
+duplicate$ -- 1373
+empty$ -- 2996
+format.name$ -- 350
+if$ -- 7049
+int.to.chr$ -- 0
+int.to.str$ -- 114
+missing$ -- 106
+newline$ -- 578
+num.names$ -- 114
+pop$ -- 353
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 714
+stack$ -- 0
+substring$ -- 2441
+swap$ -- 440
+text.length$ -- 41
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 6
+while$ -- 331
+width$ -- 117
+write$ -- 1277
+(There were 7 warnings)

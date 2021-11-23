@@ -5,7 +5,7 @@ This section provides a hardware and software experimental setup outline, descri
 \subsection{Hardware}
 \label{sub:setup}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (MEMS), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1}) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (\acrshort{mems}), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1}) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
 
 \begin{figure}[!h]
     \centering
@@ -25,7 +25,7 @@ As our projected solution involved a low-cost navigation system, the hardware se
     \label{fig:hardware}
 \end{figure}
 
-MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health \cite{majumder2017wearable} \cite{al2019remote}, fitness \cite{altini2016cardiorespiratory}, and sports \cite{rum2021wearable} \cite{morris2008wearable} \cite{ermes2008detection}, motion-based game controllers \cite{heinz2006using}, and portable gaming \cite{mortazavi2013near} \cite{cao2019wearable}. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis MEMS sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer \cite{mpu9250}. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction \cite{mpu6050}. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis \cite{ak8963c}. These conventions will be utilized during calibration for each of the three sensors.
+MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health \cite{majumder2017wearable} \cite{al2019remote}, fitness \cite{altini2016cardiorespiratory}, and sports \cite{rum2021wearable} \cite{morris2008wearable} \cite{ermes2008detection}, motion-based game controllers \cite{heinz2006using}, and portable gaming \cite{mortazavi2013near} \cite{cao2019wearable}. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis \acrshort{mems} sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer \cite{mpu9250}. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction \cite{mpu6050}. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis \cite{ak8963c}. These conventions will be utilized during calibration for each of the three sensors.
 
 \begin{figure}[!h]
     \centering
@@ -36,7 +36,7 @@ MPU-9250 inertial measurement unit is one of the most widely available low cost 
 
 \subsubsection{Accelerometer}
 
-The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9250specification}:
+The triple-axis \acrshort{mems} accelerometer in MPU-9250 the following features \cite{mpu9250specification}:
 
 \begin{itemize}
     \item Digital-output triple-axis accelerometer with a programmable full-scale range  of $\pm 2g$, $\pm 4$, $\pm 8g$ and $\pm 16g$ and integrated 16-bit ADCs
@@ -53,7 +53,7 @@ The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9
 
 \subsubsection{Gyroscope}
 
-The triple-axis MEMS gyroscope in the MPU-9250 the following features \cite{mpu9250specification}:
+The triple-axis \acrshort{mems} gyroscope in the MPU-9250 the following features \cite{mpu9250specification}:
 
 \begin{itemize}
     \item Digital-output X-Axis, Y-Axis, and Z-Axis angular rate sensors (gyroscopes) with a user-programmable fullscale range of $\pm 250$, $\pm 500$, $\pm 1000$, and $\pm 2000^{\circ}/s$ and integrated 16-bit ADCs
@@ -68,7 +68,7 @@ The triple-axis MEMS gyroscope in the MPU-9250 the following features \cite{mpu9
 
 \subsubsection{Magnetometer}
 
-The triple-axis MEMS accelerometer in MPU-9250 the following features \cite{mpu9250specification}:
+The triple-axis \acrshort{mems} accelerometer in MPU-9250 the following features \cite{mpu9250specification}:
 \begin{itemize}
     \item 3-axis silicon monolithic Hall-effect magnetic sensor with magnetic concentrator
     \item Wide dynamic measurement range and high resolution with lower current consumption.
