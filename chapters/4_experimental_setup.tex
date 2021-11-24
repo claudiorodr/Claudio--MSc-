@@ -1,18 +1,18 @@
 \section{Experimental Setup}
 
-This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost Inertial Navigation System aimed at position estimation in three-dimensional space. This section will first describe what actual hardware was used and how it was assembled and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
+This section provides a hardware and software experimental setup outline, describing and specifying development and implementation of the low-cost \acrfull{ins} aimed at position estimation in three-dimensional space. This section will first describe what actual hardware was used and how it was assembled and going through hardware specifications. Followed by a software walkthrough describing what software and libraries were utilized and how hardware and communicate with each other.
 
 \subsection{Hardware}
 \label{sub:setup}
 
-As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (\acrshort{mems}), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate inertial navigation system. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1}) and communicates remotely by LoRa protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The inertial navigation system encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
+As our projected solution involved a low-cost navigation system, the hardware selection criteria were primarily founded on availability and cost. The cost reduction normally concedes in accurateness and reliability, although with the recent surge of inexpensive, widely accessible, and precise microelectromechanical systems (\acrshort{mems}), that is no longer the case. Still, we aim to employ commercially available tools at the lowest possible cost without compromising the design of a robust and accurate \acrfull{ins}. A LoPy microcontroller was selected as the navigational computing device of the inertial system, meeting the envisioned requirements for low power with flexible and diverse computational capabilities \cite{lopy}. The LoPy development board interfaces with the external physical inertial sensor through connection pins (figure \ref{fig:ins_1}) and communicates remotely by \acrfull{lora} protocol. A PySense expansion board connects with the LoPy module providing a programable interface for the microcontroller. The \acrfull{ins} encompasses a small MPU-9250 (figure \ref{fig:ins_2}).
 
 \begin{figure}[!h]
     \centering
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{figures/INS.jpg}
-        \caption{INS Hardware}
+        \caption{\acrshort{ins} Hardware}
         \label{fig:ins_1}
     \end{subfigure}%
     \begin{subfigure}{0.49\textwidth}
@@ -25,7 +25,7 @@ As our projected solution involved a low-cost navigation system, the hardware se
     \label{fig:hardware}
 \end{figure}
 
-MPU-9250 inertial measurement unit is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health \cite{majumder2017wearable} \cite{al2019remote}, fitness \cite{altini2016cardiorespiratory}, and sports \cite{rum2021wearable} \cite{morris2008wearable} \cite{ermes2008detection}, motion-based game controllers \cite{heinz2006using}, and portable gaming \cite{mortazavi2013near} \cite{cao2019wearable}. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis \acrshort{mems} sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer \cite{mpu9250}. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction \cite{mpu6050}. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis \cite{ak8963c}. These conventions will be utilized during calibration for each of the three sensors.
+MPU-9250 \acrshort{imu} is one of the most widely available low cost commercial IMUs. It is also considered to have an exceptional quality price ratio. The MPU-9250 contains temperature and pressure sensors as well. This chip is extensively employed in wearable sensors for health \cite{majumder2017wearable} \cite{al2019remote}, fitness \cite{altini2016cardiorespiratory}, and sports \cite{rum2021wearable} \cite{morris2008wearable} \cite{ermes2008detection}, motion-based game controllers \cite{heinz2006using}, and portable gaming \cite{mortazavi2013near} \cite{cao2019wearable}. This IMU is operated to estimate motion by identifying the presence of acceleration vectors, rotational rates, and local magnetic field direction. It features an embedded 9-axis \acrshort{mems} sensor from InvenSense. The MPU-9250 is a combined System-in-package (SIP) comprising an MPU-6050 (3-axis accelerometer and 3-axis gyroscope combination) and an AK8963 3-axis magnetometer \cite{mpu9250}. The MPU-6050 coordinate system operates within a traditional cartesian coordinate system with a counter-clockwise rotation as the positive rotation direction \cite{mpu6050}. The AK8963 shifts the x and y-axis directions, while reversing the direction of the z-axis \cite{ak8963c}. These conventions will be utilized during calibration for each of the three sensors.
 
 \begin{figure}[!h]
     \centering
@@ -82,8 +82,8 @@ The triple-axis \acrshort{mems} accelerometer in MPU-9250 the following features
 
 \subsection{Software}
 
-The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through Inter-Integrated Circuit ($I^2C$) MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the Serial DAta (SDA) and Serial CLock (SCL) pins of the MPU9250. The SCL offers the serial clock, and the SDA gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963's address is by default at 0x0C. Prior to the communication begins the SCL and SDA are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
-When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering SDA, see figure \ref{fig:i2c}. Later the serial clock (SCL) commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit. When the master is done writing/reading then the stop condition is created.
+The microcontroller operates MicroPython, a barebones and efficient implementation of Python 3, which incorporates a small subset of the Python standard library \cite{micropython}. It is optimized to run on microcontrollers and in constrained environments \cite{tollervey2017programming}. The inertial module's raw measurements are interpreted by the microcontroller through \acrfull{i2c} MicroPython driver serial allowing to read the peripherals memory addresses synchronously. The $I^2C$ communication makes use of the \acrfull{sda} and \acrfull{scl} pins of the MPU9250. The \acrshort{scl} offers the serial clock, and the \acrshort{sda} gives the serial data. The memory address of the MPU9250 is at address is 0x68 when the pin is connected to ground and is set by pin AD0. The AK8963's address is by default at 0x0C. Prior to the communication begins the \acrshort{scl} and \acrshort{sda} are equally high, triggered by the pull-up resistors. These pull-up resistors are arranged to make specific pins turn out to be high when not being defined by the LoPy, this avoids communication difficulties when the LoPy is waiting for inbound serial data.
+When the transmission between the LoPy (master) and the MPU9250 (slave) initializes the start order is produced. This is accomplished by lowering \acrshort{sda}, see figure \ref{fig:i2c}. Later the \acrshort{scl} commences to produce clock pulses and the initial byte is send out by the master. This first byte holds the 7-bit address of the slave and a read/write bite. If the read/write bit is 0 the master writes to the slave. If the read/write bit is 1 the master reads from the slave. The bits can only be sent when the serial clock is high. Each byte sent should be followed by an acknowledge bit. When the master is done writing/reading then the stop condition is created.
 
 \begin{figure}[!h]
     \centering
@@ -92,35 +92,35 @@ When the transmission between the LoPy (master) and the MPU9250 (slave) initiali
     \label{fig:i2c}
 \end{figure}
 
-The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position (more in-depth explanation at chapter \ref{sub:methodology} \nameref{sub:methodology}). Merging the AHRS with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. To benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in AHRS library and what sensors they use to perform AHRS estimation is present at table \ref{tab:ahrs_algorithms}.
+The readings of each sensor are later averaged and linearized to better detect and reduce the presence of outlier readings \cite{khamphroo2017micropython}. A fusion algorithm takes as input the averaged data of the accelerometer, gyroscope, and magnetometer. It returns the estimated inertial angles (pitch, roll, and yaw) as well as the projected linear acceleration with a gravity compensation numerical method that utterly removes the effect of the gravity component. Numerically integrating the resultant linear acceleration yields velocity, and double integrating will deliver the body's accumulative position (more in-depth explanation at chapter \ref{sub:methodology} \nameref{sub:methodology}). Merging the \acrshort{ahrs} with an accumulative position allows tracking a moving body in three dimensions over time. To perform sensor fusion, two methodologies were used: the first relates our implementation of Madgwick's filter to conduct real-time sensor fusion in the microcontroller, which in a future study might be used to communicate in real-time a body's position. The Madgwick algorithm was utilized for its well-recognized proficiency to merge accuracy with computational cost and simplicity of implementation. But since the study aimed at comparing how different sensor fusion approaches perform under the same data, we needed a second approach which meant storing the raw sensor data in an SD card and process it later the experiment with a sensor fusion library, AHRS: Attitude and Heading Reference Systems \cite{ahrs}, an open-source Python toolbox for attitude estimation using the most known algorithms, methods, and resources. To benchmark how different sensor fusion algorithms perform under the same data. Available sensor fusion algorithms in \acrshort{ahrs} library and what sensors they use to perform \acrshort{ahrs} estimation is present at table \ref{tab:ahrs_algorithms}.
 
 
 \begin{table}
     \begin{center}
         \begin{tabular}[t]{lcccc}
             \hline
-            Algorithm     & Accelerometer & Gyroscope & Magnetometer \\
+            Algorithm        & Accelerometer & Gyroscope & Magnetometer \\
             \hline
-            AQUA          & Yes           & Yes       & Optional     \\
-            Complementary & Yes           & Yes       & Optional     \\
-            Davenport's   & Yes           & No        & Yes          \\
-            EKF           & Yes           & Yes       & Yes          \\
-            FAMC          & Yes           & No        & Yes          \\
-            FLAE          & Yes           & No        & Yes          \\
-            Fourati       & Yes           & Yes       & Yes          \\
+            \acrshort{aqua}  & Yes           & Yes       & Optional     \\
+            Complementary    & Yes           & Yes       & Optional     \\
+            Davenport's      & Yes           & No        & Yes          \\
+            \acrshort{ekf}   & Yes           & Yes       & Yes          \\
+            FAMC             & Yes           & No        & Yes          \\
+            FLAE             & Yes           & No        & Yes          \\
+            Fourati          & Yes           & Yes       & Yes          \\
             % FQA           & Yes           & No        & Optional     \\
             % Integration   & Yes           & Yes       & No           \\
-            Madgwick      & Yes           & Yes       & Optional     \\
-            Mahony        & Yes           & Yes       & Optional     \\
-            OLEQ          & Yes           & No        & Yes          \\
-            QUEST         & Yes           & No        & Yes          \\
-            ROLEQ         & Yes           & No        & Yes          \\
-            SAAM          & Yes           & No        & Yes          \\
-            Tilt          & Yes           & No        & Optional     \\
+            Madgwick         & Yes           & Yes       & Optional     \\
+            Mahony           & Yes           & Yes       & Optional     \\
+            \acrshort{oleq}  & Yes           & No        & Yes          \\
+            \acrshort{quest} & Yes           & No        & Yes          \\
+            \acrshort{roleq} & Yes           & No        & Yes          \\
+            \acrshort{saam}  & Yes           & No        & Yes          \\
+            Tilt             & Yes           & No        & Optional     \\
             % TRIAD         & Yes           & No        & Yes          \\
             \hline
         \end{tabular}
-        \caption{Available sensor fusion algorithms in AHRS library and what sensors they use. \cite{ahrs}}
+        \caption{Available sensor fusion algorithms in \acrshort{ahrs} library and what sensors they use. \cite{ahrs}}
         \label{tab:ahrs_algorithms}
     \end{center}
 \end{table}
@@ -304,7 +304,7 @@ The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fi
 \subsection{Experiments}
 \label{sub:experiments}
 
-Several experimental tests were conducted to assess the position performance of the INS under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests typically consisted of carrying the INS in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
+Several experimental tests were conducted to assess the position performance of the \acrshort{ins} under different conditions. Experiments were performed indoors, outdoors, and underwater. These tests typically consisted of carrying the \acrshort{ins} in a movable platform, typically a skateboard or an electric scooter forming a geometric shape such as a square or a triangle following a precise path on the floor. Geometric shapes were used to better assess the estimating performance of the system against a ground truth baseline. This section will describe how each set of experiments were carried out and what challenges were faced.
 
 \subsection{Indoor Experiments}
 
@@ -317,7 +317,7 @@ Indoor experiments were executed at Madeira Tecnopolo building, floor -1, in a w
     \label{fig:indoor_square}
 \end{figure}
 
-Once the experiment was set up, it was time to start testing the INS. The board was dragged at constant speed through the guideline transporting the inertial system. The INS was continuously estimating orientation and position several times a second and storing data to an SD card. The board was dragged at walking speed and stopped at corners when direction changed.
+Once the experiment was set up, it was time to start testing the \acrshort{ins}. The board was dragged at constant speed through the guideline transporting the inertial system. The \acrshort{ins} was continuously estimating orientation and position several times a second and storing data to an SD card. The board was dragged at walking speed and stopped at corners when direction changed.
 
 \begin{figure}
     \centering
@@ -428,7 +428,7 @@ Here several shapes were tested, from simple lines, squares, and triangles to mo
 
 \subsection{Underwater Experiments}
 
-Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the INS was placed in an underwater spherical housing built for 360\circ cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the INS via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the INS (figure \ref{fig:underwater2_test}).
+Underwater experiments were carried out at Madeira Carlton hotel divepoint, where the \acrshort{ins} was placed in an underwater spherical housing built for 360\circ cameras with a portable battery pack (figure \ref{fig:underwater1_test}). Since the hardware was inaccessible inside the housing, the software had to be adjusted to support remote triggering of the \acrshort{ins} via a wireless hotspot using a mobile phone via an HTTP request signal. Tests of the housing were performed prior to the experiment verifying the presence of any water leaks and the well-functioning of the \acrshort{ins} (figure \ref{fig:underwater2_test}).
 
 \begin{figure}[!h]
     \centering

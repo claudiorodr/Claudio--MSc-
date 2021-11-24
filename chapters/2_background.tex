@@ -15,11 +15,11 @@ First, a definition of orientation frames and coordinate systems will be present
 
 \subsection{Frames of coordinates}
 
-This section will focus on defining and distinguishing the different concepts of frame coordinate systems. An emphasis will be given to East North Up (ENU), Earth Centered, Earth Fixed (ECEF), and the World Geodetic System (WGS84). The notion of body frame will also be defined. The ECEF and WGS84 can be considered supplementary frame systems applied to describe the ENU frame, which can be understood as the world frame.
+This section will focus on defining and distinguishing the different concepts of frame coordinate systems. An emphasis will be given to \acrfull{enu}, \acrfull{ecef}, and the \acrfull{wgs}. The notion of body frame will also be defined. The \acrshort{ecef} and \acrshort{wgs} can be considered supplementary frame systems applied to describe the \acrshort{enu} frame, which can be understood as the world frame.
 
-\subsubsection{ECEF and ENU frame}
+\subsubsection{\acrshort{ecef} and \acrshort{enu} frame}
 
-ECEF coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter \cite{cai2011coordinate}. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}) \cite{laundal2017magnetic}.
+\acrshort{ecef} coordinate system describes a referential axis where the origin of the coordinates is at the center of mass of the Earth, also known as barycenter \cite{cai2011coordinate}. Mathematically, this translates to the integral of the position vector times the density over the Earth being zero (equation \ref{eq:ecef}) \cite{laundal2017magnetic}.
 
 \begin{equation}
     \int \overrightarrow{x}\rho~dx^3 = 0
@@ -28,20 +28,20 @@ ECEF coordinate system describes a referential axis where the origin of the coor
 
 The X-axis is described by the intersection of the zero-latitude line (Equator) plan and the zero-longitude line (prime meridian) plan. The orientation of the X-axis is deemed to be positive from the center towards the point defined by zero latitude and longitude. Z-axis is expressed by the line interconnecting North and South Poles, staying positive in the Earth's barycenter to the North Pole. Y-axis lies in the equatorial plane and is perpendicular to the plane described by the X and Z-axis, and it is in a positive direction (figure \ref{fig:ECEF}). The right-hand rule explains its orientation.
 
-The East North Up (ENU) system is a geographic coordinate structure where the origin is placed at an empirical point in the ECEF coordinate system. In the ENU coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the WGS84 frame on the origin of ENU. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The ENU frame is considered in this work as the reference frame.
+The \acrshort{enu} system is a geographic coordinate structure where the origin is placed at an empirical point in the \acrshort{ecef} coordinate system. In the \acrshort{enu} coordinate system, the X-axis points towards the East, and the Y-axis aims over the North Pole. The plane described by the X and Y-axis is tangential to the \acrshort{wgs} frame on the origin of \acrshort{enu}. Z-axis designates the elevation from a defined geographical plane (figure \ref{fig:ECEF}). The \acrshort{enu} frame is considered in this work as the reference frame.
 
 \begin{figure}[!h]
     \centering
     \resizebox{0.70\linewidth}{!}{\input{figures/ECEF}}
-    \caption{An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\lambda$ and $\phi$ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU).  }
+    \caption{An illustrative diagram for the \acrshort{wgs}, \acrshort{ecef}, and \acrshort{enu} coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\lambda$ and $\phi$ are latitude and longitude in \acrshort{wgs}; X, Y, Z for \acrshort{ecef}; and E, N, U for \acrshort{enu}).  }
     \label{fig:ECEF}
 \end{figure}
 
-Considering a point of reference in the ECEF frame, it is required to discover the equivalent latitude and longitude ($\lambda_r$ and $\phi_r$ respectively) of the reference point ($X_r$, $Y_r$, $Z_r$). The parameters of WGS84 required to perform such transformation are presented in table \ref{tab:WGS} \cite{soler1988coordinate}.
+Considering a point of reference in the \acrshort{ecef} frame, it is required to discover the equivalent latitude and longitude ($\lambda_r$ and $\phi_r$ respectively) of the reference point ($X_r$, $Y_r$, $Z_r$). The parameters of \acrshort{wgs} required to perform such transformation are presented in table \ref{tab:WGS} \cite{soler1988coordinate}.
 
 \input{tables/ecef}
 
-The conversion from ECEF to ENU coordinates is done with respect to the receiver reference point. Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\lambda_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to ECEF physical quantities with the vector pointing from the receiver reference point ($X_r$, $Y_r$, $Z_r$) to estimated position ($X_p$, $Y_p$, $Z_p$) in the ENU coordinate frame \cite{boucher2001itrs}.
+The conversion from \acrshort{ecef} to \acrshort{enu} coordinates is done with respect to the receiver reference point. Applying the set of equations (\ref{eq:transformation}) to approximate latitude ($\lambda_r$) and longitude ($\phi_r$) for the reference coordinate point. The last transformation outcome in applying equation (\ref{eq:transformation_results}) to \acrshort{ecef} physical quantities with the vector pointing from the receiver reference point ($X_r$, $Y_r$, $Z_r$) to estimated position ($X_p$, $Y_p$, $Z_p$) in the \acrshort{enu} coordinate frame \cite{boucher2001itrs}.
 
 \begin{equation}
     \begin{gathered}
@@ -88,7 +88,7 @@ As the name indicates, the body reference frame is attached to, and moves with, 
 \subsection{Orientation}
 \label{sub:orientation}
 
-The attitude orientation of a body in space a critical aspect in position estimation. In a low-cost AHRS, accuracy and low complexity are important in calculating the attitude of a body. There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
+The attitude orientation of a body in space a critical aspect in position estimation. In a low-cost \acrshort{ahrs}, accuracy and low complexity are important in calculating the attitude of a body. There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
 
 \subsubsection{Rotation Matrix}
 
@@ -133,7 +133,7 @@ Rotation matrices fit in to the orthonormal class and one crucial property is th
 
 \subsubsection{Direct Cosine Matrix}
 
-The direct cosine matrix (DCM) is related to the rotational matrix, however it is a 3x3 matrix that comprises the cosines of the 9 possible sets of axes of two distinct Cartesian coordinate systems. The DCM is normally employed to convert from the body frame into the earth frame. The DCM methodology has achieved considerable recognition for its improvement of linear measurement equations in Kalman filters (more in-depth review at chapter \ref{sub:sensor_fusion} \nameref{sub:sensor_fusion}) \cite{premerlani2009direction}.
+The \acrfull{dcm} is related to the rotational matrix, however it is a 3x3 matrix that comprises the cosines of the 9 possible sets of axes of two distinct Cartesian coordinate systems. The \acrshort{dcm} is normally employed to convert from the body frame into the earth frame. The \acrshort{dcm} methodology has achieved considerable recognition for its improvement of linear measurement equations in Kalman filters (more in-depth review at chapter \ref{sub:sensor_fusion} \nameref{sub:sensor_fusion}) \cite{premerlani2009direction}.
 
 \subsubsection{Euler angles}
 
@@ -181,7 +181,7 @@ Merely three differential equations require solving prior to the attitude gets d
 \end{equation}
 
 Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space \cite{spring1986euler}. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together \cite{mcconnell1967kinematics}. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}) \cite{hemingway2018perspectives}.
-Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a CPU, such can negatively impact computational performance.
+Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a \acrfull{cpu}, such can negatively impact computational performance.
 
 \begin{figure}[!h]
     \centering
@@ -312,7 +312,7 @@ Quaternion representation permits a more truthful and efficient attitude estimat
 
 \subsection{Inertial Measurement Units}
 
-An inertial measurement unit (IMU) is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an attitude and heading reference system), such as spacecrafts \cite{li2011calibration} \cite{haberberger2016imu} \cite{faragher2012understanding}, satellites \cite{lu2020orbit}, and unmanned aerial vehicles (UAVs) \cite{sahawneh2008development} \cite{eling2015real}, to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended} \cite{allen2013telemedicine} \cite{giansanti2009toward} \cite{o2021measuring}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference. These types of eletronic devices are highly susceptible to the occurrence of errors. There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error \cite{hanke2016classification}. The main errors that cause unreliable readings are high frequent noise, offset error and drift error.
+An \acrfull{imu} is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. IMUs are normally employed in aircraft maneuvering (via an \acrlong{ahrs}), such as spacecrafts \cite{li2011calibration} \cite{haberberger2016imu} \cite{faragher2012understanding}, satellites \cite{lu2020orbit}, and \acrfull{uav} \cite{sahawneh2008development} \cite{eling2015real}, to name a few. IMUs have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended} \cite{allen2013telemedicine} \cite{giansanti2009toward} \cite{o2021measuring}, and robotics \cite{wilson2019formulation}. Newly developed IMUs integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference. These types of eletronic devices are highly susceptible to the occurrence of errors. There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error \cite{hanke2016classification}. The main errors that cause unreliable readings are high frequent noise, offset error and drift error.
 
 \begin{figure}[!h]
     \centering
@@ -459,7 +459,7 @@ Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly comb
 \end{figure}
 
 When applied appropriately, Kalman filters offer highly precise orientation, even with the existence of substantial noise. Nevertheless, Kalman filters are computationally expensive rising hardware cost and latency. They are also of complex implementation, which, shared with computational overhead, can make the algorithm unfeasible for computationally restricted applications. They are regularly useful in a wide-ranging variety of applications and have become a standard method in sensor fusion. Several studies examine the possibility of using Kalman filters to predict a body's orientation and position by combining multiple sensors. The Kalman filter is founded on recursive Bayesian filtering.
-Consequently, the system's noise is assumed to be Gaussian. Therefore, the Kalman filter is generally suggested for linear systems. For this reason, an extension of the classic Kalman Filter designed for non-linear systems has emerged, recognized as Extended Kalman filter \cite{wilson2019formulation}.
+Consequently, the system's noise is assumed to be Gaussian. Therefore, the Kalman filter is generally suggested for linear systems. For this reason, an extension of the classic Kalman Filter designed for non-linear systems has emerged, recognized as \acrfull{ekf} \cite{wilson2019formulation}.
 
 % \begin{figure}
 %     \centering
@@ -521,11 +521,11 @@ A mathematical model of the complementary filter can be represented as equation 
     \label{eq:complementary_model}
 \end{equation}
 
-Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the Extended Complementary Filter (ECF). They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
+Yet, the complementary filter is not especially robust to noisy or biased data since it simply uses currently available information, therefore, has no direct method of compensating for sensor noise \cite{wilson2019formulation}. A conventional application of the complementary filter is to bring together measurements of vertical acceleration and barometric readings to attain an approximation of vertical velocity. Similar to the Kalman filter, new versions built upon the principles of the classic complementary filter have emerged in recent times, such as the \acrfull{ecf}. They promise a high level of accuracy and enhanced robustness to noise while preserving computational efficiency.
 
 \subsubsection{Optimization Filters}
 
-Up until recently, there remained mainly two distinct AHRS fusion approaches. One category including the complementary filters, and the other is related to Kalman filtering. Some recent AHRS algorithms have emerged in the literature over the past years. Two of the most prominent are the Mahony and Madgwick algorithms, which have been categorized as optimization filters. Optimization filters obtain orientation by assessing a vector representative of the sensor output at the present orientation and lessening the disparity concerning predicted and observed outputs. Optimization filters are well established for linking accuracy with computational expense and simplicity of implementation \cite{madgwick2020extended}.
+Up until recently, there remained mainly two distinct \acrshort{ahrs} fusion approaches. One category including the complementary filters, and the other is related to Kalman filtering. Some recent \acrshort{ahrs} algorithms have emerged in the literature over the past years. Two of the most prominent are the Mahony and Madgwick algorithms, which have been categorized as optimization filters. Optimization filters obtain orientation by assessing a vector representative of the sensor output at the present orientation and lessening the disparity concerning predicted and observed outputs. Optimization filters are well established for linking accuracy with computational expense and simplicity of implementation \cite{madgwick2020extended}.
 Both methods make use of a quaternion representation, which is a four-dimensional complex number representing of an object orientation. Quaternions involve fewer computation time because of their minimal quantity of calculation parameters \cite{ludwig2018comparison}. Additionally, vector rotations are easily executed by quaternion multiplications.
 Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as 'Madgwick Algorithm.' This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick's approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
 

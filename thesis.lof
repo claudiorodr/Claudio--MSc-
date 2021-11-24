@@ -1,7 +1,7 @@
 \babel@toc {english}{}\relax 
 \babel@toc {portuguese}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces An illustrative diagram for the WGS84, ECEF, and ENU coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\lambda $ and $\phi $ are latitude and longitude in WGS84; X, Y, Z for ECEF; and E, N, U for ENU). \relax }}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {1}{\ignorespaces An illustrative diagram for the \acrshort {wgs}, \acrshort {ecef}, and \acrshort {enu} coordinate systems for the Earth and their transformation correlation (PM line is the Prime Meridian; $\lambda $ and $\phi $ are latitude and longitude in \acrshort {wgs}; X, Y, Z for \acrshort {ecef}; and E, N, U for \acrshort {enu}). \relax }}{7}{figure.caption.9}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Navigation and body frame coordinate systems. \relax }}{9}{figure.caption.11}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Frame axis example.\relax }}{10}{figure.caption.12}%
 \contentsline {figure}{\numberline {4}{\ignorespaces 3D rotation around vector $\hat {r}$ of angle $\theta $ between frame A and B. \relax }}{11}{figure.caption.13}%
@@ -39,6 +39,6 @@
 \contentsline {figure}{\numberline {36}{\ignorespaces Illustration of a unit circle where $\theta $ is the attitude angle.\relax }}{62}{figure.caption.50}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Illustration of the dead reckoning approach. The object's position at a given moment is given by the last known position, the heading angle $\Delta \theta $, and the travelled distance $\Delta x$ that occur during the last sample. \relax }}{63}{figure.caption.51}%
 \contentsline {figure}{\numberline {38}{\ignorespaces Result after applying the position estimation methodology to the raw sensor data. \relax }}{64}{figure.caption.52}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Illustration of the real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm. \relax }}{64}{figure.caption.53}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Illustration of the real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the \acrshort {rdp} Algorithm. \relax }}{64}{figure.caption.53}%
 \contentsline {figure}{\numberline {41}{\ignorespaces Three-dimensional view of the experiment.\relax }}{67}{figure.caption.55}%
-\contentsline {figure}{\numberline {42}{\ignorespaces The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the Ramer-Douglas-Peucker Algorithm.\relax }}{68}{figure.caption.56}%
+\contentsline {figure}{\numberline {42}{\ignorespaces The same methodology applies to three-dimensional estimation. The real-world test ground truth (represented by the $4m\times 4m$ blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the \acrshort {rdp} Algorithm.\relax }}{68}{figure.caption.56}%
