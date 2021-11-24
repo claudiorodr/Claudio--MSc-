@@ -461,23 +461,6 @@ Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly comb
 When applied appropriately, Kalman filters offer highly precise orientation, even with the existence of substantial noise. Nevertheless, Kalman filters are computationally expensive rising hardware cost and latency. They are also of complex implementation, which, shared with computational overhead, can make the algorithm unfeasible for computationally restricted applications. They are regularly useful in a wide-ranging variety of applications and have become a standard method in sensor fusion. Several studies examine the possibility of using Kalman filters to predict a body's orientation and position by combining multiple sensors. The Kalman filter is founded on recursive Bayesian filtering.
 Consequently, the system's noise is assumed to be Gaussian. Therefore, the Kalman filter is generally suggested for linear systems. For this reason, an extension of the classic Kalman Filter designed for non-linear systems has emerged, recognized as \acrfull{ekf} \cite{wilson2019formulation}.
 
-% \begin{figure}
-%     \centering
-%     \begin{subfigure}[b]{0.45\textwidth}
-%         \includegraphics[width=1\linewidth]{figures/kalman1.pdf}
-%         \caption{}
-%         \label{fig:state_kalman}
-%     \end{subfigure}
-%     \begin{subfigure}[b]{0.45\textwidth}
-%         \includegraphics[width=1\linewidth]{figures/kalman2.pdf}
-%         \caption{}
-%         \label{fig:mesearurment_kalman}
-%     \end{subfigure}
-
-%     \caption{ Kalman-filter-based multi-sensor data fusion.
-%         (a) State-vector fusion. (b) Measurement fusion. \cite{mosallaei2007process} }
-% \end{figure}
-
 \subsubsection{Complementary Filter}
 
 The complementary filter is considered a simpler approach relatively to the Kalman filter since it is a computationally lightweight solution and straightforward to implement \cite{higgins1975comparison}. This filter takes as input two noisy sensor measurements and assumes one input is mainly formed by high-frequency signals whereas the other is mostly by low-frequency signals. Through a low pass filter, the high-frequency noise of the first input is filtered out. An identical procedure occurs with the second signal, but this time with a high pass filter to remove low-frequency noises, as illustrated in figure \ref{fig:complementary}.
@@ -529,6 +512,60 @@ Up until recently, there remained mainly two distinct \acrshort{ahrs} fusion app
 Both methods make use of a quaternion representation, which is a four-dimensional complex number representing of an object orientation. Quaternions involve fewer computation time because of their minimal quantity of calculation parameters \cite{ludwig2018comparison}. Additionally, vector rotations are easily executed by quaternion multiplications.
 Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion algorithm, frequently recognized as 'Madgwick Algorithm.' This gradient descent fusion algorithm first obtains a quaternion estimation of the gyroscope output integration and later corrects it with a quaternion from the accelerometer and magnetometer data. Madgwick's approach guarantees decent attitude estimation at a low computational cost. Further, it tackles the difficulty of the local magnetic disturbances that can influence all the orientation components. By reducing the constraint of the magnetic field vector rotation, it can limit the effect of the magnetic disturbances to only affect the yaw component of the orientation.
 
-% \paragraph{Other Filters}
-% \subsection{Low-Cost Inertial Measurement Units}
-% \subsubsection{MPU-9150 Evaluation Board 9DOF}
+\subsubsection{Other Filters}
+\paragraph{Angular Rate}
+
+A quaternion is updated via integration of angular rate measurements of a gyroscope. The easiest way to update the quaternions is by integrating the differential equation for a local rotation rate \cite{sola2017quaternion}.
+In a kinematic system, the angular velocity ω of a rigid body at any instantaneous time is described with respect to a fixed frame coinciding instantaneously with its body frame. Thus, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
+
+\paragraph{\acrshort{aqua}}
+
+Roberto Valenti’s \acrfull{aqua} \cite{valenti2015keeping} estimates a quaternion with the algebraic solution of a system from inertial/magnetic observations, solving [Wahba’s Problem](https://en.wikipedia.org/wiki/Wahba\%27s_problem).
+\acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion separately in two sub-parts. This avoids the impact of the magnetic disturbances on the roll and pitch components of the orientation.
+\acrshort{aqua} can be used with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the independently estimated quaternions and works for both \acrshort{imu} and MARG (Magnetic, Angular Rate, and Gravity) sensors [Valenti2016].
+
+\paragraph{Davenport}
+
+In 1965 Grace Wahba came up with a simple, yet very intuitive, way to describe the problem of finding a rotation between two coordinate systems.
+
+\paragraph{\acrshort{famc}}
+
+The most typical low-cost sensor system is the Accelerometer-Magnetometer combination (AMC). It integrates the local gravity and the Earth’s magnetic field together, forming a full-attitude estimation system.
+The most famous attitude determination formulation is Wahba’s Problem, which sprung several solutions using Euler Angles, Direction Cosine Matrices and Quaternions.
+The matrix operations in these solutions are the main focus of attention in this method. The operations are analytically simplified, where the accuracy is maintained, while the time consumption is reduced, yielding the \acrfull{aqua},
+
+\paragraph{\acrshort{flae}}
+
+The \acrfull{aqua} obtains the attitude quaternion with an eigenvalue-based solution as proposed by \cite{wu2018super}.
+A symbolic solution to the corresponding characteristic polynomial is also derived for a higher computation speed.
+
+\paragraph{Fourati}
+
+Attitude estimation algorithm as proposed by \cite{fourati2010nonlinear}, whose approach combines a quaternion-based nonlinear filter with the Levenberg Marquardt Algorithm (LMA.)
+The estimation algorithm has a complementary structure that exploits measurements from an accelerometer, a magnetometer and a gyroscope, combined in a strap-down system, based on the time integral of the angular velocity, using the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
+The rigid body attitude in space is determined when the body’s orientation frame (XB,YB,ZB) is specified with respect to the navigation frame (YN,YN,ZN), where the navigation frame follows the NED convention (North-East-Down.)
+
+\paragraph{OLEQ}
+
+\paragraph{\acrshort{quest}}
+
+\acrfull{quest} as described by Shuster in \cite{shuster1981three} and \cite{shuster1978approximate}.
+
+\paragraph{\acrshort{roleq}}
+
+This is a modified \acrshort{oleq}, where a recursive estimation of the attitude is made with the measured angular velocity \cite{zhou2018optimal}. This estimation is set as the initial value for the \acrshort{oleq} estimation, simplyfing the rotational operations.
+
+First, the quaternion qω is estimated from the angular velocity, ω=[ωxωyωz]T, measured by the gyroscopes, in rad/s, at a time t as:
+
+\paragraph{\acrshort{saam}}
+
+\acrfull{saam} This novel estimator proposed by \cite{wu2018super}, offers an extremely simplified computation of Davenport’s solution to Wahba’s problem, where the full solution is reduced to a couple of floating point operations, without losing much accuracy, and sparing computational time.
+
+\paragraph{Tilt}
+Attitude estimation via gravity acceleration measurements.
+
+The simplest way to estimate the attitude from the gravitational acceleration is using 3D geometric quadrants.
+
+Although some methods use arctan to estimate the angles [ST-AN4509] [AD-AN1057], it is preferred to use arctan2 to explore all quadrants searching the tilt angles.
+
+First, we normalize the gravity vector, so that it has magnitude equal to 1. Then, we get the angles to the main axes with arctan2 [FS-AN3461]:
