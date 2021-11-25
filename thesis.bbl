@@ -496,6 +496,64 @@ Sebastian Madgwick.
   sensor arrays.
 \newblock {\em Report x-io and University of Bristol (UK)}, 25:113--118, 2010.
 
+\bibitem{sola2017quaternion}
+Joan Sola.
+\newblock Quaternion kinematics for the error-state kalman filter.
+\newblock {\em arXiv preprint arXiv:1711.02508}, 2017.
+
+\bibitem{jia2019quaternions}
+Yan-Bin Jia.
+\newblock Quaternions.
+\newblock {\em Course Com S}, 477:577, 2019.
+
+\bibitem{valenti2015linear}
+Roberto~G Valenti, Ivan Dryanovski, and Jizhong Xiao.
+\newblock A linear kalman filter for marg orientation estimation using the
+  algebraic quaternion algorithm.
+\newblock {\em IEEE Transactions on Instrumentation and Measurement},
+  65(2):467--481, 2015.
+
+\bibitem{wu2018super}
+Jin Wu, Zebo Zhou, Hassen Fourati, and Yuhua Cheng.
+\newblock A super fast attitude determination algorithm for consumer-level
+  accelerometer and magnetometer.
+\newblock {\em IEEE Transactions on Consumer Electronics}, 64(3):375--381,
+  2018.
+
+\bibitem{fourati2010nonlinear}
+Hassen Fourati, Noureddine Manamanni, Lissan Afilal, and Yves Handrich.
+\newblock A nonlinear filtering approach for the attitude and dynamic body
+  acceleration estimation based on inertial and magnetic sensors: Bio-logging
+  application.
+\newblock {\em IEEE Sensors Journal}, 11(1):233--244, 2010.
+
+\bibitem{shuster1981three}
+Malcolm~David Shuster and S~D\_ Oh.
+\newblock Three-axis attitude determination from vector observations.
+\newblock {\em Journal of guidance and Control}, 4(1):70--77, 1981.
+
+\bibitem{shuster1978approximate}
+M~Shuster.
+\newblock Approximate algorithms for fast optimal attitude computation.
+\newblock In {\em Guidance and Control Conference}, page 1249, 1978.
+
+\bibitem{zhou2018optimal}
+Zebo Zhou, Jin Wu, Jinling Wang, and Hassen Fourati.
+\newblock Optimal, recursive and sub-optimal linear solutions to attitude
+  determination from vector observations for gnss/accelerometer/magnetometer
+  orientation measurement.
+\newblock {\em Remote sensing}, 10(3):377, 2018.
+
+\bibitem{fisher2010using}
+Christopher~J Fisher.
+\newblock Using an accelerometer for inclination sensing.
+\newblock {\em AN-1057, Application note, Analog Devices}, pages 1--8, 2010.
+
+\bibitem{microelectronics2010tilt}
+ST~Microelectronics.
+\newblock Tilt measurement using a low-g 3-axis accelerometer.
+\newblock {\em AN3182 Application Note, Microelectronics, ST}, 2010.
+
 \bibitem{ladetto2002step}
 Quentin Ladetto and Bertrand Merminod.
 \newblock In step with ins navigation for the blind, tracking emergency crews.

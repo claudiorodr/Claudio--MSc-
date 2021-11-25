@@ -516,13 +516,13 @@ Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion
 \paragraph{Angular Rate}
 
 A quaternion is updated via integration of angular rate measurements of a gyroscope. The easiest way to update the quaternions is by integrating the differential equation for a local rotation rate \cite{sola2017quaternion}.
-In a kinematic system, the angular velocity ω of a rigid body at any instantaneous time is described with respect to a fixed frame coinciding instantaneously with its body frame. Thus, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
+In a kinematic system, the angular velocity $ω$ of a rigid body at any instantaneous time is described with respect to a fixed frame coinciding instantaneously with its body frame. Thus, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
 
 \paragraph{\acrshort{aqua}}
 
-Roberto Valenti’s \acrfull{aqua} \cite{valenti2015keeping} estimates a quaternion with the algebraic solution of a system from inertial/magnetic observations, solving [Wahba’s Problem](https://en.wikipedia.org/wiki/Wahba\%27s_problem).
+Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} estimates a quaternion with the algebraic solution of a system from inertial/magnetic observations.
 \acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion separately in two sub-parts. This avoids the impact of the magnetic disturbances on the roll and pitch components of the orientation.
-\acrshort{aqua} can be used with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the independently estimated quaternions and works for both \acrshort{imu} and MARG (Magnetic, Angular Rate, and Gravity) sensors [Valenti2016].
+\acrshort{aqua} can be used with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the independently estimated quaternions and works for both \acrshort{imu} and \acrfull{marg} sensors \cite{valenti2015linear}.
 
 \paragraph{Davenport}
 
@@ -530,13 +530,13 @@ In 1965 Grace Wahba came up with a simple, yet very intuitive, way to describe t
 
 \paragraph{\acrshort{famc}}
 
-The most typical low-cost sensor system is the Accelerometer-Magnetometer combination (AMC). It integrates the local gravity and the Earth’s magnetic field together, forming a full-attitude estimation system.
+The most typical low-cost sensor system is the \acrfull{amc}. It integrates the local gravity and the Earth’s magnetic field together, forming a full-attitude estimation system.
 The most famous attitude determination formulation is Wahba’s Problem, which sprung several solutions using Euler Angles, Direction Cosine Matrices and Quaternions.
-The matrix operations in these solutions are the main focus of attention in this method. The operations are analytically simplified, where the accuracy is maintained, while the time consumption is reduced, yielding the \acrfull{aqua},
+The matrix operations in these solutions are the main focus of attention in this method. The operations are analytically simplified, where the accuracy is maintained, while the time consumption is reduced, yielding the \acrfull{famc},
 
 \paragraph{\acrshort{flae}}
 
-The \acrfull{aqua} obtains the attitude quaternion with an eigenvalue-based solution as proposed by \cite{wu2018super}.
+The \acrfull{flae} obtains the attitude quaternion with an eigenvalue-based solution as proposed by \cite{wu2018super}.
 A symbolic solution to the corresponding characteristic polynomial is also derived for a higher computation speed.
 
 \paragraph{Fourati}
@@ -553,7 +553,7 @@ The rigid body attitude in space is determined when the body’s orientation fra
 
 \paragraph{\acrshort{roleq}}
 
-This is a modified \acrshort{oleq}, where a recursive estimation of the attitude is made with the measured angular velocity \cite{zhou2018optimal}. This estimation is set as the initial value for the \acrshort{oleq} estimation, simplyfing the rotational operations.
+\acrfull{roleq} is a modified \acrshort{oleq}, where a recursive estimation of the attitude is made with the measured angular velocity \cite{zhou2018optimal}. This estimation is set as the initial value for the \acrshort{oleq} estimation, simplifying the rotational operations.
 
 First, the quaternion qω is estimated from the angular velocity, ω=[ωxωyωz]T, measured by the gyroscopes, in rad/s, at a time t as:
 
@@ -562,10 +562,6 @@ First, the quaternion qω is estimated from the angular velocity, ω=[ωxωyωz]
 \acrfull{saam} This novel estimator proposed by \cite{wu2018super}, offers an extremely simplified computation of Davenport’s solution to Wahba’s problem, where the full solution is reduced to a couple of floating point operations, without losing much accuracy, and sparing computational time.
 
 \paragraph{Tilt}
-Attitude estimation via gravity acceleration measurements.
-
-The simplest way to estimate the attitude from the gravitational acceleration is using 3D geometric quadrants.
-
-Although some methods use arctan to estimate the angles [ST-AN4509] [AD-AN1057], it is preferred to use arctan2 to explore all quadrants searching the tilt angles.
-
+Attitude estimation via gravity acceleration measurements. The simplest way to estimate the attitude from the gravitational acceleration is using 3D geometric quadrants.
+Although some methods use arctan to estimate the angles \cite{fisher2010using} \cite{microelectronics2010tilt}, it is preferred to use arctan2 to explore all quadrants searching the tilt angles.
 First, we normalize the gravity vector, so that it has magnitude equal to 1. Then, we get the angles to the main axes with arctan2 [FS-AN3461]:
