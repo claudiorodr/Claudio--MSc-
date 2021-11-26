@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  26 NOV 2021 18:53
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  26 NOV 2021 18:56
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/thesis.tex
@@ -1238,11 +1238,11 @@ LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
 
 
 \openout5 = thesis.ist
-{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./figures/logoUMa.png>] [2]) (./chapters/0_abstract.tex) (./chapters/0_resumo.tex [3
+{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./figures/logoUMa.png>]) (./chapters/0_abstract.tex) (./chapters/0_resumo.tex [2
 
-]) (./chapters/0_acknowledgements.tex [4
+]) (./chapters/0_acknowledgements.tex [3
 
-]) [5
+]) [4
 
 ] (./thesis.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
@@ -1252,7 +1252,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [6
+) [5
 
 ]
 Overfull \hbox (3.33344pt too wide) detected at line 39
@@ -1264,12 +1264,13 @@ Overfull \hbox (3.33344pt too wide) detected at line 40
 \T1/lmr/bx/n/10 2.4.4.11 
  []
 
-[7])
+[6])
 \tf@toc=\write9
 
 \openout9 = thesis.toc
- (./thesis.acr [8] [9
+ (./thesis.acr [7] [8
 
+] [9
 
 ]) (./thesis.gls) [10] (./thesis.lof
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1743,7 +1744,7 @@ Here is how much of LuaTeX's memory you used:
 
 warning  (pdf backend): unreferenced destination with name 'glo:ned'
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsco10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (103 pages, 33330096 bytes).
+Output written on thesis.pdf (103 pages, 33330152 bytes).
 
 PDF statistics: 2389 PDF objects out of 2487 (max. 8388607)
  2166 compressed objects within 22 object streams

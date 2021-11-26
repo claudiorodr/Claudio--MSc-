@@ -1,6 +1,6 @@
 INFO:  latexindent.exe version 3.12, 2021-09-16, a script to indent .tex files
        latexindent.exe lives here: C:/texlive/2021/bin/win32/
-       Fri Nov 26 18:53:24 2021
+       Fri Nov 26 18:55:59 2021
        Filename: c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/chapters/__latexindent_temp.tex
 INFO:  Processing switches:
        -y|--yaml: YAML settings specified via command line
@@ -14,8 +14,8 @@ INFO:  YAML settings read: indentconfig.yaml or .indentconfig.yaml
        To specify user settings you would put indentconfig.yaml here: C:\Users\Claudio/indentconfig.yaml
        Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\Claudio/.indentconfig.yaml
 INFO:  YAML settings read: -y switch
-       YAML setting: defaultIndent:'    '
-       Updating mainSettings with defaultIndent:     
+       YAML setting: defaultIndent:'\t'
+       Updating mainSettings with defaultIndent: 	
 INFO:  Phase 1: searching for objects
 INFO:  Phase 2: finding surrounding indentation
 INFO:  Phase 3: indenting objects
