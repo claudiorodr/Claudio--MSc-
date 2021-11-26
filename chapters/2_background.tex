@@ -356,7 +356,7 @@ A gyroscope is a device utilized to quantify angular velocity and orientation ba
     \label{fig:gyroscope}
 \end{figure}
 
-A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and \acrshort{mems} gyroscopes) are rate-gyros, meaning they can detect angular velocity \cite{antonello2011}. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). \acrshort{mems} sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce \cite{antonello2012exploring}. \acrshort{mems} gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}) \cite{trusov2011overview}:
+A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and \acrshort{mems} gyroscopes) are rate-gyros, meaning they can detect angular velocity \cite{antonello2011mems}. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). \acrshort{mems} sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce \cite{antonello2012exploring}. \acrshort{mems} gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}) \cite{trusov2011overview}:
 
 \begin{equation}
     \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
@@ -412,7 +412,7 @@ A magnetometer is an electronic utensil that evaluates existent magnetic flux (a
     \end{gathered}
 \end{equation}
 
-By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any presenthard iron disturbances.
+By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any present hard iron disturbances.
 
 soft iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard iron distortion which has a continuous disturbance, a soft iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
 
@@ -515,14 +515,14 @@ Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion
 \subsubsection{Other Filters}
 \paragraph{Angular Rate}
 
-A quaternion is updated via integration of angular rate measurements of a gyroscope. The easiest way to update the quaternions is by integrating the differential equation for a local rotation rate \cite{sola2017quaternion}.
-In a kinematic system, the angular velocity $ω$ of a rigid body at any instantaneous time is described with respect to a fixed frame coinciding instantaneously with its body frame. Thus, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
+Angular Rate updates a quaternion through incorporation of angular rate measurements of a gyroscope. The simplest approach to update the quaternions is by combining the differential equation for a local rotation rate \cite{sola2017quaternion}.
+In a kinematic system, the angular velocity $ω$ of a rigid body at any instant time is defined with respect to a fixed frame coinciding directly with its body frame. Therefore, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
 
 \paragraph{\acrshort{aqua}}
 
-Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} estimates a quaternion with the algebraic solution of a system from inertial/magnetic observations.
-\acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion separately in two sub-parts. This avoids the impact of the magnetic disturbances on the roll and pitch components of the orientation.
-\acrshort{aqua} can be used with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the independently estimated quaternions and works for both \acrshort{imu} and \acrfull{marg} sensors \cite{valenti2015linear}.
+Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} approximates a quaternion with the algebraic solution of a system from inertial/magnetic observations.
+\acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion independently in two sub-parts. This prevents the effect of the magnetic disturbances on the roll and pitch components of the orientation.
+\acrshort{aqua} can be employed with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the individually assessed quaternions and works for both \acrshort{imu} and \acrfull{marg} sensors \cite{valenti2015linear}.
 
 \paragraph{Davenport}
 
@@ -530,20 +530,20 @@ In 1965 Grace Wahba came up with a simple, yet very intuitive, way to describe t
 
 \paragraph{\acrshort{famc}}
 
-The most typical low-cost sensor system is the \acrfull{amc}. It integrates the local gravity and the Earth’s magnetic field together, forming a full-attitude estimation system.
+The most conventional low-cost sensor system is the \acrfull{amc}. It mixes the local gravity and the Earth’s magnetic field simultaneously, establishing a full-attitude estimation system.
 The most famous attitude determination formulation is Wahba’s Problem, which sprung several solutions using Euler Angles, Direction Cosine Matrices and Quaternions.
-The matrix operations in these solutions are the main focus of attention in this method. The operations are analytically simplified, where the accuracy is maintained, while the time consumption is reduced, yielding the \acrfull{famc},
+The matrix operations in these solutions are the main focus of interest in this method. The operations are methodically simplified, where the accuracy is retained, while the time expenditure is reduced, yielding the \acrfull{famc}.
 
 \paragraph{\acrshort{flae}}
 
-The \acrfull{flae} obtains the attitude quaternion with an eigenvalue-based solution as proposed by \cite{wu2018super}.
-A symbolic solution to the corresponding characteristic polynomial is also derived for a higher computation speed.
+The \acrfull{flae} acquires the orientation quaternion with an eigenvalue-based solution as suggested by \cite{wu2018super}.
+A figurative solution to the resultant characteristic polynomial is also derived for a higher computation performance.
 
 \paragraph{Fourati}
 
-Attitude estimation algorithm as proposed by \cite{fourati2010nonlinear}, whose approach combines a quaternion-based nonlinear filter with the Levenberg Marquardt Algorithm (LMA.)
-The estimation algorithm has a complementary structure that exploits measurements from an accelerometer, a magnetometer and a gyroscope, combined in a strap-down system, based on the time integral of the angular velocity, using the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
-The rigid body attitude in space is determined when the body’s orientation frame (XB,YB,ZB) is specified with respect to the navigation frame (YN,YN,ZN), where the navigation frame follows the NED convention (North-East-Down.)
+Attitude estimation set of rules as suggested by \cite{fourati2010nonlinear}, whose method blends a quaternion-based nonlinear filter with the \acrfull{lma}.
+The estimation algorithm has a complementary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
+The rigid body attitude in space is revealed when the body’s orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
 
 \paragraph{OLEQ}
 
@@ -553,15 +553,12 @@ The rigid body attitude in space is determined when the body’s orientation fra
 
 \paragraph{\acrshort{roleq}}
 
-\acrfull{roleq} is a modified \acrshort{oleq}, where a recursive estimation of the attitude is made with the measured angular velocity \cite{zhou2018optimal}. This estimation is set as the initial value for the \acrshort{oleq} estimation, simplifying the rotational operations.
-
-First, the quaternion qω is estimated from the angular velocity, ω=[ωxωyωz]T, measured by the gyroscopes, in rad/s, at a time t as:
+\acrfull{roleq} is a revised \acrshort{oleq}, where a recursive evaluation of the attitude is created with the computed angular velocity \cite{zhou2018optimal}. This estimation is set as the primary value for the \acrshort{oleq} estimation, simplifying the rotational operations.
 
 \paragraph{\acrshort{saam}}
 
-\acrfull{saam} is novel estimator proposed by \cite{wu2018super}, offers an extremely simplified computation of Davenport’s solution to Wahba’s problem, where the full solution is reduced to a couple of floating point operations, without losing much accuracy, and sparing computational time.
+\acrfull{saam} is a novel estimator suggested by \cite{wu2018super}, proposes an exceptionally simplified computation of Davenport’s resolution to Wahba’s problem, where the full solution is condensed to a couple of floating-point operations, not losing much accuracy, and keeping computational time low.
 
 \paragraph{Tilt}
-Attitude estimation via gravity acceleration measurements. The simplest way to estimate the attitude from the gravitational acceleration is using 3D geometric quadrants.
-Although some methods use arctan to estimate the angles \cite{fisher2010using} \cite{microelectronics2010tilt}, it is preferred to use arctan2 to explore all quadrants searching the tilt angles.
-First, we normalize the gravity vector, so that it has magnitude equal to 1. Then, we get the angles to the main axes with arctan2 [FS-AN3461]:
+Tilt does attitude estimation through measurements of gravity acceleration. The most straightforward approach to assess the attitude from the gravitational acceleration is utilizing 3D geometric quadrants.
+Even though some techniques use arctan to approximate the angles \cite{fisher2010using} \cite{microelectronics2010tilt}, it is desired to utilize arctan2 to investigate all quadrants seeking the tilt angles.

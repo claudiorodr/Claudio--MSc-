@@ -101,12 +101,13 @@ The readings of each sensor are later averaged and linearized to better detect a
             \hline
             Algorithm        & Accelerometer & Gyroscope & Magnetometer \\
             \hline
+            Angular Rate     & Yes           & No        & No           \\
             \acrshort{aqua}  & Yes           & Yes       & Optional     \\
             Complementary    & Yes           & Yes       & Optional     \\
             Davenport's      & Yes           & No        & Yes          \\
             \acrshort{ekf}   & Yes           & Yes       & Yes          \\
-            FAMC             & Yes           & No        & Yes          \\
-            FLAE             & Yes           & No        & Yes          \\
+            \acrshort{famc}  & Yes           & No        & Yes          \\
+            \acrshort{flae}  & Yes           & No        & Yes          \\
             Fourati          & Yes           & Yes       & Yes          \\
             % FQA           & Yes           & No        & Optional     \\
             % Integration   & Yes           & Yes       & No           \\
@@ -126,6 +127,7 @@ The readings of each sensor are later averaged and linearized to better detect a
 \end{table}
 
 \subsection{Calibration}
+\label{sub:calibration}
 
 A correct calibration of such sensors is essential for the compensation of their systematic errors, bias, and scale factor. Each time prior to an experiment, the inertial sensor is calibrated while the system is stationary and stabilized to compensate for static error that might corrupt the measurements.
 
