@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  27 NOV 2021 18:08
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.22)  27 NOV 2021 18:55
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Claudio/OneDrive/Documentos/Claudio(MSc)/thesis.tex
@@ -1294,13 +1294,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 No file thesis.nls.
 [13] (./chapters/1_introduction.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
-[1
-
-]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\acrshort' on input line 9.
@@ -1311,62 +1304,67 @@ Overfull \hbox (22.30634pt too wide) in paragraph at lines 10--13
  []
 
 
-warning  (pdf backend): ignoring duplicate destination with the name 'page.2'
-[2]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.3'
-[3]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.4'
-[4])
-warning  (pdf backend): ignoring duplicate destination with the name 'page.5'
-[5] (./chapters/2_background.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\acrshort' on input line 20.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\acrshort' on input line 20.
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.6'
-[6] (./figures/ECEF.tex) (./tables/ecef.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
+[1
+
+]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.2'
+[2]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.3'
+[3])
+warning  (pdf backend): ignoring duplicate destination with the name 'page.4'
+[4] (./chapters/2_background.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrshort' on input line 20.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrshort' on input line 20.
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.5'
+[5] (./figures/ECEF.tex) (./tables/ecef.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.6'
+[6]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.7'
 [7]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.8'
-[8]
-<figures/body_frame.pdf, id=901, 202.8378pt x 196.8153pt>
+<figures/body_frame.pdf, id=899, 202.8378pt x 196.8153pt>
 File: figures/body_frame.pdf Graphic file (type pdf)
 <use figures/body_frame.pdf>
 Package luatex.def Info: figures/body_frame.pdf  used on input line 82.
 (luatex.def)             Requested size: 242.98541pt x 235.78076pt.
 
-warning  (pdf backend): ignoring duplicate destination with the name 'page.9'
-[9<./figures/body_frame.pdf>] (./figures/rotation_matrix.tex) (./figures/rotation_matrix3D.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'page.8'
+[8<./figures/body_frame.pdf>] (./figures/rotation_matrix.tex) (./figures/rotation_matrix3D.tex
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 8.
  (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ))
-warning  (pdf backend): ignoring duplicate destination with the name 'page.10'
-[10]
-<figures/rotation.pdf, id=927, 187.66109pt x 207.65579pt>
+warning  (pdf backend): ignoring duplicate destination with the name 'page.9'
+[9]
+<figures/rotation.pdf, id=926, 187.66109pt x 207.65579pt>
 File: figures/rotation.pdf Graphic file (type pdf)
 <use figures/rotation.pdf>
 Package luatex.def Info: figures/rotation.pdf  used on input line 129.
 (luatex.def)             Requested size: 242.98541pt x 268.87834pt.
 
+warning  (pdf backend): ignoring duplicate destination with the name 'page.10'
+[10<./figures/rotation.pdf>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.11'
-[11<./figures/rotation.pdf>]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.12'
-[12]
-<figures/gimbal_lock.png, id=967, 853.1875pt x 330.23375pt>
+[11]
+<figures/gimbal_lock.png, id=966, 853.1875pt x 330.23375pt>
 File: figures/gimbal_lock.png Graphic file (type png)
 <use figures/gimbal_lock.png>
 Package luatex.def Info: figures/gimbal_lock.png  used on input line 188.
 (luatex.def)             Requested size: 242.98541pt x 94.04704pt.
-<figures/complex_rotation.pdf, id=975, 630.26666pt x 623.72224pt>
+<figures/complex_rotation.pdf, id=974, 630.26666pt x 623.72224pt>
 File: figures/complex_rotation.pdf Graphic file (type pdf)
 <use figures/complex_rotation.pdf>
 Package luatex.def Info: figures/complex_rotation.pdf  used on input line 199.
@@ -1375,9 +1373,11 @@ Package luatex.def Info: figures/complex_rotation.pdf  used on input line 199.
 Underfull \vbox (badness 1460) has occurred while \output is active []
 
 
+warning  (pdf backend): ignoring duplicate destination with the name 'page.12'
+[12<./figures/gimbal_lock.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.13'
-[13<./figures/gimbal_lock.png>] [14<./figures/complex_rotation.pdf>] (./tables/quaternion.tex) [15] [16]
-<figures/noise.pdf, id=1043, 337.26pt x 81.4242pt>
+[13<./figures/complex_rotation.pdf>] (./tables/quaternion.tex) [14] [15]
+<figures/noise.pdf, id=1041, 337.26pt x 81.4242pt>
 File: figures/noise.pdf Graphic file (type pdf)
 <use figures/noise.pdf>
 Package luatex.def Info: figures/noise.pdf  used on input line 319.
@@ -1386,22 +1386,22 @@ Package luatex.def Info: figures/noise.pdf  used on input line 319.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17]
-<figures/accelerometer.pdf, id=1070, 263.06279pt x 235.8411pt>
+[16]
+<figures/accelerometer.pdf, id=1068, 263.06279pt x 235.8411pt>
 File: figures/accelerometer.pdf Graphic file (type pdf)
 <use figures/accelerometer.pdf>
 Package luatex.def Info: figures/accelerometer.pdf  used on input line 334.
 (luatex.def)             Requested size: 173.56177pt x 155.60881pt.
- [18<./figures/noise.pdf>]
+ [17<./figures/noise.pdf>]
 Underfull \vbox (badness 3635) has occurred while \output is active []
 
- [19<./figures/accelerometer.pdf>]
-<figures/gyroscope.pdf, id=1097, 472.64577pt x 190.7928pt>
+ [18<./figures/accelerometer.pdf>]
+<figures/gyroscope.pdf, id=1095, 472.64577pt x 190.7928pt>
 File: figures/gyroscope.pdf Graphic file (type pdf)
 <use figures/gyroscope.pdf>
 Package luatex.def Info: figures/gyroscope.pdf  used on input line 354.
 (luatex.def)             Requested size: 242.98541pt x 98.08615pt.
-<figures/coriolis.pdf, id=1107, 346.4142pt x 274.1442pt>
+<figures/coriolis.pdf, id=1105, 346.4142pt x 274.1442pt>
 File: figures/coriolis.pdf Graphic file (type pdf)
 <use figures/coriolis.pdf>
 Package luatex.def Info: figures/coriolis.pdf  used on input line 369.
@@ -1409,19 +1409,19 @@ Package luatex.def Info: figures/coriolis.pdf  used on input line 369.
 
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
- [20<./figures/gyroscope.pdf>] [21<./figures/coriolis.pdf>] [22]
-<figures/magnetometer_distortion.pdf, id=1171, 820.02356pt x 205.72859pt>
+ [19<./figures/gyroscope.pdf>] [20<./figures/coriolis.pdf>] [21]
+<figures/magnetometer_distortion.pdf, id=1169, 820.02356pt x 205.72859pt>
 File: figures/magnetometer_distortion.pdf Graphic file (type pdf)
 <use figures/magnetometer_distortion.pdf>
 Package luatex.def Info: figures/magnetometer_distortion.pdf  used on input line 431.
 (luatex.def)             Requested size: 347.12354pt x 87.08661pt.
- [23<./figures/magnetometer_distortion.pdf>]
-<figures/kalman1.pdf, id=1201, 499.8675pt x 133.45859pt>
+ [22<./figures/magnetometer_distortion.pdf>]
+<figures/kalman1.pdf, id=1199, 499.8675pt x 133.45859pt>
 File: figures/kalman1.pdf Graphic file (type pdf)
 <use figures/kalman1.pdf>
 Package luatex.def Info: figures/kalman1.pdf  used on input line 447.
 (luatex.def)             Requested size: 242.98541pt x 64.87395pt.
-<figures/kalman2.pdf, id=1206, 549.97469pt x 133.45859pt>
+<figures/kalman2.pdf, id=1204, 549.97469pt x 133.45859pt>
 File: figures/kalman2.pdf Graphic file (type pdf)
 <use figures/kalman2.pdf>
 Package luatex.def Info: figures/kalman2.pdf  used on input line 456.
@@ -1430,8 +1430,8 @@ Package luatex.def Info: figures/kalman2.pdf  used on input line 456.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24<./figures/kalman1.pdf>]
-<figures/complementary.pdf, id=1227, 325.215pt x 136.5903pt>
+[23<./figures/kalman1.pdf>]
+<figures/complementary.pdf, id=1225, 325.215pt x 136.5903pt>
 File: figures/complementary.pdf Graphic file (type pdf)
 <use figures/complementary.pdf>
 Package luatex.def Info: figures/complementary.pdf  used on input line 470.
@@ -1445,7 +1445,7 @@ Overfull \hbox (1.32173pt too wide) in paragraph at lines 475--477
 []\T1/lmr/m/n/10 The ac-celerom-e-ter is es-pe-cially vul-ner-a-ble to vi-bra-tions and cen-tripetal forces,
  []
 
-[25<./figures/kalman2.pdf>] [26<./figures/complementary.pdf>] [27]
+[24<./figures/kalman2.pdf>] [25<./figures/complementary.pdf>] [26]
 Missing character: There is no ω (U+03C9) in font cmmi10!
 
 
@@ -1465,7 +1465,7 @@ Overfull \hbox (4.21031pt too wide) in paragraph at lines 533--536
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\acrshort' on input line 537.
 
-[28
+[27
 Missing character: There is no “ (U+201C) in font ec-lmr10!
 Missing character: There is no ” (U+201D) in font ec-lmr10!
 Missing character: There is no “ (U+201C) in font ec-lmr10!
@@ -1485,21 +1485,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\acrshort' on input line 558.
 
-) [29
+) [28
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [30] (./chapters/3_related_work.tex [31]
+] [29] (./chapters/3_related_work.tex [30]
 Underfull \vbox (badness 6461) has occurred while \output is active []
 
- [32] [33] [34] [35]) [36] (./chapters/4_experimental_setup.tex
-<figures/INS.jpg, id=1506, 2000.47375pt x 2001.4775pt>
+ [31] [32] [33] [34]) [35] (./chapters/4_experimental_setup.tex
+<figures/INS.jpg, id=1504, 2000.47375pt x 2001.4775pt>
 File: figures/INS.jpg Graphic file (type jpg)
 <use figures/INS.jpg>
 Package luatex.def Info: figures/INS.jpg  used on input line 14.
 (luatex.def)             Requested size: 170.09244pt x 170.16914pt.
-<figures/mpu9250.jpg, id=1509, 81.906pt x 85.0377pt>
+<figures/mpu9250.jpg, id=1507, 81.906pt x 85.0377pt>
 File: figures/mpu9250.jpg Graphic file (type jpg)
 <use figures/mpu9250.jpg>
 Package luatex.def Info: figures/mpu9250.jpg  used on input line 20.
@@ -1508,13 +1508,13 @@ Package luatex.def Info: figures/mpu9250.jpg  used on input line 20.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[37]
-<figures/mpu_orientation.pdf, id=1544, 303.05219pt x 140.4447pt>
+[36]
+<figures/mpu_orientation.pdf, id=1542, 303.05219pt x 140.4447pt>
 File: figures/mpu_orientation.pdf Graphic file (type pdf)
 <use figures/mpu_orientation.pdf>
 Package luatex.def Info: figures/mpu_orientation.pdf  used on input line 32.
 (luatex.def)             Requested size: 312.40906pt x 144.79037pt.
- [38<./figures/INS.jpg><./figures/mpu9250.jpg><./figures/mpu_orientation.pdf>]
+ [37<./figures/INS.jpg><./figures/mpu9250.jpg><./figures/mpu_orientation.pdf>]
 Overfull \hbox (0.57054pt too wide) in paragraph at lines 42--43
 []\T1/lmr/m/n/10 Digital-output triple-axis ac-celerom-e-ter with a pro-grammable full-scale range
  []
@@ -1529,8 +1529,8 @@ Overfull \hbox (7.16362pt too wide) in paragraph at lines 59--60
 \T1/lmr/m/n/10 with a user-programmable fullscale range of $\OMS/cmsy/m/n/10 \OT1/cmr/m/n/10 250$\T1/lmr/m/n/10 , $\OMS/cmsy/m/n/10 \OT1/cmr/m/n/10 500$\T1/lmr/m/n/10 , $\OMS/cmsy/m/n/10 \OT1/cmr/m/n/10 1000$\T1/lmr/m/n/10 , and $\OMS/cmsy/m/n/10 \OT1/cmr/m/n/10 2000[]\OML/cmm/m/it/10 =s$
  []
 
-[39] (./tables/gyroscope_specification.tex) (./tables/magnetometer_specification.tex) [40]
-<figures/i2c.png, id=1595, 602.25pt x 216.81pt>
+[38] (./tables/gyroscope_specification.tex) (./tables/magnetometer_specification.tex) [39]
+<figures/i2c.png, id=1593, 602.25pt x 216.81pt>
 File: figures/i2c.png Graphic file (type png)
 <use figures/i2c.png>
 Package luatex.def Info: figures/i2c.png  used on input line 90.
@@ -1538,229 +1538,192 @@ Package luatex.def Info: figures/i2c.png  used on input line 90.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41<./figures/i2c.png>] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+ [40<./figures/i2c.png>] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [42]
+) [41]
 Overfull \hbox (12.88013pt too wide) in paragraph at lines 157--158
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43] (./plots/accelerometer.pgf) [44]
+[42] (./plots/accelerometer.pgf) [43]
 Overfull \hbox (30.88031pt too wide) in paragraph at lines 191--192
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-(./plots/gyroscope.pgf) [45
+(./plots/gyroscope.pgf) [44
 
 ] (./plots/magnetometer2D.pgf) (./plots/magnetometer3D.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46]
+[45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47] (./plots/calibrated_magnetometer2D.pgf) (./plots/calibrated_magnetometer3D.pgf) [48]
-<figures/indoor.jpg, id=1746, 3276.24pt x 2457.18pt>
+ [46] (./plots/calibrated_magnetometer2D.pgf) (./plots/calibrated_magnetometer3D.pgf) [47]
+<figures/indoor.jpg, id=1743, 3276.24pt x 2457.18pt>
 File: figures/indoor.jpg Graphic file (type jpg)
 <use figures/indoor.jpg>
 Package luatex.def Info: figures/indoor.jpg  used on input line 311.
 (luatex.def)             Requested size: 242.98541pt x 182.2184pt.
- [49<./figures/indoor.jpg>]
-<figures/indoor_1.jpg, id=1754, 1842.885pt x 2457.18pt>
+ [48<./figures/indoor.jpg>]
+<figures/indoor_1.jpg, id=1752, 1842.885pt x 2457.18pt>
 File: figures/indoor_1.jpg Graphic file (type jpg)
 <use figures/indoor_1.jpg>
 Package luatex.def Info: figures/indoor_1.jpg  used on input line 329.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
-<figures/indoor_2.jpg, id=1755, 1842.885pt x 2457.18pt>
+<figures/indoor_2.jpg, id=1753, 1842.885pt x 2457.18pt>
 File: figures/indoor_2.jpg Graphic file (type jpg)
 <use figures/indoor_2.jpg>
 Package luatex.def Info: figures/indoor_2.jpg  used on input line 333.
 (luatex.def)             Requested size: 170.09244pt x 226.76068pt.
- [50<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
-<figures/outdoor_field.jpg, id=1762, 1445.4pt x 813.0375pt>
+ [49<./figures/indoor_1.jpg><./figures/indoor_2.jpg>]
+<figures/outdoor_field.jpg, id=1760, 1445.4pt x 813.0375pt>
 File: figures/outdoor_field.jpg Graphic file (type jpg)
 <use figures/outdoor_field.jpg>
 Package luatex.def Info: figures/outdoor_field.jpg  used on input line 347.
 (luatex.def)             Requested size: 242.98541pt x 136.67621pt.
-<figures/square.pdf, id=1764, 233.9139pt x 232.9503pt>
+<figures/square.pdf, id=1762, 233.9139pt x 232.9503pt>
 File: figures/square.pdf Graphic file (type pdf)
 <use figures/square.pdf>
 Package luatex.def Info: figures/square.pdf  used on input line 356.
 (luatex.def)             Requested size: 156.20453pt x 155.56403pt.
-<figures/outdoor_1.jpg, id=1768, 4047.12pt x 3035.34pt>
+<figures/outdoor_1.jpg, id=1766, 4047.12pt x 3035.34pt>
 File: figures/outdoor_1.jpg Graphic file (type jpg)
 <use figures/outdoor_1.jpg>
 Package luatex.def Info: figures/outdoor_1.jpg  used on input line 383.
 (luatex.def)             Requested size: 277.69987pt x 208.23448pt.
-<figures/outdoor_3.jpg, id=1769, 3035.34pt x 4047.12pt>
+<figures/outdoor_3.jpg, id=1767, 3035.34pt x 4047.12pt>
 File: figures/outdoor_3.jpg Graphic file (type jpg)
 <use figures/outdoor_3.jpg>
 Package luatex.def Info: figures/outdoor_3.jpg  used on input line 390.
 (luatex.def)             Requested size: 138.84729pt x 185.07674pt.
-<figures/outdoor_2.jpg, id=1770, 3035.34pt x 4047.12pt>
+<figures/outdoor_2.jpg, id=1768, 3035.34pt x 4047.12pt>
 File: figures/outdoor_2.jpg Graphic file (type jpg)
 <use figures/outdoor_2.jpg>
 Package luatex.def Info: figures/outdoor_2.jpg  used on input line 396.
 (luatex.def)             Requested size: 138.84729pt x 185.07674pt.
- [51<./figures/outdoor_field.jpg><./figures/square.pdf>]
-<figures/spiral.pdf, id=1783, 222.8325pt x 218.7372pt>
+ [50<./figures/outdoor_field.jpg><./figures/square.pdf>]
+<figures/spiral.pdf, id=1781, 222.8325pt x 218.7372pt>
 File: figures/spiral.pdf Graphic file (type pdf)
 <use figures/spiral.pdf>
 Package luatex.def Info: figures/spiral.pdf  used on input line 410.
 (luatex.def)             Requested size: 170.09244pt x 166.96625pt.
-<figures/squares.pdf, id=1784, 229.81859pt x 231.74579pt>
+<figures/squares.pdf, id=1782, 229.81859pt x 231.74579pt>
 File: figures/squares.pdf Graphic file (type pdf)
 <use figures/squares.pdf>
 Package luatex.def Info: figures/squares.pdf  used on input line 416.
 (luatex.def)             Requested size: 170.09244pt x 171.52101pt.
- [52<./figures/outdoor_1.jpg><./figures/outdoor_3.jpg><./figures/outdoor_2.jpg>] [53<./figures/spiral.pdf><./figures/squares.pdf>]
-<figures/underwater.jpg, id=1810, 3035.34pt x 4047.12pt>
+ [51<./figures/outdoor_1.jpg><./figures/outdoor_3.jpg><./figures/outdoor_2.jpg>] [52<./figures/spiral.pdf><./figures/squares.pdf>]
+<figures/underwater.jpg, id=1808, 3035.34pt x 4047.12pt>
 File: figures/underwater.jpg Graphic file (type jpg)
 <use figures/underwater.jpg>
 Package luatex.def Info: figures/underwater.jpg  used on input line 433.
 (luatex.def)             Requested size: 156.20453pt x 208.23448pt.
-<figures/underwater_1.jpg, id=1811, 3035.34pt x 4047.12pt>
+<figures/underwater_1.jpg, id=1809, 3035.34pt x 4047.12pt>
 File: figures/underwater_1.jpg Graphic file (type jpg)
 <use figures/underwater_1.jpg>
 Package luatex.def Info: figures/underwater_1.jpg  used on input line 439.
 (luatex.def)             Requested size: 156.20453pt x 208.23448pt.
-<figures/underwater_5.jpg, id=1814, 795.97375pt x 605.26125pt>
+<figures/underwater_5.jpg, id=1812, 795.97375pt x 605.26125pt>
 File: figures/underwater_5.jpg Graphic file (type jpg)
 <use figures/underwater_5.jpg>
 Package luatex.def Info: figures/underwater_5.jpg  used on input line 453.
 (luatex.def)             Requested size: 242.98541pt x 184.76602pt.
-<figures/underwater_2.jpg, id=1815, 3107.61pt x 3107.61pt>
+<figures/underwater_2.jpg, id=1813, 3107.61pt x 3107.61pt>
 File: figures/underwater_2.jpg Graphic file (type jpg)
 <use figures/underwater_2.jpg>
 Package luatex.def Info: figures/underwater_2.jpg  used on input line 460.
 (luatex.def)             Requested size: 121.49535pt x 121.48555pt.
-<figures/underwater_4.jpg, id=1816, 795.97375pt x 795.97375pt>
+<figures/underwater_4.jpg, id=1814, 795.97375pt x 795.97375pt>
 File: figures/underwater_4.jpg Graphic file (type jpg)
 <use figures/underwater_4.jpg>
 Package luatex.def Info: figures/underwater_4.jpg  used on input line 466.
 (luatex.def)             Requested size: 121.49535pt x 121.4921pt.
- [54<./figures/underwater.jpg><./figures/underwater_1.jpg>]) [55<./figures/underwater_5.jpg><./figures/underwater_2.jpg><./figures/underwater_4.jpg>] (./chapters/5_methodology.tex
+ [53<./figures/underwater.jpg><./figures/underwater_1.jpg>]) [54<./figures/underwater_5.jpg><./figures/underwater_2.jpg><./figures/underwater_4.jpg>] (./chapters/5_methodology.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 11.
 
-(./plots/raw.pgf) [56] (./plots/quaternion.pgf)
+(./plots/raw.pgf) [55] (./plots/quaternion.pgf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57] (./plots/euler.pgf) [58] [59] (./plots/gravity.pgf)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ [56] (./plots/euler.pgf) [57] [58] (./plots/gravity.pgf)
 <figures/orientation_position.pdf, id=1886, 458.67358pt x 126.4725pt>
 File: figures/orientation_position.pdf Graphic file (type pdf)
 <use figures/orientation_position.pdf>
-Package luatex.def Info: figures/orientation_position.pdf  used on input line 147.
+Package luatex.def Info: figures/orientation_position.pdf  used on input line 140.
 (luatex.def)             Requested size: 277.69987pt x 76.57301pt.
+ [59] (./plots/integration.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[60] (./plots/integration.pgf)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [61<./figures/orientation_position.pdf>]
-<figures/trignometric.pdf, id=1919, 244.9953pt x 244.9953pt>
+<figures/trignometric.pdf, id=1901, 244.9953pt x 244.9953pt>
 File: figures/trignometric.pdf Graphic file (type pdf)
 <use figures/trignometric.pdf>
-Package luatex.def Info: figures/trignometric.pdf  used on input line 167.
+Package luatex.def Info: figures/trignometric.pdf  used on input line 160.
 (luatex.def)             Requested size: 208.27623pt x 208.28436pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
+[60<./figures/orientation_position.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
-<figures/dead_reckoning.pdf, id=1927, 204.765pt x 112.50029pt>
+ [61<./figures/trignometric.pdf>]
+<figures/dead_reckoning.pdf, id=1925, 204.765pt x 112.50029pt>
 File: figures/dead_reckoning.pdf Graphic file (type pdf)
 <use figures/dead_reckoning.pdf>
-Package luatex.def Info: figures/dead_reckoning.pdf  used on input line 200.
+Package luatex.def Info: figures/dead_reckoning.pdf  used on input line 193.
 (luatex.def)             Requested size: 277.69987pt x 152.5812pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[63<./figures/trignometric.pdf>] (./plots/square/square.pgf)
+ [62<./figures/dead_reckoning.pdf>] (./plots/square/square.pgf) (./plots/square/square_truth.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./plots/square/square_truth.pgf)
+[63] (./plots/square/square_error_turn.pgf) (./plots/square/square_error_point.pgf) [64] (./plots/square/square3D.pgf) [65] (./plots/square/square3D_error.pgf) (./plots/square/square3D_error_turn.pgf) (./plots/square/square3D_error_point.pgf)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./plots/square/square_error_turn.pgf) (./plots/square/square_error_point.pgf)
+) [66]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[64<./figures/dead_reckoning.pdf>]
-
-LaTeX Warning: Text page 65 contains only floats.
-
-
-Overfull \vbox (3.30025pt too high) has occurred while \output is active []
-
- [65]
-
-LaTeX Warning: Text page 66 contains only floats.
-
-[66] (./plots/square/square3D.pgf) [67] (./plots/square/square3D_error.pgf) (./plots/square/square3D_error_turn.pgf) (./plots/square/square3D_error_point.pgf)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [68]
-
-LaTeX Warning: Text page 69 contains only floats.
+LaTeX Warning: Text page 67 contains only floats.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69] (./chapters/6_results.tex) (./chapters/7_discussion.tex (./tables/overall.tex) (./tables/ranked_displacement.tex) [70] (./tables/ranked_turn.tex) [71]) [72
+ [67] (./chapters/6_results.tex) (./chapters/7_discussion.tex (./tables/overall.tex) (./tables/ranked_displacement.tex) [68] (./tables/ranked_turn.tex) [69]) [70
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [73] (./chapters/8_conclusion.tex) (./thesis.bbl [74]
+] [71] (./chapters/8_conclusion.tex) (./thesis.bbl [72]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 54.
  (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [75
+) [73
 
-] [76] [77] [78] [79] [80
+] [74] [75] [76] [77] [78
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [81]
+] [79]
 Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [82] [83] [84] [85]
+ [80] [81] [82] [83]
 Underfull \vbox (badness 3815) has occurred while \output is active []
 
- [86]) [87] (./thesis.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+ [84]) [85] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 63C2BC0325B945730E90A7BA493C93AC;11512.
 )
 
 Here is how much of LuaTeX's memory you used:
- 55527 strings out of 478112
- 932019,4921788 words of node,token memory allocated
+ 55515 strings out of 478112
+ 932018,4921788 words of node,token memory allocated
  1836 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 sub_mlist, 1 glyph, 278 attribute, 90 glue_spec, 141 attribute_list, 2 write, 52 pdf_action nodes
-   avail lists: 1:7,2:169753,3:114951,4:212,5:614,6:72,7:7417,8:88,9:2071,10:24,11:713
- 72854 multiletter control sequences out of 65536+600000
+   avail lists: 1:7,2:169753,3:114951,4:212,5:604,6:72,7:7884,8:88,9:1764,10:24,11:779
+ 72852 multiletter control sequences out of 65536+600000
  73 fonts using 4810871 bytes
- 115i,13n,131p,2594b,1500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,13n,131p,2594b,1568s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsco10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (100 pages, 33322390 bytes).
+Output written on thesis.pdf (98 pages, 33322169 bytes).
 
-PDF statistics: 2241 PDF objects out of 2487 (max. 8388607)
- 2022 compressed objects within 21 object streams
- 533 named destinations out of 1000 (max. 131072)
+PDF statistics: 2229 PDF objects out of 2487 (max. 8388607)
+ 2012 compressed objects within 21 object streams
+ 523 named destinations out of 1000 (max. 131072)
  584 words of extra memory for PDF output out of 10000 (max. 100000000)
 

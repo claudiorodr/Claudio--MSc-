@@ -48,6 +48,8 @@ As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quatern
     \end{bmatrix}
 \end{equation}
 
+Which Programmatically can be translated as the following script:
+
 \lstset{language=Python}
 \begin{lstlisting} % Start your code-block
     
@@ -55,23 +57,14 @@ As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quatern
 sinr_cosp = 2 * (q0 * q1 + q2 * q3)
 cosr_cosp = 1 - 2 * (q1 * q1 + q2 * q2)
 angles.roll = math.atan2(sinr_cosp, cosr_cosp)
-
 # pitch (y-axis rotation)
 sinp = 2 * (q0 * q2 - q3 * q1)
-
-if (abs(sinp) >= 1):
-    # use 90 degrees if out of range
-    angles.pitch = math.copysign(M_PI / 2, sinp)
-else
-    angles.pitch = math.asin(sinp)
-
+angles.pitch = math.asin(sinp)
 # yaw (z-axis rotation)
 siny_cosp = 2 * (q0 * q3 + q1 * q2)
 cosy_cosp = 1 - 2 * (q2 * q2 + q3 * q3)
 angles.yaw = math.atan2(siny_cosp, cosy_cosp)
-
 return angles
-    
 \end{lstlisting}
 
 \begin{figure}
@@ -223,7 +216,7 @@ In order to quantify how well a test performed in estimating position, it is nec
 
 \begin{figure}[!h]
     \centering
-    \resizebox{0.8\linewidth}{!}{\input{plots/square/square_truth.pgf}}
+    \resizebox{0.6\linewidth}{!}{\input{plots/square/square_truth.pgf}}
     \caption{Illustration of the real-world test ground truth (represented by the $4m\times 4m$  blue line square) and how the estimated path compares. Orange dots represent the estimated corners of the \acrshort{rdp} Algorithm. }
     \label{fig:square_truth}
 \end{figure}
@@ -234,14 +227,13 @@ The second way to quantify error is to measure the distance from every estimated
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{0.75\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\input{plots/square/square_error_turn.pgf}}
         \caption{Estimated shape corners are connected to their closest ground truth vertice, averaging all these distances will give a better understanding of how the shape was estimated by the inertial system.}
         \label{fig:square_turn}
     \end{subfigure}
-
-    \begin{subfigure}{0.75\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\input{plots/square/square_error_point.pgf}}
         \caption{The second error measurement technique where every point in the estimated position path is connected their closest neighbor in the ground truth's line. Averaging every distance here can give a better understanding of how precise the estimation was.}
