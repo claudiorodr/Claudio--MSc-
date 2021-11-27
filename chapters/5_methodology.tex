@@ -49,7 +49,7 @@ As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quatern
 \end{equation}
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting} % Start your code-block
     
 # roll (x-axis rotation)
 sinr_cosp = 2 * (q0 * q1 + q2 * q3)
@@ -110,7 +110,7 @@ In practice, data is acquired at discrete time periods ($\Delta t$), so the appr
 However, these measurements are affected by the Earth's gravitational field (as seen in figure \ref{fig:raw} in the acceleration readings) and rotational components of acceleration, considerably amplifying numerical errors. The gravity component will not be differentiated from the physical acceleration of the device and will eventually generate exceedingly elevated errors in the measured acceleration. To overcome this challenge, a gravity compensation algorithm is crucial for subtracting the impact of the gravity component on acceleration readings.
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting}  % Start your code-block
     
 # accelerometer reading
 acceleration = [ax, ay, ay]  
@@ -182,7 +182,7 @@ A mathematical representation of this approach is seen at equation \ref{eq:dead_
 Programmatically this is equivalent to:
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting}  % Start your code-block
     
 # Calculate X, Y, Z positions - Distance * heading angle
 lastX, lastY, lastZ = getCoordinates()
@@ -229,7 +229,8 @@ In order to quantify how well a test performed in estimating position, it is nec
 \end{figure}
 
 By measuring how far each estimated turn is from the closest real shapes vertices, it is possible to conclude how well that shape was estimated by the inertial solution.
-The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path. By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
+The second way to quantify error is to measure the distance from every estimated point to the closest neighbor in the ground truth's path.
+% By averaging every distance, it is possible to have an overall understanding of how the estimation performed.
 
 \begin{figure}[!h]
     \centering

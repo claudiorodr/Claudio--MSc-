@@ -1,8 +1,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {portuguese}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{11}{chapter*.7}%
-\contentsline {chapter}{List of Tables}{14}{chapter*.8}%
+\contentsline {chapter}{List of Figures}{8}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{11}{chapter*.6}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}%
 \contentsline {subsection}{\numberline {1.1}Problem Statement}{2}{subsection.0.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}A. \acrshort {gnss} only positioning is prone to signal jamming and impacts battery autonomy}{2}{subsubsection.0.1.1.1}%
@@ -56,19 +56,19 @@
 \contentsline {subsection}{\numberline {4.3}Calibration}{42}{subsection.0.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Accelerometer Calibration}{42}{subsubsection.0.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Gyroscope Calibration}{44}{subsubsection.0.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Magnetometer Calibration}{45}{subsubsection.0.4.3.3}%
-\contentsline {subsection}{\numberline {4.4}Experiments}{50}{subsection.0.4.4}%
-\contentsline {subsection}{\numberline {4.5}Indoor Experiments}{50}{subsection.0.4.5}%
-\contentsline {subsection}{\numberline {4.6}Outdoor Experiments}{52}{subsection.0.4.6}%
-\contentsline {subsection}{\numberline {4.7}Underwater Experiments}{55}{subsection.0.4.7}%
-\contentsline {section}{\numberline {5}Methodology}{57}{section.0.5}%
-\contentsline {subsubsection}{\numberline {5.0.1}Estimating Orientation}{57}{subsubsection.0.5.0.1}%
-\contentsline {subsubsection}{\numberline {5.0.2}Estimating Displacement}{60}{subsubsection.0.5.0.2}%
-\contentsline {subsubsection}{\numberline {5.0.3}Estimating Position}{62}{subsubsection.0.5.0.3}%
-\contentsline {subsubsection}{\numberline {5.0.4}Applying methodology in 2D}{65}{subsubsection.0.5.0.4}%
-\contentsline {paragraph}{\numberline {5.0.4.1}Measuring error}{65}{paragraph.0.5.0.4.1}%
-\contentsline {subsubsection}{\numberline {5.0.5}Applying methodology in 3D}{69}{subsubsection.0.5.0.5}%
-\contentsline {paragraph}{\numberline {5.0.5.1}Measuring error}{69}{paragraph.0.5.0.5.1}%
-\contentsline {section}{\numberline {6}Discussion}{72}{section.0.6}%
-\contentsline {section}{\numberline {7}Conclusion}{76}{section.0.7}%
-\contentsline {chapter}{References}{77}{chapter*.61}%
+\contentsline {subsubsection}{\numberline {4.3.3}Magnetometer Calibration}{46}{subsubsection.0.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Experiments}{49}{subsection.0.4.4}%
+\contentsline {subsection}{\numberline {4.5}Indoor Experiments}{49}{subsection.0.4.5}%
+\contentsline {subsection}{\numberline {4.6}Outdoor Experiments}{51}{subsection.0.4.6}%
+\contentsline {subsection}{\numberline {4.7}Underwater Experiments}{54}{subsection.0.4.7}%
+\contentsline {section}{\numberline {5}Methodology}{56}{section.0.5}%
+\contentsline {subsubsection}{\numberline {5.0.1}Estimating Orientation}{56}{subsubsection.0.5.0.1}%
+\contentsline {subsubsection}{\numberline {5.0.2}Estimating Displacement}{59}{subsubsection.0.5.0.2}%
+\contentsline {subsubsection}{\numberline {5.0.3}Estimating Position}{60}{subsubsection.0.5.0.3}%
+\contentsline {subsubsection}{\numberline {5.0.4}Applying methodology in 2D}{64}{subsubsection.0.5.0.4}%
+\contentsline {paragraph}{\numberline {5.0.4.1}Measuring error}{64}{paragraph.0.5.0.4.1}%
+\contentsline {subsubsection}{\numberline {5.0.5}Applying methodology in 3D}{67}{subsubsection.0.5.0.5}%
+\contentsline {paragraph}{\numberline {5.0.5.1}Measuring error}{67}{paragraph.0.5.0.5.1}%
+\contentsline {section}{\numberline {6}Discussion}{70}{section.0.6}%
+\contentsline {section}{\numberline {7}Conclusion}{74}{section.0.7}%
+\contentsline {chapter}{References}{75}{chapter*.61}%

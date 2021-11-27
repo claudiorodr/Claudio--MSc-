@@ -136,7 +136,7 @@ A correct calibration of such sensors is essential for the compensation of their
 Calibration of the accelerometer requires taking advantage of the acceleration due to gravity, which we can use in the positive and negative orientation of the \acrshort{imu} \cite{won2009triaxial}. Additionally, we can also position the \acrshort{imu} perpendicular to gravity in order to acquire a third calibration point. This results in three unique values that can be combined to formulate a linear fit between the three values and the values outputted by each axis of the accelerometer.
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting}  % Start your code-block
 
     count=256
     aox, aoy, aoz = (0.0, 0.0, 0.0)
@@ -170,19 +170,16 @@ The result of the accelerometer's calibration offset correction is present at fi
 \subsubsection{Gyroscope Calibration}
 
 The simplest calibration of an \acrshort{imu} consists of calculating the offset for each axis of the gyroscope. The gyroscope is the easiest calibration due to the expected readings outputted under steady conditions. Each of the three axes of the gyro should read 0 radians-per-second ($rad/s$) when the \acrshort{imu} is not moving. The offsets can be measured by first taking some readings while the \acrshort{imu} is not moving, then using those values as 'offsets' when reading the gyro values in the future. This is merely the simplest calibration method for the \acrshort{imu} and suffices for most casual uses of the gyroscope and \acrshort{imu} \cite{olivares2009high}. There are a range of  higher-order gyroscope calibration routines, which can be found at the following links (with application descriptions):
-
+\clearpage
 \lstset{language=Python}
 
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting}  % Start your code-block
 
     count=256
     gox, goy, goz = (0.0, 0.0, 0.0)
     self._gyro_offset = (0.0, 0.0, 0.0) 
-    n = float(count)
 
     while count:
-        # taking samples for a period of time
-        utime.sleep_ms(delay)
         gx, gy, gz = self.gyro
         # sum every sample on each axis
         gox += gx
@@ -191,8 +188,8 @@ The simplest calibration of an \acrshort{imu} consists of calculating the offset
         count -= 1
 
     # average the samples taken
-    self._gyro_offset = (gox / n, goy / n, goz / n)
-    return self._gyro_offset, self._accelerometer_offset
+    self._gyro_offset = (gox / count, goy / count, goz / count)
+    return self._gyro_offset
 \end{lstlisting}
 
 The result of the gyroscope's calibration offset correction is present at figure \ref{fig:gyroscope_calibration} where the calibrated output clearly shows an offset correction with the $\omega_x$, $\omega_y$  and $\omega_z$ readings centered at 0 $rad/s$.
@@ -229,7 +226,7 @@ To calibrate the magnetometer, a series of measurements of the nearby magnetic f
 Hard iron biases are commonly the largest and the simplest errors to rectify. With the magnetic field measurements, it is straightforward to compensate for hard iron biases by keeping track of the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. Once the minimum and maximum field measured in $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$ are known, the average can be subtracted from the following data which results in the re-centering of the response surface on the origin. The following script illustrates how a hard iron correction could be implemented:
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting}  % Start your code-block
 
     # Hard iron correction
 
@@ -247,14 +244,12 @@ Hard iron biases are commonly the largest and the simplest errors to rectify. Wi
 It is possible now to filter any soft iron biases by taking the minimum and maximum field measured already computed and manipulate them to rescale the magnetometer data to normalize the output across $\widetilde{m}_x$, $\widetilde{m}_y$ and $\widetilde{m}_z$. It is possible to accomplish this by calculating the scale factor with the ratio of the average max - min through each axis and the numerical mean of all three axes. This means, for instance, if $x_{max} - x_{min}$ ratio is considerable, $\widetilde{m}_x$ has its magnetic field scale reduced, or if the $y_{max} - y_{max}$ ratio is smaller compared to the other axes, it has its magnetic field values increased. This is known as orthogonal rescaling, identical to a diagonalized 3 x 3 calibration matrix while enabling further scale bias correction.
 
 \lstset{language=Python}
-\begin{lstlisting}[frame=single]  % Start your code-block
+\begin{lstlisting} % Start your code-block
 
     # Soft iron correction
-    # get average x-axis max chord length in counts
+    # get average axis max chord length in counts
     avg_delta_x = (maxx - minx) / 2
-    # get average y-axis max chord length in counts
     avg_delta_y = (maxy - miny) / 2
-    # get average z-axis max chord length in counts
     avg_delta_z = (maxz - minz) / 2
 
     avg_delta = (avg_delta_x + avg_delta_y + avg_delta_z)
@@ -273,14 +268,13 @@ The result of rescaling the MPU9250 magnetometer data is shown at figure \ref{fi
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.7\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer2D.pgf}}
         \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y-axis.}
         \label{fig:magnetometer_calibrated2D}
     \end{subfigure}
-
-    \begin{subfigure}{0.7\textwidth}
+    \begin{subfigure}{0.49\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\input{plots/calibrated_magnetometer3D.pgf}}
         \caption{Raw (blue) and calibrated (red) magnetometer measurements of magnetic field strength along orthogonal X, Y and Z-axis.}
