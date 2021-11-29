@@ -516,12 +516,12 @@ Madgwick et al. \cite{madgwick2010efficient} pioneered a gradient descent fusion
 \paragraph{Angular Rate}
 
 Angular Rate updates a quaternion through incorporation of angular rate measurements of a gyroscope. The simplest approach to update the quaternions is by combining the differential equation for a local rotation rate \cite{sola2017quaternion}.
-In a kinematic system, the angular velocity $ω$ of a rigid body at any instant time is defined with respect to a fixed frame coinciding directly with its body frame. Therefore, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
+In a kinematic system, the angular velocity $\omega$ of a rigid body at any instant time is defined with respect to a fixed frame coinciding directly with its body frame. Therefore, this angular velocity is in terms of the body frame \cite{jia2019quaternions}.
 
 \paragraph{\acrshort{aqua}}
 
 Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} approximates a quaternion with the algebraic solution of a system from inertial/magnetic observations.
-\acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion independently in two sub-parts. This prevents the effect of the magnetic disturbances on the roll and pitch components of the orientation.
+\acrshort{aqua} computes the "tilt" quaternion and the "heading" quaternion independently in two sub-parts. This prevents the effect of the magnetic disturbances on the roll and pitch components of the orientation.
 \acrshort{aqua} can be employed with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the individually assessed quaternions and works for both \acrshort{imu} and \acrfull{marg} sensors \cite{valenti2015linear}.
 
 % \paragraph{Davenport}
@@ -530,8 +530,8 @@ Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} approximates a quater
 
 \paragraph{\acrshort{famc}}
 
-The most conventional low-cost sensor system is the \acrfull{amc}. It mixes the local gravity and the Earth’s magnetic field simultaneously, establishing a full-attitude estimation system.
-The most famous attitude determination formulation is Wahba’s Problem, which sprung several solutions using Euler Angles, Direction Cosine Matrices and Quaternions.
+The most conventional low-cost sensor system is the \acrfull{amc}. It mixes the local gravity and the Earth's magnetic field simultaneously, establishing a full-attitude estimation system.
+The most famous attitude determination formulation is Wahba's Problem, which sprung several solutions using Euler Angles, Direction Cosine Matrices and Quaternions.
 The matrix operations in these solutions are the main focus of interest in this method. The operations are methodically simplified, where the accuracy is retained, while the time expenditure is reduced, yielding the \acrfull{famc}.
 
 \paragraph{\acrshort{flae}}
@@ -542,8 +542,8 @@ A figurative solution to the resultant characteristic polynomial is also derived
 \paragraph{Fourati}
 
 Attitude estimation set of rules as suggested by \cite{fourati2010nonlinear}, whose method blends a quaternion-based nonlinear filter with the \acrfull{lma}.
-The estimation algorithm has a complemzzentary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
-The rigid body attitude in space is revealed when the body’s orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
+The estimation algorithm has a complemzzentary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth's magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
+The rigid body attitude in space is revealed when the body's orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
 
 % \paragraph{OLEQ}
 
@@ -557,7 +557,7 @@ The rigid body attitude in space is revealed when the body’s orientation frame
 
 \paragraph{\acrshort{saam}}
 
-\acrfull{saam} is a novel estimator suggested by \cite{wu2018super}, proposes an exceptionally simplified computation of Davenport’s resolution to Wahba’s problem, where the full solution is condensed to a couple of floating-point operations, not losing much accuracy, and keeping computational time low.
+\acrfull{saam} is a novel estimator suggested by \cite{wu2018super}, proposes an exceptionally simplified computation of Davenport's resolution to Wahba's problem, where the full solution is condensed to a couple of floating-point operations, not losing much accuracy, and keeping computational time low.
 
 \paragraph{Tilt}
 Tilt does attitude estimation through measurements of gravity acceleration. The most straightforward approach to assess the attitude from the gravitational acceleration is utilizing 3D geometric quadrants.

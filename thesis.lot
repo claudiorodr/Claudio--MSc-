@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces WGS 84 needed parameters to convert \acrshort {ecef} coordinates into \acrshort {enu}. \cite {soler1988coordinate}\relax }}{7}{table.caption.8}%
+\contentsline {table}{\numberline {2}{\ignorespaces Quaternion multiplication of basis elements. \relax }}{14}{table.caption.14}%
+\contentsline {table}{\numberline {3}{\ignorespaces Accelerometer Specifications. \relax }}{37}{table.caption.25}%
+\contentsline {table}{\numberline {4}{\ignorespaces Gyroscope Specifications. \relax }}{38}{table.caption.26}%
+\contentsline {table}{\numberline {5}{\ignorespaces Magnetometer specification. \relax }}{38}{table.caption.27}%
+\contentsline {table}{\numberline {6}{\ignorespaces Available sensor fusion algorithms in \acrshort {ahrs} library and what sensors they use. \cite {ahrs}\relax }}{41}{table.caption.29}%
+\contentsline {table}{\numberline {7}{\ignorespaces Overall ranking of how every algorithm performed in the given test. \relax }}{67}{table.caption.56}%
+\contentsline {table}{\numberline {8}{\ignorespaces Algorithms ranked according to of how well performed at displacement error. \relax }}{68}{table.caption.57}%
+\contentsline {table}{\numberline {9}{\ignorespaces Algorithms ranked according to of how well performed at turn error. \relax }}{69}{table.caption.58}%

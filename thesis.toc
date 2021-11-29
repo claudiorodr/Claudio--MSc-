@@ -1,0 +1,76 @@
+\babel@toc {english}{}\relax 
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{8}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{11}{chapter*.6}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Problem Statement}{2}{subsection.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}A. \acrshort {gnss} only positioning is prone to signal jamming and impacts battery autonomy}{2}{subsubsection.0.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}B. Dead reckoning is susceptible to cumulative errors and suffers from gimbal lock}{2}{subsubsection.0.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}C. Gravity acceleration greatly impacts sensor readings}{3}{subsubsection.0.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Research Questions}{4}{subsection.0.1.2}%
+\contentsline {section}{\numberline {2}Background}{5}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Frames of coordinates}{5}{subsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}\acrshort {ecef} and \acrshort {enu} frame}{5}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Body frame}{7}{subsubsection.0.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Orientation}{9}{subsection.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Rotation Matrix}{9}{subsubsection.0.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Direct Cosine Matrix}{10}{subsubsection.0.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Euler angles}{11}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Quaternions}{12}{subsubsection.0.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Inertial Measurement Units}{16}{subsection.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Accelerometer}{17}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Gyroscope}{19}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Magnetometer}{21}{subsubsection.0.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Sensor Fusion}{22}{subsection.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Kalman Filter}{23}{subsubsection.0.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Complementary Filter}{24}{subsubsection.0.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Optimization Filters}{26}{subsubsection.0.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Other Filters}{27}{subsubsection.0.2.4.4}%
+\contentsline {paragraph}{\numberline {2.4.4.1}Angular Rate}{27}{paragraph.0.2.4.4.1}%
+\contentsline {paragraph}{\numberline {2.4.4.2}\acrshort {aqua}}{27}{paragraph.0.2.4.4.2}%
+\contentsline {paragraph}{\numberline {2.4.4.3}\acrshort {famc}}{27}{paragraph.0.2.4.4.3}%
+\contentsline {paragraph}{\numberline {2.4.4.4}\acrshort {flae}}{27}{paragraph.0.2.4.4.4}%
+\contentsline {paragraph}{\numberline {2.4.4.5}Fourati}{28}{paragraph.0.2.4.4.5}%
+\contentsline {paragraph}{\numberline {2.4.4.6}\acrshort {quest}}{28}{paragraph.0.2.4.4.6}%
+\contentsline {paragraph}{\numberline {2.4.4.7}\acrshort {roleq}}{28}{paragraph.0.2.4.4.7}%
+\contentsline {paragraph}{\numberline {2.4.4.8}\acrshort {saam}}{28}{paragraph.0.2.4.4.8}%
+\contentsline {paragraph}{\numberline {2.4.4.9}Tilt}{28}{paragraph.0.2.4.4.9}%
+\contentsline {section}{\numberline {3}Related Work}{29}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Position estimation using inertial sensor systems}{29}{subsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Pedestrian Dead Reckoning}{29}{subsubsection.0.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Strapdown Inertial Integration}{30}{subsubsection.0.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Sensor fusion in position and orientation estimation }{31}{subsection.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Kalman filter}{31}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Complementary filter}{32}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Sensor fusion algorithms comparison}{33}{subsubsection.0.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Thesis Contribution}{34}{subsection.0.3.3}%
+\contentsline {section}{\numberline {4}Experimental Setup}{35}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Hardware}{35}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Accelerometer}{37}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Gyroscope}{37}{subsubsection.0.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Magnetometer}{38}{subsubsection.0.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Software}{39}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {4.3}Calibration}{40}{subsection.0.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Accelerometer Calibration}{40}{subsubsection.0.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Gyroscope Calibration}{42}{subsubsection.0.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Magnetometer Calibration}{44}{subsubsection.0.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Experiments}{47}{subsection.0.4.4}%
+\contentsline {subsection}{\numberline {4.5}Indoor Experiments}{47}{subsection.0.4.5}%
+\contentsline {subsection}{\numberline {4.6}Outdoor Experiments}{49}{subsection.0.4.6}%
+\contentsline {subsection}{\numberline {4.7}Underwater Experiments}{52}{subsection.0.4.7}%
+\contentsline {section}{\numberline {5}Methodology}{54}{section.0.5}%
+\contentsline {subsubsection}{\numberline {5.0.1}Estimating Orientation}{54}{subsubsection.0.5.0.1}%
+\contentsline {subsubsection}{\numberline {5.0.2}Estimating Displacement}{57}{subsubsection.0.5.0.2}%
+\contentsline {subsubsection}{\numberline {5.0.3}Estimating Position}{59}{subsubsection.0.5.0.3}%
+\contentsline {subsubsection}{\numberline {5.0.4}Applying methodology in 2D}{62}{subsubsection.0.5.0.4}%
+\contentsline {paragraph}{\numberline {5.0.4.1}Measuring error}{62}{paragraph.0.5.0.4.1}%
+\contentsline {subsubsection}{\numberline {5.0.5}Applying methodology in 3D}{64}{subsubsection.0.5.0.5}%
+\contentsline {paragraph}{\numberline {5.0.5.1}Measuring error}{64}{paragraph.0.5.0.5.1}%
+\contentsline {section}{\numberline {6}Discussion}{67}{section.0.6}%
+\contentsline {subsection}{\numberline {6.1}Discussion of Results}{67}{subsection.0.6.1}%
+\contentsline {subsection}{\numberline {6.2}Comparing with Related Work}{69}{subsection.0.6.2}%
+\contentsline {subsection}{\numberline {6.3}Challenges Faced}{70}{subsection.0.6.3}%
+\contentsline {subsection}{\numberline {6.4}Future Work}{71}{subsection.0.6.4}%
+\contentsline {section}{\numberline {7}Conclusion}{72}{section.0.7}%
+\contentsline {chapter}{References}{73}{chapter*.59}%
