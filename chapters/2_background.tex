@@ -524,9 +524,9 @@ Roberto Valenti's \acrfull{aqua} \cite{valenti2015keeping} approximates a quater
 \acrshort{aqua} computes the “tilt” quaternion and the “heading” quaternion independently in two sub-parts. This prevents the effect of the magnetic disturbances on the roll and pitch components of the orientation.
 \acrshort{aqua} can be employed with a complementary filter to fuse the gyroscope data together with accelerometer and magnetic field readings. The correction part of the filter is based on the individually assessed quaternions and works for both \acrshort{imu} and \acrfull{marg} sensors \cite{valenti2015linear}.
 
-\paragraph{Davenport}
+% \paragraph{Davenport}
 
-In 1965 Grace Wahba came up with a simple, yet very intuitive, way to describe the problem of finding a rotation between two coordinate systems.
+% In 1965 Grace Wahba came up with a simple, yet very intuitive, way to describe the problem of finding a rotation between two coordinate systems.
 
 \paragraph{\acrshort{famc}}
 
@@ -542,10 +542,10 @@ A figurative solution to the resultant characteristic polynomial is also derived
 \paragraph{Fourati}
 
 Attitude estimation set of rules as suggested by \cite{fourati2010nonlinear}, whose method blends a quaternion-based nonlinear filter with the \acrfull{lma}.
-The estimation algorithm has a complementary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
+The estimation algorithm has a complemzzentary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth’s magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
 The rigid body attitude in space is revealed when the body’s orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
 
-\paragraph{OLEQ}
+% \paragraph{OLEQ}
 
 \paragraph{\acrshort{quest}}
 
