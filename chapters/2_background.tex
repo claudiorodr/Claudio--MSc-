@@ -167,7 +167,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
     \label{eq:euler_equation}
 \end{equation}
 
-Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by it's own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
+Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by its own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
 
 \begin{equation}
     {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
@@ -312,7 +312,7 @@ Quaternion representation permits a more truthful and efficient attitude estimat
 
 \subsection{Inertial Measurement Units}
 
-An \acrfull{imu} is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. \acrshort{imu}s are normally employed in aircraft maneuvering (via an \acrlong{ahrs}), such as spacecrafts \cite{li2011calibration} \cite{haberberger2016imu} \cite{faragher2012understanding}, satellites \cite{lu2020orbit}, and \acrfull{uav} \cite{sahawneh2008development} \cite{eling2015real}, to name a few. \acrshort{imu}s have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended} \cite{allen2013telemedicine} \cite{giansanti2009toward} \cite{o2021measuring}, and robotics \cite{wilson2019formulation}. Newly developed \acrshort{imu}s integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference. These types of eletronic devices are highly susceptible to the occurrence of errors. There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error \cite{hanke2016classification}. The main errors that cause unreliable readings are high frequent noise, offset error and drift error.
+An \acrfull{imu} is an electronic tool that quantifies and describes specific force, angular rate, and occasionally the orientation of a body. It comprises an amalgamation of accelerometers, gyroscopes, and optionally magnetometers. They have also become standard in embedded inertial systems due to their low cost, lightweight, and low power consumption. \acrshort{imu}s are normally employed in aircraft maneuvering (via an \acrlong{ahrs}), such as spacecrafts \cite{li2011calibration} \cite{haberberger2016imu} \cite{faragher2012understanding}, satellites \cite{lu2020orbit}, and \acrfull{uav} \cite{sahawneh2008development} \cite{eling2015real}, to name a few. \acrshort{imu}s have been employed in wearable applications with uses in  telemedicine \cite{madgwick2020extended} \cite{allen2013telemedicine} \cite{giansanti2009toward} \cite{o2021measuring}, and robotics \cite{wilson2019formulation}. Newly developed \acrshort{imu}s integrate satellite localization capabilities permitting these devices to operate even when satellites signals are unobtainable, such as in tunnels, indoors, or in the presence of electronic interference. These types of electronic devices are highly susceptible to the occurrence of errors. There are several different types of sensor errors. These can be noise, offset, drift, scale factor error, non-linearity, and accuracy error \cite{hanke2016classification}. The main errors that cause unreliable readings are high frequent noise, offset error and drift error.
 
 \begin{figure}[!h]
     \centering
@@ -403,7 +403,7 @@ From a quaternion rate at instant $t-1$, given a current angular speed it is pos
 
 \subsubsection{Magnetometer}
 
-A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field \cite{caruso1998new}. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor \cite{silva2021error} \cite{caruso1998new}. There are two categories of magnetic distortions: Hard iron and soft iron \cite{wahdan2014magnetometer}. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result produce a persistent additive value to the measurements of the magnetometer \cite{guo2008soft}. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard iron disturbances by discerning the maximum and minimum x and y offsets. The x-axis and y-axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis \cite{daponte2017method}:
+A magnetometer is an electronic utensil that evaluates existent magnetic flux (a magnetic field's intensity). Magnetic flux is quantified in the SI unit microtesla ($\mu T$). Certain magnetometers can detect the orientation, magnitude, or relative change of a magnetic field \cite{caruso1998new}. A magnetometer accompanied with an accelerometer can successfully reckon an orientation angle. The magnetometer readings uniquely are not able to perceive a heading angle due to the presence of all sorts of distortions such as of the earth's own magnetic fields or even local disturbances of nearby metallic bodies on the sensor \cite{silva2021error} \cite{caruso1998new}. There are two categories of magnetic distortions: Hard iron and soft iron \cite{wahdan2014magnetometer}. Hard iron distortions are generated by materials that exhibit a continuous additive field, and as a result, produce a persistent additive value to the measurements of the magnetometer \cite{guo2008soft}. A piece of magnetized iron or a speaker, for example, will induce a hard iron distortion in the magnetometer. If the orientation and position of the magnetic disturbance relative to the sensor is unchanging, the magnetic offset will remain constant. It is possible to compensate for hard iron disturbances by discerning the maximum and minimum x and y offsets. The x-axis and y-axis offset ($\alpha$ and $\beta$, respectively) are given by the average of the maximum ($x_{max}$ and $y_{max}$) and minimum ($x_{min}$ and $y_{min}$) values for each axis \cite{daponte2017method}:
 
 \begin{equation}
     \begin{gathered}
@@ -454,7 +454,7 @@ Measurement fusion (figure \ref{fig:mesearurment_kalman}) approach directly comb
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/kalman2.pdf}
-    \caption{Kalman-filter-based multi-sensor easurement fusion. \cite{mosallaei2007process}}
+    \caption{Kalman-filter-based multi-sensor measurement fusion. \cite{mosallaei2007process}}
     \label{fig:mesearurment_kalman}
 \end{figure}
 
@@ -497,7 +497,7 @@ Where $\tau$ is the wanted time constant (time interval for the readings to resp
     \theta = \frac{\tau}{\tau + s}a + \frac{s}{\tau + s}\frac{1}{s}\omega = \frac{a+\tau \omega}{\tau + s}
 \end{equation}
 
-A mathematical model of the complementary filter can be represented as equation \ref{eq:complementary_model}, where $\theta_t$ represents current orientation, $\alpha$ is the filter coefficient, $\omega$ the gyro's angular velocity and $a$ the acceleration obtained from the accelerometer:
+A mathematical model of the complementary filter can be represented as equation \ref{eq:complementary_model}, where $\theta_t$ represents current orientation, $\alpha$ is the filter coefficient, $\omega$ the gyro's angular velocity, and $a$ the acceleration obtained from the accelerometer:
 
 \begin{equation}
     \theta_t = (1 - \alpha) (\theta_{t-1} + \omega \Delta t) + \alpha a
@@ -542,7 +542,7 @@ A figurative solution to the resultant characteristic polynomial is also derived
 \paragraph{Fourati}
 
 Attitude estimation set of rules as suggested by \cite{fourati2010nonlinear}, whose method blends a quaternion-based nonlinear filter with the \acrfull{lma}.
-The estimation algorithm has a complemzzentary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth's magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
+The estimation algorithm has a complementary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth's magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
 The rigid body attitude in space is revealed when the body's orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
 
 % \paragraph{OLEQ}

@@ -1,7 +1,7 @@
 \section{Methodology}
 \label{sub:methodology}
 
-This section provides an overview of the methodology employed to assess the system's orientation and position. Going through how the sensor's outputs are combined to obtain orientation by sensor fusion, and how displacement can be estimated using clever filter techniques to remove gravity's influence on accelerometer's readings. A position estimation method is then presented showing how combining orientation and displacement using dead reckoning technique can return a body's position over time. The chapter ends with a visualization of how the designed position methodology pipeline performs trying to estimate position of an experiment. It will also describes how well did the estimation perform by describing how to measure an experiment's estimation error.
+This section provides an overview of the methodology employed to assess the system's orientation and position. Going through how the sensor's outputs are combined to obtain orientation by sensor fusion, and how displacement can be estimated using clever filter techniques to remove gravity's influence on accelerometer's readings. A position estimation method is then presented showing how combining orientation and displacement using dead reckoning technique can return a body's position over time. The chapter ends with a visualization of how the designed position methodology pipeline performs trying to estimate position of an experiment. It will also describe how well did the estimation perform by describing how to measure an experiment's estimation error.
 
 %Estimation pipeline
 % Field tests are in methodology. 
@@ -32,7 +32,7 @@ Measurements were taken at periods of 50 $ms$ (20 $Hz$). This frequency was chos
 
 % The fusion output is shown in figure \ref{fig:madgwickAHRS}. About sample \#140 there was a shift in pitch to -40º and later jumping to 40º. Around sample \#350 there is a change in roll to 60º and then -40º, and around sample \#540 there is a variation in yaw value. This output is analogous to the movement made on the board.
 
-As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quaternions can be converted back into euler angles by:
+As mentioned in chapter \ref{sub:orientation} \nameref{sub:orientation}, quaternions can be converted back into Euler angles by:
 
 \begin{equation}
     \begin{bmatrix}
