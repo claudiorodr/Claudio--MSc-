@@ -414,7 +414,7 @@ A magnetometer is an electronic utensil that evaluates existent magnetic flux (a
 
 By subtracting these offsets from the magnetometer readings, it is possible to substantially remove any present hard iron disturbances.
 
-soft iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard iron distortion which has a continuous disturbance, a soft iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
+Soft iron distortion is the consequence of a material's influence that can warp a magnetic field but does not necessarily produce a magnetic field itself, and as a result is not additive \cite{bachmann2004investigation}. Unlike hard iron distortion which has a continuous disturbance, a soft iron distortion is determined by the direction of the material in respect to the sensor and the magnetic field of the same material. Calculating the soft iron distortion is computationally more expensive than the hard iron elimination. There are two axes to consider, the major and the minor axes \cite{roetenberg2005compensation}.
 
 The major axis is the axis that runs along the x-axis. This will be used to find the angle $\theta$ by calculating the magnitude of the line segment. Essentially by computing $r$, it is the same as calculating the magnitude of each point on the ellipse and finding the maximum point \cite{daponte2017method}.
 
@@ -543,7 +543,7 @@ A figurative solution to the resultant characteristic polynomial is also derived
 
 Attitude estimation set of rules as suggested by \cite{fourati2010nonlinear}, whose method blends a quaternion-based nonlinear filter with the \acrfull{lma}.
 The estimation algorithm has a complementary construction that manages measurements from an accelerometer, a magnetometer, and a gyroscope, joint in a strap-down system, built on the time integral of the angular velocity, exploiting the Earth's magnetic field and gravity vector to compensate the attitude predicted by the gyroscope.
-The rigid body attitude in space is revealed when the body's orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($Y_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
+The rigid body attitude in space is revealed when the body's orientation frame ($X_B$,$Y_B$,$Z_B$) is identified with respect to the navigation frame ($X_N$,$Y_N$,$Z_N$), where the navigation frame respects the convention \acrfull{ned}.
 
 % \paragraph{OLEQ}
 
