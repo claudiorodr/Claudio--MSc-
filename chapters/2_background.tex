@@ -11,7 +11,7 @@
 \section{Background}
 
 The subsequent section presents background knowledge regarding different concepts and notions that will be adopted throughout the dissertation.
-First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to rotation matrices, Euler angles and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
+First, a definition of orientation frames and coordinate systems will be presented, followed by an introduction to rotation matrices, Euler angles, and quaternions, building a foundation of understanding wherein the mathematics and arithmetic behind attitude representation. An introduction to inertial sensors and how they can be employed to estimate orientation is then exhibited. The chapter concludes with an analysis and summary of different sensor fusion algorithms utilized to determine orientation.
 
 \subsection{Frames of coordinates}
 
@@ -75,7 +75,8 @@ The conversion from \acrshort{ecef} to \acrshort{enu} coordinates is done with r
 
 \subsubsection{Body frame}
 
-As the name indicates, the body reference frame is attached to, and moves with, the platform body itself. It is an orthogonal cartesian system with an origin specified at a point on the platform. Axes can be defined both relative to the platform or to the navigation frame. The body frame being an entity which moves and rotates freely inside the navigation frame coordinate system (figure \ref{fig:body_frame}). In this dissertation the term body frame is utilized to explain the \acrshort{imu}'s frame of reference relative to the navigation frame coordinate system. With the $X_b$, $Y_b$ and $Z_b$ being defined by the MPU-6050 coordinate system (explored at chapter \ref{sub:setup} \nameref{sub:setup}).
+As the name indicates, the body reference frame is attached to, and moves with, the platform body itself. It is an orthogonal cartesian system with an origin specified at a point on the platform. Axes can be defined both relative to the platform or to the navigation frame. The body frame being an entity which moves and rotates freely inside the navigation frame coordinate system (figure \ref{fig:body_frame}).
+This dissertation uses the term body frame to explain the \acrshort{imu}'s frame of reference relative to the navigation frame coordinate system. The$X_b$, $Y_b$, and $Z_b$ are defined by the MPU-6050 coordinate system (explored in chapter \ref{sub:setup} \nameref{sub:setup}).
 
 \begin{figure}[!h]
     \centering
@@ -88,18 +89,18 @@ As the name indicates, the body reference frame is attached to, and moves with, 
 \subsection{Orientation}
 \label{sub:orientation}
 
-The attitude orientation of a body in space a critical aspect in position estimation. In a low-cost \acrshort{ahrs}, accuracy and low complexity are important in calculating the attitude of a body. There are various ways to represent attitude including: rotational matrices, Euler angles and quaternions.
+The attitude orientation of a body in space is a critical aspect in position estimation. In a low-cost \acrshort{ahrs}, accuracy and low complexity are important in essential the attitude of a body. There are various ways to represent attitude, including rotational matrices, Euler angles, and quaternions.
 
 \subsubsection{Rotation Matrix}
 
-The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation \cite{huynh2009metrics}. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
+The rotation matrix is a concept employed to express the transformation of coordinates from one frame to another. In addition, it can also convey the orientation of one frame relative to another. Any orientation can be attained by composing three elemental rotations, beginning from a known standard orientation \cite{huynh2009metrics}. Analogously, any rotation matrix R can be decomposed as a product of three elemental rotation matrices (equation \ref{eq:rotation_matrices}).
 
 \begin{equation}
     R = X(\alpha)Y(\beta)Z(\gamma)
     \label{eq:rotation_matrices}
 \end{equation}
 
-In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$, (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order) \cite{weisstein2003rotation}.
+In equation \ref{eq:rotation_matrices}, $R$ is a rotation matrix that can be applied to represent a composition of intrinsic rotations about axes $X$, $Y$, $Z$ (in that order), or a composition of extrinsic rotations about axes $Z$, $Y$, $X$ (in that order) \cite{weisstein2003rotation}.
 
 \begin{figure}[!h]
     \centering
@@ -137,7 +138,7 @@ The \acrfull{dcm} is related to the rotational matrix, however it is a 3x3 matri
 
 \subsubsection{Euler angles}
 
-Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame \cite{diebel2006representing}. It expresses a rotation in three angles, often referred to as pitch, roll and yaw, denoted by $\phi$, $\theta$ and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis \cite{grado1960solution}. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements.
+Euler angles are a well-known form to represent attitude with respect to a fixed coordinate system. Mathematically, Euler angles represent three composed sequential rotations that stir a reference frame to a given referred frame \cite{diebel2006representing}. It expresses a rotation in three angles, often referred to as pitch, roll, and yaw, denoted by $\phi$, $\theta$, and $\psi$ (The roll will have the range of $\pm180^\circ$, this allows the pitch to have the range of $\pm90^{\circ}$. The yaw is represented using the range of $\pm180^{\circ}$). These angles depict three successive rotations about the axes of the coordinate frame, for instance, $x-y-z$: First rotate $\phi$ radians about the x-axis, then rotate $\theta$ radians about the y-axis and finally rotate $\psi$ radians about the z-axis \cite{grado1960solution}. As stated by the differential equations of Euler angles given at (equation \ref{eq:euler_equation}), $\phi$, $\theta$, and $\psi$ can be found based on angular rate measurements.
 
 % \begin{figure}[!h]
 %     \centering
@@ -167,7 +168,7 @@ Euler angles are a well-known form to represent attitude with respect to a fixed
     \label{eq:euler_equation}
 \end{equation}
 
-Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by its own rotation matrix using the respective Euler angle associated and the final orientation is the result of successive matrices multiplications as shown in equation \ref{eq:euler_equations}.
+Merely three differential equations require solving prior to the attitude gets distinctly approximated \cite{bar1985attitude}. Each individual rotation is expressed by its own rotation matrix using the respective Euler angle associated, and the final orientation is the result of successive matrices multiplications, as shown in equation \ref{eq:euler_equations}.
 
 \begin{equation}
     {^b_a}R = {^b_2}R_x(\phi){^2_1}R_y(\theta){^1_a}R_z(\psi)
@@ -180,7 +181,7 @@ Merely three differential equations require solving prior to the attitude gets d
     \label{eq:euler_equations}
 \end{equation}
 
-Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space \cite{spring1986euler}. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together \cite{mcconnell1967kinematics}. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}) \cite{hemingway2018perspectives}.
+Nevertheless, there is a significant flaw with this approach. As cos($\theta$) approaches zero, the differential equations degrade rapidly, and the output solution becomes vastly imprecise, which indicates that these equations cannot provide effective attitude results at unique points in space \cite{spring1986euler}. This is also known as Gimbal lock. Euler angles can be represented as a gimballed system, where the three axes can be thought of as three distinct gimbals attached together \cite{mcconnell1967kinematics}. Gimbal lock happens when two axes line up, such as when the pitch and the yaw axis are aligned, and as the roll gimbal is rotated, the pitch and the yaw angle are both affected simultaneously, consequently losing orientation (figure \ref{fig:gimbal_lock}) \cite{hemingway2018perspectives}.
 Euler angles commonly involve a large number of complex mathematical operations, such as matrix manipulations, which typically take up several clock cycles in a \acrfull{cpu}, such can negatively impact computational performance.
 
 \begin{figure}[!h]
@@ -308,7 +309,7 @@ $^bv = \begin{bmatrix}
     \textrm{$_{c}^{a}\hat{q}$} = \textrm{$_{c}^{b}\hat{q}$} \otimes \textrm{$_{b}^{a}\hat{q}$}
 \end{equation}
 
-Quaternion representation permits a more truthful and efficient attitude estimation approach. This is because operations in Euler angles entails matrix multiplication which involve additional computational effort as it entails more mathematical numerical calculations. An additional benefit of employing quaternions is that any transformation is intrinsically orthonormal. Normalizing a quaternion is significantly computationally more efficient than normalizing a matrix. And since every rotation needs normalization when completed, the computational costs accumulate \cite{funda1990homogeneous}. Owing to these benefits the quaternions are used to determine attitude in this project, while Euler angles are applied merely as a representation of the orientation defined by the quaternions (Euler angles are simpler in human physical interpretation) \cite{toso2015esa}.
+Quaternion representation permits a more truthful and efficient attitude estimation approach. This is because operations Euler angles entail matrix multiplication which involves additional computational effort as it implicates more mathematical numerical calculations. An additional benefit of employing quaternions is that any transformation is intrinsically orthonormal. Normalizing a quaternion is significantly computationally more efficient than normalizing a matrix. Furthermore, since every rotation needs normalization when completed, the computational costs accumulate \cite{funda1990homogeneous}. Owing to these benefits, the quaternions are used to determine attitude in this project, while Euler angles are applied merely as a representation of the orientation defined by the quaternions (Euler angles are simpler in human physical interpretation) \cite{toso2015esa}.
 
 \subsection{Inertial Measurement Units}
 
@@ -321,7 +322,7 @@ An \acrfull{imu} is an electronic tool that quantifies and describes specific fo
     \label{fig:noise}
 \end{figure}
 
-The first diagram in the figure \ref{fig:noise} corresponds to the signal error categorized as noise. Noise is of high frequency and might be reduced by applying a low pass filter \cite{kaiser1977data}. The main sensor noise sources can be environmental noise, such as temperature oscillations, gravity, etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise. The second type is the offset error, also known as bias error (second graph in figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter. The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation. Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure \cite{el2007temperature}.
+The first diagram in figure \ref{fig:noise} corresponds to the signal error categorized as noise. Noise is made of high frequencies and might be reduced by applying a low pass filter \cite{kaiser1977data}. The primary sensor noise sources can be environmental noise, such as temperature oscillations, gravity, etc. From movements, such as vibrations, shocks. Or even hardware noise, such as electrical and mechanical thermal noise. The second type is the offset error, also known as bias error (second graph in the figure). This offset originates from a shift from the real value and can be resolved by deducting the offset component with a high pass filter. The last type of error is the drift components which can arise from vibrations, shocks, and temperature variations. The primary drift source in this study will be produced by numerical integration through the position calculation. Temperature fluctuations can trigger instabilities in the bias of the sensor signal. By utilizing a supplementary sensor to determine the ambient temperature, the bias generated error can be counteracted by applying adjustments to the output signals. The correlation between bias error and temperature depends on the sensor mechanism. For a gyroscope, the temperature shift will produce an error in orientation which increases linearly with time. For an accelerometer, the temperature will produce an error in position, therefore developing quadratically with time. For the magnetometer the increasing temperature will lead to softening in the moving structure \cite{el2007temperature}.
 
 \subsubsection{Accelerometer}
 
@@ -336,7 +337,7 @@ The working principle of an accelerometer can be expounded by a single mass ($m$
     \label{fig:accelerometer_schematic}
 \end{figure}
 
-Often, the structure incorporates a dashpot (mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallelly to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration $a$, the equation of motion for the mass is:
+Often, the structure incorporates a dashpot (a mechanical device which resists motion via viscous friction). The dashpot has a resistive coefficient ($c$) and is tied to the mass parallel to the spring. When the system is affected by a linear acceleration, a force equivalent to mass times the acceleration acts upon the mass, causing it to deflect. This deflection is then converted into an analogous electrical signal. The dashpot mechanism causes the system to quickly stabilize following the acceleration. To derive the motion equation of the system, Newton's second law is used, where all real forces acting on the proof-mass are equal to the inertia force on the mass. With $x$ being the displacement of the mass $m$ relative to the outer system. When the system is subject to an acceleration $a$, the equation of motion for the mass is:
 
 \begin{equation}
     mx + kx + cx = \overrightarrow{F}\Leftrightarrow mx + kx + cx = m\overrightarrow{a}
@@ -356,7 +357,7 @@ A gyroscope is a device utilized to quantify angular velocity and orientation ba
     \label{fig:gyroscope}
 \end{figure}
 
-A traditional mechanical gyroscope can merely evaluate orientation and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and \acrshort{mems} gyroscopes) are rate-gyros, meaning they can detect angular velocity \cite{antonello2011mems}. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). \acrshort{mems} sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce \cite{antonello2012exploring}. \acrshort{mems} gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}) \cite{trusov2011overview}:
+A traditional mechanical gyroscope can merely evaluate orientation, and since they contain moving parts, they can cause the output to drift over time. Modern gyroscopes (such as optical and \acrshort{mems} gyroscopes) are rate-gyros, meaning they can detect angular velocity \cite{antonello2011mems}. Angular velocity ($\omega$) is quantified in the SI unit radians per second ($rad/s$), or degrees per second ($^{\circ}/s$). \acrshort{mems} sensors constructed using silicon electrical methods have a smaller number of parts and are inexpensive to produce \cite{antonello2012exploring}. \acrshort{mems} gyroscopes based on the Coriolis effect, which states that in a frame of reference rotating at angular velocity ($\omega$), a mass ($m$) moving with linear velocity ($v$) experiences a force (figure \ref{fig:coriolis}) \cite{trusov2011overview}:
 
 \begin{equation}
     \overrightarrow{F}_{Coriolis} = -2m(\omega \times \overrightarrow{v} )
